@@ -1,0 +1,82 @@
+{
+  "pack": {
+    "id": "neighbors.noise-parties",
+    "category": "neighbors",
+    "subcategory": "noise-parties",
+    "title": "Noise & parties",
+    "description": "Bass through the wall at midnight. Firm, neighborly, documented.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "neighbors.noise-parties.0001",
+      "category": "neighbors",
+      "subcategory": "noise-parties",
+      "setting": "Midnight. You knock; your neighbor opens with the music behind them.",
+      "jab": "Oh come on, it's Saturday. Loosen up.",
+      "difficulty": 2,
+      "tags": ["noise", "boundaries"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Enjoy Saturday. Turn it down by one.",
+          "why": "Permission plus a small specific ask is easier to grant than a lecture to endure.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Down a notch. Thanks.",
+          "why": "It asks for almost nothing, which makes refusing it almost impossible.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Sounds like a great night — I just need the bass down a hair.",
+          "why": "Joining the fun verbally while asking technically keeps you allies, not enemies.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Your playlist slaps. My ceiling disagrees. Meet halfway?",
+          "why": "Complimenting the music while citing the ceiling splits the difference with a grin.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Turn it off or I'm calling the cops.",
+        "why": "Opening with the nuclear threat spends your only leverage on night one."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "neighbors.noise-parties.0002",
+      "category": "neighbors",
+      "subcategory": "noise-parties",
+      "setting": "Morning after. Your neighbor, taking out trash, spots you.",
+      "jab": "Someone's grumpy. Rough night, grandpa?",
+      "difficulty": 1,
+      "tags": ["teasing", "noise"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Grandpa needs his sleep. Thanks for last night.",
+          "why": "Taking the nickname while thanking him banks goodwill for next time.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "All good. Morning.",
+          "why": "It declines the rematch and keeps the hallway peace in three words.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Haha — worth it though, hope it was a good one.",
+          "why": "Grace about your own complaint makes the next one land softer.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

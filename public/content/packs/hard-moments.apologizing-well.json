@@ -1,0 +1,76 @@
+{
+  "pack": {
+    "id": "hard-moments.apologizing-well",
+    "category": "hard-moments",
+    "subcategory": "apologizing-well",
+    "title": "Apologizing well",
+    "description": "Real repair in one breath. Name it, own it, don't perform it.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "hard-moments.apologizing-well.0001",
+      "category": "hard-moments",
+      "subcategory": "apologizing-well",
+      "setting": "Coffee with a friend. You forgot their birthday completely.",
+      "jab": "So… you forgot. Everyone else remembered.",
+      "difficulty": 2,
+      "tags": ["apology", "friendship"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I forgot, and I'm sorry. Dinner's on me this week.",
+          "why": "Own it, apologize once, then repair with a plan — in that order.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "My fault. I'm sorry.",
+          "why": "No excuses attached — the cleanest apology is the shortest one.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I'm really sorry — you deserved better from me. Let me make it up properly.",
+          "why": "It centers their feeling, not your guilt, then moves straight to repair.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "I'm sorry, but I've just been SO busy lately.",
+        "why": "The but erases the sorry and makes your schedule the birthday's competition."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "hard-moments.apologizing-well.0002",
+      "category": "hard-moments",
+      "subcategory": "apologizing-well",
+      "setting": "Work. You snapped at a junior in a meeting yesterday.",
+      "jab": "Hey — are we okay after yesterday?",
+      "difficulty": 2,
+      "tags": ["apology", "work"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "We're okay. I was short with you and that wasn't fair.",
+          "why": "Reassurance first, then ownership — safety before accountability lands best.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "We're good. Sorry about yesterday.",
+          "why": "It clears the air in six words with no meeting about the meeting.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Very okay — and I'm sorry for snapping. Bad day, wrong target.",
+          "why": "It names what happened honestly while refusing to make excuses of it.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

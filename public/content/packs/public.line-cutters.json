@@ -1,0 +1,82 @@
+{
+  "pack": {
+    "id": "public.line-cutters",
+    "category": "public",
+    "subcategory": "line-cutters",
+    "title": "Line-cutters",
+    "description": "The sidle-in ahead of you. Loud enough for the line, calm enough for you.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "public.line-cutters.0001",
+      "category": "public",
+      "subcategory": "line-cutters",
+      "setting": "Coffee line, morning rush. Someone slides in ahead of you.",
+      "jab": "Oh — I didn't see you there.",
+      "difficulty": 1,
+      "tags": ["line", "stranger"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Easy to miss. The end is back there.",
+          "why": "It accepts the excuse and points at the fix, giving them a graceful exit.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Line's back there.",
+          "why": "Three words, one gesture — the whole line silently agrees with you.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "No worries — we're all back here together.",
+          "why": "We're makes the line a team and stepping back joining it.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Invisibility is my curse. End of the line breaks the spell.",
+          "why": "Playing along with the excuse while redirecting gets laughs and compliance.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Seriously? Who raised you?",
+        "why": "Insulting a stranger over coffee makes the line uncomfortable with you, not them."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "public.line-cutters.0002",
+      "category": "public",
+      "subcategory": "line-cutters",
+      "setting": "Airport security. A traveler wedges in with the rolling bag.",
+      "jab": "My flight's boarding. You don't mind, right?",
+      "difficulty": 2,
+      "tags": ["line", "pressure"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Ask the whole line. If they agree, go ahead.",
+          "why": "It moves the decision to everyone affected, which is the only fair court.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "I mind. Back of the line.",
+          "why": "A clean no to a forced yes — the question was never really a question.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Tight connection? Tell the agent up front — they fast-track those.",
+          "why": "It solves their real problem without spending your place in line.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

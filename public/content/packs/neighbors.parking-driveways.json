@@ -1,0 +1,82 @@
+{
+  "pack": {
+    "id": "neighbors.parking-driveways",
+    "category": "neighbors",
+    "subcategory": "parking-driveways",
+    "title": "Parking & driveways",
+    "description": "Your spot, their car. Calm words before tow trucks.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "neighbors.parking-driveways.0001",
+      "category": "neighbors",
+      "subcategory": "parking-driveways",
+      "setting": "Your driveway, blocked. The neighbor leans out their door.",
+      "jab": "I'll only be like ten minutes. Chill.",
+      "difficulty": 2,
+      "tags": ["parking", "boundaries"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I need out now. Move it, please.",
+          "why": "Now plus please is polite and non-negotiable at the same time.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Move it. Now.",
+          "why": "Four syllables with no argument attached — there's nothing to debate.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I believe you — and I still need out. Quick move?",
+          "why": "Believing them while holding your need keeps it neighborly and effective.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Park there again and I'm having you towed.",
+        "why": "Threatening the tow before asking the move makes you the street's problem."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "neighbors.parking-driveways.0002",
+      "category": "neighbors",
+      "subcategory": "parking-driveways",
+      "setting": "Apartment lot. A stranger is in your assigned spot, windows down.",
+      "jab": "There's like twenty open spots. What's the big deal?",
+      "difficulty": 1,
+      "tags": ["parking", "stranger"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "The big deal is it's mine. One of those twenty is yours.",
+          "why": "It answers the question literally and points at the easy fix.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "My spot. Move along.",
+          "why": "Ownership plus direction, no debate offered or accepted.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Totally get it — but I pay for that one. Mind hopping over?",
+          "why": "Naming the lease turns it from preference into paperwork, politely.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "I named that spot. We're close. Pick another friend.",
+          "why": "Fake attachment to asphalt makes moving feel like a favor, not a loss.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

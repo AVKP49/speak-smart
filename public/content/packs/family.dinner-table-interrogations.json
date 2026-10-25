@@ -1,0 +1,123 @@
+{
+  "pack": {
+    "id": "family.dinner-table-interrogations",
+    "category": "family",
+    "subcategory": "dinner-table-interrogations",
+    "title": "Dinner-table interrogations",
+    "description": "Holiday cross-examination with witnesses. Loving, brief, final.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "family.dinner-table-interrogations.0001",
+      "category": "family",
+      "subcategory": "dinner-table-interrogations",
+      "setting": "Holiday dinner. Your aunt, passing the potatoes, loud enough for all.",
+      "jab": "So are you seeing anyone, or still too picky?",
+      "difficulty": 1,
+      "tags": ["prying", "holiday"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Still picky. It's working out great.",
+          "why": "Owning the label with a smile closes the topic in front of everyone.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "All good. Pass the gravy?",
+          "why": "A status plus a redirect ends testimony and restarts dinner.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "You'll be the first to know — now tell me about your trip.",
+          "why": "A promise plus a question about her trades interrogation for conversation.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "My love life has a press office now. It declines to comment.",
+          "why": "Absurd bureaucracy makes the question funny, which makes pursuing it awkward.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "God, can we have ONE dinner without the inquisition?",
+        "why": "Snapping at the table makes you the scene instead of ending one."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "family.dinner-table-interrogations.0002",
+      "category": "family",
+      "subcategory": "dinner-table-interrogations",
+      "setting": "Sunday dinner. Your father, carving, without looking up.",
+      "jab": "When are you going to get a real job?",
+      "difficulty": 3,
+      "tags": ["dismissal", "career"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I have one. It pays for this wine.",
+          "why": "A fact plus a toast proves the point without arguing it.",
+          "delivery": "Raise your glass on the second sentence. Mean it.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Already got one, Dad.",
+          "why": "The Dad at the end keeps it family while the sentence stays final.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "It's real, I promise — want the two-minute version of what I do?",
+          "why": "Offering the explainer assumes curiosity instead of contempt, which invites him in.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "About the time carving counts as quality time.",
+          "why": "It answers a dig with a dig, which feels great for four seconds at family dinner.",
+          "caution": "family-risk"
+        }
+      ],
+      "trap": {
+        "line": "You have NO idea what I do. None.",
+        "why": "Correcting him with contempt turns dinner into the trial he's already holding."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "family.dinner-table-interrogations.0003",
+      "category": "family",
+      "subcategory": "dinner-table-interrogations",
+      "setting": "Dinner at your in-laws. Your mother-in-law, serving you extra.",
+      "jab": "You look thin. Are you eating properly at home?",
+      "difficulty": 1,
+      "tags": ["prying", "in-laws"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm well fed. But I'll never refuse this cooking.",
+          "why": "It answers the worry and compliments the cook, ending the exam deliciously.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Your cooking is the highlight of my meal plan.",
+          "why": "Making her the solution to the problem she raised dissolves it completely.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "I'm saving room. Strategically. For seconds.",
+          "why": "Treating thinness as tactics makes the whole table co-conspirators.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "pack": {
+    "id": "texting.work-chat-tone",
+    "category": "texting",
+    "subcategory": "work-chat-tone",
+    "title": "Work chat tone traps",
+    "description": "Per my last message. Written words with an audience of the whole company.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "texting.work-chat-tone.0001",
+      "category": "texting",
+      "subcategory": "work-chat-tone",
+      "setting": "Team channel. A peer corrects you in front of forty people.",
+      "jab": "Per my last message — that's not what we agreed.",
+      "difficulty": 2,
+      "tags": ["correction", "public", "work-chat"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Linking the thread — let's align on the facts here.",
+          "why": "It moves the dispute from memory to receipts, in public, calmly.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Link it. Let's check.",
+          "why": "Four words that replace the argument with the evidence.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Might be misaligned — dropping the thread so we can sync.",
+          "why": "Might plus the receipts keeps it collaborative while the facts do the work.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Per this message — show me.",
+          "why": "It mirrors the phrasing back with a smile, which the channel will remember.",
+          "caution": "work-risk"
+        }
+      ],
+      "trap": {
+        "line": "Don't correct me in the channel. DM me next time.",
+        "why": "Tone-policing in the thread starts the exact public fight you wanted to avoid."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "texting.work-chat-tone.0002",
+      "category": "texting",
+      "subcategory": "work-chat-tone",
+      "setting": "DM from your manager, no context, 9:04am.",
+      "jab": "Got a minute?",
+      "difficulty": 1,
+      "tags": ["anxiety", "manager"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Sure — call or type it here?",
+          "why": "It answers fast while making him pick the medium, which reveals the weight.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Yes. What's up?",
+          "why": "Available plus direct — the fastest route through the ambiguity.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Always — what's on your mind?",
+          "why": "Warmth first makes whatever follows land on a good relationship.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

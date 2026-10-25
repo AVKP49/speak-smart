@@ -1,0 +1,76 @@
+/* Speak Smart design tokens — spec §2. Components reference tokens, never raw values. */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("./fonts/fraunces-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/inter-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* §2.1 Color — dark theme is the primary and default experience. */
+  --ink: #0b0d10;
+  --surface: #14171c;
+  --surface-2: #1c2027;
+  --paper: #f4efe6;
+  --muted: #9aa1ab;
+  --faint: #5c636e;
+  --gold: #e8b34b;
+  --line: #262b33;
+
+  /* Register colors — information only, always paired with glyph + name. */
+  --reg-boss: #e8b34b;
+  --reg-curt: #8fa3b8;
+  --reg-friendly: #7fb069;
+  --reg-comedic: #a78bfa;
+  --reg-sharp: #d64550;
+
+  /* §2.2 Typography */
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  --text-12: 0.75rem;
+  --text-14: 0.875rem;
+  --text-16: 1rem;
+  --text-20: 1.25rem;
+  --text-24: 1.5rem;
+  --text-32: 2rem;
+  --text-40: 2.5rem;
+  --text-micro: 0.6875rem;
+  --leading-line: 1.25;
+  --leading-body: 1.55;
+
+  /* §2.3 Space (8pt grid), shape, elevation */
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --radius-card: 16px;
+  --radius-sheet: 20px;
+  --radius-button: 12px;
+  --radius-pill: 999px;
+  --screen-margin: 20px;
+  --content-max: 640px;
+
+  /* §2.4 Motion */
+  --dur-micro: 120ms;
+  --dur-standard: 220ms;
+  --dur-reveal: 320ms;
+  --ease-enter: ease-out;
+  --ease-state: ease-in-out;
+
+  /* Targets (Fitts) */
+  --target-min: 48px;
+  --target-record: 72px;
+}

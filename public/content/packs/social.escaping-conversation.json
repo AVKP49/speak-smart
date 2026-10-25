@@ -1,0 +1,82 @@
+{
+  "pack": {
+    "id": "social.escaping-conversation",
+    "category": "social",
+    "subcategory": "escaping-conversation",
+    "title": "Escaping a conversation politely",
+    "description": "The corner trap. Leave every conversation warmer than you found it.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "social.escaping-conversation.0001",
+      "category": "social",
+      "subcategory": "escaping-conversation",
+      "setting": "House party. A guest has held you hostage for twenty minutes.",
+      "jab": "Wait, one more thing — this part of the story is the best part—",
+      "difficulty": 1,
+      "tags": ["exit", "party"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Save it for me. I'm getting a refill.",
+          "why": "A promise plus a destination makes leaving feel like pausing.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Excuse me. Good talking.",
+          "why": "Past-tense good talking ends it kindly with no opening for more.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I need to say hi to the host — don't lose that story.",
+          "why": "A social duty plus a compliment lets you both keep the evening.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "To be continued — my drink needs a plus-one.",
+          "why": "Blaming your empty glass gives the exit a punchline instead of an excuse.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Sorry, I'm just going to go talk to literally anyone else.",
+        "why": "Honesty about escaping makes the story they'll tell about you."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "social.escaping-conversation.0002",
+      "category": "social",
+      "subcategory": "escaping-conversation",
+      "setting": "Wedding cocktail hour. A plus-one quizzes you about people you don't know.",
+      "jab": "So do you know the bride's college roommate's boyfriend? No? What about—",
+      "difficulty": 1,
+      "tags": ["exit", "wedding"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I know the couple. Enjoy the detective work.",
+          "why": "It answers the whole category of questions at once, with a smile.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I'm useless at the guest map — let's go find someone who isn't.",
+          "why": "Confessing ignorance plus moving together turns an exit into an adventure.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "My clearance level doesn't cover roommates of boyfriends.",
+          "why": "Fake security clearance makes not-knowing a joke instead of a failure.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "pack": {
+    "id": "friends.group-chat-jabs",
+    "category": "friends",
+    "subcategory": "group-chat-jabs",
+    "title": "Group-chat jabs",
+    "description": "Roasts with an audience of twelve. Win the thread without losing the friend.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "friends.group-chat-jabs.0001",
+      "category": "friends",
+      "subcategory": "group-chat-jabs",
+      "setting": "The group chat. You share good news; a friend quote-tweets it with a jab.",
+      "jab": "lol ok mr. main character",
+      "difficulty": 1,
+      "tags": ["teasing", "group"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Main character with good news. Thanks for noticing.",
+          "why": "Owning the frame turns the jab into a compliment with witnesses.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Anyway. Big week for me.",
+          "why": "It steps over the jab and re-centers your news in five words.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Haha — supporting cast gets dinner when I celebrate.",
+          "why": "Casting him in your story converts the heckler into a guest.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Somebody has to carry this chat's plot.",
+          "why": "Accepting the role with absurd confidence makes the thread yours.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "At least I HAVE news. What have you done lately?",
+        "why": "Counter-punching in the chat turns banter into a scoreboard nobody wins."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "friends.group-chat-jabs.0002",
+      "category": "friends",
+      "subcategory": "group-chat-jabs",
+      "setting": "The group chat. An old embarrassing photo of you resurfaces.",
+      "jab": "throwback to when you looked like THIS 💀",
+      "difficulty": 1,
+      "tags": ["teasing", "group"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Iconic. That look built character.",
+          "why": "Agreeing at full volume leaves the joke with nowhere to go.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "A masterpiece. Printing it for your birthday.",
+          "why": "Loving the photo plus a gentle threat keeps the thread fun and finite.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "We don't talk about the bangs era.",
+          "why": "Naming the era yourself makes you the narrator instead of the target.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

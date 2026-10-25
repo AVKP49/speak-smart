@@ -1,0 +1,187 @@
+{
+  "pack": {
+    "id": "work.boss-talking-down",
+    "category": "work",
+    "subcategory": "boss-talking-down",
+    "title": "Boss talking down to you",
+    "description": "Your manager, performing superiority. Hold the floor without losing the job.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "work.boss-talking-down.0001",
+      "category": "work",
+      "subcategory": "boss-talking-down",
+      "setting": "Your manager, in front of the team, right after your update.",
+      "jab": "Let me put this in simpler terms for you.",
+      "difficulty": 2,
+      "tags": ["condescension", "public", "power-gap"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I understood it the first time. Continue.",
+          "why": "It names the insult without reacting to it, then hands the floor back — he has to perform the simplification he offered.",
+          "delivery": "Pause a full second. Even pace. Then stop talking.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Don't. I'm good.",
+          "why": "It closes the door in three words and leaves him nowhere to go but forward.",
+          "delivery": "Flat, brief, then silence.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Ha — I promise I'm keeping up. What's the part you think is stuck?",
+          "why": "The laugh keeps the room on your side while the question puts the burden of specifics on him.",
+          "delivery": "Smile on the first half, genuine curiosity on the question.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Careful — simpler than that and we'll both need subtitles.",
+          "why": "It makes the room laugh at the situation, which quietly resets who has the upper hand.",
+          "delivery": "Light and quick, like you're in on the joke with everyone.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Please do. I enjoy watching people simplify things they only half understand.",
+          "why": "It calls the bluff — but in front of the team it makes you the story.",
+          "delivery": "Only if you can say it smiling. Otherwise don't.",
+          "caution": "work-risk"
+        }
+      ],
+      "trap": {
+        "line": "Wow. Okay. Talk to me like I'm five, then.",
+        "why": "Sarcasm upward, in public: he keeps his dignity and you become the difficult one."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "work.boss-talking-down.0002",
+      "category": "work",
+      "subcategory": "boss-talking-down",
+      "setting": "Your manager, forwarding your deck to the group with one line on top.",
+      "jab": "Cleaned this up for you. You're welcome.",
+      "difficulty": 2,
+      "tags": ["credit", "public", "power-gap"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Thanks. My name stays on the cover.",
+          "why": "It accepts the edit while reattaching your ownership in one flat sentence.",
+          "delivery": "Grateful first word, immovable second sentence.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Noted. It's still mine.",
+          "why": "It acknowledges the favor and draws the ownership line in the same breath.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Appreciate the polish — glad my draft gave you something to work with.",
+          "why": "Warmth keeps it collegial while the second half quietly restores who wrote it.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Bold of you to sign my work with your spellcheck.",
+          "why": "It names the credit grab as comedy, which is the only register that makes it sting.",
+          "delivery": "Grin while you say it or don't say it.",
+          "caution": "work-risk"
+        }
+      ],
+      "trap": {
+        "line": "Wow, stealing credit now? Real leadership.",
+        "why": "An accusation in the group thread turns a slight into a feud you can't win upward."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "work.boss-talking-down.0003",
+      "category": "work",
+      "subcategory": "boss-talking-down",
+      "setting": "Performance review. Your manager, closing your self-assessment.",
+      "jab": "Honestly, I expected more from someone at your level.",
+      "difficulty": 3,
+      "tags": ["feedback", "power-gap"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Then let's name it. What exactly fell short?",
+          "why": "It turns a vague verdict into a specific conversation he now has to hold.",
+          "delivery": "Calm, curious, pen ready.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Give me one example.",
+          "why": "Vague criticism dies the moment it has to produce a fact.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I want to hear that properly — what's the one thing you'd change first?",
+          "why": "It shows you can take feedback, which makes his vagueness the awkward part, not you.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Strange — I expected specifics from someone at yours.",
+          "why": "It mirrors his vagueness back at him, which ends the moment but starts a new problem.",
+          "caution": "work-risk"
+        }
+      ],
+      "trap": {
+        "line": "That's unfair and you know it.",
+        "why": "Disputing the verdict makes the meeting about your reaction instead of his evidence."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "work.boss-talking-down.0004",
+      "category": "work",
+      "subcategory": "boss-talking-down",
+      "setting": "Team standup. Your update runs long; your manager cuts in.",
+      "jab": "Let's speed this up — some of us have real work to do.",
+      "difficulty": 2,
+      "tags": ["condescension", "public", "meeting"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Thirty seconds. Then I'm yours for questions.",
+          "why": "It sets your own boundary and finish line instead of accepting his frame.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Almost done.",
+          "why": "Two words that neither apologize nor rush — then you finish at your pace.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Fair — here's the headline version.",
+          "why": "Agreeing with the pace request keeps the room warm while you keep the floor.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Plot twist: this was the short version.",
+          "why": "One laugh buys you the thirty seconds the interruption tried to take.",
+          "delivery": "Deadpan. Then keep going.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Sorry sorry, I'll shut up.",
+        "why": "Apologizing for existing teaches the room your updates are skippable."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "pack": {
+    "id": "work.interrupters",
+    "category": "work",
+    "subcategory": "interrupters",
+    "title": "Interrupters & talk-overs",
+    "description": "Mid-sentence takeovers in meetings and calls. Finish your point, keep the room.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "work.interrupters.0001",
+      "category": "work",
+      "subcategory": "interrupters",
+      "setting": "Conference room. You're mid-sentence when a peer talks over you.",
+      "jab": "Yeah yeah — what you're trying to say is—",
+      "difficulty": 1,
+      "tags": ["interruption", "meeting"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Let me finish. Then you can rephrase me.",
+          "why": "It pauses his rewrite and promises him the floor after, which is hard to refuse.",
+          "delivery": "Steady eye contact. No smile, no edge.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "I wasn't done.",
+          "why": "It states the fact plainly and the room does the rest.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Hold that thought — I'm landing the plane.",
+          "why": "Playfulness keeps it light while the metaphor makes finishing feel inevitable.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Spoilers — I hadn't reached the good part.",
+          "why": "Casting his interruption as impatience for your ending flips who looks eager.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "God, do you ever let anyone finish?",
+        "why": "A character attack in a meeting makes you the disruption, not him."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "work.interrupters.0002",
+      "category": "work",
+      "subcategory": "interrupters",
+      "setting": "Client call. You pause to think; a colleague fills it with your point, louder.",
+      "jab": "To build on that — here's the actual takeaway—",
+      "difficulty": 2,
+      "tags": ["credit", "interruption", "client"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "That's the takeaway I was building to. Thanks for the preview.",
+          "why": "It reclaims authorship with a smile the client will remember as yours.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "That was my point.",
+          "why": "Short, true, and impossible to argue with on a recorded call.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Exactly where I was headed — great minds.",
+          "why": "Agreement absorbs the steal and the client hears you as the source.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Thanks for the echo. The original is still here.",
+          "why": "It labels the move for what it was, at the cost of a visible edge.",
+          "caution": "work-risk"
+        }
+      ],
+      "trap": {
+        "line": "Stop stealing my ideas on calls.",
+        "why": "On a client call, the accusation embarrasses everyone and stains you most."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "work.interrupters.0003",
+      "category": "work",
+      "subcategory": "interrupters",
+      "setting": "One-on-one. Your manager checks his phone while you talk, then looks up.",
+      "jab": "Sorry — can you start over? I missed all of that.",
+      "difficulty": 2,
+      "tags": ["dismissal", "power-gap"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'll send the short version after this. It deserves your eyes.",
+          "why": "It protects your point from a distracted room by moving it to writing.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "I'll email it.",
+          "why": "Three words that end the performance and keep the content intact.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Long story short — here's the one thing I need from you.",
+          "why": "It rescues the meeting by shrinking your ask to phone-proof size.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Forget it. You clearly don't care.",
+        "why": "Guilt-tripping your manager trades one distracted meeting for a reputation."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    }
+  ]
+}

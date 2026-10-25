@@ -1,0 +1,16 @@
+{
+  "name": "Speak Smart — Never freeze again",
+  "short_name": "Speak Smart",
+  "description": "A drills app that trains the exact one-line reply — in your voice.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0B0D10",
+  "theme_color": "#0B0D10",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "./icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

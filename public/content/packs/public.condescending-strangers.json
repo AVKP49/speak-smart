@@ -1,0 +1,88 @@
+{
+  "pack": {
+    "id": "public.condescending-strangers",
+    "category": "public",
+    "subcategory": "condescending-strangers",
+    "title": "Condescending strangers",
+    "description": "Unsolicited superiority from people you'll never see again. Brief and gone.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "public.condescending-strangers.0001",
+      "category": "public",
+      "subcategory": "condescending-strangers",
+      "setting": "Bookstore. You ask where the new releases are; the clerk sighs audibly.",
+      "jab": "It's literally signed everywhere. Just look around.",
+      "difficulty": 1,
+      "tags": ["service", "condescension"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "And yet here I am, asking you. Point, please.",
+          "why": "It calmly re-asks the question, which makes the sigh the awkward part.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Point, please.",
+          "why": "Two words that skip the attitude and collect the answer.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Long day? Point me there and I'll get out of your hair.",
+          "why": "Naming their day with sympathy buys you the help and their humanity.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "The signs cover books, not manners. Where to?",
+          "why": "It answers rudeness in kind, which wins the moment and loses the high ground.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Let me speak to your manager about your attitude.",
+        "why": "Escalating over a sigh spends ten minutes to feel worse about a bookstore."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "public.condescending-strangers.0002",
+      "category": "public",
+      "subcategory": "condescending-strangers",
+      "setting": "Gym. You rerack your weights; a stranger watches, arms crossed.",
+      "jab": "You know that's not how you do that exercise, right?",
+      "difficulty": 2,
+      "tags": ["unsolicited-advice", "stranger"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "My trainer and I will take it under advisement.",
+          "why": "Citing your own expert ends his coaching career in one sentence.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "I'm good. Thanks.",
+          "why": "It declines the lesson before it's offered, with thanks as the full stop.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Appreciate it — I'm following a program though.",
+          "why": "Thanks plus a plan respects the intent while declining the content.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Shh — I'm doing the wrong version on purpose. Chaos reps.",
+          "why": "Absurd commitment to the bit makes correcting you feel ridiculous.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

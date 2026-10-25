@@ -1,0 +1,82 @@
+{
+  "pack": {
+    "id": "family.unsolicited-life-advice",
+    "category": "family",
+    "subcategory": "unsolicited-life-advice",
+    "title": "Unsolicited life advice",
+    "description": "Love, expressed as instructions. Receive the love, decline the orders.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "family.unsolicited-life-advice.0001",
+      "category": "family",
+      "subcategory": "unsolicited-life-advice",
+      "setting": "Phone call. Your parent, ten minutes into your career choices.",
+      "jab": "I'm just saying — at your age I already owned a house.",
+      "difficulty": 2,
+      "tags": ["comparison", "generational"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Different market, same work ethic. I'm on my path.",
+          "why": "It names the real difference once, then closes with a fact that needs no defense.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Noted. I'm fine.",
+          "why": "It receives the message without receiving the assignment.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I know — you set the bar high. I'm getting there my way.",
+          "why": "Crediting them first makes your different path sound like inheritance, not rebellion.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "And uphill both ways, I know. Legend behavior.",
+          "why": "Joining the mythology with affection steers the call back to fondness.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Yeah well houses cost triple now, so thanks for nothing.",
+        "why": "Winning the economics debate loses the phone call with your parent."
+      },
+      "review": { "tier": "sample", "status": "approved" }
+    },
+    {
+      "id": "family.unsolicited-life-advice.0002",
+      "category": "family",
+      "subcategory": "unsolicited-life-advice",
+      "setting": "Family group chat. Your sibling, replying to your weekend plans.",
+      "jab": "Must be nice to have no responsibilities lol",
+      "difficulty": 1,
+      "tags": ["sibling", "dig"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "It is. You should try a weekend off too.",
+          "why": "Agreeing plus prescribing rest reframes the dig as a wellness tip.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Haha — join me next time and we'll both be irresponsible.",
+          "why": "An invitation converts the envy underneath into plans.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "My responsibilities filed for the weekend. Union rules.",
+          "why": "Absurd paperwork makes the whole thread laugh past the jab.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "sample", "status": "approved" }
+    }
+  ]
+}

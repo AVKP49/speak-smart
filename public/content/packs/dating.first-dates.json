@@ -1,0 +1,123 @@
+{
+  "pack": {
+    "id": "dating.first-dates",
+    "category": "dating",
+    "subcategory": "first-dates",
+    "title": "First dates",
+    "description": "Tests disguised as small talk. Answer the question, keep your dignity.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "dating.first-dates.0001",
+      "category": "dating",
+      "subcategory": "first-dates",
+      "setting": "First date, drinks. Midway through your story, they check their watch.",
+      "jab": "So anyway — how much do you make, roughly?",
+      "difficulty": 2,
+      "tags": ["intrusive", "boundaries"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Enough to buy my own drinks. Next question.",
+          "why": "It answers the spirit of the question while keeping the number private forever.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Not a first-date question.",
+          "why": "It labels the timing as the problem, which lets the date continue cleanly.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Ha — ask me on date three. What do you do when you're not auditing strangers?",
+          "why": "Humor plus a redirect keeps the night alive without opening your books.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Somewhere between intern and Bond villain. You?",
+          "why": "A joke answer to an audit question signals the topic is closed and the night isn't.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Wow. Rude. Check please.",
+        "why": "Walking out over one clumsy question spends a whole evening to win a moment."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "dating.first-dates.0002",
+      "category": "dating",
+      "subcategory": "first-dates",
+      "setting": "First date. They've spent twenty minutes on their ex.",
+      "jab": "Sorry, sorry — my ex just really messed me up, you know?",
+      "difficulty": 2,
+      "tags": ["ex", "boundaries"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I hear you. Tonight I'm getting to know you, not them.",
+          "why": "It shows empathy while drawing the evening's boundary in one calm line.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Fresh start tonight. Tell me something good.",
+          "why": "It grants the past one nod, then physically steers the night forward.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "That sounds rough — I hope tonight can be a lighter chapter.",
+          "why": "Kindness about the hurt plus a gentle bid for the present keeps both intact.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "At this rate I should've brought them flowers too.",
+          "why": "It points out the third wheel at the table with a joke instead of a complaint.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "dating.first-dates.0003",
+      "category": "dating",
+      "subcategory": "first-dates",
+      "setting": "End of a decent first date. They walk you to your car.",
+      "jab": "So… your place or mine?",
+      "difficulty": 3,
+      "tags": ["pressure", "boundaries"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Mine's not on the table tonight. I had a good time.",
+          "why": "A clear no plus genuine warmth leaves no ambiguity and no insult.",
+          "delivery": "Say it smiling, then keep walking. Don't negotiate.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Not tonight. Good night.",
+          "why": "It declines completely in four words, with the good night doing the kindness.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I don't move that fast — but I'd like a second date.",
+          "why": "It frames the no as your pace, not their failure, and offers the future explicitly.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Ugh, I knew this was all you wanted.",
+        "why": "Assuming the worst about the whole date burns someone who took one shot."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    }
+  ]
+}

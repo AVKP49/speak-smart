@@ -1,0 +1,82 @@
+{
+  "pack": {
+    "id": "dating.boundaries-early",
+    "category": "dating",
+    "subcategory": "boundaries-early",
+    "title": "Setting boundaries early",
+    "description": "New-dating pressure tests. Clear early beats resentful later.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "dating.boundaries-early.0001",
+      "category": "dating",
+      "subcategory": "boundaries-early",
+      "setting": "Third date. You say you have an early morning; they order another round.",
+      "jab": "Oh come on, one more. Don't be boring.",
+      "difficulty": 2,
+      "tags": ["pressure", "boundaries"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm good — and boring is underrated. See you next week.",
+          "why": "Owning the label removes its sting and your exit keeps your morning intact.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "I'm heading out. Night.",
+          "why": "It skips the debate entirely — leaving is the boundary, stated once.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Next time I'll close the place down. Tonight I need my sleep.",
+          "why": "A promise of future fun softens a present no without weakening it.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Boring people need sleep too. It's in the handbook.",
+          "why": "Agreeing with the charge at double volume turns it into a shared joke.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Fine, ONE more, but you're annoying.",
+        "why": "Caving with resentment teaches them pressure works and you keep score."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "dating.boundaries-early.0002",
+      "category": "dating",
+      "subcategory": "boundaries-early",
+      "setting": "Two weeks in. They want your location shared, always.",
+      "jab": "If you have nothing to hide, just share your location. Everyone does it.",
+      "difficulty": 3,
+      "tags": ["privacy", "boundaries"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I don't share that this early. Trust builds first.",
+          "why": "It states your timeline as policy, which makes it about pacing, not hiding.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "No. Ask me later.",
+          "why": "A clean no with a door left open — the pressure has nowhere to grip.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I'm not there yet — let's earn the boring-couple perks first.",
+          "why": "Framing privacy as a stage of the relationship keeps it warm and firm.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "full", "status": "approved" }
+    }
+  ]
+}

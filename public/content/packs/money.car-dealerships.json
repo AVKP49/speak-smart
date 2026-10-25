@@ -1,0 +1,135 @@
+{
+  "pack": {
+    "id": "money.car-dealerships",
+    "category": "money",
+    "subcategory": "car-dealerships",
+    "title": "Car dealerships",
+    "description": "Today-only prices and trips to the manager. Decide on your timeline, not theirs.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "money.car-dealerships.0001",
+      "category": "money",
+      "subcategory": "car-dealerships",
+      "setting": "Dealership desk. The salesperson slides the paper across and taps it.",
+      "jab": "This price is only good if you sign today.",
+      "difficulty": 1,
+      "tags": ["pressure", "negotiation"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Then it's not my price. I'll be here Thursday — so will the car.",
+          "why": "It calls the deadline a bluff by naming a later date with total confidence.",
+          "delivery": "Stand as you say Thursday. Movement sells it.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Then no.",
+          "why": "Two words that end the pressure script because there's nothing to negotiate against.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I get the urgency — I still don't decide same-day. What can you do Thursday?",
+          "why": "It validates his job while holding your rule, then hands him a solvable problem.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "A price with a bedtime. Interesting. Mine sleeps in.",
+          "why": "Treating the deadline as absurd makes it absurd, without ever arguing terms.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Only good today? Then it's not a price, it's a hostage note.",
+          "why": "It renames the tactic so bluntly the room has to laugh or drop it.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Fine — but you're ripping me off and we both know it.",
+        "why": "Signing while accusing him gets you the worst price and the worst story."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "money.car-dealerships.0002",
+      "category": "money",
+      "subcategory": "car-dealerships",
+      "setting": "Finance office. The manager leans back after your counteroffer.",
+      "jab": "You know what? Let me go talk to my manager. Stay right there.",
+      "difficulty": 1,
+      "tags": ["pressure", "waiting-game"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Take your time. My number doesn't move while you walk.",
+          "why": "It names your price as fixed before the theater starts, so the theater has no audience.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "I'll wait. Number stands.",
+          "why": "It grants the trip while freezing the terms, which is the whole game.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Of course — tell him I'm an easy yes at my number.",
+          "why": "It makes you the reasonable one and gives the manager a face-saving path to yes.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Bring him back. I love a live negotiation show.",
+          "why": "Naming the ritual as entertainment deflates it for everyone in earshot.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "Whatever — just tell me the lowest you'll actually go.",
+        "why": "Asking for the floor first hands him your ceiling to negotiate down from."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "money.car-dealerships.0003",
+      "category": "money",
+      "subcategory": "car-dealerships",
+      "setting": "After the test drive. The salesperson walks you past the car you asked about.",
+      "jab": "For just a little more a month, you could be in this one instead.",
+      "difficulty": 2,
+      "tags": ["upsell", "negotiation"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm here for the one I asked about. Let's price that.",
+          "why": "It redirects to your target without debating the upgrade, which starves the upsell.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Not that one. Mine.",
+          "why": "It refuses the redirect in four words and points back at your car.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "She's beautiful — and she's someone else's. Mine's the one we drove.",
+          "why": "Admiring the car while declining it keeps him working for you, not the commission.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "A little more a month is still more. Price the car I drove.",
+          "why": "It translates monthly-speak back into real money, which ends the framing trick.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "full", "status": "approved" }
+    }
+  ]
+}

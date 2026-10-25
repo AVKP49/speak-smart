@@ -1,0 +1,83 @@
+{
+  "pack": {
+    "id": "money.tipping-checkout",
+    "category": "money",
+    "subcategory": "tipping-checkout",
+    "title": "Tipping & checkout pressure",
+    "description": "The tipped tablet turn. Tip for service, not for being watched.",
+    "version": "1.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "money.tipping-checkout.0001",
+      "category": "money",
+      "subcategory": "tipping-checkout",
+      "setting": "Counter pickup. The cashier flips the tablet: 25%, 30%, 35%.",
+      "jab": "It's just going to ask you a quick question.",
+      "difficulty": 1,
+      "tags": ["pressure", "public"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "No tip on counter pickup. Thanks.",
+          "why": "It states your policy as a fact about the situation, not a judgment of him.",
+          "delivery": "Warm tone, final words. Then tap zero without lingering.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Skipping. Thanks.",
+          "why": "It answers the tablet's question out loud so there's nothing awkward left unsaid.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "I'll pass on this one — appreciate you though.",
+          "why": "Thanks plus a clear no keeps the human moment intact while your wallet stays shut.",
+          "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "The tablet and I disagree on what happened here.",
+          "why": "Blaming the tablet lets you both laugh while you tap zero together.",
+          "caution": null
+        }
+      ],
+      "trap": {
+        "line": "This tipping stuff is out of control, honestly.",
+        "why": "Lecturing the cashier punishes the person with the least power over the policy."
+      },
+      "review": { "tier": "full", "status": "approved" }
+    },
+    {
+      "id": "money.tipping-checkout.0002",
+      "category": "money",
+      "subcategory": "tipping-checkout",
+      "setting": "Restaurant. The server hovers while you split the bill with friends.",
+      "jab": "Just so you know, the machine adds eighteen percent automatically.",
+      "difficulty": 2,
+      "tags": ["pressure", "service"],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Then we're settled. Thank you for the evening.",
+          "why": "It treats the auto-gratuity as the end of the transaction, which it is.",
+          "caution": null
+        },
+        {
+          "register": "curt",
+          "line": "Good. We're done.",
+          "why": "It closes the check the way the policy already did, with no encore.",
+          "caution": null
+        },
+        {
+          "register": "friendly",
+          "line": "Perfect, that makes it easy — thanks for looking after us.",
+          "why": "Gratitude for the service lands better than extra money ever could.",
+          "caution": null
+        }
+      ],
+      "review": { "tier": "full", "status": "approved" }
+    }
+  ]
+}
