@@ -5,7 +5,7 @@
     "subcategory": "what-do-you-do",
     "title": "“So what do you do?”",
     "description": "The verdict disguised as a question. Answer it once, then ask better.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Wedding reception. A stranger asks it like a verdict, drink in hand.",
       "jab": "So… what do you do?",
       "difficulty": 1,
-      "tags": ["small-talk", "status"],
+      "tags": [
+        "small-talk",
+        "status"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -53,7 +56,10 @@
         "line": "I do pretty well, actually. Very well.",
         "why": "Answering a status check with status accepts a game with no winners."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "social.what-do-you-do.0002",
@@ -62,7 +68,10 @@
       "setting": "Networking event. Name tags, bad wine, worse questions.",
       "jab": "What do you do? And be honest — is it actually interesting?",
       "difficulty": 2,
-      "tags": ["small-talk", "networking"],
+      "tags": [
+        "small-talk",
+        "networking"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -87,9 +96,18 @@
           "line": "I make small talk at networking events. Living the dream.",
           "why": "Answering with the present moment makes you both laugh at the ritual.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Interesting? That's above my pay grade.",
+          "why": "It dodges the audit by pleading job description, which always gets the laugh.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "social.what-do-you-do.0003",
@@ -98,7 +116,10 @@
       "setting": "Dinner party. You say you're between jobs; the table goes quiet.",
       "jab": "Oh. So what do you… do all day?",
       "difficulty": 2,
-      "tags": ["status", "career"],
+      "tags": [
+        "status",
+        "career"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -117,13 +138,22 @@
           "line": "Full-time professional question-answerer, apparently.",
           "why": "Answering the awkwardness itself lets the whole table exhale and laugh.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Unemployed? I'm pre-employed.",
+          "why": "One prefix turns the gap into a plan the table can toast.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Well at least I'm not defined by my job like some people.",
         "why": "Judging the table for asking turns one awkward question into a cold evening."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

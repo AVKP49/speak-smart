@@ -5,7 +5,7 @@
     "subcategory": "boss-talking-down",
     "title": "Boss talking down to you",
     "description": "Your manager, performing superiority. Hold the floor without losing the job.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,11 @@
       "setting": "Your manager, in front of the team, right after your update.",
       "jab": "Let me put this in simpler terms for you.",
       "difficulty": 2,
-      "tags": ["condescension", "public", "power-gap"],
+      "tags": [
+        "condescension",
+        "public",
+        "power-gap"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -57,7 +61,10 @@
         "line": "Wow. Okay. Talk to me like I'm five, then.",
         "why": "Sarcasm upward, in public: he keeps his dignity and you become the difficult one."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "work.boss-talking-down.0002",
@@ -66,7 +73,11 @@
       "setting": "Your manager, forwarding your deck to the group with one line on top.",
       "jab": "Cleaned this up for you. You're welcome.",
       "difficulty": 2,
-      "tags": ["credit", "public", "power-gap"],
+      "tags": [
+        "credit",
+        "public",
+        "power-gap"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -93,13 +104,22 @@
           "why": "It names the credit grab as comedy, which is the only register that makes it sting.",
           "delivery": "Grin while you say it or don't say it.",
           "caution": "work-risk"
+        },
+        {
+          "register": "comedic",
+          "line": "Should I autograph it, or is the forward enough?",
+          "why": "Offering an autograph treats authorship as obvious, which makes the credit question answer itself.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Wow, stealing credit now? Real leadership.",
         "why": "An accusation in the group thread turns a slight into a feud you can't win upward."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "work.boss-talking-down.0003",
@@ -108,7 +128,10 @@
       "setting": "Performance review. Your manager, closing your self-assessment.",
       "jab": "Honestly, I expected more from someone at your level.",
       "difficulty": 3,
-      "tags": ["feedback", "power-gap"],
+      "tags": [
+        "feedback",
+        "power-gap"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -134,13 +157,22 @@
           "line": "Strange — I expected specifics from someone at yours.",
           "why": "It mirrors his vagueness back at him, which ends the moment but starts a new problem.",
           "caution": "work-risk"
+        },
+        {
+          "register": "comedic",
+          "line": "Vague reviews build character. Specifically, mine.",
+          "why": "Agreeing with the format while demanding nothing makes the vagueness visible without a fight.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "That's unfair and you know it.",
         "why": "Disputing the verdict makes the meeting about your reaction instead of his evidence."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "work.boss-talking-down.0004",
@@ -149,7 +181,11 @@
       "setting": "Team standup. Your update runs long; your manager cuts in.",
       "jab": "Let's speed this up — some of us have real work to do.",
       "difficulty": 2,
-      "tags": ["condescension", "public", "meeting"],
+      "tags": [
+        "condescension",
+        "public",
+        "meeting"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -175,13 +211,22 @@
           "why": "One laugh buys you the thirty seconds the interruption tried to take.",
           "delivery": "Deadpan. Then keep going.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Real work loves an audience. Thirty seconds.",
+          "why": "It answers his hierarchy with a hierarchy of your own, then takes your thirty seconds anyway.",
+          "caution": "work-risk"
         }
       ],
       "trap": {
         "line": "Sorry sorry, I'll shut up.",
         "why": "Apologizing for existing teaches the room your updates are skippable."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     }
   ]
 }

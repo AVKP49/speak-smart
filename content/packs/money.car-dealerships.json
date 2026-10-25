@@ -5,7 +5,7 @@
     "subcategory": "car-dealerships",
     "title": "Car dealerships",
     "description": "Today-only prices and trips to the manager. Decide on your timeline, not theirs.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Dealership desk. The salesperson slides the paper across and taps it.",
       "jab": "This price is only good if you sign today.",
       "difficulty": 1,
-      "tags": ["pressure", "negotiation"],
+      "tags": [
+        "pressure",
+        "negotiation"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -53,7 +56,10 @@
         "line": "Fine — but you're ripping me off and we both know it.",
         "why": "Signing while accusing him gets you the worst price and the worst story."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "money.car-dealerships.0002",
@@ -62,7 +68,10 @@
       "setting": "Finance office. The manager leans back after your counteroffer.",
       "jab": "You know what? Let me go talk to my manager. Stay right there.",
       "difficulty": 1,
-      "tags": ["pressure", "waiting-game"],
+      "tags": [
+        "pressure",
+        "waiting-game"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -87,13 +96,22 @@
           "line": "Bring him back. I love a live negotiation show.",
           "why": "Naming the ritual as entertainment deflates it for everyone in earshot.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Tell him the car can wait. So can I.",
+          "why": "It removes every deadline from the room, which is the only leverage he brought.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Whatever — just tell me the lowest you'll actually go.",
         "why": "Asking for the floor first hands him your ceiling to negotiate down from."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "money.car-dealerships.0003",
@@ -102,7 +120,10 @@
       "setting": "After the test drive. The salesperson walks you past the car you asked about.",
       "jab": "For just a little more a month, you could be in this one instead.",
       "difficulty": 2,
-      "tags": ["upsell", "negotiation"],
+      "tags": [
+        "upsell",
+        "negotiation"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -127,9 +148,18 @@
           "line": "A little more a month is still more. Price the car I drove.",
           "why": "It translates monthly-speak back into real money, which ends the framing trick.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "My budget and I are exclusive.",
+          "why": "Treating the budget as a relationship makes the upsell the other party.",
+          "caution": null
         }
       ],
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     }
   ]
 }

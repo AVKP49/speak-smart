@@ -5,7 +5,7 @@
     "subcategory": "interrupters",
     "title": "Interrupters & talk-overs",
     "description": "Mid-sentence takeovers in meetings and calls. Finish your point, keep the room.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Conference room. You're mid-sentence when a peer talks over you.",
       "jab": "Yeah yeah — what you're trying to say is—",
       "difficulty": 1,
-      "tags": ["interruption", "meeting"],
+      "tags": [
+        "interruption",
+        "meeting"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -41,13 +44,22 @@
           "line": "Spoilers — I hadn't reached the good part.",
           "why": "Casting his interruption as impatience for your ending flips who looks eager.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "My sentences come with their own endings.",
+          "why": "It states the boundary as a product feature, which gets the laugh and the floor.",
+          "caution": "work-risk"
         }
       ],
       "trap": {
         "line": "God, do you ever let anyone finish?",
         "why": "A character attack in a meeting makes you the disruption, not him."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "work.interrupters.0002",
@@ -56,7 +68,11 @@
       "setting": "Client call. You pause to think; a colleague fills it with your point, louder.",
       "jab": "To build on that — here's the actual takeaway—",
       "difficulty": 2,
-      "tags": ["credit", "interruption", "client"],
+      "tags": [
+        "credit",
+        "interruption",
+        "client"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -81,13 +97,22 @@
           "line": "Thanks for the echo. The original is still here.",
           "why": "It labels the move for what it was, at the cost of a visible edge.",
           "caution": "work-risk"
+        },
+        {
+          "register": "comedic",
+          "line": "I'd thank my co-author, but he's me.",
+          "why": "Claiming sole authorship as a joke makes the record clear while the call laughs.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Stop stealing my ideas on calls.",
         "why": "On a client call, the accusation embarrasses everyone and stains you most."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "work.interrupters.0003",
@@ -96,7 +121,10 @@
       "setting": "One-on-one. Your manager checks his phone while you talk, then looks up.",
       "jab": "Sorry — can you start over? I missed all of that.",
       "difficulty": 2,
-      "tags": ["dismissal", "power-gap"],
+      "tags": [
+        "dismissal",
+        "power-gap"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -115,13 +143,28 @@
           "line": "Long story short — here's the one thing I need from you.",
           "why": "It rescues the meeting by shrinking your ask to phone-proof size.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "The live show's over. Reruns by email.",
+          "why": "Calling the meeting a show makes the email follow-up feel like a favor, not a demotion.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "I'll bill you for the repeat.",
+          "why": "Pricing his inattention as a joke usually buys his attention for free.",
+          "caution": "work-risk"
         }
       ],
       "trap": {
         "line": "Forget it. You clearly don't care.",
         "why": "Guilt-tripping your manager trades one distracted meeting for a reputation."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     }
   ]
 }

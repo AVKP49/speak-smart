@@ -5,7 +5,7 @@
     "subcategory": "saying-no",
     "title": "Saying no",
     "description": "The complete sentence. No is a full answer that needs no apology tour.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Work. Your manager adds a Friday project to your full week.",
       "jab": "Can you just take this on? It'll be quick.",
       "difficulty": 2,
-      "tags": ["workload", "boundaries"],
+      "tags": [
+        "workload",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -34,13 +37,28 @@
           "line": "I'd love to help — my week's genuinely full. What can slide?",
           "why": "Willingness plus the real constraint invites them to prioritize with you.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Quick? My calendar laughed.",
+          "why": "Letting the calendar object keeps your hands clean and the no obvious.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Quick for you, weekend for me.",
+          "why": "It translates 'quick' into your actual calendar in six words.",
+          "caution": "work-risk"
         }
       ],
       "trap": {
         "line": "Ugh, fine — but this is the last time.",
         "why": "Yes with resentment teaches them the way past your no is asking twice."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "hard-moments.saying-no.0002",
@@ -49,7 +67,10 @@
       "setting": "Friend's wedding planning. You're asked to be in the tenth event.",
       "jab": "You HAVE to come to the engagement brunch too. Everyone's coming.",
       "difficulty": 1,
-      "tags": ["events", "boundaries"],
+      "tags": [
+        "events",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +95,18 @@
           "line": "My brunch budget filed for bankruptcy. Wedding me is loaded though.",
           "why": "Blaming a fake budget makes the no a joke they can repeat fondly.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Brunch? I'm wedding-only talent.",
+          "why": "It bills your presence as exclusive, which flatters the main event.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "hard-moments.saying-no.0003",
@@ -85,7 +115,11 @@
       "setting": "Family call. Your parents want every holiday at their house, forever.",
       "jab": "After everything we do, you can't even come for Christmas?",
       "difficulty": 3,
-      "tags": ["family", "guilt", "holiday"],
+      "tags": [
+        "family",
+        "guilt",
+        "holiday"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -104,13 +138,28 @@
           "line": "I wish we could clone December — we'd spend it all with you.",
           "why": "Wishing alongside them shows the love the guilt claims is missing.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "We're starting a bidding war for Christmas.",
+          "why": "An absurd auction makes alternating years sound like the deal it is.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Guilt? That holiday is booked.",
+          "why": "It declines the tactic while keeping the door open for next year.",
+          "caution": "family-risk"
         }
       ],
       "trap": {
         "line": "Fine, we'll come. But don't expect us to enjoy it.",
         "why": "Attending as punishment ruins their Christmas and yours equally."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

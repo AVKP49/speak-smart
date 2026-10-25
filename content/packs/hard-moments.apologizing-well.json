@@ -5,7 +5,7 @@
     "subcategory": "apologizing-well",
     "title": "Apologizing well",
     "description": "Real repair in one breath. Name it, own it, don't perform it.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Coffee with a friend. You forgot their birthday completely.",
       "jab": "So… you forgot. Everyone else remembered.",
       "difficulty": 2,
-      "tags": ["apology", "friendship"],
+      "tags": [
+        "apology",
+        "friendship"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -34,13 +37,22 @@
           "line": "I'm really sorry — you deserved better from me. Let me make it up properly.",
           "why": "It centers their feeling, not your guilt, then moves straight to repair.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "My bad. The card's in the mail.",
+          "why": "It owns it fast and lets the joke carry the repair, not the excuse.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "I'm sorry, but I've just been SO busy lately.",
         "why": "The but erases the sorry and makes your schedule the birthday's competition."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "hard-moments.apologizing-well.0002",
@@ -49,7 +61,10 @@
       "setting": "Work. You snapped at a junior in a meeting yesterday.",
       "jab": "Hey — are we okay after yesterday?",
       "difficulty": 2,
-      "tags": ["apology", "work"],
+      "tags": [
+        "apology",
+        "work"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -68,9 +83,18 @@
           "line": "Very okay — and I'm sorry for snapping. Bad day, wrong target.",
           "why": "It names what happened honestly while refusing to make excuses of it.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Note to self: snap less.",
+          "why": "A tiny public note makes the apology stick without groveling.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

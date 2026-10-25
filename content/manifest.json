@@ -1,25 +1,165 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packs": [
-    { "id": "work.boss-talking-down", "category": "work", "subcategory": "boss-talking-down", "version": "1.0.0", "file": "work.boss-talking-down.json", "count": 4 },
-    { "id": "work.interrupters", "category": "work", "subcategory": "interrupters", "version": "1.0.0", "file": "work.interrupters.json", "count": 3 },
-    { "id": "money.car-dealerships", "category": "money", "subcategory": "car-dealerships", "version": "1.0.0", "file": "money.car-dealerships.json", "count": 3 },
-    { "id": "money.tipping-checkout", "category": "money", "subcategory": "tipping-checkout", "version": "1.0.0", "file": "money.tipping-checkout.json", "count": 2 },
-    { "id": "dating.first-dates", "category": "dating", "subcategory": "first-dates", "version": "1.0.0", "file": "dating.first-dates.json", "count": 3 },
-    { "id": "dating.boundaries-early", "category": "dating", "subcategory": "boundaries-early", "version": "1.0.0", "file": "dating.boundaries-early.json", "count": 2 },
-    { "id": "friends.moochers", "category": "friends", "subcategory": "moochers", "version": "1.0.0", "file": "friends.moochers.json", "count": 2 },
-    { "id": "friends.group-chat-jabs", "category": "friends", "subcategory": "group-chat-jabs", "version": "1.0.0", "file": "friends.group-chat-jabs.json", "count": 2 },
-    { "id": "family.dinner-table-interrogations", "category": "family", "subcategory": "dinner-table-interrogations", "version": "1.0.0", "file": "family.dinner-table-interrogations.json", "count": 3 },
-    { "id": "family.unsolicited-life-advice", "category": "family", "subcategory": "unsolicited-life-advice", "version": "1.0.0", "file": "family.unsolicited-life-advice.json", "count": 2 },
-    { "id": "neighbors.noise-parties", "category": "neighbors", "subcategory": "noise-parties", "version": "1.0.0", "file": "neighbors.noise-parties.json", "count": 2 },
-    { "id": "neighbors.parking-driveways", "category": "neighbors", "subcategory": "parking-driveways", "version": "1.0.0", "file": "neighbors.parking-driveways.json", "count": 2 },
-    { "id": "public.line-cutters", "category": "public", "subcategory": "line-cutters", "version": "1.0.0", "file": "public.line-cutters.json", "count": 2 },
-    { "id": "public.condescending-strangers", "category": "public", "subcategory": "condescending-strangers", "version": "1.0.0", "file": "public.condescending-strangers.json", "count": 2 },
-    { "id": "social.what-do-you-do", "category": "social", "subcategory": "what-do-you-do", "version": "1.0.0", "file": "social.what-do-you-do.json", "count": 3 },
-    { "id": "social.escaping-conversation", "category": "social", "subcategory": "escaping-conversation", "version": "1.0.0", "file": "social.escaping-conversation.json", "count": 2 },
-    { "id": "texting.dry-replies", "category": "texting", "subcategory": "dry-replies", "version": "1.0.0", "file": "texting.dry-replies.json", "count": 3 },
-    { "id": "texting.work-chat-tone", "category": "texting", "subcategory": "work-chat-tone", "version": "1.0.0", "file": "texting.work-chat-tone.json", "count": 2 },
-    { "id": "hard-moments.saying-no", "category": "hard-moments", "subcategory": "saying-no", "version": "1.0.0", "file": "hard-moments.saying-no.json", "count": 3 },
-    { "id": "hard-moments.apologizing-well", "category": "hard-moments", "subcategory": "apologizing-well", "version": "1.0.0", "file": "hard-moments.apologizing-well.json", "count": 2 }
+    {
+      "id": "dating.boundaries-early",
+      "category": "dating",
+      "subcategory": "boundaries-early",
+      "version": "1.1.0",
+      "file": "dating.boundaries-early.json",
+      "count": 2
+    },
+    {
+      "id": "dating.first-dates",
+      "category": "dating",
+      "subcategory": "first-dates",
+      "version": "1.1.0",
+      "file": "dating.first-dates.json",
+      "count": 3
+    },
+    {
+      "id": "family.dinner-table-interrogations",
+      "category": "family",
+      "subcategory": "dinner-table-interrogations",
+      "version": "1.1.0",
+      "file": "family.dinner-table-interrogations.json",
+      "count": 3
+    },
+    {
+      "id": "family.unsolicited-life-advice",
+      "category": "family",
+      "subcategory": "unsolicited-life-advice",
+      "version": "1.1.0",
+      "file": "family.unsolicited-life-advice.json",
+      "count": 2
+    },
+    {
+      "id": "friends.group-chat-jabs",
+      "category": "friends",
+      "subcategory": "group-chat-jabs",
+      "version": "1.1.0",
+      "file": "friends.group-chat-jabs.json",
+      "count": 2
+    },
+    {
+      "id": "friends.moochers",
+      "category": "friends",
+      "subcategory": "moochers",
+      "version": "1.1.0",
+      "file": "friends.moochers.json",
+      "count": 2
+    },
+    {
+      "id": "hard-moments.apologizing-well",
+      "category": "hard-moments",
+      "subcategory": "apologizing-well",
+      "version": "1.1.0",
+      "file": "hard-moments.apologizing-well.json",
+      "count": 2
+    },
+    {
+      "id": "hard-moments.saying-no",
+      "category": "hard-moments",
+      "subcategory": "saying-no",
+      "version": "1.1.0",
+      "file": "hard-moments.saying-no.json",
+      "count": 3
+    },
+    {
+      "id": "money.car-dealerships",
+      "category": "money",
+      "subcategory": "car-dealerships",
+      "version": "1.1.0",
+      "file": "money.car-dealerships.json",
+      "count": 3
+    },
+    {
+      "id": "money.tipping-checkout",
+      "category": "money",
+      "subcategory": "tipping-checkout",
+      "version": "1.1.0",
+      "file": "money.tipping-checkout.json",
+      "count": 2
+    },
+    {
+      "id": "neighbors.noise-parties",
+      "category": "neighbors",
+      "subcategory": "noise-parties",
+      "version": "1.1.0",
+      "file": "neighbors.noise-parties.json",
+      "count": 2
+    },
+    {
+      "id": "neighbors.parking-driveways",
+      "category": "neighbors",
+      "subcategory": "parking-driveways",
+      "version": "1.1.0",
+      "file": "neighbors.parking-driveways.json",
+      "count": 2
+    },
+    {
+      "id": "public.condescending-strangers",
+      "category": "public",
+      "subcategory": "condescending-strangers",
+      "version": "1.1.0",
+      "file": "public.condescending-strangers.json",
+      "count": 2
+    },
+    {
+      "id": "public.line-cutters",
+      "category": "public",
+      "subcategory": "line-cutters",
+      "version": "1.1.0",
+      "file": "public.line-cutters.json",
+      "count": 2
+    },
+    {
+      "id": "social.escaping-conversation",
+      "category": "social",
+      "subcategory": "escaping-conversation",
+      "version": "1.1.0",
+      "file": "social.escaping-conversation.json",
+      "count": 2
+    },
+    {
+      "id": "social.what-do-you-do",
+      "category": "social",
+      "subcategory": "what-do-you-do",
+      "version": "1.1.0",
+      "file": "social.what-do-you-do.json",
+      "count": 3
+    },
+    {
+      "id": "texting.dry-replies",
+      "category": "texting",
+      "subcategory": "dry-replies",
+      "version": "1.1.0",
+      "file": "texting.dry-replies.json",
+      "count": 3
+    },
+    {
+      "id": "texting.work-chat-tone",
+      "category": "texting",
+      "subcategory": "work-chat-tone",
+      "version": "1.1.0",
+      "file": "texting.work-chat-tone.json",
+      "count": 2
+    },
+    {
+      "id": "work.boss-talking-down",
+      "category": "work",
+      "subcategory": "boss-talking-down",
+      "version": "1.1.0",
+      "file": "work.boss-talking-down.json",
+      "count": 4
+    },
+    {
+      "id": "work.interrupters",
+      "category": "work",
+      "subcategory": "interrupters",
+      "version": "1.1.0",
+      "file": "work.interrupters.json",
+      "count": 3
+    }
   ]
 }

@@ -5,7 +5,7 @@
     "subcategory": "unsolicited-life-advice",
     "title": "Unsolicited life advice",
     "description": "Love, expressed as instructions. Receive the love, decline the orders.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Phone call. Your parent, ten minutes into your career choices.",
       "jab": "I'm just saying — at your age I already owned a house.",
       "difficulty": 2,
-      "tags": ["comparison", "generational"],
+      "tags": [
+        "comparison",
+        "generational"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "And uphill both ways, I know. Legend behavior.",
           "why": "Joining the mythology with affection steers the call back to fondness.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "I'll buy the time machine first.",
+          "why": "It prices their era accurately while keeping the call warm.",
+          "caution": "family-risk"
         }
       ],
       "trap": {
         "line": "Yeah well houses cost triple now, so thanks for nothing.",
         "why": "Winning the economics debate loses the phone call with your parent."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "family.unsolicited-life-advice.0002",
@@ -55,7 +67,10 @@
       "setting": "Family group chat. Your sibling, replying to your weekend plans.",
       "jab": "Must be nice to have no responsibilities lol",
       "difficulty": 1,
-      "tags": ["sibling", "dig"],
+      "tags": [
+        "sibling",
+        "dig"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +89,18 @@
           "line": "My responsibilities filed for the weekend. Union rules.",
           "why": "Absurd paperwork makes the whole thread laugh past the jab.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Responsibilities? Never met them.",
+          "why": "Pleading stranger to adulthood makes the group chat laugh past the jab.",
+          "caution": "family-risk"
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }
