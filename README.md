@@ -33,7 +33,7 @@ works from any host path, including GitHub Pages project sites.
 - `src/types.ts` — scenario schema types + locked taxonomy (§5).
 - `src/content/loader.ts` — versioned JSON packs, lazy per category, IndexedDB mirror.
 - `src/store/` — IndexedDB wrapper + retention engine (streaks, XP, ranks, mastery).
-- `src/lib/` — delivery scorer (§4.3), on-device speech (§9.2), utils.
+- `src/lib/` — DOM/date utils (voice + delivery scoring removed, see §10 below).
 - `src/views/` — onboarding, Today, Library, Drill, Reveal, Arsenal (+recall), settings, styleguide.
 - `public/content/` — the library: `manifest.json` + one JSON file per subcategory (§5.3).
 - `public/sw.js` — offline-first service worker (§9.1).
@@ -45,8 +45,8 @@ works from any host path, including GitHub Pages project sites.
   data tooling (`tools/validate.mjs`); seed library of **49 approved scenarios**
   across all 10 categories, including the Appendix B golden examples verbatim.
 - Phase 1: onboarding (≤4 screens, first drill before any gate), Today, Library,
-  Drill (pick + say-it with on-device delivery metrics), Reveal, Arsenal + spaced
-  repetition, streaks with automatic freeze, settings. Zero runtime AI, zero accounts.
+  Drill (pick mode), Reveal, Arsenal + spaced repetition, streaks with automatic
+  freeze, settings. Zero runtime AI, zero accounts, zero voice features.
 - Content milestones: the seed is the pipeline's first output, not M1. The factory
   (schema, validator, dedupe, trap-coverage and tier reporting) is what carries the
   library to M1 (1,000) → M2 (3,000, launch gate) → M3 (10,000).
@@ -76,6 +76,8 @@ works from any host path, including GitHub Pages project sites.
 9. **Register substitution.** Say-it reveals in the default register; when a scenario
    has no line in that voice (the library never forces one, §5.2), the reveal says
    so and trains the nearest available voice.
-10. **Speech timing.** The Web Speech API gives no per-word timestamps, so pace is
-    measured over first-result→end and pause from Beat end to first result. Documented
-    here rather than faked precisely.
+10. **Voice removed (Oct 2026, founder direction).** Say-it mode, speech
+    recognition, TTS playback, delivery metrics, and the voice setting are gone;
+    the drill and recall are pick / read / honest-self-mark only. The spec's §4.3
+    threshold table and §9.2 voice section are superseded; the corresponding
+    config, modules, styles, and copy were deleted, not stubbed.

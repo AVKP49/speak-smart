@@ -12,7 +12,7 @@ export interface Reply {
   line: string;
   /** Exactly one sentence. Names the mechanism, never generic praise. */
   why: string;
-  /** Optional per-reply coaching used in say-it mode. */
+  /** Optional per-reply coaching, shown with the line in the reveal. */
   delivery?: string;
   /** e.g. "work-risk". Sharp lines in risky arenas carry a caution. */
   caution?: string | null;

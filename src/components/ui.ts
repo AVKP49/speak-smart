@@ -43,8 +43,6 @@ export const Icons = {
       `<path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/>`,
       "Arsenal",
     ),
-  mic: () =>
-    icon(`<rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 19v3"/>`, "Speak"),
   user: () => icon(`<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6 8-6s8 2 8 6"/>`, "Profile"),
   back: () => icon(`<path d="M15 18l-6-6 6-6"/>`, "Back"),
   shield: () => icon(`<path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/>`, "Streak freeze"),

@@ -9,7 +9,6 @@ import { h } from "../lib/utils";
 import { cautionBadge, notice, regMark, trapCallout, voiceRow, whyRow } from "../components/ui";
 import {
   addDrillCompleted,
-  addPerfectDeliveryBonus,
   getSettings,
   isSaved,
   saveLine,
@@ -27,7 +26,7 @@ export async function renderReveal(root: HTMLElement, ctx: AppCtx, result: Drill
   /* The line in your chosen voice (§4.4.1). */
   let center: Reply | undefined;
   let substituted = false;
-  if (result.mode === "pick" && result.pickedReply) {
+  if (result.pickedReply) {
     center = result.pickedReply;
   } else {
     center =
@@ -45,7 +44,6 @@ export async function renderReveal(root: HTMLElement, ctx: AppCtx, result: Drill
   if (!result.scored) {
     result.scored = true;
     await addDrillCompleted();
-    if (result.delivery?.perfect) await addPerfectDeliveryBonus();
   }
 
   const screen = h("div", { class: "screen" });
@@ -67,44 +65,17 @@ export async function renderReveal(root: HTMLElement, ctx: AppCtx, result: Drill
     );
   }
 
-  /* 2 — what you picked / said. */
+  /* 2 — what you picked. */
   const yours = h("div", { class: "stack stack--tight" });
-  yours.append(h("p", { class: "micro-label" }, result.mode === "pick" ? "What you picked" : "What you said"));
-  if (result.mode === "pick") {
-    if (result.pickedTrap && scenario.trap) {
-      yours.append(
-        h("p", { class: "body" }, `\u201c${scenario.trap.line}\u201d`),
-        h("p", { class: "body" }, "That was the trap line. Everyone picks it first."),
-      );
-    } else if (result.pickedReply) {
-      yours.append(h("p", { class: "body" }, `\u201c${result.pickedReply.line}\u201d`));
-      yours.append(h("p", { class: "body" }, readNote(result.pickedReply, scenario.category)));
-    }
-  } else {
-    if (result.transcript) {
-      yours.append(h("p", { class: "body" }, `\u201c${result.transcript}\u201d`));
-    } else if (result.speechUnavailable) {
-      yours.append(h("p", { class: "body muted" }, "Voice unavailable — scored on reading, not delivery."));
-    } else {
-      yours.append(h("p", { class: "body muted" }, "Nothing heard. Say it out loud next rep — the line is below."));
-    }
-    if (result.delivery) {
-      if (result.delivery.perfect) {
-        yours.append(h("p", { class: "body" }, "Clean delivery. That's the rep."));
-      } else {
-        for (const obs of result.delivery.observations) {
-          yours.append(h("div", { class: "delivery-note" }, h("span", { class: "faint" }, "·"), h("p", { class: "body" }, obs)));
-        }
-        yours.append(
-          h(
-            "p",
-            { class: "small faint metric" },
-            `${result.delivery.words} words · ${result.delivery.wpm} wpm · ${result.delivery.fillers} filler${result.delivery.fillers === 1 ? "" : "s"}`,
-          ),
-        );
-      }
-    }
-    if (result.timedOut) yours.append(h("p", { class: "small muted" }, "Took a while. That's the moment we're training."));
+  yours.append(h("p", { class: "micro-label" }, "What you picked"));
+  if (result.pickedTrap && scenario.trap) {
+    yours.append(
+      h("p", { class: "body" }, `\u201c${scenario.trap.line}\u201d`),
+      h("p", { class: "body" }, "That was the trap line. Everyone picks it first."),
+    );
+  } else if (result.pickedReply) {
+    yours.append(h("p", { class: "body" }, `\u201c${result.pickedReply.line}\u201d`));
+    yours.append(h("p", { class: "body" }, readNote(result.pickedReply, scenario.category)));
   }
   screen.append(yours);
 

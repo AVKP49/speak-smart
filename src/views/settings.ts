@@ -48,12 +48,6 @@ export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<vo
     await saveSettings({ beatMs: v });
   })));
 
-  /* Voice */
-  screen.append(settingRow("Voice (hear + say lines)", switchBtn(settings.voiceOn, async (v) => {
-    await saveSettings({ voiceOn: v });
-    await renderSettingsInto(root, ctx);
-  }), "Off means pick mode only."));
-
   /* Reduced motion */
   screen.append(settingRow("Reduce motion", switchBtn(settings.reducedMotion, async (v) => {
     await saveSettings({ reducedMotion: v });

@@ -398,82 +398,7 @@ body {
   }
 }
 
-.mode-switch {
-  display: flex;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  padding: var(--space-4);
-  gap: var(--space-4);
-}
-
-.mode-switch button {
-  flex: 1;
-  appearance: none;
-  border: 0;
-  background: transparent;
-  color: var(--muted);
-  font: inherit;
-  font-size: var(--text-14);
-  font-weight: 600;
-  border-radius: var(--radius-pill);
-  min-height: var(--target-min);
-  cursor: pointer;
-}
-
-.mode-switch button[aria-pressed="true"] {
-  background: var(--surface-2);
-  color: var(--paper);
-}
-
-.record-target {
-  appearance: none;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  border-radius: 50%;
-  width: var(--target-record);
-  height: var(--target-record);
-  min-width: var(--target-record);
-  min-height: var(--target-record);
-  color: var(--paper);
-  font-size: var(--text-24);
-  cursor: pointer;
-  align-self: center;
-  transition: border-color var(--dur-micro) var(--ease-state);
-}
-
-.record-target--live {
-  border-color: var(--gold);
-  color: var(--gold);
-}
-
-.record-target:disabled {
-  opacity: 0.4;
-  cursor: default;
-}
-
-.transcript {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  padding: var(--space-16);
-  min-height: var(--target-min);
-  color: var(--muted);
-}
-
-.response-window {
-  height: 2px;
-  background: var(--line);
-  border-radius: var(--radius-pill);
-  overflow: hidden;
-}
-
-.response-window > div {
-  height: 100%;
-  background: var(--gold);
-  width: 100%;
-  transform-origin: left;
-}
+/* Pick-only drill: options render as card-selectable buttons. No voice UI. */
 
 /* ---------- Reveal ---------- */
 
@@ -519,12 +444,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
-}
-
-.delivery-note {
-  display: flex;
-  gap: var(--space-8);
-  align-items: flex-start;
 }
 
 /* ---------- Library / Arsenal rows ---------- */

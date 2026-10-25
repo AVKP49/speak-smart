@@ -12,20 +12,16 @@ export interface Settings {
   defaultRegister: Register;
   dailyGoal: number;
   beatMs: number;
-  voiceOn: boolean;
   reducedMotion: boolean;
   onboarded: boolean;
-  lastMode: "pick" | "say-it";
 }
 
 const DEFAULT_SETTINGS: Settings = {
   defaultRegister: "boss",
   dailyGoal: CONFIG.DAILY_GOAL_DEFAULT,
   beatMs: CONFIG.BEAT_MS,
-  voiceOn: true,
   reducedMotion: false,
   onboarded: false,
-  lastMode: "pick",
 };
 
 export async function getSettings(): Promise<Settings> {
@@ -126,10 +122,6 @@ export async function addReviewCompleted(count = 1): Promise<Daily> {
   await addXp(CONFIG.XP_ARSENAL_REVIEW * count);
   await recordActiveDay();
   return daily;
-}
-
-export async function addPerfectDeliveryBonus(): Promise<void> {
-  await addXp(CONFIG.XP_PERFECT_DELIVERY);
 }
 
 export async function getXp(): Promise<number> {
@@ -237,7 +229,7 @@ export async function dueReviews(now = Date.now()): Promise<ArsenalEntry[]> {
   return (await getArsenal()).filter((e) => e.nextDueAt <= now);
 }
 
-/** A recall rep: jab shown, user says the line from memory. Clean = delivery held up. */
+/** A recall rep: jab shown, user says the line from memory, marks it honestly. */
 export async function recordRecall(key: string, clean: boolean): Promise<ArsenalEntry | undefined> {
   const entry = await recordGet<ArsenalEntry>("arsenal", key);
   if (!entry) return undefined;

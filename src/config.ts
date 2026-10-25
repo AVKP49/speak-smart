@@ -5,35 +5,9 @@
 
 export type Register = "boss" | "curt" | "friendly" | "comedic" | "sharp";
 
-export interface DeliveryThresholds {
-  /** Minimum pause before first word, ms from Beat end (§4.3). */
-  minPauseMs: number;
-  /** Target pace band, words per minute. */
-  paceWpm: [number, number];
-  /** Max filler words (um/uh/like/you know). */
-  maxFillers: number;
-  /** Max reply length in words. */
-  maxWords: number;
-}
-
 export const CONFIG = {
   /** §4.2 — response controls locked while the gold ring breathes once. */
   BEAT_MS: 1200,
-
-  /** §4.1 — say-it response window from end of Beat. Never punished on timeout. */
-  RESPONSE_WINDOW_S: 10,
-
-  /** §4.3 — delivery thresholds per register. */
-  DELIVERY: {
-    boss: { minPauseMs: 900, paceWpm: [105, 135], maxFillers: 1, maxWords: 14 },
-    curt: { minPauseMs: 700, paceWpm: [90, 120], maxFillers: 1, maxWords: 8 },
-    friendly: { minPauseMs: 500, paceWpm: [130, 160], maxFillers: 2, maxWords: 22 },
-    comedic: { minPauseMs: 600, paceWpm: [130, 165], maxFillers: 2, maxWords: 22 },
-    sharp: { minPauseMs: 800, paceWpm: [110, 140], maxFillers: 1, maxWords: 16 },
-  } satisfies Record<Register, DeliveryThresholds>,
-
-  /** Filler words counted by the delivery scorer (§4.3). */
-  FILLER_WORDS: ["um", "uh", "like", "you know"],
 
   /** §3.3 / §6.3 — daily goal default; user-set 1/3/5. */
   DAILY_GOAL_DEFAULT: 3,
@@ -44,7 +18,6 @@ export const CONFIG = {
 
   /** §4.5 / §6 — XP awards. XP only for completed drills and arsenal reviews. */
   XP_DRILL: 10,
-  XP_PERFECT_DELIVERY: 5,
   XP_ARSENAL_REVIEW: 5,
 
   /** §6.2 — mastery: Pocketed → Practiced → Reflex. */

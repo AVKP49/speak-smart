@@ -1,5 +1,4 @@
 /** Shared app context: navigation + drill session handoff between views. */
-import type { DeliveryResult } from "./lib/delivery";
 import type { Library } from "./content/loader";
 import type { Reply, Scenario } from "./types";
 
@@ -10,13 +9,8 @@ export interface DrillRequest {
 
 export interface DrillResult {
   scenario: Scenario;
-  mode: "pick" | "say-it";
   pickedReply?: Reply;
   pickedTrap: boolean;
-  transcript?: string;
-  delivery?: DeliveryResult;
-  timedOut: boolean;
-  speechUnavailable: boolean;
   origin: string;
   scored: boolean;
 }

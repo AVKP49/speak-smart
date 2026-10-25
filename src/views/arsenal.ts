@@ -1,18 +1,15 @@
 /**
  * Arsenal — the user's trophy case and retention engine (spec §3.3, §6.2).
  * Saved lines grouped by register with mastery + due status; tap to rehearse
- * one line in isolation (30-second recall: jab shown, line from memory).
+ * one line in isolation (recall: jab shown, line from memory, honest self-mark).
  */
 import { REGISTER_ORDER, REGISTERS } from "../config";
 import type { AppCtx } from "../app";
-import { scoreDelivery } from "../lib/delivery";
-import { listenOnce, speechRecognitionSupported } from "../lib/speech";
 import { h } from "../lib/utils";
 import { notice, regMark, tabbar, topbar } from "../components/ui";
 import {
   dueReviews,
   getArsenal,
-  getSettings,
   rankForReflexCount,
   recordRecall,
   removeLine,
@@ -20,8 +17,7 @@ import {
 } from "../store/state";
 
 export async function renderArsenal(root: HTMLElement, ctx: AppCtx): Promise<void> {
-  const [entries, due, settings] = await Promise.all([getArsenal(), dueReviews(), getSettings()]);
-  void settings;
+  const [entries, due] = await Promise.all([getArsenal(), dueReviews()]);
   const screen = h("div", { class: "screen" });
   screen.append(topbar("Arsenal"));
 
@@ -82,7 +78,7 @@ function arsenalRow(ctx: AppCtx, entry: ArsenalEntry, isDue: boolean): HTMLEleme
   return row;
 }
 
-/* ---------------- 30-second recall ---------------- */
+/* ---------------- Recall: say it from memory, mark it honestly ---------------- */
 
 export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string): Promise<void> {
   const entries = await getArsenal();
@@ -94,8 +90,6 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
     root.append(screen);
     return;
   }
-  const settings = await getSettings();
-  const voiceReady = settings.voiceOn && speechRecognitionSupported();
 
   const card = h("div", { class: "jab-card" });
   card.append(
@@ -104,74 +98,34 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
   );
   screen.append(
     card,
-    h("p", { class: "body" }, "Say your line from memory. Thirty seconds, delivery only."),
+    h("p", { class: "body" }, "Say your line from memory, then reveal it below."),
     regMark(entry.register),
   );
   const area = h("div", { class: "stack" });
   screen.append(area);
 
-  if (voiceReady) {
-    const record = h("button", { class: "record-target", "aria-label": "Say your line" }, "●");
-    const status = h("div", { class: "transcript", role: "status" }, "Tap the mic, then say it.");
-    area.append(status, record);
-    record.addEventListener("click", async () => {
-      record.setAttribute("disabled", "true");
-      record.classList.add("record-target--live");
-      status.replaceChildren(document.createTextNode("Listening…"));
-      const startedAt = performance.now();
-      const heard = await listenOnce(30000);
-      record.classList.remove("record-target--live");
-      record.remove();
-      if (!heard) {
-        status.replaceChildren(document.createTextNode("Nothing heard — no rep logged. Try again tomorrow."));
-        area.append(backButton(ctx));
-        return;
-      }
-      const pauseMs = Math.max(0, Math.round(heard.firstWordMs ?? 0));
-      const speakingMs = Math.max(500, Math.round(heard.endMs - (heard.firstWordMs ?? 0)));
-      void startedAt;
-      const delivery = scoreDelivery(entry.register, { transcript: heard.transcript, pauseMs, speakingMs });
-      await recordRecall(entry.key, delivery.perfect);
-      status.replaceChildren(document.createTextNode(`Heard ${delivery.words} words.`));
+  const revealBtn = h("button", { class: "btn btn--secondary" }, "Reveal the line");
+  area.append(revealBtn);
+  revealBtn.addEventListener("click", () => {
+    revealBtn.remove();
+    area.append(h("p", { class: "line-hero", style: "font-size: var(--text-24)" }, `\u201c${entry.line}\u201d`));
+    area.append(h("p", { class: "body" }, "Did you say it clean, from memory? Mark it honestly — this is your reflex."));
+    const row = h("div", { class: "row" });
+    const clean = h("button", { class: "btn btn--secondary" }, "Clean");
+    const shaky = h("button", { class: "btn btn--quiet" }, "Shaky");
+    const done = async (wasClean: boolean) => {
+      await recordRecall(entry.key, wasClean);
+      row.remove();
       area.append(
-        h("p", { class: "line-hero", style: "font-size: var(--text-24)" }, `\u201c${entry.line}\u201d`),
-        delivery.perfect
-          ? h("p", { class: "body" }, "Clean recall. That's the rep.")
-          : h(
-              "div",
-              { class: "stack stack--tight" },
-              ...delivery.observations.map((obs) => h("p", { class: "body" }, obs)),
-            ),
+        h("p", { class: "body" }, wasClean ? "Clean recall. That's the rep." : "Logged. It'll come back sooner."),
+        backButton(ctx),
       );
-      area.append(backButton(ctx));
-    });
-  } else {
-    const revealBtn = h("button", { class: "btn btn--secondary" }, "Reveal the line");
-    area.append(
-      notice("Voice is unavailable, so this rep runs on the honor system."),
-      revealBtn,
-    );
-    revealBtn.addEventListener("click", () => {
-      revealBtn.remove();
-      area.append(h("p", { class: "line-hero", style: "font-size: var(--text-24)" }, `\u201c${entry.line}\u201d`));
-      area.append(h("p", { class: "body" }, "Did you say it clean, from memory? Mark it honestly — this is your reflex."));
-      const row = h("div", { class: "row" });
-      const clean = h("button", { class: "btn btn--secondary" }, "Clean");
-      const shaky = h("button", { class: "btn btn--quiet" }, "Shaky");
-      const done = async (wasClean: boolean) => {
-        await recordRecall(entry.key, wasClean);
-        row.remove();
-        area.append(
-          h("p", { class: "body" }, wasClean ? "Clean recall. That's the rep." : "Logged. It'll come back sooner."),
-          backButton(ctx),
-        );
-      };
-      clean.addEventListener("click", () => void done(true));
-      shaky.addEventListener("click", () => void done(false));
-      row.append(clean, shaky);
-      area.append(row);
-    });
-  }
+    };
+    clean.addEventListener("click", () => void done(true));
+    shaky.addEventListener("click", () => void done(false));
+    row.append(clean, shaky);
+    area.append(row);
+  });
 
   const remove = h("button", { class: "btn btn--quiet" }, "Remove from Arsenal");
   remove.addEventListener("click", async () => {
