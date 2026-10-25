@@ -10,8 +10,12 @@ export interface Reply {
   register: Register;
   /** The line, displayed verbatim. Never generated or edited at runtime. */
   line: string;
+  /** Second-language rendering, shown as a subtitle when present. */
+  line_l2?: string;
   /** Exactly one sentence. Names the mechanism, never generic praise. */
   why: string;
+  /** Second-language rendering of the coaching line. */
+  why_l2?: string;
   /** Optional per-reply coaching, shown with the line in the reveal. */
   delivery?: string;
   /** e.g. "work-risk". Sharp lines in risky arenas carry a caution. */
@@ -21,8 +25,10 @@ export interface Reply {
 export interface Trap {
   /** The satisfying-but-costly reply, shown last and labeled. */
   line: string;
+  line_l2?: string;
   /** One line: the cost. */
   why: string;
+  why_l2?: string;
 }
 
 export interface Scenario {
@@ -32,8 +38,10 @@ export interface Scenario {
   subcategory: string;
   /** Setting line only — where you are, who's talking. */
   setting: string;
+  setting_l2?: string;
   /** Their line, as actually said in the wild. */
   jab: string;
+  jab_l2?: string;
   /** 1–3. */
   difficulty: 1 | 2 | 3;
   tags: string[];

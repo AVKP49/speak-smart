@@ -1,12 +1,12 @@
 /**
- * Today (home) — a narrative, not a dashboard (spec §1 Lesson 6, §3.3).
- * Status strip, hero card with one CTA, next milestone, depth below the fold.
+ * Today — tonight's fight card. One hero, one CTA, the next milestone.
  */
 import { REGISTERS } from "../config";
+import { t } from "../i18n";
 import { pickNextScenario } from "../content/loader";
 import { categoryTitle, packTitle, type AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { tabbar, appheader, statusStrip, progressRing } from "../components/ui";
+import { tabbar, appheader, statusStrip, progressRing, rankbar } from "../components/ui";
 import {
   dueReviews,
   getArsenal,
@@ -34,16 +34,16 @@ export async function renderToday(root: HTMLElement, ctx: AppCtx): Promise<void>
 
   const screen = h("div", { class: "screen" });
   screen.append(
-    appheader("Today", { onAvatar: () => ctx.navigate("#/settings") }),
+    appheader(t("tab.today"), { onAvatar: () => ctx.navigate("#/settings") }),
     statusStrip({ streak, daily, goal: settings.dailyGoal, arsenalCount: arsenal.length }),
   );
 
-  /* Hero card — today's drill. One narrative card, one CTA. */
+  /* Hero — tonight's card. One narrative card, one CTA. */
   const goalMet = daily.drills >= settings.dailyGoal;
   if (next) {
     const hero = h("div", { class: "hero-card" });
     hero.append(
-      h("p", { class: "micro-label" }, goalMet ? "Goal met — bonus drill" : "Today's drill"),
+      h("p", { class: "kicker" }, goalMet ? "Goal met — bonus round" : t("today.kicker")),
       h("h2", { class: "display", style: "font-size: var(--text-24)" }, packTitle(ctx.library, next.category, next.subcategory)),
       h(
         "p",
@@ -51,7 +51,7 @@ export async function renderToday(root: HTMLElement, ctx: AppCtx): Promise<void>
         `${categoryTitle(ctx.library, next.category)} · Your voice: ${REGISTERS[settings.defaultRegister].glyph} ${REGISTERS[settings.defaultRegister].name} · Least-seen pack, so the lines stay fresh.`,
       ),
     );
-    const start = h("button", { class: "btn btn--primary" }, goalMet ? "Drill anyway" : "Start");
+    const start = h("button", { class: "btn btn--primary" }, goalMet ? t("today.bonus") : t("today.start"));
     start.addEventListener("click", () => {
       void kvSet("last-pack", { category: next.category, subcategory: next.subcategory });
       ctx.startDrill(next.id, "#/");
@@ -60,7 +60,7 @@ export async function renderToday(root: HTMLElement, ctx: AppCtx): Promise<void>
     screen.append(hero);
   }
 
-  /* Every number tells you what to do next (§1.2.6). */
+  /* Every number tells you what to do next. */
   const milestone = h("div", { class: "next-milestone" });
   const drillsLeft = Math.max(0, settings.dailyGoal - daily.drills);
   const rankLine =
@@ -69,13 +69,16 @@ export async function renderToday(root: HTMLElement, ctx: AppCtx): Promise<void>
       : `You are ${rank.current}. The highest rank.`;
   milestone.append(
     h("p", { class: "body" }, rankLine),
-    h("p", { class: "small muted metric" }, drillsLeft > 0 ? `${drillsLeft} drill${drillsLeft === 1 ? "" : "s"} to today's goal.` : "Today's goal is done. Arsenal reviews still count."),
+    rank.next !== null
+      ? rankbar(1 - rank.toNext / Math.max(rank.toNext + reflexCount, 1), `Progress to ${rank.next}`)
+      : rankbar(1, "Highest rank"),
+    h("p", { class: "small muted metric" }, drillsLeft > 0 ? `${drillsLeft} drill${drillsLeft === 1 ? "" : "s"} to today's goal.` : t("today.goal.done")),
   );
   screen.append(milestone);
 
   /* Below the fold — depth hides until wanted. */
   const more = h("div", { class: "stack stack--tight" });
-  more.append(h("p", { class: "micro-label" }, "More"));
+  more.append(h("p", { class: "kicker" }, t("today.more")));
   if (lastPack) {
     const title = packTitle(ctx.library, lastPack.category, lastPack.subcategory);
     const row = h("button", { class: "row-tap" });

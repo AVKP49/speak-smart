@@ -1,15 +1,16 @@
 /**
- * Arsenal — the user's trophy case and retention engine (spec §3.3, §6.2).
- * Saved lines grouped by register with mastery + due status; tap to rehearse
- * one line in isolation (recall: jab shown, line from memory, honest self-mark).
+ * Arsenal — the trophy case. Saved lines grouped by register with mastery pips
+ * and due status; tap to rehearse one line in isolation.
  */
 import { REGISTER_ORDER, REGISTERS } from "../config";
+import { t } from "../i18n";
 import type { AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { notice, regMark, tabbar, appheader, topbar } from "../components/ui";
+import { lineDual, notice, pips, regMark, tabbar, appheader, topbar } from "../components/ui";
 import {
   dueReviews,
   getArsenal,
+  getSettings,
   rankForReflexCount,
   recordRecall,
   removeLine,
@@ -17,15 +18,13 @@ import {
 } from "../store/state";
 
 export async function renderArsenal(root: HTMLElement, ctx: AppCtx): Promise<void> {
-  const [entries, due] = await Promise.all([getArsenal(), dueReviews()]);
+  const [entries, due, settings] = await Promise.all([getArsenal(), dueReviews(), getSettings()]);
   const screen = h("div", { class: "screen" });
-  screen.append(appheader("Arsenal"));
+  screen.append(appheader(t("tab.arsenal")));
 
   if (entries.length === 0) {
-    screen.append(
-      notice("Your Arsenal is empty. Drill, and save the lines you want as reflex — they'll wait for you here."),
-    );
-    const go = h("button", { class: "btn btn--primary" }, "Drill now");
+    screen.append(notice(t("arsenal.empty")));
+    const go = h("button", { class: "btn btn--primary" }, t("arsenal.drillNow"));
     go.addEventListener("click", () => ctx.navigate("#/"));
     screen.append(go);
     root.append(screen);
@@ -46,24 +45,32 @@ export async function renderArsenal(root: HTMLElement, ctx: AppCtx): Promise<voi
 
   const dueKeys = new Set(due.map((d) => d.key));
   if (due.length > 0) {
-    screen.append(h("p", { class: "micro-label" }, `Due for review (${due.length})`));
-    for (const entry of due) screen.append(arsenalRow(ctx, entry, true));
+    screen.append(h("p", { class: "kicker" }, `${t("arsenal.due")} (${due.length})`));
+    for (const entry of due) screen.append(arsenalRow(ctx, entry, true, settings.showL2));
   }
   for (const register of REGISTER_ORDER) {
     const group = entries.filter((e) => e.register === register && !dueKeys.has(e.key));
     if (group.length === 0) continue;
-    screen.append(h("p", { class: "micro-label" }, `${REGISTERS[register].glyph} ${REGISTERS[register].name}`));
-    for (const entry of group) screen.append(arsenalRow(ctx, entry, false));
+    screen.append(h("p", { class: "kicker" }, `${REGISTERS[register].glyph} ${REGISTERS[register].name}`));
+    for (const entry of group) screen.append(arsenalRow(ctx, entry, false, settings.showL2));
   }
 
   root.append(screen);
   root.append(tabbar("arsenal", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
 }
 
-function arsenalRow(ctx: AppCtx, entry: ArsenalEntry, isDue: boolean): HTMLElement {
+function l2For(ctx: AppCtx, entry: ArsenalEntry): string | undefined {
+  const scenario = ctx.library.byId.get(entry.scenarioId);
+  return scenario?.replies.find((r) => r.register === entry.register)?.line_l2;
+}
+
+function arsenalRow(ctx: AppCtx, entry: ArsenalEntry, isDue: boolean, showL2: boolean): HTMLElement {
   const row = h("button", { class: "row-tap" });
   const text = h("div", { class: "stack stack--tight", style: "flex: 1" });
-  text.append(regMark(entry.register), h("span", { class: "body" }, `\u201c${entry.line}\u201d`));
+  text.append(
+    h("div", { class: "row row--spread" }, regMark(entry.register), pips(entry.level)),
+    lineDual(`\u201c${entry.line}\u201d`, l2For(ctx, entry), showL2),
+  );
   const pillClass = entry.level === "Reflex" ? "mastery-pill mastery-pill--reflex" : "mastery-pill";
   text.append(
     h(
@@ -83,6 +90,7 @@ function arsenalRow(ctx: AppCtx, entry: ArsenalEntry, isDue: boolean): HTMLEleme
 export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string): Promise<void> {
   const entries = await getArsenal();
   const entry = entries.find((e) => e.key === key);
+  const settings = await getSettings();
   const screen = h("div", { class: "screen" });
   screen.append(topbar("Recall", { onBack: () => ctx.navigate("#/arsenal") }));
   if (!entry) {
@@ -91,10 +99,12 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
     return;
   }
 
+  const scenario = ctx.library.byId.get(entry.scenarioId);
   const card = h("div", { class: "jab-card" });
   card.append(
+    h("p", { class: "kicker" }, "The jab"),
     h("p", { class: "micro-label" }, entry.setting),
-    h("p", { class: "jab-text" }, `\u201c${entry.jab}\u201d`),
+    lineDual(`\u201c${entry.jab}\u201d`, scenario?.jab_l2, settings.showL2, "jab-text"),
   );
   screen.append(
     card,
@@ -104,15 +114,15 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
   const area = h("div", { class: "stack" });
   screen.append(area);
 
-  const revealBtn = h("button", { class: "btn btn--secondary" }, "Reveal the line");
+  const revealBtn = h("button", { class: "btn btn--secondary" }, t("arsenal.reveal"));
   area.append(revealBtn);
   revealBtn.addEventListener("click", () => {
     revealBtn.remove();
-    area.append(h("p", { class: "line-hero", style: "font-size: var(--text-24)" }, `\u201c${entry.line}\u201d`));
+    area.append(lineDual(`\u201c${entry.line}\u201d`, l2For(ctx, entry), settings.showL2, "line-hero", true));
     area.append(h("p", { class: "body" }, "Did you say it clean, from memory? Mark it honestly — this is your reflex."));
     const row = h("div", { class: "row" });
-    const clean = h("button", { class: "btn btn--secondary" }, "Clean");
-    const shaky = h("button", { class: "btn btn--quiet" }, "Shaky");
+    const clean = h("button", { class: "btn btn--secondary" }, t("arsenal.clean"));
+    const shaky = h("button", { class: "btn btn--quiet" }, t("arsenal.shaky"));
     const done = async (wasClean: boolean) => {
       await recordRecall(entry.key, wasClean);
       row.remove();
@@ -127,7 +137,7 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
     area.append(row);
   });
 
-  const remove = h("button", { class: "btn btn--quiet" }, "Remove from Arsenal");
+  const remove = h("button", { class: "btn btn--quiet" }, t("arsenal.remove"));
   remove.addEventListener("click", async () => {
     await removeLine(entry.scenarioId, entry.register);
     ctx.navigate("#/arsenal");
@@ -137,7 +147,7 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
 }
 
 function backButton(ctx: AppCtx): HTMLElement {
-  const back = h("button", { class: "btn btn--primary" }, "Back to Arsenal");
+  const back = h("button", { class: "btn btn--primary" }, t("arsenal.back"));
   back.addEventListener("click", () => ctx.navigate("#/arsenal"));
   return back;
 }

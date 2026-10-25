@@ -8,7 +8,7 @@ import { pickNextScenario } from "../content/loader";
 import { seenCounts } from "../store/state";
 import { h } from "../lib/utils";
 import type { AppCtx } from "../app";
-import { regMark } from "../components/ui";
+import { lineDual, regMark } from "../components/ui";
 
 function demoScenario(ctx: AppCtx) {
   return (
@@ -57,7 +57,7 @@ export async function renderOnboarding(root: HTMLElement, ctx: AppCtx): Promise<
         const reply = demo.replies.find((r) => r.register === register);
         if (!reply) continue;
         const row = h("div", { class: "voice-row" });
-        row.append(regMark(register), h("p", { class: "body" }, reply.line));
+        row.append(regMark(register), lineDual(reply.line, reply.line_l2, settings.showL2));
         voices.append(row);
       }
       screen.append(voices);
@@ -93,7 +93,7 @@ export async function renderOnboarding(root: HTMLElement, ctx: AppCtx): Promise<
       card.append(
         regMark(register),
         h("p", { class: "small muted" }, meta.tagline),
-        h("p", { class: "body" }, reply ? `\u201c${reply.line}\u201d` : ""),
+        reply ? lineDual(`\u201c${reply.line}\u201d`, reply.line_l2, settings.showL2) : h("p", { class: "body" }, ""),
       );
       card.addEventListener("click", () => {
         voice = register;

@@ -60,6 +60,7 @@ const stats = {
   byRegister: Object.fromEntries(REGISTERS.map((r) => [r, 0])),
   withTrap: 0,
   totalReplies: 0,
+  l2Replies: 0,
 };
 
 const packFiles = new Set(readdirSync(packsDir).filter((f) => f.endsWith(".json")));
@@ -140,6 +141,7 @@ for (const entry of manifest.packs) {
       }
       stats.byRegister[r.register] += 1;
       stats.totalReplies += 1;
+      if (r.line_l2) stats.l2Replies += 1;
     }
 
     if (s.trap) {
@@ -167,6 +169,10 @@ for (const f of packFiles) {
 
 const total = stats.approved + stats.drafts + stats.flagged;
 console.log(`Library: ${stats.approved} approved · ${stats.drafts} draft · ${stats.flagged} flagged (${total} total)`);
+if (process.argv.includes("--stats")) {
+  const l2 = stats.l2Replies ?? 0;
+  console.log(`Second language: ${l2}/${stats.totalReplies} replies (${stats.totalReplies ? Math.round((l2 / stats.totalReplies) * 100) : 0}%)`);
+}
 console.log(`Replies: ${stats.totalReplies} (avg ${(stats.totalReplies / Math.max(1, total)).toFixed(1)}/scenario) · trap coverage ${total ? Math.round((stats.withTrap / total) * 100) : 0}%`);
 
 if (process.argv.includes("--stats")) {

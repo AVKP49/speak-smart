@@ -34,6 +34,9 @@ works from any host path, including GitHub Pages project sites.
 - `src/content/loader.ts` — versioned JSON packs, lazy per category, IndexedDB mirror.
 - `src/store/` — IndexedDB wrapper + retention engine (streaks, XP, ranks, mastery).
 - `src/lib/` — DOM/date utils (voice + delivery scoring removed, see §10 below).
+- `src/i18n.ts` — chrome string tables (EN ships; second table flips the app).
+- Dual-language content: optional `*_l2` fields on jabs/lines/whys, rendered as
+  subtitles wherever `showL2` is on. Coverage: `npm run content:stats`.
 - `src/views/` — onboarding, Today, Library, Drill, Reveal, Arsenal (+recall), settings, styleguide.
 - `public/content/` — the library: `manifest.json` + one JSON file per subcategory (§5.3).
 - `public/sw.js` — offline-first service worker (§9.1).

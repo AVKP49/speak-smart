@@ -1,4 +1,4 @@
-/* Speak Smart design tokens — spec §2. Components reference tokens, never raw values. */
+/* Speak Smart design tokens — marquee theme. Components reference tokens, never raw values. */
 
 @font-face {
   font-family: "Fraunces";
@@ -16,26 +16,44 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("./fonts/grotesk-500-latin.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("./fonts/grotesk-700-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* §2.1 Color — dark theme is the primary and default experience. */
-  --ink: #0b0d10;
-  --surface: #14171c;
-  --surface-2: #1c2027;
-  --paper: #f4efe6;
-  --muted: #9aa1ab;
-  --faint: #5c636e;
-  --gold: #e8b34b;
-  --line: #262b33;
+  /* Marquee palette — backstage at the club. */
+  --ink: #0e0b12;
+  --surface: #17121e;
+  --surface-2: #221829;
+  --paper: #f6f1e7;
+  --muted: #a79fae;
+  --faint: #6b6373;
+  --gold: #f2b73b;
+  --ember: #ff5c38;
+  --line: #2c2333;
 
   /* Register colors — information only, always paired with glyph + name. */
-  --reg-boss: #e8b34b;
-  --reg-curt: #8fa3b8;
-  --reg-friendly: #7fb069;
-  --reg-comedic: #a78bfa;
-  --reg-sharp: #d64550;
+  --reg-boss: #f2b73b;
+  --reg-curt: #9bb2c9;
+  --reg-friendly: #8cc084;
+  --reg-comedic: #b79cff;
+  --reg-sharp: #ff6b74;
 
-  /* §2.2 Typography */
-  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  /* Type: Fraunces for the lines, Grotesk for headers/labels, Inter for body. */
+  --font-display: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;
+  --font-grotesk: "Space Grotesk", "Inter", -apple-system, sans-serif;
   --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
   --text-12: 0.75rem;
   --text-14: 0.875rem;
@@ -48,7 +66,7 @@
   --leading-line: 1.25;
   --leading-body: 1.55;
 
-  /* §2.3 Space (8pt grid), shape, elevation */
+  /* Space (8pt grid), shape */
   --space-4: 0.25rem;
   --space-8: 0.5rem;
   --space-16: 1rem;
@@ -56,17 +74,18 @@
   --space-32: 2rem;
   --space-48: 3rem;
   --space-64: 4rem;
-  --radius-card: 16px;
-  --radius-sheet: 20px;
-  --radius-button: 12px;
+  --radius-card: 18px;
+  --radius-sheet: 22px;
+  --radius-button: 14px;
   --radius-pill: 999px;
   --screen-margin: 20px;
   --content-max: 640px;
 
-  /* §2.4 Motion */
+  /* Motion */
   --dur-micro: 120ms;
   --dur-standard: 220ms;
   --dur-reveal: 320ms;
+  --dur-spotlight: 600ms;
   --ease-enter: ease-out;
   --ease-state: ease-in-out;
 

@@ -1,5 +1,6 @@
 /** Shared components — every screen is built from these + tokens (§1, §2). */
 import { REGISTERS, type Register } from "../config";
+import { t } from "../i18n";
 import type { Reply, Trap } from "../types";
 import type { Streak, Daily } from "../store/state";
 import { h } from "../lib/utils";
@@ -123,34 +124,84 @@ export function progressRing(fraction: number, size = 40, label?: string): SVGSV
 
 /* ---------- Reveal pieces (§4.4) ---------- */
 
-export function whyRow(reply: Reply): HTMLElement {
+/** Dual-language line: English first, second language as subtitle when on + present. */
+export function lineDual(en: string, l2: string | undefined, showL2: boolean, cls = "body", hero = false): HTMLElement {
+  const wrap = h("div", { class: "stack stack--tight" });
+  wrap.append(h("p", { class: cls }, en));
+  if (showL2 && l2) wrap.append(h("p", { class: hero ? "duel duel--hero" : "duel" }, l2));
+  return wrap;
+}
+
+export function whyRow(reply: Reply, showL2 = true): HTMLElement {
   const wrap = h("div", { class: "why-row" });
   wrap.append(
-    h("p", { class: "micro-label" }, "Why it works"),
+    h("p", { class: "micro-label" }, t("reveal.why")),
     h("p", { class: "body" }, reply.why),
   );
+  if (showL2 && reply.why_l2) wrap.append(h("p", { class: "duel" }, reply.why_l2));
   if (reply.delivery) wrap.append(h("p", { class: "small muted" }, reply.delivery));
   return wrap;
 }
 
-export function voiceRow(reply: Reply, opts: { current?: boolean } = {}): HTMLElement {
+export function voiceRow(reply: Reply, opts: { current?: boolean; showL2?: boolean } = {}): HTMLElement {
   const row = h("div", { class: "voice-row" });
   const head = h("div", { class: "row row--spread" });
   head.append(regMark(reply.register));
   if (reply.caution) head.append(h("span", { class: "caution" }, `Use with care · ${reply.caution}`));
   else if (opts.current) head.append(h("span", { class: "chip" }, "Your voice"));
-  row.append(head, h("p", { class: "body" }, reply.line));
+  row.append(head, lineDual(reply.line, reply.line_l2, opts.showL2 ?? true));
   return row;
 }
 
-export function trapCallout(trap: Trap): HTMLElement {
+export function trapCallout(trap: Trap, showL2 = true): HTMLElement {
   const box = h("div", { class: "trap-callout" });
   box.append(
-    h("p", { class: "micro-label" }, "The trap — satisfying, but costly"),
-    h("p", { class: "body" }, `\u201c${trap.line}\u201d`),
+    h("p", { class: "micro-label" }, t("reveal.trap")),
+    lineDual(`\u201c${trap.line}\u201d`, trap.line_l2 ? `\u201c${trap.line_l2}\u201d` : undefined, showL2),
     h("p", { class: "small muted" }, trap.why),
   );
+  if (showL2 && trap.why_l2) box.append(h("p", { class: "duel" }, trap.why_l2));
   return box;
+}
+
+/** Mastery pips: Pocketed 1 · Practiced 2 · Reflex 3. */
+export function pips(level: "Pocketed" | "Practiced" | "Reflex"): HTMLElement {
+  const filled = level === "Reflex" ? 3 : level === "Practiced" ? 2 : 1;
+  const wrap = h("span", { class: "pips", "aria-label": `${level}, ${filled} of 3` });
+  for (let i = 0; i < 3; i++) {
+    wrap.append(h("span", { class: i < filled ? "on" : "off", "aria-hidden": "true" }, "●"));
+  }
+  return wrap;
+}
+
+const CATEGORY_PATHS: Record<string, string> = {
+  work: `<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>`,
+  money: `<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/>`,
+  dating: `<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/>`,
+  friends: `<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-5.5 6.5-5.5s6.5 2 6.5 5.5M16 4.7a3.5 3.5 0 0 1 0 6.6M17.5 14.7c2.2.7 4 2.3 4 5.3"/>`,
+  family: `<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>`,
+  neighbors: `<path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>`,
+  public: `<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>`,
+  social: `<path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 21l2-5.4A8.5 8.5 0 1 1 21 11.5z"/>`,
+  texting: `<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>`,
+  "hard-moments": `<path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/>`,
+};
+
+/** Category icon in a gold disc. */
+export function catIcon(category: string): HTMLElement {
+  const disc = h("span", { class: "cat-disc", "aria-hidden": "true" });
+  disc.append(icon(CATEGORY_PATHS[category] ?? CATEGORY_PATHS["public"] ?? "", category));
+  return disc;
+}
+
+/** Goal-gradient progress bar. */
+export function rankbar(fraction: number, label: string): HTMLElement {
+  const bar = h("div", { class: "rankbar", role: "img", "aria-label": label });
+  const clamped = Math.max(0, Math.min(1, fraction));
+  const fill = h("div");
+  fill.setAttribute("style", `width: ${Math.round(clamped * 100)}%`);
+  bar.append(fill);
+  return bar;
 }
 
 export function cautionBadge(caution: string): HTMLElement {
@@ -168,9 +219,9 @@ export type TabId = "today" | "library" | "arsenal";
 export function tabbar(active: TabId, onNav: (tab: TabId) => void): HTMLElement {
   const bar = h("nav", { class: "tabbar", "aria-label": "Primary" });
   const tabs: { id: TabId; label: string; icon: () => SVGElement }[] = [
-    { id: "today", label: "Today", icon: Icons.today },
-    { id: "library", label: "Library", icon: Icons.library },
-    { id: "arsenal", label: "Arsenal", icon: Icons.arsenal },
+    { id: "today", label: t("tab.today"), icon: Icons.today },
+    { id: "library", label: t("tab.library"), icon: Icons.library },
+    { id: "arsenal", label: t("tab.arsenal"), icon: Icons.arsenal },
   ];
   for (const t of tabs) {
     const btn = h(

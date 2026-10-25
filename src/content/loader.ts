@@ -84,6 +84,16 @@ export function indexLibrary(manifest: ContentManifest, packs: PackFile[]): Libr
   return { manifest, packs, scenarios, byId, bySubcategory };
 }
 
+/** True when any loaded scenario carries second-language fields. */
+export function contentHasL2(library: Library): boolean {
+  return library.scenarios.some(
+    (s) =>
+      s.jab_l2 !== undefined ||
+      s.replies.some((r) => r.line_l2 !== undefined) ||
+      (s.trap?.line_l2 !== undefined),
+  );
+}
+
 /**
  * Today's drill: the least-seen scenario wins (random among ties), so the deck
  * feels fresh and every pack eventually surfaces. Pure function of library + history.

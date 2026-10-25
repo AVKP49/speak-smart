@@ -14,6 +14,8 @@ export interface Settings {
   beatMs: number;
   reducedMotion: boolean;
   onboarded: boolean;
+  /** Show the second language wherever the library carries it. */
+  showL2: boolean;
 }
 
 const DEFAULT_SETTINGS: Settings = {
@@ -22,6 +24,7 @@ const DEFAULT_SETTINGS: Settings = {
   beatMs: CONFIG.BEAT_MS,
   reducedMotion: false,
   onboarded: false,
+  showL2: true,
 };
 
 export async function getSettings(): Promise<Settings> {

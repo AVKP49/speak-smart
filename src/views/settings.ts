@@ -3,6 +3,8 @@
  * data (export, reset), about. Nothing else (spec §3.3).
  */
 import { CONFIG, REGISTER_ORDER, REGISTERS } from "../config";
+import { t } from "../i18n";
+import { contentHasL2 } from "../content/loader";
 import type { AppCtx } from "../app";
 import { h } from "../lib/utils";
 import { regMark, appheader } from "../components/ui";
@@ -16,7 +18,7 @@ export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<vo
   screen.append(appheader("Settings", { onBack: () => ctx.navigate("#/") }));
 
   /* Default register */
-  screen.append(h("p", { class: "micro-label" }, "Your voice"));
+  screen.append(h("p", { class: "kicker" }, t("settings.voice")));
   const voices = h("div", { class: "stack stack--tight", role: "radiogroup", "aria-label": "Default voice" });
   for (const register of REGISTER_ORDER) {
     const btn = h(
@@ -37,26 +39,35 @@ export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<vo
   screen.append(voices);
 
   /* Daily goal */
-  screen.append(goalRow("Daily goal", [...CONFIG.DAILY_GOAL_OPTIONS], settings.dailyGoal, async (v) => {
+  screen.append(goalRow(t("settings.goal"), [...CONFIG.DAILY_GOAL_OPTIONS], settings.dailyGoal, async (v) => {
     await saveSettings({ dailyGoal: v });
   }));
 
   /* Beat duration */
   const beatOptions = [800, 1200, 1600];
   const beatLabels = new Map([[800, "0.8s"], [1200, "1.2s"], [1600, "1.6s"]]);
-  screen.append(settingRow("Beat duration", seg(beatOptions, settings.beatMs, beatLabels, async (v) => {
+  screen.append(settingRow(t("settings.beat"), seg(beatOptions, settings.beatMs, beatLabels, async (v) => {
     await saveSettings({ beatMs: v });
   })));
 
+  /* Second language */
+  if (contentHasL2(ctx.library)) {
+    screen.append(settingRow(t("settings.language"), switchBtn(settings.showL2, async (v) => {
+      await saveSettings({ showL2: v });
+    }), "Every line, in two languages."));
+  } else {
+    screen.append(settingRow(t("settings.language"), h("span", { class: "small faint" }, "Not in this library yet.")));
+  }
+
   /* Reduced motion */
-  screen.append(settingRow("Reduce motion", switchBtn(settings.reducedMotion, async (v) => {
+  screen.append(settingRow(t("settings.motion"), switchBtn(settings.reducedMotion, async (v) => {
     await saveSettings({ reducedMotion: v });
     applyMotionClass(v);
   })));
 
   /* Data */
-  screen.append(h("p", { class: "micro-label" }, "Data"));
-  const exportBtn = h("button", { class: "btn btn--secondary" }, "Export Arsenal");
+  screen.append(h("p", { class: "kicker" }, t("settings.data")));
+  const exportBtn = h("button", { class: "btn btn--secondary" }, t("settings.export"));
   exportBtn.addEventListener("click", async () => {
     const json = await exportArsenal();
     const blob = new Blob([json], { type: "application/json" });
@@ -67,7 +78,7 @@ export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<vo
     a.remove();
     URL.revokeObjectURL(url);
   });
-  const reset = h("button", { class: "btn btn--quiet" }, "Reset everything");
+  const reset = h("button", { class: "btn btn--quiet" }, t("settings.reset"));
   reset.addEventListener("click", async () => {
     if (window.confirm("Reset everything? Your streak, Arsenal, and settings will be cleared.")) {
       await resetAllData();
@@ -78,7 +89,7 @@ export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<vo
   screen.append(exportBtn, reset);
 
   /* About — serious surface. */
-  screen.append(h("p", { class: "micro-label" }, "About"));
+  screen.append(h("p", { class: "kicker" }, t("settings.about")));
   const about = h("div", { class: "stack stack--tight" });
   const approved = ctx.library.scenarios.length;
   about.append(

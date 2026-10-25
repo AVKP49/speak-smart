@@ -1,4 +1,4 @@
-/* Speak Smart components — every value comes from tokens.css (§2). No raw values. */
+/* Speak Smart — marquee theme. Every value comes from tokens.css. No raw values. */
 
 *,
 *::before,
@@ -12,7 +12,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--ink);
+  background:
+    radial-gradient(ellipse 90% 32% at 50% -8%, rgba(242, 183, 59, 0.1), transparent 65%),
+    var(--ink);
+  background-attachment: fixed;
   color: var(--paper);
   font-family: var(--font-ui);
   font-size: var(--text-16);
@@ -32,7 +35,7 @@ body {
   width: 100%;
   max-width: var(--content-max);
   margin: 0 auto;
-  padding: var(--space-24) var(--screen-margin) calc(var(--space-64) + var(--space-32));
+  padding: var(--space-16) var(--screen-margin) calc(var(--space-64) + var(--space-32));
   display: flex;
   flex-direction: column;
   gap: var(--space-24);
@@ -87,11 +90,31 @@ body {
   text-wrap: balance;
 }
 
-/* The Line — the centerpiece (§1.3). Largest, most beautiful type on screen. */
+.screen-title {
+  font-family: var(--font-grotesk);
+  font-weight: 700;
+  font-size: var(--text-32);
+  letter-spacing: -0.02em;
+  margin: var(--space-8) 0 0;
+  text-wrap: balance;
+}
+
+/* Marquee kicker — the voice of the club. */
+.kicker {
+  font-family: var(--font-grotesk);
+  font-weight: 700;
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  margin: 0;
+}
+
+/* The Line — the centerpiece. Largest, most beautiful type on screen. */
 .line-hero {
   font-family: var(--font-display);
   font-weight: 560;
-  font-size: clamp(1.75rem, 7vw, 2.125rem);
+  font-size: clamp(1.9rem, 7.5vw, 2.4rem);
   line-height: var(--leading-line);
   letter-spacing: -0.01em;
   margin: 0;
@@ -99,11 +122,26 @@ body {
 }
 
 .jab-text {
-  color: var(--muted);
-  font-size: var(--text-16);
-  line-height: var(--leading-body);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: var(--text-20);
+  line-height: 1.4;
   margin: 0;
   text-wrap: pretty;
+}
+
+/* Second-language subtitle — dual-language format. */
+.duel {
+  color: var(--muted);
+  font-size: var(--text-14);
+  font-style: italic;
+  line-height: var(--leading-body);
+  margin: var(--space-4) 0 0;
+  text-wrap: pretty;
+}
+
+.duel--hero {
+  font-size: var(--text-16);
 }
 
 .micro-label {
@@ -136,7 +174,50 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---------- Buttons (Fitts: ≥48px, one primary per screen) ---------- */
+/* ---------- Brand banner ---------- */
+
+.brandbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  background: var(--ink);
+  border-bottom: 1px solid var(--line);
+  margin: calc(var(--space-16) * -1) calc(var(--screen-margin) * -1) 0;
+  padding: var(--space-8) var(--screen-margin);
+}
+
+.brand-word {
+  font-family: var(--font-grotesk);
+  font-size: var(--text-16);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.brand-word--small {
+  font-size: var(--text-14);
+}
+
+.brand-diamond {
+  color: var(--gold);
+  font-size: 0.85em;
+}
+
+.brandbar-mini {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4) 0;
+}
+
+/* ---------- Buttons ---------- */
 
 .btn {
   appearance: none;
@@ -144,9 +225,11 @@ body {
   border-radius: var(--radius-button);
   min-height: var(--target-min);
   padding: var(--space-8) var(--space-24);
-  font: inherit;
+  font-family: var(--font-grotesk);
   font-size: var(--text-16);
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -156,6 +239,7 @@ body {
   transition:
     transform var(--dur-micro) var(--ease-state),
     background-color var(--dur-micro) var(--ease-state),
+    border-color var(--dur-micro) var(--ease-state),
     opacity var(--dur-micro) var(--ease-state);
 }
 
@@ -164,7 +248,7 @@ body {
 }
 
 .btn:disabled {
-  opacity: 0.4;
+  opacity: 0.45;
   cursor: default;
   transform: none;
 }
@@ -186,6 +270,11 @@ body {
   background: transparent;
   color: var(--muted);
   min-height: var(--target-min);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-ui);
+  font-size: var(--text-14);
 }
 
 .btn:focus-visible,
@@ -220,7 +309,13 @@ body {
   gap: var(--space-8);
   transition:
     background-color var(--dur-micro) var(--ease-state),
-    border-color var(--dur-micro) var(--ease-state);
+    border-color var(--dur-micro) var(--ease-state),
+    transform var(--dur-micro) var(--ease-state);
+}
+
+.card-selectable:active {
+  transform: scale(0.99);
+  border-color: var(--gold);
 }
 
 .card-selectable--selected {
@@ -244,8 +339,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: var(--space-8);
+  font-family: var(--font-grotesk);
   font-size: var(--text-14);
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .reg-mark .glyph {
@@ -269,7 +367,7 @@ body {
   padding: var(--space-4) var(--space-8);
 }
 
-/* ---------- Tab bar (Jakob: familiar bottom tabs) ---------- */
+/* ---------- Tab bar ---------- */
 
 .tabbar {
   position: fixed;
@@ -289,8 +387,11 @@ body {
   border: 0;
   background: transparent;
   color: var(--faint);
-  font: inherit;
+  font-family: var(--font-grotesk);
   font-size: var(--text-12);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   min-height: calc(var(--target-min) + var(--space-8));
   display: flex;
   flex-direction: column;
@@ -298,6 +399,7 @@ body {
   justify-content: center;
   gap: var(--space-4);
   cursor: pointer;
+  position: relative;
 }
 
 .tab .tab-icon {
@@ -309,7 +411,17 @@ body {
   color: var(--gold);
 }
 
-/* ---------- Today ---------- */
+.tab--active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+}
+
+/* ---------- Today: the fight card ---------- */
 
 .status-strip {
   display: flex;
@@ -334,9 +446,15 @@ body {
   color: var(--gold);
 }
 
+.status-pill--ember {
+  border-color: var(--ember);
+  color: var(--ember);
+}
+
 .hero-card {
   background: var(--surface);
   border: 1px solid var(--line);
+  border-top: 2px solid var(--gold);
   border-radius: var(--radius-card);
   padding: var(--space-32);
   display: flex;
@@ -349,7 +467,21 @@ body {
   padding-left: var(--space-16);
 }
 
-/* ---------- The drill (serious surface — stark, focused) ---------- */
+/* Rank progress bar — goal-gradient, everywhere. */
+.rankbar {
+  height: 6px;
+  background: var(--line);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.rankbar > div {
+  height: 100%;
+  background: var(--gold);
+  border-radius: var(--radius-pill);
+}
+
+/* ---------- The drill: the ticket + the options ---------- */
 
 .drill-stage {
   display: flex;
@@ -358,10 +490,11 @@ body {
   min-height: 50dvh;
 }
 
+/* The jab arrives as a ticket stub. */
 .jab-card {
   position: relative;
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px dashed var(--faint);
   border-radius: var(--radius-card);
   padding: var(--space-24);
   display: flex;
@@ -369,7 +502,30 @@ body {
   gap: var(--space-16);
 }
 
-/* The Beat — signature interaction (§4.2). Thin gold ring breathes once. */
+.jab-card::before,
+.jab-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 1px dashed var(--faint);
+  transform: translateY(-50%);
+}
+
+.jab-card::before {
+  left: -11px;
+  clip-path: inset(0 0 0 50%);
+}
+
+.jab-card::after {
+  right: -11px;
+  clip-path: inset(0 50% 0 0);
+}
+
+/* The Beat — signature interaction. Thin gold ring breathes once. */
 .beat-ring {
   position: absolute;
   inset: -3px;
@@ -381,7 +537,6 @@ body {
 
 .beat-ring--breathing {
   animation: beat var(--dur-reveal) var(--ease-state);
-  /* Duration is re-set inline from CONFIG.BEAT_MS so the ring matches the lock. */
 }
 
 @keyframes beat {
@@ -398,16 +553,66 @@ body {
   }
 }
 
-/* Pick-only drill: options render as card-selectable buttons. No voice UI. */
+/* Gold sweep under the Beat label. */
+.beat-sweep {
+  height: 3px;
+  background: var(--line);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
 
-/* ---------- Reveal ---------- */
+.beat-sweep > div {
+  height: 100%;
+  width: 100%;
+  background: var(--gold);
+  transform-origin: left;
+  animation: sweep var(--dur-spotlight) var(--ease-state);
+}
+
+@keyframes sweep {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Drill options: ghost numbers, register edge. */
+.opt {
+  position: relative;
+  overflow: hidden;
+}
+
+.opt-index {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-16);
+  font-family: var(--font-grotesk);
+  font-weight: 700;
+  font-size: var(--text-24);
+  color: var(--line);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ---------- Reveal: the marquee ---------- */
 
 .centerpiece {
   display: flex;
   flex-direction: column;
   gap: var(--space-16);
-  padding: var(--space-32) 0;
+  padding: var(--space-24) 0 var(--space-32);
   animation: reveal var(--dur-reveal) var(--ease-enter);
+}
+
+.centerpiece::before {
+  content: "\201c";
+  font-family: var(--font-display);
+  font-size: var(--text-40);
+  line-height: 1;
+  color: var(--gold);
+  display: block;
 }
 
 @keyframes reveal {
@@ -418,6 +623,32 @@ body {
   to {
     opacity: 1;
     transform: none;
+  }
+}
+
+.xp-pop {
+  align-self: flex-start;
+  font-family: var(--font-grotesk);
+  font-weight: 700;
+  font-size: var(--text-14);
+  color: var(--ink);
+  background: var(--gold);
+  border-radius: var(--radius-pill);
+  padding: var(--space-4) var(--space-16);
+  animation: pop var(--dur-reveal) var(--ease-enter);
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -469,8 +700,42 @@ body {
   border-bottom: 0;
 }
 
+.row-tap:active {
+  background: var(--surface);
+}
+
 .ring {
   flex: none;
+}
+
+/* Category icon disc. */
+.cat-disc {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+}
+
+/* Mastery pips — the trophy case. */
+.pips {
+  display: inline-flex;
+  gap: var(--space-4);
+  font-size: var(--text-12);
+  letter-spacing: 0.1em;
+}
+
+.pips .on {
+  color: var(--gold);
+}
+
+.pips .off {
+  color: var(--line);
 }
 
 .mastery-pill {
@@ -485,6 +750,17 @@ body {
 .mastery-pill--due {
   border-color: var(--gold);
   color: var(--gold);
+  animation: pulse 2s var(--ease-state) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
 }
 
 .mastery-pill--reflex {
@@ -514,8 +790,9 @@ body {
   border: 1px solid var(--line);
   background: transparent;
   color: var(--muted);
-  font: inherit;
+  font-family: var(--font-grotesk);
   font-size: var(--text-14);
+  font-weight: 700;
   border-radius: var(--radius-pill);
   min-width: var(--target-min);
   min-height: var(--target-min);
@@ -607,6 +884,14 @@ body {
   align-self: flex-start;
 }
 
+.swatch-dot {
+  display: inline-block;
+  width: var(--space-16);
+  height: var(--space-16);
+  border-radius: 50%;
+  border: 1px solid var(--line);
+}
+
 /* ---------- Accessibility ---------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -617,14 +902,12 @@ body {
     transition-duration: 0.001s !important;
   }
 
-  /* The Beat becomes a static progress ring. */
   .beat-ring--breathing {
     animation: none;
     opacity: 0.9;
   }
 }
 
-/* In-app Reduce motion toggle (mirrors the OS preference block below). */
 .reduce-motion *,
 .reduce-motion *::before,
 .reduce-motion *::after {
@@ -635,104 +918,6 @@ body {
 .reduce-motion .beat-ring--breathing {
   animation: none;
   opacity: 0.9;
-}
-
-.swatch-dot {
-  display: inline-block;
-  width: var(--space-16);
-  height: var(--space-16);
-  border-radius: 50%;
-  border: 1px solid var(--line);
-}
-
-/* ---------- Brand banner + polish ---------- */
-
-.brandbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-16);
-  background: var(--ink);
-  border-bottom: 1px solid var(--line);
-  padding: var(--space-8) 0;
-  margin: 0 calc(var(--screen-margin) * -1);
-  padding-left: var(--screen-margin);
-  padding-right: var(--screen-margin);
-}
-
-.brand-word {
-  font-family: var(--font-display);
-  font-size: var(--text-20);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--paper);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-8);
-}
-
-.brand-word--small {
-  font-size: var(--text-16);
-}
-
-.brand-diamond {
-  color: var(--gold);
-  font-size: 0.8em;
-}
-
-.brandbar-mini {
-  display: flex;
-  justify-content: center;
-  padding: var(--space-4) 0;
-}
-
-.screen-title {
-  font-size: var(--text-40);
-  margin-top: var(--space-8);
-}
-
-.tab {
-  position: relative;
-}
-
-.tab--active::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 24px;
-  height: 3px;
-  border-radius: var(--radius-pill);
-  background: var(--gold);
-}
-
-.card-selectable:active {
-  transform: scale(0.99);
-  border-color: var(--gold);
-}
-
-.centerpiece {
-  position: relative;
-}
-
-.centerpiece::before {
-  content: "\201c";
-  font-family: var(--font-display);
-  font-size: var(--text-40);
-  line-height: 1;
-  color: var(--gold);
-  display: block;
-  margin-bottom: var(--space-8);
-}
-
-.btn--primary {
-  font-weight: 700;
-}
-
-.hero-card {
-  border-top: 2px solid var(--gold);
 }
 
 .sr-only {

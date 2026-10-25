@@ -6,8 +6,9 @@ import { REGISTERS, REGISTER_ORDER } from "../config";
 import { CATEGORIES } from "../types";
 import { categoryTitle, packTitle, type AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { notice, progressRing, regMark, tabbar, appheader } from "../components/ui";
-import { getArsenal, seenCounts } from "../store/state";
+import { catIcon, lineDual, notice, progressRing, regMark, tabbar, appheader } from "../components/ui";
+import { t } from "../i18n";
+import { getArsenal, getSettings, seenCounts } from "../store/state";
 
 function distinctSeen(ids: string[], seen: Record<string, number>): number {
   return ids.filter((id) => (seen[id] ?? 0) > 0).length;
@@ -28,7 +29,7 @@ export async function renderLibrary(root: HTMLElement, ctx: AppCtx, cat?: string
 async function renderCategories(root: HTMLElement, ctx: AppCtx): Promise<void> {
   const seen = await seenCounts();
   const screen = h("div", { class: "screen" });
-  screen.append(appheader("Library"));
+  screen.append(appheader(t("tab.library")));
   const list = h("div", { class: "card", style: "padding: var(--space-8) var(--space-16)" });
   for (const category of CATEGORIES) {
     const ids = ctx.library.scenarios.filter((s) => s.category === category.id).map((s) => s.id);
@@ -44,7 +45,7 @@ async function renderCategories(root: HTMLElement, ctx: AppCtx): Promise<void> {
         `${packsLive} of ${category.subcategories.length} packs live · ${distinctSeen(ids, seen)}/${ids.length} lines seen`,
       ),
     );
-    row.append(progressRing(fraction, 40, `${category.title} progress`), text);
+    row.append(catIcon(category.id), text, progressRing(fraction, 40, `${category.title} progress`));
     row.addEventListener("click", () => ctx.navigate(`#/library/${category.id}`));
     list.append(row);
   }
@@ -93,7 +94,7 @@ async function renderSubcategories(root: HTMLElement, ctx: AppCtx, cat: string):
 
 async function renderPack(root: HTMLElement, ctx: AppCtx, cat: string, sub: string): Promise<void> {
   const scenarios = ctx.library.bySubcategory.get(`${cat}/${sub}`) ?? [];
-  const [seen, arsenal] = await Promise.all([seenCounts(), getArsenal()]);
+  const [seen, arsenal, settings] = await Promise.all([seenCounts(), getArsenal(), getSettings()]);
   const savedHere = arsenal.filter((e) => scenarios.some((s) => s.id === e.scenarioId)).length;
   const title = packTitle(ctx.library, cat, sub);
   const screen = h("div", { class: "screen" });
@@ -125,10 +126,9 @@ async function renderPack(root: HTMLElement, ctx: AppCtx, cat: string, sub: stri
   for (const s of scenarios) {
     const row = h("button", { class: "row-tap" });
     const done = (seen[s.id] ?? 0) > 0;
-    row.append(
-      h("span", { class: done ? "faint" : "body", style: "flex: 1" }, `\u201c${s.jab}\u201d`),
-      h("span", { class: "small faint metric" }, `Lv ${s.difficulty}`),
-    );
+    const jab = lineDual(`\u201c${s.jab}\u201d`, s.jab_l2, settings.showL2, done ? "small faint" : "body");
+    jab.setAttribute("style", "flex: 1");
+    row.append(jab, h("span", { class: "small faint metric" }, `Lv ${s.difficulty}`));
     row.addEventListener("click", () => ctx.startDrill(s.id, `#/library/${cat}/${sub}`));
     list.append(row);
   }
