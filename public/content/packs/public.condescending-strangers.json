@@ -5,7 +5,7 @@
     "subcategory": "condescending-strangers",
     "title": "Condescending strangers",
     "description": "Unsolicited superiority from people you'll never see again. Brief and gone.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Bookstore. You ask where the new releases are; the clerk sighs audibly.",
       "jab": "It's literally signed everywhere. Just look around.",
       "difficulty": 1,
-      "tags": ["service", "condescension"],
+      "tags": [
+        "service",
+        "condescension"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "The signs cover books, not manners. Where to?",
           "why": "It answers rudeness in kind, which wins the moment and loses the high ground.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "I'm sign-blind. It's a condition.",
+          "why": "A fake diagnosis makes them the good Samaritan instead of the scold.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Let me speak to your manager about your attitude.",
         "why": "Escalating over a sigh spends ten minutes to feel worse about a bookstore."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "public.condescending-strangers.0002",
@@ -55,7 +67,10 @@
       "setting": "Gym. You rerack your weights; a stranger watches, arms crossed.",
       "jab": "You know that's not how you do that exercise, right?",
       "difficulty": 2,
-      "tags": ["unsolicited-advice", "stranger"],
+      "tags": [
+        "unsolicited-advice",
+        "stranger"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -80,9 +95,18 @@
           "line": "Shh — I'm doing the wrong version on purpose. Chaos reps.",
           "why": "Absurd commitment to the bit makes correcting you feel ridiculous.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "My form's avant-garde. Thanks.",
+          "why": "It frames the correction as art criticism, which no one continues.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

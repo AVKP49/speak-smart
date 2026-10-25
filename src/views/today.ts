@@ -6,7 +6,7 @@ import { REGISTERS } from "../config";
 import { pickNextScenario } from "../content/loader";
 import { categoryTitle, packTitle, type AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { tabbar, topbar, statusStrip, progressRing } from "../components/ui";
+import { tabbar, appheader, statusStrip, progressRing } from "../components/ui";
 import {
   dueReviews,
   getArsenal,
@@ -34,7 +34,7 @@ export async function renderToday(root: HTMLElement, ctx: AppCtx): Promise<void>
 
   const screen = h("div", { class: "screen" });
   screen.append(
-    topbar("Today", { onAvatar: () => ctx.navigate("#/settings") }),
+    appheader("Today", { onAvatar: () => ctx.navigate("#/settings") }),
     statusStrip({ streak, daily, goal: settings.dailyGoal, arsenalCount: arsenal.length }),
   );
 

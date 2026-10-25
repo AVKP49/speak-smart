@@ -5,7 +5,7 @@
     "subcategory": "tipping-checkout",
     "title": "Tipping & checkout pressure",
     "description": "The tipped tablet turn. Tip for service, not for being watched.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Counter pickup. The cashier flips the tablet: 25%, 30%, 35%.",
       "jab": "It's just going to ask you a quick question.",
       "difficulty": 1,
-      "tags": ["pressure", "public"],
+      "tags": [
+        "pressure",
+        "public"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -41,13 +44,22 @@
           "line": "The tablet and I disagree on what happened here.",
           "why": "Blaming the tablet lets you both laugh while you tap zero together.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Zero. The tablet asked, I answered.",
+          "why": "Answering the machine out loud turns the awkward tap into a punchline you both share.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "This tipping stuff is out of control, honestly.",
         "why": "Lecturing the cashier punishes the person with the least power over the policy."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "money.tipping-checkout.0002",
@@ -56,7 +68,10 @@
       "setting": "Restaurant. The server hovers while you split the bill with friends.",
       "jab": "Just so you know, the machine adds eighteen percent automatically.",
       "difficulty": 2,
-      "tags": ["pressure", "service"],
+      "tags": [
+        "pressure",
+        "service"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -75,9 +90,24 @@
           "line": "Perfect, that makes it easy — thanks for looking after us.",
           "why": "Gratitude for the service lands better than extra money ever could.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Auto-gratitude: my favorite kind.",
+          "why": "Loving the policy out loud makes the hovering unnecessary for everyone.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Eighteen percent settled. Check closed.",
+          "why": "It reads the receipt like a verdict, which is exactly what it is.",
+          "caution": null
         }
       ],
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     }
   ]
 }

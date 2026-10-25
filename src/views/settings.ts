@@ -5,7 +5,7 @@
 import { CONFIG, REGISTER_ORDER, REGISTERS } from "../config";
 import type { AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { regMark, topbar } from "../components/ui";
+import { regMark, appheader } from "../components/ui";
 import { exportArsenal, getSettings, resetAllData, saveSettings } from "../store/state";
 
 const APP_VERSION = "0.1.0";
@@ -13,7 +13,7 @@ const APP_VERSION = "0.1.0";
 export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<void> {
   const settings = await getSettings();
   const screen = h("div", { class: "screen" });
-  screen.append(topbar("Settings", { onBack: () => ctx.navigate("#/") }));
+  screen.append(appheader("Settings", { onBack: () => ctx.navigate("#/") }));
 
   /* Default register */
   screen.append(h("p", { class: "micro-label" }, "Your voice"));

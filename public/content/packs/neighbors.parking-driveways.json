@@ -5,7 +5,7 @@
     "subcategory": "parking-driveways",
     "title": "Parking & driveways",
     "description": "Your spot, their car. Calm words before tow trucks.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Your driveway, blocked. The neighbor leans out their door.",
       "jab": "I'll only be like ten minutes. Chill.",
       "difficulty": 2,
-      "tags": ["parking", "boundaries"],
+      "tags": [
+        "parking",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -34,13 +37,28 @@
           "line": "I believe you — and I still need out. Quick move?",
           "why": "Believing them while holding your need keeps it neighborly and effective.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Ten minutes? My driveway charges hourly.",
+          "why": "Invoicing the spot makes moving it the cheaper joke.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "My driveway isn't guest parking.",
+          "why": "It states the property line as fact, which no charm can move.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Park there again and I'm having you towed.",
         "why": "Threatening the tow before asking the move makes you the street's problem."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "neighbors.parking-driveways.0002",
@@ -49,7 +67,10 @@
       "setting": "Apartment lot. A stranger is in your assigned spot, windows down.",
       "jab": "There's like twenty open spots. What's the big deal?",
       "difficulty": 1,
-      "tags": ["parking", "stranger"],
+      "tags": [
+        "parking",
+        "stranger"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +95,18 @@
           "line": "I named that spot. We're close. Pick another friend.",
           "why": "Fake attachment to asphalt makes moving feel like a favor, not a loss.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Then enjoy the other nineteen.",
+          "why": "It grants their premise and spends it against them in five words.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

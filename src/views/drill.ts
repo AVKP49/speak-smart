@@ -10,7 +10,7 @@
 import { REGISTERS } from "../config";
 import { categoryTitle, type AppCtx, type DrillRequest, type DrillResult } from "../app";
 import { h, shuffle } from "../lib/utils";
-import { regMark } from "../components/ui";
+import { brandMini, regMark } from "../components/ui";
 import { getSettings, recordScenarioSeen } from "../store/state";
 import type { Reply, Scenario } from "../types";
 
@@ -45,7 +45,7 @@ export async function renderDrill(
   const screen = h("div", { class: "screen" });
   const stage = h("div", { class: "drill-stage" });
   root.append(screen);
-  screen.append(stage);
+  screen.append(brandMini(), stage);
 
   const finish = (partial: Partial<DrillResult>) => {
     if (finished || dead) return;

@@ -6,7 +6,7 @@ import { REGISTERS, REGISTER_ORDER } from "../config";
 import { CATEGORIES } from "../types";
 import { categoryTitle, packTitle, type AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { notice, progressRing, regMark, tabbar, topbar } from "../components/ui";
+import { notice, progressRing, regMark, tabbar, appheader } from "../components/ui";
 import { getArsenal, seenCounts } from "../store/state";
 
 function distinctSeen(ids: string[], seen: Record<string, number>): number {
@@ -28,7 +28,7 @@ export async function renderLibrary(root: HTMLElement, ctx: AppCtx, cat?: string
 async function renderCategories(root: HTMLElement, ctx: AppCtx): Promise<void> {
   const seen = await seenCounts();
   const screen = h("div", { class: "screen" });
-  screen.append(topbar("Library"));
+  screen.append(appheader("Library"));
   const list = h("div", { class: "card", style: "padding: var(--space-8) var(--space-16)" });
   for (const category of CATEGORIES) {
     const ids = ctx.library.scenarios.filter((s) => s.category === category.id).map((s) => s.id);
@@ -57,7 +57,7 @@ async function renderSubcategories(root: HTMLElement, ctx: AppCtx, cat: string):
   const category = CATEGORIES.find((c) => c.id === cat);
   const seen = await seenCounts();
   const screen = h("div", { class: "screen" });
-  screen.append(topbar(category?.title ?? cat, { onBack: () => ctx.navigate("#/library") }));
+  screen.append(appheader(category?.title ?? cat, { onBack: () => ctx.navigate("#/library") }));
   if (!category) {
     screen.append(notice("That shelf doesn't exist. The library has ten categories — start there."));
     root.append(screen);
@@ -97,7 +97,7 @@ async function renderPack(root: HTMLElement, ctx: AppCtx, cat: string, sub: stri
   const savedHere = arsenal.filter((e) => scenarios.some((s) => s.id === e.scenarioId)).length;
   const title = packTitle(ctx.library, cat, sub);
   const screen = h("div", { class: "screen" });
-  screen.append(topbar(title, { onBack: () => ctx.navigate(`#/library/${cat}`) }));
+  screen.append(appheader(title, { onBack: () => ctx.navigate(`#/library/${cat}`) }));
   if (scenarios.length === 0) {
     screen.append(notice("This pack drops in a future week. The library grows weekly — check back."));
     root.append(screen);

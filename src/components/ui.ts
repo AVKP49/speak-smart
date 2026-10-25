@@ -189,6 +189,41 @@ export function tabbar(active: TabId, onNav: (tab: TabId) => void): HTMLElement 
   return bar;
 }
 
+/** App header: brand banner + big screen title. The app name is always visible. */
+export function appheader(title: string, opts: { onBack?: () => void; onAvatar?: () => void } = {}): HTMLElement {
+  const wrap = h("div", { class: "stack stack--tight" });
+  const bar = h("div", { class: "brandbar" });
+  const left = h("div", { class: "row" });
+  if (opts.onBack) {
+    const back = h("button", { class: "back-link", "aria-label": "Back" }, "‹ Back");
+    back.addEventListener("click", opts.onBack);
+    left.append(back);
+  }
+  const word = h("span", { class: "brand-word" });
+  const diamond = h("span", { class: "brand-diamond", "aria-hidden": "true" }, "◆");
+  word.append(diamond, document.createTextNode("Speak Smart"));
+  left.append(word);
+  bar.append(left);
+  if (opts.onAvatar) {
+    const avatar = h("button", { class: "avatar-btn", "aria-label": "Profile and settings" });
+    avatar.append(Icons.user());
+    avatar.addEventListener("click", opts.onAvatar);
+    bar.append(avatar);
+  }
+  wrap.append(bar, h("h1", { class: "display screen-title" }, title));
+  return wrap;
+}
+
+/** Slim centered brand mark for focused screens (drill, reveal). */
+export function brandMini(): HTMLElement {
+  const wrap = h("div", { class: "brandbar-mini" });
+  const word = h("span", { class: "brand-word brand-word--small" });
+  const diamond = h("span", { class: "brand-diamond", "aria-hidden": "true" }, "◆");
+  word.append(diamond, document.createTextNode("Speak Smart"));
+  wrap.append(word);
+  return wrap;
+}
+
 export function topbar(title: string, opts: { onBack?: () => void; onAvatar?: () => void } = {}): HTMLElement {
   const bar = h("div", { class: "topbar" });
   const left = h("div", { class: "row" });

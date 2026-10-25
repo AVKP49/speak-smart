@@ -81,3 +81,6 @@ works from any host path, including GitHub Pages project sites.
     the drill and recall are pick / read / honest-self-mark only. The spec's §4.3
     threshold table and §9.2 voice section are superseded; the corresponding
     config, modules, styles, and copy were deleted, not stubbed.
+11. **Wit rule (founder direction).** Every scenario carries 2+ Comedic/Sharp
+    replies, verified by batch script (see commit). Exception: apologizing-well
+    caps at one dry comedic each — a blade in an apology is cruelty, not wit.

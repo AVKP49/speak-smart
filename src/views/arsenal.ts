@@ -6,7 +6,7 @@
 import { REGISTER_ORDER, REGISTERS } from "../config";
 import type { AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { notice, regMark, tabbar, topbar } from "../components/ui";
+import { notice, regMark, tabbar, appheader, topbar } from "../components/ui";
 import {
   dueReviews,
   getArsenal,
@@ -19,7 +19,7 @@ import {
 export async function renderArsenal(root: HTMLElement, ctx: AppCtx): Promise<void> {
   const [entries, due] = await Promise.all([getArsenal(), dueReviews()]);
   const screen = h("div", { class: "screen" });
-  screen.append(topbar("Arsenal"));
+  screen.append(appheader("Arsenal"));
 
   if (entries.length === 0) {
     screen.append(

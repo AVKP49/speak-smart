@@ -6,7 +6,7 @@ import { REGISTERS } from "../config";
 import { categoryTitle, packTitle, type AppCtx, type DrillResult } from "../app";
 import { pickNextScenario } from "../content/loader";
 import { h } from "../lib/utils";
-import { cautionBadge, notice, regMark, trapCallout, voiceRow, whyRow } from "../components/ui";
+import { brandMini, cautionBadge, notice, regMark, trapCallout, voiceRow, whyRow } from "../components/ui";
 import {
   addDrillCompleted,
   getSettings,
@@ -48,6 +48,7 @@ export async function renderReveal(root: HTMLElement, ctx: AppCtx, result: Drill
 
   const screen = h("div", { class: "screen" });
   screen.append(
+    brandMini(),
     h("p", { class: "micro-label" }, `${categoryTitle(ctx.library, scenario.category)} · ${packTitle(ctx.library, scenario.category, scenario.subcategory)}`),
   );
 

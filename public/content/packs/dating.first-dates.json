@@ -5,7 +5,7 @@
     "subcategory": "first-dates",
     "title": "First dates",
     "description": "Tests disguised as small talk. Answer the question, keep your dignity.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "First date, drinks. Midway through your story, they check their watch.",
       "jab": "So anyway — how much do you make, roughly?",
       "difficulty": 2,
-      "tags": ["intrusive", "boundaries"],
+      "tags": [
+        "intrusive",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "Somewhere between intern and Bond villain. You?",
           "why": "A joke answer to an audit question signals the topic is closed and the night isn't.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Salary talk? Buy me dinner first.",
+          "why": "It prices the question as intimacy, which either charms them or ends the audit.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Wow. Rude. Check please.",
         "why": "Walking out over one clumsy question spends a whole evening to win a moment."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "dating.first-dates.0002",
@@ -55,7 +67,10 @@
       "setting": "First date. They've spent twenty minutes on their ex.",
       "jab": "Sorry, sorry — my ex just really messed me up, you know?",
       "difficulty": 2,
-      "tags": ["ex", "boundaries"],
+      "tags": [
+        "ex",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -80,9 +95,18 @@
           "line": "At this rate I should've brought them flowers too.",
           "why": "It points out the third wheel at the table with a joke instead of a complaint.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Should I save you the middle seat?",
+          "why": "Treating the ex as a third date reframes the monologue as a seating problem.",
+          "caution": null
         }
       ],
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "dating.first-dates.0003",
@@ -91,7 +115,10 @@
       "setting": "End of a decent first date. They walk you to your car.",
       "jab": "So… your place or mine?",
       "difficulty": 3,
-      "tags": ["pressure", "boundaries"],
+      "tags": [
+        "pressure",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -111,13 +138,28 @@
           "line": "I don't move that fast — but I'd like a second date.",
           "why": "It frames the no as your pace, not their failure, and offers the future explicitly.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "My place has a strict guest list. Me.",
+          "why": "Absurd bureaucracy makes the no final without making the night cold.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Bold question. My answer's no.",
+          "why": "It grades the ask while keeping the verdict to one syllable.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Ugh, I knew this was all you wanted.",
         "why": "Assuming the worst about the whole date burns someone who took one shot."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     }
   ]
 }

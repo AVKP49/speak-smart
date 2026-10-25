@@ -5,7 +5,7 @@
     "subcategory": "moochers",
     "title": "Moochers & money asks",
     "description": "The friend with an empty wallet and perfect timing. Keep the friend, keep the money.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Group dinner. The check lands; your friend suddenly studies the ceiling.",
       "jab": "Just put it on your card — I'll get you back, I swear.",
       "difficulty": 1,
-      "tags": ["money", "group"],
+      "tags": [
+        "money",
+        "group"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "My card's retired from lending. It unionized.",
           "why": "Blaming your card lets the table laugh while the point lands on him.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Your wallet's shy. Mine's retired.",
+          "why": "Diagnosing both wallets as people makes the split the joke's punchline.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "You ALWAYS do this. Pay your own way for once.",
         "why": "A public callout collects the forty dollars and loses the friend."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "friends.moochers.0002",
@@ -55,7 +67,10 @@
       "setting": "Phone call. A friend you like owes you two hundred from spring.",
       "jab": "Hey man, can you float me another hundred till Friday?",
       "difficulty": 2,
-      "tags": ["money", "boundaries"],
+      "tags": [
+        "money",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +89,24 @@
           "line": "I'm tapped out on loans this year — want help budgeting instead?",
           "why": "It closes the wallet while opening a door, so the friendship has somewhere to go.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "My wallet filed a restraining order.",
+          "why": "Blaming legal paperwork keeps the no between you two funny.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "The bank of me is closed.",
+          "why": "It closes the institution with a smile, so the friendship stays open.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

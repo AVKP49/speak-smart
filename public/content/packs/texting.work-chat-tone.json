@@ -5,7 +5,7 @@
     "subcategory": "work-chat-tone",
     "title": "Work chat tone traps",
     "description": "Per my last message. Written words with an audience of the whole company.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,11 @@
       "setting": "Team channel. A peer corrects you in front of forty people.",
       "jab": "Per my last message — that's not what we agreed.",
       "difficulty": 2,
-      "tags": ["correction", "public", "work-chat"],
+      "tags": [
+        "correction",
+        "public",
+        "work-chat"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +44,22 @@
           "line": "Per this message — show me.",
           "why": "It mirrors the phrasing back with a smile, which the channel will remember.",
           "caution": "work-risk"
+        },
+        {
+          "register": "comedic",
+          "line": "My last message sends its regards.",
+          "why": "Personifying the thread makes the receipts feel friendly instead of hostile.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Don't correct me in the channel. DM me next time.",
         "why": "Tone-policing in the thread starts the exact public fight you wanted to avoid."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "texting.work-chat-tone.0002",
@@ -55,7 +68,10 @@
       "setting": "DM from your manager, no context, 9:04am.",
       "jab": "Got a minute?",
       "difficulty": 1,
-      "tags": ["anxiety", "manager"],
+      "tags": [
+        "anxiety",
+        "manager"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +90,24 @@
           "line": "Always — what's on your mind?",
           "why": "Warmth first makes whatever follows land on a good relationship.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Ominous. Love that for a Monday.",
+          "why": "Calling the DM ominous with affection usually gets the point faster.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Minutes cost extra. Go ahead.",
+          "why": "It prices your time as a joke, which makes him spend the minute well.",
+          "caution": "work-risk"
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

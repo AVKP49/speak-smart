@@ -5,7 +5,7 @@
     "subcategory": "line-cutters",
     "title": "Line-cutters",
     "description": "The sidle-in ahead of you. Loud enough for the line, calm enough for you.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Coffee line, morning rush. Someone slides in ahead of you.",
       "jab": "Oh — I didn't see you there.",
       "difficulty": 1,
-      "tags": ["line", "stranger"],
+      "tags": [
+        "line",
+        "stranger"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "Invisibility is my curse. End of the line breaks the spell.",
           "why": "Playing along with the excuse while redirecting gets laughs and compliance.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Vision's back. End of line.",
+          "why": "It grants the miracle of sight and prescribes the cure in one breath.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Seriously? Who raised you?",
         "why": "Insulting a stranger over coffee makes the line uncomfortable with you, not them."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "public.line-cutters.0002",
@@ -55,7 +67,10 @@
       "setting": "Airport security. A traveler wedges in with the rolling bag.",
       "jab": "My flight's boarding. You don't mind, right?",
       "difficulty": 2,
-      "tags": ["line", "pressure"],
+      "tags": [
+        "line",
+        "pressure"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +89,24 @@
           "line": "Tight connection? Tell the agent up front — they fast-track those.",
           "why": "It solves their real problem without spending your place in line.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Everyone's flight is boarding. Including mine.",
+          "why": "It points out the universal excuse with a grin that holds your spot.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Should've left earlier. We all did.",
+          "why": "It distributes the blame evenly, which leaves no room to cut.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

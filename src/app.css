@@ -645,6 +645,96 @@ body {
   border: 1px solid var(--line);
 }
 
+/* ---------- Brand banner + polish ---------- */
+
+.brandbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
+  background: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: var(--space-8) 0;
+  margin: 0 calc(var(--screen-margin) * -1);
+  padding-left: var(--screen-margin);
+  padding-right: var(--screen-margin);
+}
+
+.brand-word {
+  font-family: var(--font-display);
+  font-size: var(--text-20);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.brand-word--small {
+  font-size: var(--text-16);
+}
+
+.brand-diamond {
+  color: var(--gold);
+  font-size: 0.8em;
+}
+
+.brandbar-mini {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4) 0;
+}
+
+.screen-title {
+  font-size: var(--text-40);
+  margin-top: var(--space-8);
+}
+
+.tab {
+  position: relative;
+}
+
+.tab--active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+}
+
+.card-selectable:active {
+  transform: scale(0.99);
+  border-color: var(--gold);
+}
+
+.centerpiece {
+  position: relative;
+}
+
+.centerpiece::before {
+  content: "\201c";
+  font-family: var(--font-display);
+  font-size: var(--text-40);
+  line-height: 1;
+  color: var(--gold);
+  display: block;
+  margin-bottom: var(--space-8);
+}
+
+.btn--primary {
+  font-weight: 700;
+}
+
+.hero-card {
+  border-top: 2px solid var(--gold);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

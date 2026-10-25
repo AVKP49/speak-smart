@@ -5,7 +5,7 @@
     "subcategory": "escaping-conversation",
     "title": "Escaping a conversation politely",
     "description": "The corner trap. Leave every conversation warmer than you found it.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "House party. A guest has held you hostage for twenty minutes.",
       "jab": "Wait, one more thing — this part of the story is the best part—",
       "difficulty": 1,
-      "tags": ["exit", "party"],
+      "tags": [
+        "exit",
+        "party"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "To be continued — my drink needs a plus-one.",
           "why": "Blaming your empty glass gives the exit a punchline instead of an excuse.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Cliffhanger. I'll catch the sequel.",
+          "why": "It frames your exit as fandom, which flatters them out of the corner.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Sorry, I'm just going to go talk to literally anyone else.",
         "why": "Honesty about escaping makes the story they'll tell about you."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "social.escaping-conversation.0002",
@@ -55,7 +67,10 @@
       "setting": "Wedding cocktail hour. A plus-one quizzes you about people you don't know.",
       "jab": "So do you know the bride's college roommate's boyfriend? No? What about—",
       "difficulty": 1,
-      "tags": ["exit", "wedding"],
+      "tags": [
+        "exit",
+        "wedding"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +89,18 @@
           "line": "My clearance level doesn't cover roommates of boyfriends.",
           "why": "Fake security clearance makes not-knowing a joke instead of a failure.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "I know the cake. That's all.",
+          "why": "It narrows your expertise to dessert, which ends the quiz deliciously.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

@@ -5,7 +5,7 @@
     "subcategory": "dry-replies",
     "title": "Dry replies & left on read",
     "description": "K. Sure. Seen 9:41pm. Match the energy or end the thread with grace.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Text thread. You sent three warm paragraphs; the reply arrives in minutes.",
       "jab": "k",
       "difficulty": 1,
-      "tags": ["dry", "texting"],
+      "tags": [
+        "dry",
+        "texting"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "A whole letter. Don't spend it all at once.",
           "why": "Treating the k as generosity roasts the dryness without roasting the person.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "K. Great chat. Five stars.",
+          "why": "It reviews the thread like a ride, which says everything without sending more.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Wow ok. Guess I'll just stop texting you then.",
         "why": "Announcing your exit over one dry reply makes a mood into a breakup."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "texting.dry-replies.0002",
@@ -55,7 +67,10 @@
       "setting": "Dating app. After a good exchange, they vanish for six days, then:",
       "jab": "hey sorry lol crazy week. wyd",
       "difficulty": 2,
-      "tags": ["fading", "dating"],
+      "tags": [
+        "fading",
+        "dating"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -80,9 +95,18 @@
           "line": "Six days of crazy. Hope Thursday is calmer — coffee?",
           "why": "It clocks the gap with a smile while still offering the date.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Crazy week? Mine filed for calm.",
+          "why": "Matching their excuse with paperwork keeps the re-offer light.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "texting.dry-replies.0003",
@@ -91,7 +115,10 @@
       "setting": "Friend thread. You've been left on read for two days after asking a favor.",
       "jab": "seen 9:41pm — no reply",
       "difficulty": 2,
-      "tags": ["read", "favor"],
+      "tags": [
+        "read",
+        "favor"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -110,13 +137,28 @@
           "line": "No pressure either way — just need to know by Friday.",
           "why": "Removing pressure while adding a deadline makes replying safe and urgent.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Read receipts: the coldest read.",
+          "why": "It roasts the feature instead of the friend, which gets the faster reply.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Seen is not an answer.",
+          "why": "It states the chat's terms of service in five flat words.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Hello?? I can see you read it.",
         "why": "Prosecuting the read receipt turns a slow friend into a defensive one."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }

@@ -5,7 +5,7 @@
     "subcategory": "boundaries-early",
     "title": "Setting boundaries early",
     "description": "New-dating pressure tests. Clear early beats resentful later.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Third date. You say you have an early morning; they order another round.",
       "jab": "Oh come on, one more. Don't be boring.",
       "difficulty": 2,
-      "tags": ["pressure", "boundaries"],
+      "tags": [
+        "pressure",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "Boring people need sleep too. It's in the handbook.",
           "why": "Agreeing with the charge at double volume turns it into a shared joke.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Boring leaves at ten. Bye.",
+          "why": "It signs the label and exits on schedule, which is the whole point.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Fine, ONE more, but you're annoying.",
         "why": "Caving with resentment teaches them pressure works and you keep score."
       },
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     },
     {
       "id": "dating.boundaries-early.0002",
@@ -55,7 +67,10 @@
       "setting": "Two weeks in. They want your location shared, always.",
       "jab": "If you have nothing to hide, just share your location. Everyone does it.",
       "difficulty": 3,
-      "tags": ["privacy", "boundaries"],
+      "tags": [
+        "privacy",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +89,24 @@
           "line": "I'm not there yet — let's earn the boring-couple perks first.",
           "why": "Framing privacy as a stage of the relationship keeps it warm and firm.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "My location's shy. It needs time.",
+          "why": "Giving your phone stage fright keeps the boundary cute instead of cold.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Hidden? No. Just not yours yet.",
+          "why": "It corrects secrecy framing into pacing, which is the actual truth.",
+          "caution": null
         }
       ],
-      "review": { "tier": "full", "status": "approved" }
+      "review": {
+        "tier": "full",
+        "status": "approved"
+      }
     }
   ]
 }

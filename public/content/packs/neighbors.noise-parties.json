@@ -5,7 +5,7 @@
     "subcategory": "noise-parties",
     "title": "Noise & parties",
     "description": "Bass through the wall at midnight. Firm, neighborly, documented.",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "scenarios": [
     {
@@ -15,7 +15,10 @@
       "setting": "Midnight. You knock; your neighbor opens with the music behind them.",
       "jab": "Oh come on, it's Saturday. Loosen up.",
       "difficulty": 2,
-      "tags": ["noise", "boundaries"],
+      "tags": [
+        "noise",
+        "boundaries"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -40,13 +43,22 @@
           "line": "Your playlist slaps. My ceiling disagrees. Meet halfway?",
           "why": "Complimenting the music while citing the ceiling splits the difference with a grin.",
           "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "I'm the fun neighbor. After quiet hours.",
+          "why": "It claims the fun title on your schedule, which splits the difference cleanly.",
+          "caution": null
         }
       ],
       "trap": {
         "line": "Turn it off or I'm calling the cops.",
         "why": "Opening with the nuclear threat spends your only leverage on night one."
       },
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     },
     {
       "id": "neighbors.noise-parties.0002",
@@ -55,7 +67,10 @@
       "setting": "Morning after. Your neighbor, taking out trash, spots you.",
       "jab": "Someone's grumpy. Rough night, grandpa?",
       "difficulty": 1,
-      "tags": ["teasing", "noise"],
+      "tags": [
+        "teasing",
+        "noise"
+      ],
       "replies": [
         {
           "register": "boss",
@@ -74,9 +89,24 @@
           "line": "Haha — worth it though, hope it was a good one.",
           "why": "Grace about your own complaint makes the next one land softer.",
           "caution": null
+        },
+        {
+          "register": "comedic",
+          "line": "Grandpa accepts tribute in quiet.",
+          "why": "Owning the nickname with a fake tariff ends the bit as friends.",
+          "caution": null
+        },
+        {
+          "register": "sharp",
+          "line": "Rough night? Best sleep ever.",
+          "why": "It denies the damage with a grin, which banks the goodwill anyway.",
+          "caution": null
         }
       ],
-      "review": { "tier": "sample", "status": "approved" }
+      "review": {
+        "tier": "sample",
+        "status": "approved"
+      }
     }
   ]
 }
