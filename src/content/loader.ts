@@ -20,12 +20,12 @@ async function fetchJson<T>(url: string): Promise<T> {
   return (await res.json()) as T;
 }
 
-function manifestUrl(): string {
-  return new URL(CONFIG.CONTENT_MANIFEST_URL, document.baseURI).toString();
+export function manifestUrl(base: string = document.baseURI): string {
+  return new URL(CONFIG.CONTENT_MANIFEST_URL, base).toString();
 }
 
-function packUrl(file: string): string {
-  return new URL(`./content/${file}`, document.baseURI).toString();
+export function packUrl(file: string, base: string = document.baseURI): string {
+  return new URL(`./content/packs/${file}`, base).toString();
 }
 
 export async function loadManifest(): Promise<ContentManifest> {

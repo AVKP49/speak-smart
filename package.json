@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --port 4173",
+    "test": "node tools/test.mjs",
     "content:validate": "node tools/validate.mjs",
     "content:stats": "node tools/validate.mjs --stats"
   },

@@ -19,6 +19,7 @@ Content factory:
 ```sh
 npm run content:validate   # schema + voice + dedupe gate (exit 1 on error)
 npm run content:stats      # library counts by category and register
+npm test                   # regression checks (content URL construction)
 python3 tools/make-icons.py  # regenerate PWA icons
 ```
 

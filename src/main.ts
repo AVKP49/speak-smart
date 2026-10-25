@@ -42,13 +42,15 @@ async function boot(): Promise<void> {
   let library: Library;
   try {
     library = await loadLibrary();
-  } catch {
+  } catch (err) {
     showLoading("");
     const screen = root!.querySelector(".screen");
+    const reason = err instanceof Error ? err.message : String(err);
     screen?.replaceChildren(
       h("p", { class: "micro-label" }, "Speak Smart"),
       h("h1", { class: "display", style: "font-size: var(--text-32)" }, "The library didn't load."),
       h("p", { class: "body muted" }, "Connect once to fetch the packs — after that, everything works offline."),
+      h("p", { class: "small faint" }, `Details: ${reason}`),
     );
     const retry = h("button", { class: "btn btn--primary" }, "Try again");
     retry.addEventListener("click", () => void boot());
