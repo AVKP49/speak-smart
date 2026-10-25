@@ -6,7 +6,7 @@ import { REGISTER_ORDER, REGISTERS } from "../config";
 import { t } from "../i18n";
 import type { AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { lineDual, notice, pips, regMark, tabbar, appheader, topbar } from "../components/ui";
+import { lineDual, notice, pips, regMark, tabbar, appheader } from "../components/ui";
 import {
   dueReviews,
   getArsenal,
@@ -92,7 +92,7 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
   const entry = entries.find((e) => e.key === key);
   const settings = await getSettings();
   const screen = h("div", { class: "screen" });
-  screen.append(topbar("Recall", { onBack: () => ctx.navigate("#/arsenal") }));
+  screen.append(appheader("Recall", { onBack: () => ctx.navigate("#/arsenal") }));
   if (!entry) {
     screen.append(notice("That line isn't in your Arsenal anymore."));
     root.append(screen);
@@ -139,7 +139,7 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
 
   const remove = h("button", { class: "btn btn--quiet" }, t("arsenal.remove"));
   remove.addEventListener("click", async () => {
-    await removeLine(entry.scenarioId, entry.register);
+    await removeLine(entry.scenarioId);
     ctx.navigate("#/arsenal");
   });
   screen.append(remove);

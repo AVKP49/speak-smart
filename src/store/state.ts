@@ -182,8 +182,9 @@ function nextDueIn(cleanRecalls: number): number {
   return Date.now() + days * 86400000;
 }
 
-export function arsenalKey(scenarioId: string, register: Register): string {
-  return `${scenarioId}:${register}`;
+/** One kept line per scenario — keeping a new line replaces the old. */
+export function arsenalKey(scenarioId: string): string {
+  return scenarioId;
 }
 
 export async function saveLine(input: {
@@ -193,9 +194,11 @@ export async function saveLine(input: {
   jab: string;
   setting: string;
 }): Promise<ArsenalEntry> {
-  const key = arsenalKey(input.scenarioId, input.register);
-  const existing = await recordGet<ArsenalEntry>("arsenal", key);
-  if (existing) return existing;
+  const key = arsenalKey(input.scenarioId);
+  const stale = (await recordAll<ArsenalEntry>("arsenal")).filter(
+    (e) => e.scenarioId === input.scenarioId,
+  );
+  for (const e of stale) await recordDelete("arsenal", e.key);
   const now = Date.now();
   const entry: ArsenalEntry = {
     key,
@@ -217,15 +220,19 @@ export async function saveLine(input: {
 
 export async function getArsenal(): Promise<ArsenalEntry[]> {
   const all = await recordAll<ArsenalEntry>("arsenal");
-  return all.sort((a, b) => a.nextDueAt - b.nextDueAt);
+  for (const e of all) {
+    if (e.key.includes(":")) await recordDelete("arsenal", e.key);
+  }
+  return all.filter((e) => !e.key.includes(":")).sort((a, b) => a.nextDueAt - b.nextDueAt);
 }
 
-export async function isSaved(scenarioId: string, register: Register): Promise<boolean> {
-  return (await recordGet<ArsenalEntry>("arsenal", arsenalKey(scenarioId, register))) !== undefined;
+export async function isSaved(scenarioId: string): Promise<boolean> {
+  return (await recordGet<ArsenalEntry>("arsenal", arsenalKey(scenarioId))) !== undefined;
 }
 
-export async function removeLine(scenarioId: string, register: Register): Promise<void> {
-  await recordDelete("arsenal", arsenalKey(scenarioId, register));
+export async function removeLine(scenarioId: string): Promise<void> {
+  const entries = (await recordAll<ArsenalEntry>("arsenal")).filter((e) => e.scenarioId === scenarioId);
+  for (const e of entries) await recordDelete("arsenal", e.key);
 }
 
 export async function dueReviews(now = Date.now()): Promise<ArsenalEntry[]> {

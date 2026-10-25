@@ -87,3 +87,6 @@ works from any host path, including GitHub Pages project sites.
 11. **Wit rule (founder direction).** Every scenario carries 2+ Comedic/Sharp
     replies, verified by batch script (see commit). Exception: apologizing-well
     caps at one dry comedic each — a blade in an apology is cruelty, not wit.
+12. **Keep, don't collect.** One kept line per scenario — keeping replaces.
+    The tab is "My Lines," the button "Keep this line." Legacy multi-keys are
+    pruned on read. The drill never auto-advances: every step waits for a tap.

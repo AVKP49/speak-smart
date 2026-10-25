@@ -6,7 +6,7 @@ import { REGISTERS } from "../config";
 import { t } from "../i18n";
 import { categoryTitle, packTitle, type AppCtx, type DrillResult } from "../app";
 import { pickNextScenario } from "../content/loader";
-import { h } from "../lib/utils";
+import { h, tick } from "../lib/utils";
 import { brandMini, cautionBadge, lineDual, notice, rankbar, trapCallout, voiceRow, whyRow } from "../components/ui";
 import {
   addDrillCompleted,
@@ -109,10 +109,11 @@ export async function renderReveal(root: HTMLElement, ctx: AppCtx, result: Drill
   }
 
   /* 6 — actions. */
-  const saved = await isSaved(scenario.id, centerReply.register);
+  const saved = await isSaved(scenario.id);
   const save = h("button", { class: "btn btn--primary" }, saved ? t("reveal.saved") : t("reveal.save"));
   if (saved) save.setAttribute("disabled", "true");
   save.addEventListener("click", async () => {
+    tick();
     await saveLine({
       scenarioId: scenario.id,
       register: centerReply.register,
@@ -141,7 +142,7 @@ export async function renderReveal(root: HTMLElement, ctx: AppCtx, result: Drill
   screen.append(save, nextBtn, flag);
 
   const done = h("button", { class: "btn btn--quiet" }, t("reveal.finish"));
-  done.addEventListener("click", () => ctx.navigate(result.origin));
+  done.addEventListener("click", () => ctx.navigate("#/"));
   screen.append(done);
 
   root.append(screen);

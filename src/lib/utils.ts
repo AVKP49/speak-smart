@@ -69,3 +69,12 @@ export function daysBetween(aDay: string, bDay: string): number {
 export function formatSeconds(ms: number): string {
   return `${(ms / 1000).toFixed(1)}s`;
 }
+
+/** One soft haptic tick on commit actions. Silent where unsupported. */
+export function tick(): void {
+  try {
+    if (typeof navigator !== "undefined" && "vibrate" in navigator) navigator.vibrate(8);
+  } catch {
+    /* enhancement only */
+  }
+}

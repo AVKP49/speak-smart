@@ -6,12 +6,12 @@
 import { CONFIG, REGISTER_ORDER } from "../config";
 import type { AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { cautionBadge, notice, progressRing, regMark, topbar, trapCallout, voiceRow, whyRow } from "../components/ui";
+import { appheader, cautionBadge, notice, progressRing, regMark, trapCallout, voiceRow, whyRow } from "../components/ui";
 
 export async function renderStyleguide(root: HTMLElement, ctx: AppCtx): Promise<void> {
   const demo = ctx.library.byId.get("work.boss-talking-down.0001");
   const screen = h("div", { class: "screen" });
-  screen.append(topbar("Design system", { onBack: () => ctx.navigate("#/settings") }));
+  screen.append(appheader("Design system", { onBack: () => ctx.navigate("#/settings") }));
 
   screen.append(h("p", { class: "micro-label" }, "Color — ink, paper, one gold"));
   const swatches = h("div", { class: "row", style: "flex-wrap: wrap" });

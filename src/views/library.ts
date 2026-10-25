@@ -109,7 +109,7 @@ async function renderPack(root: HTMLElement, ctx: AppCtx, cat: string, sub: stri
   const info = h("div", { class: "card" });
   info.append(
     h("p", { class: "micro-label" }, `${categoryTitle(ctx.library, cat)} · Pack`),
-    h("p", { class: "small muted metric" }, `${scenarios.length} lines · your arsenal holds ${savedHere} from this pack`),
+    h("p", { class: "small muted metric" }, `${scenarios.length} lines · you keep ${savedHere} from this pack`),
     h("div", { class: "row", style: "flex-wrap: wrap" }, ...registers.map((r) => regMark(r))),
   );
   void REGISTERS;

@@ -1,12 +1,12 @@
 /**
  * The drill — the product. SETUP → JAB → BEAT → RESPOND → REVEAL.
- * Pick-only: read the replies, tap the line. The jab arrives as a ticket stub;
- * options are numbered marquee rows.
+ * Pick-only: read the replies, tap the line. Nothing auto-advances except the
+ * Beat itself — every step waits for the reader. Quit is always available.
  */
 import { REGISTERS } from "../config";
 import { t } from "../i18n";
 import { categoryTitle, type AppCtx, type DrillRequest, type DrillResult } from "../app";
-import { h, shuffle } from "../lib/utils";
+import { h, shuffle, tick } from "../lib/utils";
 import { brandMini, lineDual, regMark } from "../components/ui";
 import { getSettings, recordScenarioSeen } from "../store/state";
 import type { Reply, Scenario } from "../types";
@@ -41,8 +41,10 @@ export async function renderDrill(
 
   const screen = h("div", { class: "screen" });
   const stage = h("div", { class: "drill-stage" });
+  const quit = h("button", { class: "btn btn--quiet" }, "Quit drill");
+  quit.addEventListener("click", () => ctx.navigate("#/"));
   root.append(screen);
-  screen.append(brandMini(), stage);
+  screen.append(brandMini(), stage, quit);
 
   const finish = (partial: Partial<DrillResult>) => {
     if (finished || dead) return;
@@ -58,17 +60,16 @@ export async function renderDrill(
       `${categoryTitle(ctx.library, scenario.category)} · ${meta.glyph} ${meta.name}`,
     );
 
-  /* ---------- SETUP (≤1.5s, auto-advance): setting line only ---------- */
+  /* ---------- SETUP: setting line only. Waits for the reader. ---------- */
   function renderSetup() {
     stage.replaceChildren();
     stage.append(contextLine(), h("p", { class: "jab-text" }, scenario.setting));
-    later(renderJab, 1200);
-    const skip = h("button", { class: "btn btn--quiet" }, t("common.continue"));
-    skip.addEventListener("click", () => renderJab());
-    stage.append(skip);
+    const next = h("button", { class: "btn btn--secondary" }, "See the jab →");
+    next.addEventListener("click", () => renderJab());
+    stage.append(next);
   }
 
-  /* ---------- JAB: the ticket stub ---------- */
+  /* ---------- JAB: the ticket stub. Waits for the reader. ---------- */
   function jabCard(): HTMLElement {
     const card = h("div", { class: "jab-card" });
     const ring = h("div", { class: "beat-ring", "aria-hidden": "true" });
@@ -86,12 +87,16 @@ export async function renderDrill(
     stage.replaceChildren();
     if (dead || finished) return;
     stage.append(contextLine(), jabCard());
-    later(renderBeat, 900);
+    const next = h("button", { class: "btn btn--secondary" }, "Take the beat →");
+    next.addEventListener("click", () => renderBeat());
+    stage.append(next);
   }
 
-  /* ---------- BEAT: hold it ---------- */
+  /* ---------- BEAT: the pause. Plays once, then waits for the reader. ---------- */
   function renderBeat() {
     if (dead || finished) return;
+    stage.replaceChildren();
+    stage.append(contextLine(), jabCard());
     const card = stage.querySelector(".jab-card");
     const ring = stage.querySelector(".beat-ring");
     const label = h("p", { class: "kicker", role: "status" }, t("drill.beat"));
@@ -105,7 +110,12 @@ export async function renderDrill(
     } else {
       stage.append(label, sweep);
     }
-    later(renderRespond, settings.beatMs);
+    later(() => {
+      if (dead || finished) return;
+      const next = h("button", { class: "btn btn--secondary" }, "Show my lines →");
+      next.addEventListener("click", () => renderRespond());
+      stage.append(next);
+    }, settings.beatMs);
   }
 
   /* ---------- RESPOND: numbered marquee rows ---------- */
@@ -120,9 +130,17 @@ export async function renderDrill(
       const card = h("button", { class: "card-selectable opt" });
       const reply = option.reply;
       card.append(h("span", { class: "opt-index", "aria-hidden": "true" }, String(i + 1).padStart(2, "0")));
-      if (reply) card.append(regMark(reply.register));
+      if (reply) {
+        const head = h("div", { class: "row row--spread" });
+        head.append(regMark(reply.register));
+        if (reply.register === "comedic" || reply.register === "sharp") {
+          head.append(h("span", { class: "witty-tag" }, "Witty"));
+        }
+        card.append(head);
+      }
       card.append(lineDual(option.line, option.l2, settings.showL2));
       card.addEventListener("click", () => {
+        tick();
         if (reply) finish({ pickedReply: reply, pickedTrap: false });
         else finish({ pickedTrap: true });
       });

@@ -467,6 +467,75 @@ body {
   padding-left: var(--space-16);
 }
 
+/* ---------- Splash + onboarding dots ---------- */
+
+.splash {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+  text-align: center;
+}
+
+.splash-mark {
+  font-size: var(--text-40);
+  color: var(--gold);
+  animation: pulse 1.6s var(--ease-state) infinite;
+}
+
+.splash-word {
+  font-family: var(--font-grotesk);
+  font-weight: 700;
+  font-size: var(--text-20);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0;
+}
+
+.splash-bar {
+  width: 160px;
+  height: 3px;
+  background: var(--line);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.splash-bar > div {
+  height: 100%;
+  width: 40%;
+  background: var(--gold);
+  border-radius: var(--radius-pill);
+  animation: shimmer 1.2s var(--ease-state) infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.dot--on {
+  width: 20px;
+  border-radius: var(--radius-pill);
+  background: var(--gold);
+}
+
 /* Rank progress bar — goal-gradient, everywhere. */
 .rankbar {
   height: 6px;
@@ -576,6 +645,19 @@ body {
   to {
     transform: scaleX(1);
   }
+}
+
+/* Witty tag — the banter options, unmissable. */
+.witty-tag {
+  font-family: var(--font-grotesk);
+  font-weight: 700;
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  background: var(--gold);
+  border-radius: var(--radius-pill);
+  padding: var(--space-4) var(--space-8);
 }
 
 /* Drill options: ghost numbers, register edge. */

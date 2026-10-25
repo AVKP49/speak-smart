@@ -72,7 +72,7 @@ export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<vo
     const json = await exportArsenal();
     const blob = new Blob([json], { type: "application/json" });
     const url = URL.createObjectURL(blob);
-    const a = h("a", { href: url, download: "speak-smart-arsenal.json" });
+    const a = h("a", { href: url, download: "speak-smart-my-lines.json" });
     document.body.append(a);
     a.click();
     a.remove();

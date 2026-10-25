@@ -25,8 +25,30 @@ function showLoading(message: string): void {
   cleanup = null;
   root!.replaceChildren();
   const screen = h("div", { class: "screen screen--center" });
-  screen.append(h("p", { class: "micro-label" }, "Speak Smart"), h("p", { class: "body muted" }, message));
+  const splash = h("div", { class: "splash" });
+  splash.append(
+    h("span", { class: "splash-mark", "aria-hidden": "true" }, "◆"),
+    h("p", { class: "splash-word" }, "Speak Smart"),
+    h("p", { class: "small muted" }, message),
+    h("div", { class: "splash-bar", "aria-hidden": "true" }, h("div")),
+  );
+  screen.append(splash);
   root!.append(screen);
+}
+
+function setTitle(route: string): void {
+  const titles: Record<string, string> = {
+    "#/": "Today",
+    "#/onboarding": "Welcome",
+    "#/library": "Library",
+    "#/drill": "Drill",
+    "#/reveal": "Your line",
+    "#/arsenal": "My Lines",
+    "#/settings": "Settings",
+    "#/styleguide": "Design system",
+  };
+  const base = route.startsWith("#/library/") ? "#/library" : route.startsWith("#/arsenal/") ? "#/arsenal" : route;
+  document.title = `Speak Smart — ${titles[base] ?? "Never freeze again"}`;
 }
 
 async function boot(): Promise<void> {
@@ -90,6 +112,7 @@ async function boot(): Promise<void> {
     root!.replaceChildren();
     window.scrollTo(0, 0);
     const hash = window.location.hash || "#/";
+    setTitle(hash);
     const settings = await getSettings();
     const onboarded = settings.onboarded;
 
