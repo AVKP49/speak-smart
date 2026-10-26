@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "hard-moments.receiving-fake-apology",
+    "category": "hard-moments",
+    "subcategory": "receiving-fake-apology",
+    "title": "Receiving fake apology",
+    "description": "Ask for acknowledgment of what happened.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "hard-moments.receiving-fake-apology.0001",
+      "category": "hard-moments",
+      "subcategory": "receiving-fake-apology",
+      "setting": "A friend apologizes by blaming you for being upset.",
+      "jab": "I'm sorry you took it that way.",
+      "goal": "Ask for acknowledgment of what happened.",
+      "difficulty": 2,
+      "tags": [
+        "receiving-fake-apology",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'd like us to talk about the comment, rather than my reaction.",
+          "why": "It redirects the discussion to the behavior that needs repair.",
+          "delivery": "Keep your voice soft and specific; quote the comment once instead of listing past conflicts."
+        },
+        {
+          "register": "curt",
+          "line": "Please address what you said.",
+          "why": "It asks for accountability without evaluating the whole friendship.",
+          "delivery": "Keep your voice soft and specific; quote the comment once instead of listing past conflicts."
+        },
+        {
+          "register": "friendly",
+          "line": "I want to move forward; it would help if you acknowledged what the comment did.",
+          "why": "It connects repair to a specific acknowledgment rather than a perfect apology.",
+          "delivery": "Keep your voice soft and specific; quote the comment once instead of listing past conflicts."
+        },
+        {
+          "register": "comedic",
+          "line": "Can we put the comment in the spotlight for a minute?",
+          "why": "A mild metaphor redirects attention without mocking the apology.",
+          "delivery": "Keep your voice soft and specific; quote the comment once instead of listing past conflicts."
+        }
+      ],
+      "followUp": {
+        "jab": "I've already said sorry.",
+        "line": "I heard that; I'm asking you to understand why the comment hurt.",
+        "why": "It recognizes the apology while naming the unfinished part of the repair.",
+        "delivery": "Keep your voice soft and specific; quote the comment once instead of listing past conflicts."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "pack": {
+    "id": "dating.rejecting-gracefully",
+    "category": "dating",
+    "subcategory": "rejecting-gracefully",
+    "title": "Rejecting gracefully",
+    "description": "Decline another date with kindness and clarity.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "dating.rejecting-gracefully.0001",
+      "category": "dating",
+      "subcategory": "rejecting-gracefully",
+      "setting": "After a first date, the other person asks to meet again and you are not interested.",
+      "jab": "When can I see you again?",
+      "goal": "Decline another date with kindness and clarity.",
+      "difficulty": 2,
+      "tags": [
+        "rejecting-gracefully",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I enjoyed meeting you. I don't feel a romantic connection.",
+          "why": "It gives a clear answer without inventing a reason or promising another date.",
+          "delivery": "Keep the tone kind but avoid a questioning ending or a promise to reconsider."
+        },
+        {
+          "register": "curt",
+          "line": "Thanks for meeting. I won't pursue this.",
+          "why": "It closes the romantic invitation without evaluating the other person's worth.",
+          "delivery": "Keep the tone kind but avoid a questioning ending or a promise to reconsider."
+        },
+        {
+          "register": "friendly",
+          "line": "Thank you for the evening; I don't feel the connection I'm looking for, and I wish you well.",
+          "why": "It acknowledges the shared time while making the decision unambiguous.",
+          "delivery": "Keep the tone kind but avoid a questioning ending or a promise to reconsider."
+        }
+      ],
+      "followUp": {
+        "jab": "Can we just try one more time?",
+        "line": "I understand you're disappointed; my decision is the same.",
+        "why": "It acknowledges the feeling without negotiating your lack of interest.",
+        "delivery": "Keep the tone kind but avoid a questioning ending or a promise to reconsider."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

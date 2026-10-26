@@ -1,92 +1,67 @@
-# Speak Smart — Never freeze again
+# Speak Smart — Find your words
 
-A drills app that trains the exact one-line reply — in your voice — for the moments
-people talk down to you, corner you, or leave you speechless. Offline-first PWA,
-no account, no runtime AI in V1. Built from `DESIGN (4).pdf` (v1.0, Oct 24 2026),
-the single source of truth.
+Practice what to say when you're put on the spot, and how to say it.
 
-## Run it
+## Current product
+
+- 100 everyday scenarios, 10 in each of 10 categories; 393 responses in 57 packs.
+- A bright practice home, focused sessions, searchable situations, and My Lines.
+- Think → learn → rehearse → respond to follow-up → recall → completion.
+- Optional written first attempt stays in session memory. No automated grading.
+- Delivery coaching for every response; an authored follow-up exchange for every scenario.
+- Daily progress and XP awarded after the user completes the recall assessment.
+- Recall is self-assessed: remembering the useful idea matters more than verbatim memorization.
+- One kept line per scenario; replacing it resets that line's mastery. Keeping an identical line preserves progress.
+- Spaced reviews for kept lines; a shaky review returns in one day.
+- No accounts, runtime AI, recording, speech recognition, or analytics. IndexedDB holds local progress; memory fallback is temporary if storage is unavailable.
+
+## Development
 
 ```sh
-npm install
-npm run dev        # local dev server
-npm run build      # typecheck + production build to dist/
-npm run preview    # serve the production build
+npm ci
+npm run dev
+npm run build
+npm run preview
+npm test
+npm run content:validate
+npm run content:stats
+npm run content:expand
 ```
 
-Content factory:
+Vanilla TypeScript and Vite, with no runtime dependencies. jsdom is used only for development interaction checks. `npm test` covers shipped URLs, session selection, mastery behavior, and the drill interactions. jsdom does not check browser rendering, layout, or accessibility conformance.
 
-```sh
-npm run content:validate   # schema + voice + dedupe gate (exit 1 on error)
-npm run content:stats      # library counts by category and register
-npm test                   # regression checks (content URL construction)
-python3 tools/make-icons.py  # regenerate PWA icons
-```
+## Source layout
 
-Deploy anywhere static: the build uses relative paths (`base: "./"`), so `dist/`
-works from any host path, including GitHub Pages project sites.
+- `src/main.ts` — hash routing and in-memory session lifecycle.
+- `src/views/` — practice home, search, drill, coaching/recall, saved lines, settings.
+- `src/types.ts` — scenario schema and category taxonomy.
+- `src/config.ts` — session size, XP, review intervals, register metadata.
+- `src/tokens.css`, `src/app.css` — theme and components.
+- `src/store/` — local settings, completion history, saved lines, spaced review.
+- `src/content/loader.ts` — versioned content fetching and indexing.
+- `public/content/packs/` — authored scenario data.
+- `public/content/manifest.json` — generated pack manifest; use `content:expand`.
+- `reviews/content-review.json` — per-scenario review notes and content fingerprints.
+- `public/sw.js` — scoped offline cache; mutable content uses network-first fetching.
 
-## Layout
+## What “reviewed” means
 
-- `src/config.ts` — every tunable, single-sourced (§9.4). No magic numbers elsewhere.
-- `src/tokens.css`, `src/app.css` — design tokens + components built from tokens only (§2).
-- `src/types.ts` — scenario schema types + locked taxonomy (§5).
-- `src/content/loader.ts` — versioned JSON packs, lazy per category, IndexedDB mirror.
-- `src/store/` — IndexedDB wrapper + retention engine (streaks, XP, ranks, mastery).
-- `src/lib/` — DOM/date utils (voice + delivery scoring removed, see §10 below).
-- `src/i18n.ts` — chrome string tables (EN ships; second table flips the app).
-- Dual-language content: optional `*_l2` fields on jabs/lines/whys, rendered as
-  subtitles wherever `showL2` is on. Coverage: `npm run content:stats`.
-- `src/views/` — onboarding, Today, Library, Drill, Reveal, Arsenal (+recall), settings, styleguide.
-- `public/content/` — the library: `manifest.json` + one JSON file per subcategory (§5.3).
-- `public/sw.js` — offline-first service worker (§9.1).
-- `tools/validate.mjs` — content factory gate (§5.4–§5.5).
+The 100 scenarios received editorial self-review by Codex, followed by automated checks. **No independent human or expert review, user study, or efficacy validation has been performed.** The review log records this explicitly and the Settings screen describes it.
 
-## Spec compliance
+Review checks cover realistic context, an identifiable conversational goal, appropriate default responses, natural wording, delivery cues that match the actual line, plausible follow-up, and avoidance of guaranteed reactions. Some earlier replies were rewritten to remove insults, invented facts, coercive framing, misleading guarantees, and humor that undermined a serious refusal or apology.
 
-- Phase 0: tokens/components live at `#/styleguide`; taxonomy + schema implemented as
-  data tooling (`tools/validate.mjs`); seed library of **49 approved scenarios**
-  across all 10 categories, including the Appendix B golden examples verbatim.
-- Phase 1: onboarding (≤4 screens, first drill before any gate), Today, Library,
-  Drill (pick mode), Reveal, Arsenal + spaced repetition, streaks with automatic
-  freeze, settings. Zero runtime AI, zero accounts, zero voice features.
-- Content milestones: the seed is the pipeline's first output, not M1. The factory
-  (schema, validator, dedupe, trap-coverage and tier reporting) is what carries the
-  library to M1 (1,000) → M2 (3,000, launch gate) → M3 (10,000).
-- Budgets: initial JS ≤ 150KB gzipped (vanilla TS, zero runtime deps — see build
-  report); drill transitions are local-state only (<100ms); WCAG 2.2 AA targets
-  (contrast pairs, ≥48px targets, keyboard/screen-reader pick mode, reduced motion,
-  200% text scaling).
-- Privacy (§10): V1 collects nothing — no account, no analytics, no audio off-device.
+`content:validate` checks taxonomy, IDs, schema, word limits, duplicate jabs, explanations, delivery coverage, follow-up coverage, and approved content's SHA-256 against the review log. Editing approved content invalidates its review record. A matching hash establishes that reviewed text has not changed; it does not establish subjective quality.
 
-## Deviations & interpretations (agent rule 10)
+For changes: author/update the pack, conduct and record editorial review, update its review fingerprint, bump pack version, run `content:expand`, then test and build. New drafts can be kept as `draft`; only `approved` records appear in the app.
 
-1. **Trap in pick mode.** §4.1 shows 3–5 replies; §4.5 scores "chose the trap", which
-   requires the trap to be choosable. Pick options = replies + trap when present
-   (up to 6 cards). The ≤5 rule governs replies; the trap is a distinct mechanic.
-2. **Trap unlabeled in pick, labeled in reveal.** The test is genuine; the teaching
-   (label + cost) happens in the reveal per §4.4.5.
-3. **Recall "clean".** Speech path: clean = perfect delivery on all four metrics
-   (§4.3's highest mark). No-speech fallback: honest self-mark after reveal.
-4. **Notifications (§6.4) deferred.** Scheduling needs a backend; V1 has none. No
-   fake or local-notification theater ships in its place.
-5. **Seasonal pack** (Today below-the-fold) ships as "Fresh lines from the library"
-   — no seasons exist in seed content.
-6. **"Why it's next"** is honest: least-seen pack. The app knows no calendar.
-7. **Beat duration** setting: 0.8s / 1.2s (default) / 1.6s.
-8. **Voice off** = pick mode only, with a quiet notice. Voice is an enhancement,
-   never a gate (§9.2).
-9. **Register substitution.** Say-it reveals in the default register; when a scenario
-   has no line in that voice (the library never forces one, §5.2), the reveal says
-   so and trains the nearest available voice.
-10. **Voice removed (Oct 2026, founder direction).** Say-it mode, speech
-    recognition, TTS playback, delivery metrics, and the voice setting are gone;
-    the drill and recall are pick / read / honest-self-mark only. The spec's §4.3
-    threshold table and §9.2 voice section are superseded; the corresponding
-    config, modules, styles, and copy were deleted, not stubbed.
-11. **Wit rule (founder direction).** Every scenario carries 2+ Comedic/Sharp
-    replies, verified by batch script (see commit). Exception: apologizing-well
-    caps at one dry comedic each — a blade in an apology is cruelty, not wit.
-12. **Keep, don't collect.** One kept line per scenario — keeping replaces.
-    The tab is "My Lines," the button "Keep this line." Legacy multi-keys are
-    pruned on read. The drill never auto-advances: every step waits for a tap.
+Feedback is local. Settings can export response feedback for the user to share with the developer; the app does not transmit flags or imply a working remote review queue.
+
+## Product decisions, October 26
+
+Ajay authorized the first 100-scenario release and a more engaging rebuild. This supersedes the handoff's future bulk-content target for this release, the marquee visual theme, fighter selection, and the requirement to force two witty replies into every scenario. Calm/Direct/Friendly are available throughout; Playful is optional and omitted where it weakens repair or a clear refusal. Internal register IDs remain stable for saved data.
+
+The previous agent's handoff and `/Users/ajayvallab/Downloads/DESIGN (4).pdf` remain historical context. The current schema, this README, and Ajay's latest instructions govern this implementation.
+
+## Deployment
+
+`main` contains source. GitHub Pages publishes built files from `gh-pages`. Build to `dist/` (relative asset paths), publish that directory to the Pages branch, then verify Pages status, the live bundle hash, the 100-scenario manifest, and all pack URLs.

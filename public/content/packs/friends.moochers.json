@@ -5,7 +5,7 @@
     "subcategory": "moochers",
     "title": "Moochers & money asks",
     "description": "The friend with an empty wallet and perfect timing. Keep the friend, keep the money.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -23,41 +23,46 @@
         {
           "register": "boss",
           "line": "Let's split it now. Cleaner for everyone.",
-          "why": "It makes settling up the group's norm, so no one is singled out.",
-          "caution": null
+          "why": "It proposes paying individual shares now rather than accepting another informal loan.",
+          "delivery": "State the actual amount only if you have checked it; keep your voice conversational."
         },
         {
           "register": "curt",
-          "line": "Your share is forty. Venmo me.",
-          "why": "A number plus a method turns a favor into a transaction with no drama.",
-          "caution": null
+          "line": "Let's split our shares now.",
+          "why": "It proposes immediate settlement without inventing an amount.",
+          "delivery": "State the actual amount only if you have checked it; keep your voice conversational."
         },
         {
           "register": "friendly",
-          "line": "I'll cover you tonight — send it before we're home though.",
-          "why": "Generosity with a same-night deadline keeps the friendship and the ledger clean.",
-          "caution": null
+          "line": "Let's ask for a split payment so we can each cover our own share.",
+          "why": "It offers a practical way to preserve the agreed division of costs.",
+          "delivery": "State the actual amount only if you have checked it; keep your voice conversational."
         },
         {
           "register": "comedic",
           "line": "My card's retired from lending. It unionized.",
           "why": "Blaming your card lets the table laugh while the point lands on him.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Your wallet's shy. Mine's retired.",
-          "why": "Diagnosing both wallets as people makes the split the joke's punchline.",
-          "caution": null
+          "delivery": "State the actual amount only if you have checked it; keep your voice conversational."
         }
       ],
       "trap": {
         "line": "You ALWAYS do this. Pay your own way for once.",
-        "why": "A public callout collects the forty dollars and loses the friend."
+        "why": "It turns a payment request into a public character judgment."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Settle a shared bill at the time you agreed.",
+      "followUp": {
+        "jab": "Can you cover me just this once?",
+        "line": "I'm not covering it tonight; let's ask how to split the payment.",
+        "why": "It maintains your boundary while seeking a practical payment method.",
+        "delivery": "State the actual amount only if you have checked it; keep your voice conversational."
       }
     },
     {
@@ -74,38 +79,96 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Let's clear spring first. Then we'll talk.",
-          "why": "It links the new ask to the old debt, which is the only honest order.",
-          "caution": null
+          "line": "I won't lend more. Let's plan repayment of what's outstanding.",
+          "why": "It separates the new lending decision from the repayment discussion.",
+          "delivery": "Keep the lending no brief, then ask about repayment without sarcasm."
         },
         {
           "register": "curt",
           "line": "Can't. Settle the two hundred.",
           "why": "No plus the number keeps it business, not personal.",
-          "caution": null
+          "delivery": "Keep the lending no brief, then ask about repayment without sarcasm."
         },
         {
           "register": "friendly",
-          "line": "I'm tapped out on loans this year — want help budgeting instead?",
-          "why": "It closes the wallet while opening a door, so the friendship has somewhere to go.",
-          "caution": null
+          "line": "I care about you, but I can't lend more; let's talk about settling the earlier loan.",
+          "why": "It preserves care while holding the financial boundary.",
+          "delivery": "Keep the lending no brief, then ask about repayment without sarcasm."
         },
         {
           "register": "comedic",
-          "line": "My wallet filed a restraining order.",
-          "why": "Blaming legal paperwork keeps the no between you two funny.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "The bank of me is closed.",
-          "why": "It closes the institution with a smile, so the friendship stays open.",
-          "caution": null
+          "line": "My lending desk is closed; repayments are still welcome.",
+          "why": "The joke states a lending limit without criticizing the friend's character.",
+          "delivery": "Keep the lending no brief, then ask about repayment without sarcasm."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Decline another loan while one is outstanding.",
+      "followUp": {
+        "jab": "You know I'll pay you back eventually.",
+        "line": "I won't lend more; let's agree on a plan for the amount outstanding.",
+        "why": "It separates a clear lending decision from a realistic repayment discussion.",
+        "delivery": "Keep the lending no brief, then ask about repayment without sarcasm."
+      }
+    },
+    {
+      "id": "friends.moochers.0003",
+      "category": "friends",
+      "subcategory": "moochers",
+      "setting": "A friend asks to borrow your expensive camera after previously returning it damaged.",
+      "jab": "Come on, you hardly use it. Let me borrow it.",
+      "goal": "Decline lending a possession without negotiating its value.",
+      "difficulty": 2,
+      "tags": [
+        "moochers",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm not lending the camera again.",
+          "why": "It states the decision without debating how often you use the camera.",
+          "delivery": "Use a flat ending on “not lending”; stop before listing every possible risk."
+        },
+        {
+          "register": "curt",
+          "line": "The camera isn't available to borrow.",
+          "why": "It makes the lending boundary explicit and impersonal.",
+          "delivery": "Say “The camera isn't available to borrow” clearly, then stop instead of adding a defense. Stop before listing every possible risk."
+        },
+        {
+          "register": "friendly",
+          "line": "I know it would help; after the damage last time, I'm keeping it with me.",
+          "why": "It acknowledges the request while naming the relevant experience calmly.",
+          "delivery": "Keep “I know it would help” warm and unhurried; finish the request clearly. Stop before listing every possible risk."
+        },
+        {
+          "register": "comedic",
+          "line": "My camera has retired from guest appearances.",
+          "why": "Humor communicates an enduring limit without calling the friend careless.",
+          "delivery": "Keep “My camera has retired from guest appearances” light; let the joke stand without repeating it. Stop before listing every possible risk."
+        }
+      ],
+      "followUp": {
+        "jab": "I'll be careful this time.",
+        "line": "I hear you; I'm still not lending it.",
+        "why": "It acknowledges the assurance without treating it as a reason to surrender the decision.",
+        "delivery": "Use a flat ending on “not lending”; stop before listing every possible risk."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

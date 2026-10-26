@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Generate Speak Smart PWA icons: ink tile, gold ◆ (the Boss mark). Re-runnable."""
+"""Generate Speak Smart PWA icons: forest tile, bright-lime diamond. Re-runnable."""
 from pathlib import Path
 from PIL import Image, ImageDraw
 
-INK = (11, 13, 16, 255)
-GOLD = (232, 179, 75, 255)
+INK = (29, 48, 36, 255)
+GOLD = (216, 241, 141, 255)
 
 here = Path(__file__).resolve().parent.parent
 out = here / "public" / "icons"

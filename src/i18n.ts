@@ -19,8 +19,8 @@ export function lang(): Lang {
 
 const EN: Record<string, string> = {
   "brand.tagline": "Never freeze again.",
-  "tab.today": "Today",
-  "tab.library": "Library",
+  "tab.today": "Practice",
+  "tab.library": "Situations",
   "tab.arsenal": "My Lines",
   "today.kicker": "Tonight's card",
   "today.start": "Start the drill",
@@ -38,7 +38,7 @@ const EN: Record<string, string> = {
   "reveal.saved": "Kept.",
   "reveal.next": "Next",
   "reveal.flag": "This line missed",
-  "reveal.flagged": "Noted. Flags like yours prune the library.",
+  "reveal.flagged": "Noted. Saved on this device.",
   "reveal.finish": "Finish",
   "arsenal.empty": "No kept lines yet. Drill, and keep the lines you want as reflex.",
   "arsenal.drillNow": "Drill now",
@@ -48,7 +48,7 @@ const EN: Record<string, string> = {
   "arsenal.shaky": "Shaky",
   "arsenal.back": "Back to My Lines",
   "arsenal.remove": "Remove",
-  "settings.voice": "Your voice",
+  "settings.voice": "Your preferred style",
   "settings.goal": "Daily goal",
   "settings.beat": "Beat duration",
   "settings.motion": "Reduce motion",

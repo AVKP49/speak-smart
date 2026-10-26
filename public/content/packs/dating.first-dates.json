@@ -5,14 +5,14 @@
     "subcategory": "first-dates",
     "title": "First dates",
     "description": "Tests disguised as small talk. Answer the question, keep your dignity.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
       "id": "dating.first-dates.0001",
       "category": "dating",
       "subcategory": "first-dates",
-      "setting": "First date, drinks. Midway through your story, they check their watch.",
+      "setting": "First date, over drinks. They ask about your income before you know each other well.",
       "jab": "So anyway — how much do you make, roughly?",
       "difficulty": 2,
       "tags": [
@@ -22,42 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Enough to buy my own drinks. Next question.",
-          "why": "It answers the spirit of the question while keeping the number private forever.",
-          "caution": null
+          "line": "I keep the number private. I'm happy to talk about my work.",
+          "why": "It protects financial details while offering a topic you welcome.",
+          "delivery": "Keep your expression relaxed and stress “private,” without accusing them of auditing you."
         },
         {
           "register": "curt",
           "line": "Not a first-date question.",
           "why": "It labels the timing as the problem, which lets the date continue cleanly.",
-          "caution": null
+          "delivery": "Say “Not a first-date question” clearly, then stop instead of adding a defense. ” without accusing them of auditing you."
         },
         {
           "register": "friendly",
-          "line": "Ha — ask me on date three. What do you do when you're not auditing strangers?",
-          "why": "Humor plus a redirect keeps the night alive without opening your books.",
-          "caution": null
+          "line": "I'd rather keep the number private; what's something you enjoy about your work?",
+          "why": "It pairs a clear privacy preference with genuine curiosity.",
+          "delivery": "Keep your expression relaxed and stress “private,” without accusing them of auditing you."
         },
         {
           "register": "comedic",
           "line": "Somewhere between intern and Bond villain. You?",
           "why": "A joke answer to an audit question signals the topic is closed and the night isn't.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Salary talk? Buy me dinner first.",
-          "why": "It prices the question as intimacy, which either charms them or ends the audit.",
-          "caution": null
+          "delivery": "Keep “Somewhere between intern and Bond villain” light; let the joke stand without repeating it. ” without accusing them of auditing you."
         }
       ],
       "trap": {
         "line": "Wow. Rude. Check please.",
-        "why": "Walking out over one clumsy question spends a whole evening to win a moment."
+        "why": "It adds contempt when a clear privacy boundary would express your decision."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Keep financial details private while continuing a date.",
+      "followUp": {
+        "jab": "It's just a normal question.",
+        "line": "I prefer to keep the number private; I'm happy to talk about my work.",
+        "why": "It sets a privacy boundary while offering a topic you welcome.",
+        "delivery": "Keep your expression relaxed and stress “private,” without accusing them of auditing you."
       }
     },
     {
@@ -76,36 +81,41 @@
           "register": "boss",
           "line": "I hear you. Tonight I'm getting to know you, not them.",
           "why": "It shows empathy while drawing the evening's boundary in one calm line.",
-          "caution": null
+          "delivery": "Start with warmth, pause, then make the redirect without rolling your eyes."
         },
         {
           "register": "curt",
-          "line": "Fresh start tonight. Tell me something good.",
-          "why": "It grants the past one nod, then physically steers the night forward.",
-          "caution": null
+          "line": "Let's focus on tonight for a moment.",
+          "why": "It redirects attention to the current date without dismissing the past.",
+          "delivery": "Start with warmth, pause, then make the redirect without rolling your eyes."
         },
         {
           "register": "friendly",
           "line": "That sounds rough — I hope tonight can be a lighter chapter.",
           "why": "Kindness about the hurt plus a gentle bid for the present keeps both intact.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "At this rate I should've brought them flowers too.",
-          "why": "It points out the third wheel at the table with a joke instead of a complaint.",
-          "caution": null
+          "delivery": "Start with warmth, pause, then make the redirect without rolling your eyes."
         },
         {
           "register": "comedic",
-          "line": "Should I save you the middle seat?",
-          "why": "Treating the ex as a third date reframes the monologue as a seating problem.",
-          "caution": null
+          "line": "Let's give tonight its own chapter.",
+          "why": "A gentle story metaphor invites attention to the present without ridiculing their hurt.",
+          "delivery": "Start with warmth, pause, then make the redirect without rolling your eyes."
         }
       ],
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Redirect a date with empathy.",
+      "followUp": {
+        "jab": "I can't help talking about them.",
+        "line": "I hear it's still painful; I'd like us to spend some time in the present.",
+        "why": "It acknowledges the hurt while naming the conversation you want.",
+        "delivery": "Start with warmth, pause, then make the redirect without rolling your eyes."
       }
     },
     {
@@ -123,42 +133,99 @@
         {
           "register": "boss",
           "line": "Mine's not on the table tonight. I had a good time.",
-          "why": "A clear no plus genuine warmth leaves no ambiguity and no insult.",
-          "delivery": "Say it smiling, then keep walking. Don't negotiate.",
-          "caution": null
+          "why": "It declines the invitation while acknowledging the evening without promising further contact.",
+          "delivery": "Use a clear, unhurried no; move toward your own exit if you want to leave."
         },
         {
           "register": "curt",
           "line": "Not tonight. Good night.",
           "why": "It declines completely in four words, with the good night doing the kindness.",
-          "caution": null
+          "delivery": "Use a clear, unhurried no; move toward your own exit if you want to leave."
         },
         {
           "register": "friendly",
           "line": "I don't move that fast — but I'd like a second date.",
           "why": "It frames the no as your pace, not their failure, and offers the future explicitly.",
-          "caution": null
+          "delivery": "Use a clear, unhurried no; move toward your own exit if you want to leave."
         },
         {
           "register": "comedic",
           "line": "My place has a strict guest list. Me.",
-          "why": "Absurd bureaucracy makes the no final without making the night cold.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Bold question. My answer's no.",
-          "why": "It grades the ask while keeping the verdict to one syllable.",
-          "caution": null
+          "why": "The joke expresses that you are going home alone without insulting the invitation.",
+          "delivery": "Use a clear, unhurried no; move toward your own exit if you want to leave."
         }
       ],
       "trap": {
         "line": "Ugh, I knew this was all you wanted.",
-        "why": "Assuming the worst about the whole date burns someone who took one shot."
+        "why": "It makes an assumption about their motives rather than simply stating your decision."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Decline intimacy at your own pace.",
+      "followUp": {
+        "jab": "Come on, don't you trust me?",
+        "line": "Trust doesn't change my decision; I'm heading home on my own.",
+        "why": "It keeps consent independent of a test of trust.",
+        "delivery": "Use a clear, unhurried no; move toward your own exit if you want to leave."
+      }
+    },
+    {
+      "id": "dating.first-dates.0004",
+      "category": "dating",
+      "subcategory": "first-dates",
+      "setting": "On a first date, someone makes a joke at your expense that does not feel playful.",
+      "jab": "You're pretty high-maintenance, aren't you?",
+      "goal": "Name an uncomfortable comment early.",
+      "difficulty": 2,
+      "tags": [
+        "first-dates",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "That label doesn't work for me. Let's keep this respectful.",
+          "why": "It identifies the behavior you want changed without labeling the person.",
+          "delivery": "Pause, then say “That label doesn't work for me” at a steady, conversational volume. Avoid laughing to make the discomfort disappear."
+        },
+        {
+          "register": "curt",
+          "line": "Skip the labels, please.",
+          "why": "It makes a specific request rather than returning an insult.",
+          "delivery": "Say “Skip the labels, please” clearly, then stop instead of adding a defense. Avoid laughing to make the discomfort disappear."
+        },
+        {
+          "register": "friendly",
+          "line": "I like playful conversation; that comment didn't feel playful to me.",
+          "why": "It distinguishes welcome humor from the comment that crossed your boundary.",
+          "delivery": "Say “didn't feel playful” steadily; avoid laughing to make the discomfort disappear."
+        },
+        {
+          "register": "comedic",
+          "line": "My maintenance schedule doesn't include that joke.",
+          "why": "The joke sets a limit while directing the humor at the situation.",
+          "delivery": "Keep “My maintenance schedule doesn't include that joke” light; let the joke stand without repeating it. Avoid laughing to make the discomfort disappear."
+        }
+      ],
+      "followUp": {
+        "jab": "It was just a joke.",
+        "line": "I understand that was your intent; I'm still asking you not to repeat it.",
+        "why": "It separates their intention from the boundary you are setting.",
+        "delivery": "Pause before “I understand that was your intent,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

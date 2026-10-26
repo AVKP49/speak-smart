@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "social.parties-weddings",
+    "category": "social",
+    "subcategory": "parties-weddings",
+    "title": "Parties weddings",
+    "description": "Decline alcohol without explaining private reasons.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "social.parties-weddings.0001",
+      "category": "social",
+      "subcategory": "parties-weddings",
+      "setting": "At a wedding, a guest pressures you to drink after you decline.",
+      "jab": "Don't be boring; have a proper drink with us.",
+      "goal": "Decline alcohol without explaining private reasons.",
+      "difficulty": 2,
+      "tags": [
+        "parties-weddings",
+        "connection"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm happy with this. Enjoy yours.",
+          "why": "It affirms your choice without making anyone else's choice the problem.",
+          "delivery": "Keep your drink in hand, speak steadily, and avoid negotiating a quantity."
+        },
+        {
+          "register": "curt",
+          "line": "No alcohol for me, thanks.",
+          "why": "It gives a complete refusal without a reason to challenge.",
+          "delivery": "Keep your drink in hand, speak steadily, and avoid negotiating a quantity."
+        },
+        {
+          "register": "friendly",
+          "line": "I'm enjoying the evening with this drink; let's toast anyway.",
+          "why": "It preserves participation in the celebration while declining alcohol.",
+          "delivery": "Keep your drink in hand, speak steadily, and avoid negotiating a quantity."
+        },
+        {
+          "register": "comedic",
+          "line": "My dance moves don't need extra fuel.",
+          "why": "Self-directed humor keeps the celebration warm without reopening the drink decision.",
+          "delivery": "Keep your drink in hand, speak steadily, and avoid negotiating a quantity."
+        }
+      ],
+      "followUp": {
+        "jab": "Just one won't hurt.",
+        "line": "I'm not having one; please stop asking.",
+        "why": "It moves from a polite refusal to an explicit boundary after continued pressure.",
+        "delivery": "Keep your drink in hand, speak steadily, and avoid negotiating a quantity."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

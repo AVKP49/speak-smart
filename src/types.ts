@@ -42,13 +42,17 @@ export interface Scenario {
   /** Their line, as actually said in the wild. */
   jab: string;
   jab_l2?: string;
+  /** The concrete conversational skill this drill practices. */
+  goal?: string;
+  /** Authored second turn; never generated during a drill. */
+  followUp?: { jab: string; line: string; why: string; delivery: string };
   /** 1–3. */
   difficulty: 1 | 2 | 3;
   tags: string[];
   /** 3–5 entries, distinct registers. */
   replies: Reply[];
   trap?: Trap;
-  review: { tier: "full" | "sample"; status: "approved" | "draft" | "flagged" };
+  review: { tier: "full" | "sample"; status: "approved" | "draft" | "flagged"; method?: "agent-editorial" | "human-editorial"; reviewer?: string; reviewedAt?: string; independentHumanReview?: boolean };
 }
 
 export interface PackMeta {

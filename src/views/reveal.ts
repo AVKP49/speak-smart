@@ -1,159 +1,129 @@
-/**
- * Reveal (spec §4.4–§4.5). The line in your voice as centerpiece, honest marks,
- * the other voices, the trap, and three actions. Warm surface.
- */
-import { REGISTERS } from "../config";
-import { t } from "../i18n";
-import { categoryTitle, packTitle, type AppCtx, type DrillResult } from "../app";
-import { pickNextScenario } from "../content/loader";
+import { CONFIG, REGISTERS } from "../config";
+import { categoryTitle, type AppCtx, type DrillResult } from "../app";
 import { h, tick } from "../lib/utils";
-import { brandMini, cautionBadge, lineDual, notice, rankbar, trapCallout, voiceRow, whyRow } from "../components/ui";
-import {
-  addDrillCompleted,
-  getSettings,
-  isSaved,
-  saveLine,
-  seenCounts,
-  rankForReflexCount,
-  getArsenal,
-} from "../store/state";
+import { brandMini, lineDual, regMark, whyRow, trapCallout, rankbar } from "../components/ui";
+import { addDrillCompleted, getArsenal, getSettings, recordScenarioSeen, saveLine } from "../store/state";
 import { kvGet, kvSet } from "../store/db";
-import { CATEGORIES, type Reply } from "../types";
+import type { Reply } from "../types";
 
-export async function renderReveal(root: HTMLElement, ctx: AppCtx, result: DrillResult): Promise<void> {
+export async function renderReveal(root: HTMLElement, ctx: AppCtx, result: DrillResult): Promise<() => void> {
   const settings = await getSettings();
   const { scenario } = result;
-
-  /* The line in your chosen voice (§4.4.1). */
-  let center: Reply | undefined;
-  let substituted = false;
-  if (result.pickedReply) {
-    center = result.pickedReply;
-  } else {
-    center =
-      scenario.replies.find((r) => r.register === settings.defaultRegister) ??
-      scenario.replies[0];
-    if (center && center.register !== settings.defaultRegister) substituted = true;
+  let chosen = result.pickedReply ?? scenario.replies.find((r) => r.register === settings.defaultRegister) ?? scenario.replies[0];
+  if (!chosen) { ctx.navigate(result.origin); return () => {}; }
+  let dead = false;
+  let marking = false;
+  const session = ctx.session;
+  const screen = h("div", { class: "screen practice-screen" });
+  screen.append(brandMini(), h("p", { class: "session-label" }, session ? `Drill ${session.index + 1} of ${session.ids.length}` : categoryTitle(ctx.library, scenario.category)),
+    rankbar(session ? session.index / session.ids.length : 0, "Session progress"));
+  const stage = h("div", { class: "drill-stage" });
+  const quit = h("button", { class: "btn btn--quiet" }, "Leave practice");
+  quit.addEventListener("click", () => ctx.navigate("#/"));
+  screen.append(stage, quit); root.append(screen);
+  const heading = (step: string, title: string) => {
+    stage.replaceChildren(h("span", { class: "eyebrow" }, step), h("h1", { class: "practice-title", tabindex: "-1" }, title));
+    stage.querySelector<HTMLElement>("h1")?.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  };
+  const action = (label: string, fn: () => void, secondary = false) => {
+    const btn = h("button", { class: secondary ? "btn btn--secondary" : "btn btn--primary" }, label);
+    btn.addEventListener("click", fn); return btn;
+  };
+  function coach() {
+    if (dead || !chosen) return;
+    heading("02 / Learn", "Make this line yours.");
+    if (result.pickedTrap && scenario.trap) stage.append(trapCallout(scenario.trap, settings.showL2),
+      h("p", { class: "body muted" }, "Try a response that makes your actual request clear."));
+    const hero = h("div", { class: "response-hero" });
+    hero.append(regMark(chosen.register), lineDual(`“${chosen.line}”`, chosen.line_l2, settings.showL2, "line-hero", true));
+    stage.append(hero, whyRow(chosen, settings.showL2));
+    if (chosen.caution) stage.append(h("p", { class: "small caution" }, chosen.caution));
+    if (result.attempt) {
+      const own = h("details", { class: "disclosure" }, h("summary", {}, "Compare with your first attempt"), h("p", { class: "body" }, result.attempt),
+        h("p", { class: "small muted" }, "What would you keep? What would you shorten?")); stage.append(own);
+    }
+    const alternatives = h("details", { class: "disclosure" }, h("summary", {}, "Try a different style"));
+    for (const reply of scenario.replies) {
+      if (reply === chosen) continue;
+      const option = h("button", { class: "card-selectable" }, regMark(reply.register), lineDual(reply.line, reply.line_l2, settings.showL2));
+      option.addEventListener("click", () => { chosen = reply; result.pickedReply = reply; coach(); }); alternatives.append(option);
+    }
+    stage.append(alternatives, h("p", { class: "body muted" }, "Read it slowly. Say it aloud if you can. Then try without looking."), action("I've rehearsed it →", () => scenario.followUp ? pushback() : recall()));
   }
-  if (!center) {
-    ctx.navigate(result.origin);
-    return;
+  function pushback() {
+    if (dead) return;
+    const follow = scenario.followUp;
+    if (!follow) { recall(); return; }
+    heading("02 / Hold your ground", "And if they push back?");
+    stage.append(h("div", { class: "jab-card" }, h("span", { class: "eyebrow" }, "They say"), h("p", { class: "jab-text" }, `“${follow.jab}”`)),
+      h("p", { class: "body muted" }, "Take a moment. What would you say next?"));
+    const show = action("See a follow-up response →", () => {
+      show.remove();
+      stage.append(h("div", { class: "response-hero" }, h("span", { class: "eyebrow" }, "One way to respond"), h("p", { class: "jab-text" }, `“${follow.line}”`)),
+        h("p", { class: "body" }, follow.why), h("p", { class: "small muted" }, follow.delivery), action("Try the first line from memory →", recall));
+    }); stage.append(show);
   }
-  const centerReply: Reply = center;
-
-  /* Score once: XP only for completed drills (§4.5, Lesson 4). */
-  if (!result.scored) {
-    result.scored = true;
-    await addDrillCompleted();
+  function recall() {
+    if (dead || !chosen) return;
+    heading("03 / Recall", "Your words. No hints.");
+    stage.append(h("div", { class: "jab-card" }, h("p", { class: "small muted" }, scenario.setting), lineDual(`“${scenario.jab}”`, scenario.jab_l2, settings.showL2, "jab-text")),
+      regMark(chosen.register), h("p", { class: "body muted" }, "Say the response from memory. The key idea matters more than every exact word."));
+    const check = action("Check my recall →", () => {
+      check.remove();
+      stage.append(lineDual(`“${chosen!.line}”`, chosen!.line_l2, settings.showL2, "line-hero", true), h("p", { class: "body" }, "Could you recall the idea without looking?"));
+      const yes = action("Yes, I had it", () => void complete(true));
+      const no = action("I needed a reminder", () => void complete(false), true);
+      stage.append(yes, no, h("p", { class: "small faint" }, "Your own assessment. Both answers count as practice."));
+    }); stage.append(check);
   }
-
-  const screen = h("div", { class: "screen" });
-  screen.append(
-    brandMini(),
-    h("p", { class: "micro-label" }, `${categoryTitle(ctx.library, scenario.category)} · ${packTitle(ctx.library, scenario.category, scenario.subcategory)}`),
-  );
-
-  /* 1 — the centerpiece. */
-  const hero = h("div", { class: "centerpiece" });
-  hero.append(
-    h("p", { class: "kicker" }, `${t("reveal.kicker")} · ${REGISTERS[centerReply.register].name}`),
-    lineDual(`\u201c${centerReply.line}\u201d`, centerReply.line_l2, settings.showL2, "line-hero", true),
-    h("span", { class: "xp-pop metric" }, "+10 XP"),
-  );
-  if (centerReply.caution) hero.append(cautionBadge(centerReply.caution));
-  screen.append(hero);
-  if (substituted) {
-    screen.append(
-      notice(
-        `No ${REGISTERS[settings.defaultRegister].name} line fits this moment — the library never forces one. Training you in ${REGISTERS[centerReply.register].name} instead.`,
-      ),
-    );
+  async function complete(recalled: boolean) {
+    if (marking || dead) return;
+    marking = true;
+    for (const btn of stage.querySelectorAll<HTMLButtonElement>("button")) btn.disabled = true;
+    if (!result.scored) {
+      result.scored = true; result.recalled = recalled;
+      await addDrillCompleted();
+      await recordScenarioSeen(scenario.id);
+      const history = (await kvGet<Record<string, { completed: number; recalled: number }>>("practice-history")) ?? {};
+      const previous = history[scenario.id] ?? { completed: 0, recalled: 0 };
+      history[scenario.id] = { completed: previous.completed + 1, recalled: previous.recalled + Number(recalled) };
+      await kvSet("practice-history", history);
+      if (session) { session.completed += 1; session.recalled += Number(recalled); }
+    }
+    if (!dead) await done();
   }
-
-  /* 2 — what you picked. */
-  const yours = h("div", { class: "stack stack--tight" });
-  yours.append(h("p", { class: "kicker" }, t("reveal.yours")));
-  if (result.pickedTrap && scenario.trap) {
-    yours.append(
-      lineDual(`\u201c${scenario.trap.line}\u201d`, scenario.trap.line_l2, settings.showL2),
-      h("p", { class: "body" }, "That was the trap line. Everyone picks it first."),
-    );
-  } else if (result.pickedReply) {
-    yours.append(lineDual(`\u201c${result.pickedReply.line}\u201d`, result.pickedReply.line_l2, settings.showL2));
-    yours.append(h("p", { class: "body" }, readNote(result.pickedReply, scenario.category)));
+  async function done() {
+    if (dead || !chosen) return;
+    const last = !session || session.index === session.ids.length - 1;
+    heading("Practice complete", last ? "A little more ready." : "That's one in your corner.");
+    const badge = h("div", { class: "completion-mark", "aria-hidden": "true" }, "✓");
+    stage.append(badge, h("p", { class: "body muted", role: "status" }, result.recalled ? "You recalled the idea. Keep practicing until it feels natural." : "You practiced the moment. A reminder today can become an easier recall later."),
+      h("span", { class: "xp-pop" }, `+${CONFIG.XP_DRILL} XP`));
+    if (last && session) stage.append(h("div", { class: "session-summary" },
+      h("div", {}, h("strong", {}, String(session.completed)), h("span", {}, "drills practiced")),
+      h("div", {}, h("strong", {}, String(session.recalled)), h("span", {}, "ideas recalled"))));
+    stage.append(action(last ? "Back to practice →" : "Next drill →", () => { tick(); if (last) ctx.navigate("#/"); else ctx.continueSession(); }));
+    const entries = await getArsenal();
+    if (dead) return;
+    const existing = entries.find((e) => e.scenarioId === scenario.id);
+    const same = existing?.line === chosen.line;
+    const save = action(same ? "Already in My Lines ✓" : existing ? "Replace my kept line" : "Keep this in My Lines", () => void keep(save, chosen!), true);
+    save.disabled = same; stage.append(save);
+    const flag = action("This response needs work", () => void flagLine(flag, chosen!), true); stage.append(flag);
   }
-  screen.append(yours);
-
-  /* 3 — why it works. One sentence. The coaching. */
-  screen.append(whyRow(centerReply, settings.showL2));
-
-  /* 4 — the other voices. */
-  const others = scenario.replies.filter((r) => r.register !== centerReply.register);
-  if (others.length > 0) {
-    const box = h("div", { class: "stack stack--tight" });
-    box.append(h("p", { class: "kicker" }, t("reveal.others")));
-    for (const reply of others) box.append(voiceRow(reply, { showL2: settings.showL2 }));
-    screen.append(box);
+  async function keep(btn: HTMLButtonElement, reply: Reply) {
+    btn.disabled = true;
+    await saveLine({ scenarioId: scenario.id, register: reply.register, line: reply.line, jab: scenario.jab, setting: scenario.setting });
+    if (!dead) btn.textContent = "Kept in My Lines ✓";
   }
-
-  /* 5 — the trap. */
-  if (scenario.trap) screen.append(trapCallout(scenario.trap, settings.showL2));
-
-  /* Goal-gradient whisper. */
-  const arsenal = await getArsenal();
-  const reflexCount = arsenal.filter((e) => e.level === "Reflex").length;
-  const rank = rankForReflexCount(reflexCount);
-  if (rank.next) {
-    screen.append(h("p", { class: "small muted metric" }, `${rank.toNext} lines to ${rank.next}. Saving this one counts.`));
-    screen.append(rankbar(1 - rank.toNext / Math.max(rank.toNext + reflexCount, 1), `Progress to ${rank.next}`));
-  }
-
-  /* 6 — actions. */
-  const saved = await isSaved(scenario.id);
-  const save = h("button", { class: "btn btn--primary" }, saved ? t("reveal.saved") : t("reveal.save"));
-  if (saved) save.setAttribute("disabled", "true");
-  save.addEventListener("click", async () => {
-    tick();
-    await saveLine({
-      scenarioId: scenario.id,
-      register: centerReply.register,
-      line: centerReply.line,
-      jab: scenario.jab,
-      setting: scenario.setting,
-    });
-    save.replaceChildren(document.createTextNode(t("reveal.saved")));
-    save.setAttribute("disabled", "true");
-  });
-  const nextBtn = h("button", { class: "btn btn--secondary" }, t("reveal.next"));
-  nextBtn.addEventListener("click", async () => {
-    const seen = await seenCounts();
-    const following = pickNextScenario(ctx.library, seen) ?? ctx.library.scenarios[0];
-    if (following) ctx.startDrill(following.id, result.origin);
-    else ctx.navigate(result.origin);
-  });
-  const flag = h("button", { class: "btn btn--quiet", "aria-label": "Flag this line as a miss" }, t("reveal.flag"));
-  flag.addEventListener("click", async () => {
+  async function flagLine(btn: HTMLButtonElement, reply: Reply) {
+    btn.disabled = true;
     const flags = (await kvGet<{ scenarioId: string; register: string; at: number }[]>("line-flags")) ?? [];
-    flags.push({ scenarioId: scenario.id, register: centerReply.register, at: Date.now() });
+    flags.push({ scenarioId: scenario.id, register: reply.register, at: Date.now() });
     await kvSet("line-flags", flags);
-    flag.replaceChildren(document.createTextNode(t("reveal.flagged")));
-    flag.setAttribute("disabled", "true");
-  });
-  screen.append(save, nextBtn, flag);
-
-  const done = h("button", { class: "btn btn--quiet" }, t("reveal.finish"));
-  done.addEventListener("click", () => ctx.navigate("#/"));
-  screen.append(done);
-
-  root.append(screen);
-}
-
-/** One-line Read note for pick mode (§4.5). Never shames; the floor is about the rep. */
-function readNote(picked: Reply, category: string): string {
-  if (picked.caution) {
-    const arena = CATEGORIES.find((c) => c.id === category)?.title ?? category;
-    return `Risky for ${arena} — ${REGISTERS[picked.register].name} carries a caution here. The calmer cut is above.`;
+    if (!dead) btn.textContent = "Saved on this device; export in Settings";
   }
-  if (picked.register === "sharp") return "Sharp lands — check the caution before using it here.";
-  return "Strong line. That's the rep.";
+  if (result.scored) await done(); else coach();
+  return () => { dead = true; };
 }

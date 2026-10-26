@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "dating.texting-games",
+    "category": "dating",
+    "subcategory": "texting-games",
+    "title": "Texting games",
+    "description": "Set a communication boundary without debating affection.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "dating.texting-games.0001",
+      "category": "dating",
+      "subcategory": "texting-games",
+      "setting": "Someone you are dating expects instant replies while you are at work.",
+      "jab": "If you liked me, you'd reply faster.",
+      "goal": "Set a communication boundary without debating affection.",
+      "difficulty": 2,
+      "tags": [
+        "texting-games",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I like you. I can't text continuously while I'm working.",
+          "why": "It affirms the relationship while stating a practical limit.",
+          "delivery": "Keep the affection warm and the work boundary matter-of-fact; avoid apologizing for working."
+        },
+        {
+          "register": "curt",
+          "line": "I'm working. I'll reply this evening.",
+          "why": "It gives a clear expectation without accepting the guilt framing.",
+          "delivery": "Keep the affection warm and the work boundary matter-of-fact; avoid apologizing for working."
+        },
+        {
+          "register": "friendly",
+          "line": "I enjoy talking to you; work takes my attention, so let's catch up tonight.",
+          "why": "It offers connection at a realistic time rather than constant access.",
+          "delivery": "Keep the affection warm and the work boundary matter-of-fact; avoid apologizing for working."
+        },
+        {
+          "register": "comedic",
+          "line": "My phone has office hours too.",
+          "why": "Humor makes your availability boundary feel ordinary rather than punitive.",
+          "delivery": "Keep the affection warm and the work boundary matter-of-fact; avoid apologizing for working."
+        }
+      ],
+      "followUp": {
+        "jab": "It takes two seconds to answer.",
+        "line": "Sometimes I can answer quickly; you can't rely on that during work.",
+        "why": "It acknowledges occasional availability without turning it into an obligation.",
+        "delivery": "Keep the affection warm and the work boundary matter-of-fact; avoid apologizing for working."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

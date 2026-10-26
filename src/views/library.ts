@@ -1,138 +1,51 @@
-/**
- * Library — categories → subcategories → packs (spec §3.3, §5.1).
- * The taxonomy is locked; unseeded packs are honest future drops, not dead ends.
- */
-import { REGISTERS, REGISTER_ORDER } from "../config";
+import { CONFIG } from "../config";
+import { sessionIds } from "../content/loader";
 import { CATEGORIES } from "../types";
 import { categoryTitle, packTitle, type AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { catIcon, lineDual, notice, progressRing, regMark, tabbar, appheader } from "../components/ui";
-import { t } from "../i18n";
-import { getArsenal, getSettings, seenCounts } from "../store/state";
-
-function distinctSeen(ids: string[], seen: Record<string, number>): number {
-  return ids.filter((id) => (seen[id] ?? 0) > 0).length;
-}
+import { catIcon, tabbar, appheader } from "../components/ui";
+import { seenCounts } from "../store/state";
 
 export async function renderLibrary(root: HTMLElement, ctx: AppCtx, cat?: string, sub?: string): Promise<void> {
-  if (cat && sub) {
-    await renderPack(root, ctx, cat, sub);
-    return;
-  }
-  if (cat) {
-    await renderSubcategories(root, ctx, cat);
-    return;
-  }
-  await renderCategories(root, ctx);
-}
-
-async function renderCategories(root: HTMLElement, ctx: AppCtx): Promise<void> {
   const seen = await seenCounts();
+  let selected = cat ?? "all";
   const screen = h("div", { class: "screen" });
-  screen.append(appheader(t("tab.library")));
-  const list = h("div", { class: "card", style: "padding: var(--space-8) var(--space-16)" });
-  for (const category of CATEGORIES) {
-    const ids = ctx.library.scenarios.filter((s) => s.category === category.id).map((s) => s.id);
-    const packsLive = ctx.library.packs.filter((p) => p.pack.category === category.id).length;
-    const fraction = ids.length === 0 ? 0 : distinctSeen(ids, seen) / ids.length;
-    const row = h("button", { class: "row-tap" });
-    const text = h("div", { class: "stack stack--tight", style: "flex: 1" });
-    text.append(
-      h("span", { class: "body" }, category.title),
-      h(
-        "span",
-        { class: "small faint metric" },
-        `${packsLive} of ${category.subcategories.length} packs live · ${distinctSeen(ids, seen)}/${ids.length} lines seen`,
-      ),
-    );
-    row.append(catIcon(category.id), text, progressRing(fraction, 40, `${category.title} progress`));
-    row.addEventListener("click", () => ctx.navigate(`#/library/${category.id}`));
-    list.append(row);
+  screen.append(appheader(sub && cat ? packTitle(ctx.library, cat, sub) : "Find your next moment.", { onBack: () => ctx.navigate("#/") }),
+    h("p", { class: "body muted" }, "Search for what happens. Practice what comes next."));
+  const label = h("label", { class: "sr-only", for: "scenario-search" }, "Search situations");
+  const input = h("input", { id: "scenario-search", class: "search-input", type: "search", placeholder: "Try “interrupted”, “saying no”, “date”…", autocomplete: "off" });
+  screen.append(label, input);
+  const filters = h("div", { class: "filter-row", role: "group", "aria-label": "Situation categories" });
+  const filterButtons = new Map<string, HTMLButtonElement>();
+  for (const [id, title] of [["all", "All"], ...CATEGORIES.map((c) => [c.id, c.title])]) {
+    const btn = h("button", { class: "filter-chip", "aria-pressed": selected === id ? "true" : "false" }, title);
+    btn.addEventListener("click", () => { selected = id!; for (const [key, b] of filterButtons) b.setAttribute("aria-pressed", String(key === selected)); render(); });
+    filters.append(btn); filterButtons.set(id!, btn);
   }
-  screen.append(list);
-  root.append(screen);
-  root.append(tabbar("library", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
-}
-
-async function renderSubcategories(root: HTMLElement, ctx: AppCtx, cat: string): Promise<void> {
-  const category = CATEGORIES.find((c) => c.id === cat);
-  const seen = await seenCounts();
-  const screen = h("div", { class: "screen" });
-  screen.append(appheader(category?.title ?? cat, { onBack: () => ctx.navigate("#/library") }));
-  if (!category) {
-    screen.append(notice("That shelf doesn't exist. The library has ten categories — start there."));
-    root.append(screen);
-    root.append(tabbar("library", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
-    return;
-  }
-  const list = h("div", { class: "card", style: "padding: var(--space-8) var(--space-16)" });
-  for (const subcat of category.subcategories) {
-    const scenarios = ctx.library.bySubcategory.get(`${cat}/${subcat.slug}`) ?? [];
-    const row = h("button", { class: "row-tap" });
-    if (scenarios.length === 0) {
-      row.setAttribute("disabled", "true");
-      row.append(
-        progressRing(0, 40, `${subcat.title}, coming in a future drop`),
-        h("span", { class: "muted" }, `${subcat.title} — in a future drop`),
-      );
-    } else {
-      const fraction = distinctSeen(scenarios.map((s) => s.id), seen) / scenarios.length;
-      const text = h("div", { class: "stack stack--tight", style: "flex: 1" });
-      text.append(
-        h("span", { class: "body" }, subcat.title),
-        h("span", { class: "small faint metric" }, `${scenarios.length} lines · ${distinctSeen(scenarios.map((s) => s.id), seen)} seen`),
-      );
-      row.append(progressRing(fraction, 40, `${subcat.title} progress`), text);
-      row.addEventListener("click", () => ctx.navigate(`#/library/${cat}/${subcat.slug}`));
+  screen.append(filters);
+  const status = h("p", { class: "small muted", role: "status", "aria-live": "polite" });
+  const start = h("button", { class: "btn btn--primary" }, "Practice this collection →");
+  const list = h("div", { class: "scenario-list" });
+  screen.append(status, start, list);
+  let visible = ctx.library.scenarios;
+  const normalized = (s: string) => s.toLowerCase().replace(/[-–—]/g, " ");
+  function render() {
+    const words = normalized(input.value.trim()).split(/\s+/).filter(Boolean);
+    visible = ctx.library.scenarios.filter((s) => (selected === "all" || s.category === selected) && (!sub || !cat || selected !== cat || s.subcategory === sub) && words.every((w) => normalized([s.jab, s.setting, s.goal ?? "", s.category, s.subcategory, ...s.tags].join(" ")).includes(w)));
+    status.textContent = `${visible.length} ${visible.length === 1 ? "situation" : "situations"}${selected !== "all" ? ` in ${categoryTitle(ctx.library, selected)}` : ""}`;
+    start.disabled = !visible.length;
+    start.textContent = `Practice ${Math.min(CONFIG.SESSION_SIZE, visible.length)} ${visible.length === 1 ? "drill" : "drills"} →`;
+    list.replaceChildren();
+    if (!visible.length) list.append(h("div", { class: "notice" }, "No matches yet. Try a shorter phrase or another category."));
+    for (const s of visible) {
+      const row = h("button", { class: "scenario-card" });
+      const text = h("div", { class: "stack stack--tight" }, h("span", { class: "eyebrow" }, categoryTitle(ctx.library, s.category)),
+        h("strong", {}, s.goal ?? s.subcategory), h("p", { class: "small muted" }, `“${s.jab}”`),
+        h("span", { class: "small faint" }, (seen[s.id] ?? 0) > 0 ? "Practiced · Try again →" : "Think · Learn · Recall →"));
+      row.append(catIcon(s.category), text); row.addEventListener("click", () => ctx.startDrill(s.id, "#/library")); list.append(row);
     }
-    list.append(row);
   }
-  screen.append(list);
-  root.append(screen);
-  root.append(tabbar("library", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
-}
-
-async function renderPack(root: HTMLElement, ctx: AppCtx, cat: string, sub: string): Promise<void> {
-  const scenarios = ctx.library.bySubcategory.get(`${cat}/${sub}`) ?? [];
-  const [seen, arsenal, settings] = await Promise.all([seenCounts(), getArsenal(), getSettings()]);
-  const savedHere = arsenal.filter((e) => scenarios.some((s) => s.id === e.scenarioId)).length;
-  const title = packTitle(ctx.library, cat, sub);
-  const screen = h("div", { class: "screen" });
-  screen.append(appheader(title, { onBack: () => ctx.navigate(`#/library/${cat}`) }));
-  if (scenarios.length === 0) {
-    screen.append(notice("This pack drops in a future week. The library grows weekly — check back."));
-    root.append(screen);
-    root.append(tabbar("library", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
-    return;
-  }
-  const registers = REGISTER_ORDER.filter((r) => scenarios.some((s) => s.replies.some((x) => x.register === r)));
-  const info = h("div", { class: "card" });
-  info.append(
-    h("p", { class: "micro-label" }, `${categoryTitle(ctx.library, cat)} · Pack`),
-    h("p", { class: "small muted metric" }, `${scenarios.length} lines · you keep ${savedHere} from this pack`),
-    h("div", { class: "row", style: "flex-wrap: wrap" }, ...registers.map((r) => regMark(r))),
-  );
-  void REGISTERS;
-  screen.append(info);
-
-  const nextUnseen = scenarios.find((s) => (seen[s.id] ?? 0) === 0) ?? scenarios[0];
-  if (nextUnseen) {
-    const start = h("button", { class: "btn btn--primary" }, "Start pack");
-    start.addEventListener("click", () => ctx.startDrill(nextUnseen.id, `#/library/${cat}/${sub}`));
-    screen.append(start);
-  }
-  const list = h("div", { class: "stack stack--tight" });
-  list.append(h("p", { class: "micro-label" }, "Lines in this pack"));
-  for (const s of scenarios) {
-    const row = h("button", { class: "row-tap" });
-    const done = (seen[s.id] ?? 0) > 0;
-    const jab = lineDual(`\u201c${s.jab}\u201d`, s.jab_l2, settings.showL2, done ? "small faint" : "body");
-    jab.setAttribute("style", "flex: 1");
-    row.append(jab, h("span", { class: "small faint metric" }, `Lv ${s.difficulty}`));
-    row.addEventListener("click", () => ctx.startDrill(s.id, `#/library/${cat}/${sub}`));
-    list.append(row);
-  }
-  screen.append(list);
-  root.append(screen);
-  root.append(tabbar("library", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
+  input.addEventListener("input", render);
+  start.addEventListener("click", () => ctx.startSession(sessionIds(visible, seen, CONFIG.SESSION_SIZE), "#/library"));
+  render(); root.append(screen, tabbar("library", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
 }

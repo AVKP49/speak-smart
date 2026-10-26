@@ -5,7 +5,7 @@
     "subcategory": "dry-replies",
     "title": "Dry replies & left on read",
     "description": "K. Sure. Seen 9:41pm. Match the energy or end the thread with grace.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,42 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Talk when you have words. I'm here.",
-          "why": "It names the dynamic without chasing, and leaves the door standing open.",
-          "caution": null
+          "line": "Got it. We can catch up later.",
+          "why": "It accepts a short acknowledgment without reading hostility into it.",
+          "delivery": "Keep the message neutral; a short reply alone does not establish their mood."
         },
         {
           "register": "curt",
           "line": "Cool. Later.",
-          "why": "It matches the energy exactly and spends nothing more on the thread.",
-          "caution": null
+          "why": "It acknowledges the message without interpreting its brevity as hostility.",
+          "delivery": "Keep the message neutral; a short reply alone does not establish their mood."
         },
         {
           "register": "friendly",
           "line": "Haha — busy day? Catch me up later.",
           "why": "Assuming the best gives them a graceful reason and you a graceful exit.",
-          "caution": null
+          "delivery": "Keep the message neutral; a short reply alone does not establish their mood."
         },
         {
           "register": "comedic",
-          "line": "A whole letter. Don't spend it all at once.",
-          "why": "Treating the k as generosity roasts the dryness without roasting the person.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "K. Great chat. Five stars.",
-          "why": "It reviews the thread like a ride, which says everything without sending more.",
-          "caution": null
+          "line": "Message received; paragraphs taking a break.",
+          "why": "Self-directed humor lightens the exchange without punishing the short reply.",
+          "delivery": "Keep the message neutral; a short reply alone does not establish their mood."
         }
       ],
       "trap": {
         "line": "Wow ok. Guess I'll just stop texting you then.",
-        "why": "Announcing your exit over one dry reply makes a mood into a breakup."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Avoid overreading one brief message.",
+      "followUp": {
+        "jab": "Why did you stop replying?",
+        "line": "I wasn't sure there was more to answer; happy to catch up later.",
+        "why": "It explains your pause without interpreting a short reply as rejection.",
+        "delivery": "Keep the message neutral; a short reply alone does not establish their mood."
       }
     },
     {
@@ -74,38 +79,43 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Busy week here too. Coffee Thursday or we let it fade.",
-          "why": "It names the fork honestly — a plan or a goodbye — with no bitterness.",
-          "caution": null
+          "line": "Would Thursday work for coffee? Let me know.",
+          "why": "It offers a concrete plan without threatening a consequence for hesitation.",
+          "delivery": "Offer one real time you are available; avoid a joke about the delay if you want a straightforward answer."
         },
         {
           "register": "curt",
           "line": "All good. Thursday?",
           "why": "No grudge, one concrete plan — their answer tells you everything.",
-          "caution": null
+          "delivery": "Offer one real time you are available; avoid a joke about the delay if you want a straightforward answer."
         },
         {
           "register": "friendly",
           "line": "Haha no worries — weeks happen. Still want that coffee?",
           "why": "Forgiving the fade while re-offering the plan keeps it light and real.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Six days of crazy. Hope Thursday is calmer — coffee?",
-          "why": "It clocks the gap with a smile while still offering the date.",
-          "caution": null
+          "delivery": "Offer one real time you are available; avoid a joke about the delay if you want a straightforward answer."
         },
         {
           "register": "comedic",
-          "line": "Crazy week? Mine filed for calm.",
-          "why": "Matching their excuse with paperwork keeps the re-offer light.",
-          "caution": null
+          "line": "Coffee is ready for a calendar cameo; does Thursday work?",
+          "why": "Humor still includes an actionable invitation.",
+          "delivery": "Offer one real time you are available; avoid a joke about the delay if you want a straightforward answer."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Turn an uncertain chat into a concrete invitation.",
+      "followUp": {
+        "jab": "Maybe next week instead?",
+        "line": "Send a day that works when you know; I'll leave it with you.",
+        "why": "It places the next proposal with the other person without announcing an ultimatum.",
+        "delivery": "Offer one real time you are available; avoid a joke about the delay if you want a straightforward answer."
       }
     },
     {
@@ -123,41 +133,99 @@
         {
           "register": "boss",
           "line": "Bumping this once. A no is fine too.",
-          "why": "One bump plus permission to decline gets you an answer either way.",
-          "caution": null
+          "why": "It follows up once while explicitly allowing the other person to decline.",
+          "delivery": "Use the actual deadline and stop after one follow-up; read receipts do not reveal intent."
         },
         {
           "register": "curt",
-          "line": "Need an answer. Yes or no.",
-          "why": "It shrinks the ask to a binary, which is the easiest text to send.",
-          "caution": null
+          "line": "Please confirm by Friday, either way.",
+          "why": "It gives a practical deadline and allows a refusal.",
+          "delivery": "Use the actual deadline and stop after one follow-up; read receipts do not reveal intent."
         },
         {
           "register": "friendly",
           "line": "No pressure either way — just need to know by Friday.",
-          "why": "Removing pressure while adding a deadline makes replying safe and urgent.",
-          "caution": null
+          "why": "It provides a deadline for planning while allowing either answer.",
+          "delivery": "Use the actual deadline and stop after one follow-up; read receipts do not reveal intent."
         },
         {
           "register": "comedic",
-          "line": "Read receipts: the coldest read.",
-          "why": "It roasts the feature instead of the friend, which gets the faster reply.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Seen is not an answer.",
-          "why": "It states the chat's terms of service in five flat words.",
-          "caution": null
+          "line": "My plans need a headcount by Friday; are you in?",
+          "why": "The light phrasing requests useful information rather than prosecuting a read receipt.",
+          "delivery": "Use the actual deadline and stop after one follow-up; read receipts do not reveal intent."
         }
       ],
       "trap": {
         "line": "Hello?? I can see you read it.",
-        "why": "Prosecuting the read receipt turns a slow friend into a defensive one."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Follow up once with a practical deadline.",
+      "followUp": {
+        "jab": "I haven't decided yet.",
+        "line": "Please let me know by Friday; if you're unsure, I'll make another plan.",
+        "why": "It allows an honest no while giving you a workable decision point.",
+        "delivery": "Use the actual deadline and stop after one follow-up; read receipts do not reveal intent."
+      }
+    },
+    {
+      "id": "texting.dry-replies.0004",
+      "category": "texting",
+      "subcategory": "dry-replies",
+      "setting": "A friend repeatedly replies “maybe” to a plan you need to finalize.",
+      "jab": "maybe, I'll see how I feel",
+      "goal": "Set a planning deadline without demanding enthusiasm.",
+      "difficulty": 2,
+      "tags": [
+        "dry-replies",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Please confirm by six; otherwise I'll book for the people who are coming.",
+          "why": "It establishes a practical cutoff and a consequence tied to the booking.",
+          "delivery": "Keep the deadline practical rather than punitive, and follow through without sending repeated reminders."
+        },
+        {
+          "register": "curt",
+          "line": "Confirm by six or I'll book without you.",
+          "why": "It makes the next action and deadline explicit.",
+          "delivery": "Keep the deadline practical rather than punitive, and follow through without sending repeated reminders."
+        },
+        {
+          "register": "friendly",
+          "line": "I'd love you to join; please let me know by six so I can finish the booking.",
+          "why": "It expresses welcome while explaining why a definite answer is needed.",
+          "delivery": "Keep the deadline practical rather than punitive, and follow through without sending repeated reminders."
+        },
+        {
+          "register": "comedic",
+          "line": "My booking form hasn't learned “maybe”; yes or no by six?",
+          "why": "Light humor names the planning constraint without attacking the friend's indecision.",
+          "delivery": "Keep the deadline practical rather than punitive, and follow through without sending repeated reminders."
+        }
+      ],
+      "followUp": {
+        "jab": "Why do you need to know already?",
+        "line": "The reservation needs a number tonight; if you're unsure, I'll leave you out this time.",
+        "why": "It connects the deadline to a real requirement and offers a workable default.",
+        "delivery": "Keep the deadline practical rather than punitive, and follow through without sending repeated reminders."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

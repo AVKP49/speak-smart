@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "family.sibling-digs",
+    "category": "family",
+    "subcategory": "sibling-digs",
+    "title": "Sibling digs",
+    "description": "Correct a dismissive joke without turning dinner into a debate.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "family.sibling-digs.0001",
+      "category": "family",
+      "subcategory": "sibling-digs",
+      "setting": "Your sibling mocks your choice of career during a family meal.",
+      "jab": "Must be nice to get paid for playing on a laptop.",
+      "goal": "Correct a dismissive joke without turning dinner into a debate.",
+      "difficulty": 2,
+      "tags": [
+        "sibling-digs",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "It's my work. I'd like you to speak about it respectfully.",
+          "why": "It corrects the framing and states the behavior you want.",
+          "delivery": "Keep “my work” calm; if the joke repeats, change seats or end the topic."
+        },
+        {
+          "register": "curt",
+          "line": "It's work. Drop the dig, please.",
+          "why": "It gives a direct boundary without returning a personal insult.",
+          "delivery": "Say “It's work” clearly, then stop instead of adding a defense. Change seats or end the topic."
+        },
+        {
+          "register": "friendly",
+          "line": "I enjoy what I do; that joke makes it sound like it doesn't count.",
+          "why": "It explains the impact without attacking your sibling's job.",
+          "delivery": "Keep “I enjoy what I do” warm and unhurried; finish the request clearly. Change seats or end the topic."
+        },
+        {
+          "register": "comedic",
+          "line": "My laptop and the tax office both call it work.",
+          "why": "A joke adds perspective without suggesting your sibling is less successful.",
+          "delivery": "Keep “My laptop and the tax office both call” light; let the joke stand without repeating it. Change seats or end the topic."
+        }
+      ],
+      "followUp": {
+        "jab": "You can't take a joke.",
+        "line": "I can enjoy a joke; I'm asking you to leave my work out of it.",
+        "why": "It distinguishes humor from a repeated target you do not welcome.",
+        "delivery": "Keep “my work” calm; if the joke repeats, change seats or end the topic."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

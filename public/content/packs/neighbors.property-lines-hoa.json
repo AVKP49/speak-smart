@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "neighbors.property-lines-hoa",
+    "category": "neighbors",
+    "subcategory": "property-lines-hoa",
+    "title": "Property lines hoa",
+    "description": "Request a factual discussion before changing your property.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "neighbors.property-lines-hoa.0001",
+      "category": "neighbors",
+      "subcategory": "property-lines-hoa",
+      "setting": "A neighbor tells you to cut down a tree they dislike.",
+      "jab": "That tree has to go; it's ruining my view.",
+      "goal": "Request a factual discussion before changing your property.",
+      "difficulty": 2,
+      "tags": [
+        "property-lines-hoa",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Let's check the boundaries and rules before discussing changes.",
+          "why": "It moves the disagreement toward verifiable information rather than demands.",
+          "delivery": "Use a neutral tone and avoid claiming legal rights you have not checked."
+        },
+        {
+          "register": "curt",
+          "line": "Let's check the rules first.",
+          "why": "It pauses the decision until the relevant facts are understood.",
+          "delivery": "Use a neutral tone and avoid claiming legal rights you have not checked."
+        },
+        {
+          "register": "friendly",
+          "line": "I hear your concern; could you show me the rule you're referring to so we can review it?",
+          "why": "It invites evidence without agreeing to remove the tree.",
+          "delivery": "Use a neutral tone and avoid claiming legal rights you have not checked."
+        },
+        {
+          "register": "comedic",
+          "line": "The tree will wait while we read the paperwork.",
+          "why": "Light humor slows the demand without making the neighbor the target.",
+          "delivery": "Use a neutral tone and avoid claiming legal rights you have not checked."
+        }
+      ],
+      "followUp": {
+        "jab": "It's common sense, not a rule.",
+        "line": "I understand your preference; I'm not agreeing to removal without reviewing the facts.",
+        "why": "It separates a preference from a decision you have agreed to make.",
+        "delivery": "Use a neutral tone and avoid claiming legal rights you have not checked."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

@@ -10,10 +10,19 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildSync } from "esbuild";
+import { createHash } from "node:crypto";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const contentDir = join(root, "public", "content");
 const packsDir = join(contentDir, "packs");
+const schemaBundle = buildSync({ entryPoints: [join(root, "src", "types.ts")], bundle: true, write: false, format: "esm", platform: "node" }).outputFiles[0].text;
+const { CATEGORIES } = await import(`data:text/javascript;base64,${Buffer.from(schemaBundle).toString("base64")}`);
+const taxonomy = new Map(CATEGORIES.map((c) => [c.id, new Set(c.subcategories.map((s) => s.slug))]));
+let reviewLog;
+try { reviewLog = JSON.parse(readFileSync(join(root, "reviews", "content-review.json"), "utf8")); }
+catch { reviewLog = { scenarios: [] }; }
+const reviews = new Map(reviewLog.scenarios.map((r) => [r.id, r]));
 
 const REGISTERS = ["boss", "curt", "friendly", "comedic", "sharp"];
 const MAX_WORDS = { boss: 14, curt: 8, friendly: 22, comedic: 22, sharp: 16 };
@@ -83,6 +92,8 @@ for (const entry of manifest.packs) {
   }
   if (meta.version !== entry.version) errors.push(`${entry.file}: pack.version ${meta.version} != manifest ${entry.version}`);
   if (meta.id !== entry.id) errors.push(`${entry.file}: pack.id ${meta.id} != manifest ${entry.id}`);
+  if (meta.category !== entry.category || meta.subcategory !== entry.subcategory) errors.push(`${entry.file}: pack taxonomy != manifest taxonomy`);
+  if (!taxonomy.get(meta.category)?.has(meta.subcategory)) errors.push(`${entry.file}: unknown category/subcategory`);
   if (scenarios.length !== entry.count) errors.push(`${entry.file}: ${scenarios.length} scenarios != manifest count ${entry.count}`);
 
   for (const s of scenarios) {
@@ -93,6 +104,11 @@ for (const entry of manifest.packs) {
     }
     if (seenIds.has(s.id)) errors.push(`${s.id}: duplicate scenario id`);
     seenIds.add(s.id);
+    if (s.category !== meta.category || s.subcategory !== meta.subcategory) errors.push(`${s.id}: scenario taxonomy != pack taxonomy`);
+    if (!taxonomy.get(s.category)?.has(s.subcategory)) errors.push(`${s.id}: unknown category/subcategory`);
+    if (!s.goal?.trim()) errors.push(`${s.id}: missing learning goal`);
+    if (!s.followUp || ["jab", "line", "why", "delivery"].some((key) => !s.followUp[key]?.trim())) errors.push(`${s.id}: follow-up needs jab/line/why/delivery`);
+    if (s.followUp?.why && countSentences(s.followUp.why) !== 1) errors.push(`${s.id}: follow-up why must be one sentence`);
     if (!s.id.startsWith(`${s.category}.${s.subcategory}.`)) {
       errors.push(`${s.id}: id must start with category.subcategory`);
     }
@@ -108,6 +124,7 @@ for (const entry of manifest.packs) {
     for (const r of replies) {
       if (!REGISTERS.includes(r.register)) errors.push(`${s.id}: unknown register ${r.register}`);
       if (!r.line || !r.line.trim()) errors.push(`${s.id}/${r.register}: empty line`);
+      if (!r.delivery?.trim()) errors.push(`${s.id}/${r.register}: missing delivery coaching`);
       if (!r.why || !r.why.trim()) errors.push(`${s.id}/${r.register}: empty why`);
       else if (countSentences(r.why) !== 1) errors.push(`${s.id}/${r.register}: why must be exactly one sentence`);
       const words = countWords(r.line || "");
@@ -122,7 +139,7 @@ for (const entry of manifest.packs) {
           if (lower.startsWith(opener)) warnings.push(`${s.id}/boss: weak opener "${opener}" — Boss never opens soft`);
         }
       }
-      if (r.register === "curt" && s.subcategory !== "apologizing-well") {
+      if (r.register === "curt" && !["apologizing-well", "sarcasm-in-text", "street-transit"].includes(s.subcategory)) {
         // Apologizing-well is exempt: the apology is the assignment, not a softener.
         for (const soft of CURT_SOFTENERS) {
           if (lower.includes(soft)) warnings.push(`${s.id}/curt: softener "${soft}" — brevity is the whole weapon`);
@@ -152,6 +169,11 @@ for (const entry of manifest.packs) {
     if (!["approved", "draft", "flagged"].includes(status)) {
       errors.push(`${s.id}: review.status must be approved|draft|flagged`);
     } else if (status === "approved") {
+      const logged = reviews.get(s.id);
+      const hash = createHash("sha256").update(JSON.stringify(s)).digest("hex");
+      if (!logged || logged.sha256 !== hash || !logged.notes || logged.status !== "reviewed") errors.push(`${s.id}: missing or stale editorial review record`);
+      if (!["agent-editorial", "human-editorial"].includes(s.review.method) || !s.review.reviewer || !s.review.reviewedAt) errors.push(`${s.id}: missing review provenance`);
+      if (s.review.independentHumanReview && logged?.independentHumanReview !== true) errors.push(`${s.id}: unsupported independent human review claim`);
       stats.approved += 1;
       stats.byCategory[s.category] = (stats.byCategory[s.category] ?? 0) + 1;
     } else if (status === "draft") stats.drafts += 1;
@@ -169,6 +191,7 @@ for (const f of packFiles) {
 
 const total = stats.approved + stats.drafts + stats.flagged;
 console.log(`Library: ${stats.approved} approved · ${stats.drafts} draft · ${stats.flagged} flagged (${total} total)`);
+console.log(`Editorial method: ${reviewLog.method ?? "not recorded"}; independent human review: ${reviewLog.independentHumanReview ? "recorded" : "not performed"}`);
 if (process.argv.includes("--stats")) {
   const l2 = stats.l2Replies ?? 0;
   console.log(`Second language: ${l2}/${stats.totalReplies} replies (${stats.totalReplies ? Math.round((l2 / stats.totalReplies) * 100) : 0}%)`);

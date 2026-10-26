@@ -5,7 +5,7 @@
     "subcategory": "dinner-table-interrogations",
     "title": "Dinner-table interrogations",
     "description": "Holiday cross-examination with witnesses. Loving, brief, final.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,42 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Still picky. It's working out great.",
-          "why": "Owning the label with a smile closes the topic in front of everyone.",
-          "caution": null
+          "line": "I'm keeping that private. Let's enjoy dinner.",
+          "why": "It closes the private topic and redirects to the shared meal.",
+          "delivery": "Smile only if natural; finish the boundary and introduce another topic."
         },
         {
           "register": "curt",
-          "line": "All good. Pass the gravy?",
-          "why": "A status plus a redirect ends testimony and restarts dinner.",
-          "caution": null
+          "line": "Keeping that private. Pass the gravy?",
+          "why": "It gives a brief answer and redirects toward dinner.",
+          "delivery": "Smile only if natural; finish the boundary and introduce another topic."
         },
         {
           "register": "friendly",
-          "line": "You'll be the first to know — now tell me about your trip.",
-          "why": "A promise plus a question about her trades interrogation for conversation.",
-          "caution": null
+          "line": "I'll share news when I'm ready; I'd love to hear about your trip instead.",
+          "why": "It preserves control of disclosure and offers a topic you welcome.",
+          "delivery": "Smile only if natural; finish the boundary and introduce another topic."
         },
         {
           "register": "comedic",
           "line": "My love life has a press office now. It declines to comment.",
-          "why": "Absurd bureaucracy makes the question funny, which makes pursuing it awkward.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Picky? I call it casting.",
-          "why": "It reframes single life as a production, which the table laughs with.",
-          "caution": "family-risk"
+          "why": "The joke treats private disclosure as optional rather than required by the question.",
+          "delivery": "Smile only if natural; finish the boundary and introduce another topic."
         }
       ],
       "trap": {
         "line": "God, can we have ONE dinner without the inquisition?",
-        "why": "Snapping at the table makes you the scene instead of ending one."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Keep your dating life private at a family meal.",
+      "followUp": {
+        "jab": "We just want you to be happy.",
+        "line": "I appreciate that; I'll share news when I want to.",
+        "why": "It accepts the caring intention without promising disclosure on demand.",
+        "delivery": "Smile only if natural; finish the boundary and introduce another topic."
       }
     },
     {
@@ -74,43 +79,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I have one. It pays for this wine.",
-          "why": "A fact plus a toast proves the point without arguing it.",
-          "delivery": "Raise your glass on the second sentence. Mean it.",
-          "caution": null
+          "line": "It is my work. I'm happy to explain what it involves.",
+          "why": "It affirms the work without equating its worth with income.",
+          "delivery": "Keep “work” matter-of-fact and avoid proving your worth through income."
         },
         {
           "register": "curt",
           "line": "Already got one, Dad.",
           "why": "The Dad at the end keeps it family while the sentence stays final.",
-          "caution": null
+          "delivery": "Say “Already got one, Dad” clearly, then stop instead of adding a defense."
         },
         {
           "register": "friendly",
           "line": "It's real, I promise — want the two-minute version of what I do?",
           "why": "Offering the explainer assumes curiosity instead of contempt, which invites him in.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "About the time carving counts as quality time.",
-          "why": "It answers a dig with a dig, which feels great for four seconds at family dinner.",
-          "caution": "family-risk"
+          "delivery": "Keep “It's real, I promise” warm and unhurried; finish the request clearly."
         },
         {
           "register": "comedic",
           "line": "It's so real it pays taxes.",
-          "why": "Citing the IRS as your character witness ends the trial with proof.",
-          "caution": null
+          "why": "It affirms that your work is real through an ordinary reference to taxes.",
+          "delivery": "Keep “It's so real it pays taxes” light; let the joke stand without repeating it."
         }
       ],
       "trap": {
         "line": "You have NO idea what I do. None.",
-        "why": "Correcting him with contempt turns dinner into the trial he's already holding."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Ask for respect toward your work.",
+      "followUp": {
+        "jab": "It doesn't sound like a proper career.",
+        "line": "I can explain what I do; I won't debate whether it counts as work.",
+        "why": "It offers information without accepting a demeaning frame.",
+        "delivery": "Keep “work” matter-of-fact and avoid proving your worth through income."
       }
     },
     {
@@ -127,32 +136,43 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I'm well fed. But I'll never refuse this cooking.",
-          "why": "It answers the worry and compliments the cook, ending the exam deliciously.",
-          "caution": null
+          "line": "I'm comfortable with my choices. Let's leave body comments out of dinner.",
+          "why": "It makes a topic boundary without defending your body or eating.",
+          "delivery": "Pause, then say “I'm comfortable with my choices” at a steady, conversational volume. ” with a firm ending on the boundary."
         },
         {
           "register": "friendly",
-          "line": "Your cooking is the highlight of my meal plan.",
-          "why": "Making her the solution to the problem she raised dissolves it completely.",
-          "caution": null
+          "line": "I know you care; I'd rather we talk about something besides my body.",
+          "why": "It acknowledges concern while requesting a different topic.",
+          "delivery": "Keep “I know you care” warm and unhurried; finish the request clearly. ” with a firm ending on the boundary."
         },
         {
           "register": "comedic",
-          "line": "I'm saving room. Strategically. For seconds.",
-          "why": "Treating thinness as tactics makes the whole table co-conspirators.",
-          "caution": null
+          "line": "My body isn't on tonight's discussion menu.",
+          "why": "The joke sets a dinner-table topic boundary without promising to eat more.",
+          "delivery": "Keep “My body isn't on tonight's discussion menu” light; let the joke stand without repeating it. ” with a firm ending on the boundary."
         },
         {
-          "register": "sharp",
-          "line": "Thin? I'm between seconds.",
-          "why": "It answers the worry with an appetite, which is what she wanted to hear.",
-          "caution": "family-risk"
+          "register": "curt",
+          "line": "No body comments over dinner, please.",
+          "why": "It states the immediate boundary without adding a personal judgment.",
+          "delivery": "Say “No body comments over dinner, please” clearly, then stop instead of adding a defense. ” with a firm ending on the boundary."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Redirect an unwanted comment about your body.",
+      "followUp": {
+        "jab": "I'm only worried about you.",
+        "line": "I hear that; I'd rather not discuss my body over dinner.",
+        "why": "It acknowledges concern while setting a topic boundary.",
+        "delivery": "Use warmth on “I hear that,” with a firm ending on the boundary."
       }
     }
   ]

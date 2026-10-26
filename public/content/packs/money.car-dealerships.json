@@ -5,7 +5,7 @@
     "subcategory": "car-dealerships",
     "title": "Car dealerships",
     "description": "Today-only prices and trips to the manager. Decide on your timeline, not theirs.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,43 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Then it's not my price. I'll be here Thursday — so will the car.",
-          "why": "It calls the deadline a bluff by naming a later date with total confidence.",
-          "delivery": "Stand as you say Thursday. Movement sells it.",
-          "caution": null
+          "line": "I'm not deciding today. I'll accept the risk it sells.",
+          "why": "It acknowledges possible scarcity while retaining your decision timeline.",
+          "delivery": "Pause, then say “I'm not deciding today” at a steady, conversational volume. ” then let the pause remain."
         },
         {
           "register": "curt",
           "line": "Then no.",
           "why": "Two words that end the pressure script because there's nothing to negotiate against.",
-          "caution": null
+          "delivery": "Say “Then no” clearly, then stop instead of adding a defense. ” then let the pause remain."
         },
         {
           "register": "friendly",
           "line": "I get the urgency — I still don't decide same-day. What can you do Thursday?",
-          "why": "It validates his job while holding your rule, then hands him a solvable problem.",
-          "caution": null
+          "why": "It holds your buying timeline while asking whether a later offer is possible.",
+          "delivery": "Keep “I get the urgency” warm and unhurried; finish the request clearly. ” then let the pause remain."
         },
         {
           "register": "comedic",
           "line": "A price with a bedtime. Interesting. Mine sleeps in.",
-          "why": "Treating the deadline as absurd makes it absurd, without ever arguing terms.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Only good today? Then it's not a price, it's a hostage note.",
-          "why": "It renames the tactic so bluntly the room has to laugh or drop it.",
-          "caution": null
+          "why": "It uses humor about timing while declining to decide under pressure.",
+          "delivery": "Keep “A price with a bedtime” light; let the joke stand without repeating it. ” then let the pause remain."
         }
       ],
       "trap": {
         "line": "Fine — but you're ripping me off and we both know it.",
-        "why": "Signing while accusing him gets you the worst price and the worst story."
+        "why": "It accepts the purchase while adding an accusation instead of holding your decision boundary."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Decline a buying deadline you cannot meet.",
+      "followUp": {
+        "jab": "The car really might sell today.",
+        "line": "I understand; I'm prepared to miss it rather than rush.",
+        "why": "It accepts genuine scarcity without allowing it to dictate your decision.",
+        "delivery": "Use a relaxed pace on “prepared to miss it,” then let the pause remain."
       }
     },
     {
@@ -75,42 +79,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Take your time. My number doesn't move while you walk.",
-          "why": "It names your price as fixed before the theater starts, so the theater has no audience.",
-          "caution": null
+          "line": "Take your time. This is the amount I'm willing to pay.",
+          "why": "It gives the seller space to consider your clearly stated limit.",
+          "delivery": "Emphasize your actual amount calmly; avoid describing their process as theater."
         },
         {
           "register": "curt",
           "line": "I'll wait. Number stands.",
           "why": "It grants the trip while freezing the terms, which is the whole game.",
-          "caution": null
+          "delivery": "Emphasize your actual amount calmly; avoid describing their process as theater."
         },
         {
           "register": "friendly",
           "line": "Of course — tell him I'm an easy yes at my number.",
-          "why": "It makes you the reasonable one and gives the manager a face-saving path to yes.",
-          "caution": null
+          "why": "It communicates willingness to buy at your stated amount while leaving room for refusal.",
+          "delivery": "Emphasize your actual amount calmly; avoid describing their process as theater."
         },
         {
           "register": "comedic",
-          "line": "Bring him back. I love a live negotiation show.",
-          "why": "Naming the ritual as entertainment deflates it for everyone in earshot.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Tell him the car can wait. So can I.",
-          "why": "It removes every deadline from the room, which is the only leverage he brought.",
-          "caution": null
+          "line": "My budget will still be here when you get back.",
+          "why": "Humor reinforces your limit without alleging a dishonest process.",
+          "delivery": "Emphasize your actual amount calmly; avoid describing their process as theater."
         }
       ],
       "trap": {
         "line": "Whatever — just tell me the lowest you'll actually go.",
-        "why": "Asking for the floor first hands him your ceiling to negotiate down from."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Maintain your offer while it is considered.",
+      "followUp": {
+        "jab": "My manager says you need to come up a little.",
+        "line": "That's the amount I'm willing to pay; I can leave it with you.",
+        "why": "It states your limit and allows the seller to decline.",
+        "delivery": "Emphasize your actual amount calmly; avoid describing their process as theater."
       }
     },
     {
@@ -129,36 +138,41 @@
           "register": "boss",
           "line": "I'm here for the one I asked about. Let's price that.",
           "why": "It redirects to your target without debating the upgrade, which starves the upsell.",
-          "caution": null
+          "delivery": "Pause, then say “I'm here for the one I asked about” at a steady, conversational volume. ” without mocking the alternative."
         },
         {
           "register": "curt",
           "line": "Not that one. Mine.",
           "why": "It refuses the redirect in four words and points back at your car.",
-          "caution": null
+          "delivery": "Say “Not that one” clearly, then stop instead of adding a defense. ” without mocking the alternative."
         },
         {
           "register": "friendly",
-          "line": "She's beautiful — and she's someone else's. Mine's the one we drove.",
-          "why": "Admiring the car while declining it keeps him working for you, not the commission.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "A little more a month is still more. Price the car I drove.",
-          "why": "It translates monthly-speak back into real money, which ends the framing trick.",
-          "caution": null
+          "line": "It looks good, but I'd like to stay with the car and budget I chose.",
+          "why": "It receives the suggestion while holding the original purchase scope.",
+          "delivery": "Keep “It looks good, but I'd like to stay” warm and unhurried; finish the request clearly. ” without mocking the alternative."
         },
         {
           "register": "comedic",
           "line": "My budget and I are exclusive.",
-          "why": "Treating the budget as a relationship makes the upsell the other party.",
-          "caution": null
+          "why": "It expresses commitment to your chosen budget through a light metaphor.",
+          "delivery": "Keep “My budget and I are exclusive” light; let the joke stand without repeating it. ” without mocking the alternative."
         }
       ],
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Keep an upsell focused on your chosen budget.",
+      "followUp": {
+        "jab": "It's practically the same monthly payment.",
+        "line": "Please compare the total cost and terms for the car I chose.",
+        "why": "It moves the comparison from monthly framing to the full purchase terms.",
+        "delivery": "Point to the chosen car and stress “total cost,” without mocking the alternative."
       }
     }
   ]

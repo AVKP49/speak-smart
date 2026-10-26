@@ -5,7 +5,7 @@
     "subcategory": "apologizing-well",
     "title": "Apologizing well",
     "description": "Real repair in one breath. Name it, own it, don't perform it.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -24,34 +24,39 @@
           "register": "boss",
           "line": "I forgot, and I'm sorry. Dinner's on me this week.",
           "why": "Own it, apologize once, then repair with a plan — in that order.",
-          "caution": null
+          "delivery": "Say “I forgot” without an excuse; listen before offering a repair you can honor."
         },
         {
           "register": "curt",
           "line": "My fault. I'm sorry.",
           "why": "No excuses attached — the cleanest apology is the shortest one.",
-          "caution": null
+          "delivery": "Say “My fault” clearly, then stop instead of adding a defense. Listen before offering a repair you can honor."
         },
         {
           "register": "friendly",
           "line": "I'm really sorry — you deserved better from me. Let me make it up properly.",
           "why": "It centers their feeling, not your guilt, then moves straight to repair.",
-          "caution": null
-        },
-        {
-          "register": "comedic",
-          "line": "My bad. The card's in the mail.",
-          "why": "It owns it fast and lets the joke carry the repair, not the excuse.",
-          "caution": null
+          "delivery": "Keep “I'm really sorry” warm and unhurried; finish the request clearly. Listen before offering a repair you can honor."
         }
       ],
       "trap": {
         "line": "I'm sorry, but I've just been SO busy lately.",
-        "why": "The but erases the sorry and makes your schedule the birthday's competition."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Own a missed birthday and offer a real repair.",
+      "followUp": {
+        "jab": "Dinner doesn't undo how it felt.",
+        "line": "You're right; I'm sorry I forgot, and I want to hear how it affected you.",
+        "why": "It recognizes that a gesture does not erase the hurt and makes space for their experience.",
+        "delivery": "Say “I forgot” without an excuse; listen before offering a repair you can honor."
       }
     },
     {
@@ -68,32 +73,84 @@
       "replies": [
         {
           "register": "boss",
-          "line": "We're okay. I was short with you and that wasn't fair.",
-          "why": "Reassurance first, then ownership — safety before accountability lands best.",
-          "caution": null
+          "line": "I snapped at you, and I'm sorry. That wasn't fair.",
+          "why": "It owns the behavior without deciding whether the other person feels repaired.",
+          "delivery": "Use a low, sincere tone and pause for their response; do not ask them to reassure you."
         },
         {
           "register": "curt",
-          "line": "We're good. Sorry about yesterday.",
-          "why": "It clears the air in six words with no meeting about the meeting.",
-          "caution": null
+          "line": "I snapped. I'm sorry; that wasn't fair.",
+          "why": "It names the action and apologizes without an excuse.",
+          "delivery": "Use a low, sincere tone and pause for their response; do not ask them to reassure you."
         },
         {
           "register": "friendly",
-          "line": "Very okay — and I'm sorry for snapping. Bad day, wrong target.",
-          "why": "It names what happened honestly while refusing to make excuses of it.",
-          "caution": null
-        },
-        {
-          "register": "comedic",
-          "line": "Note to self: snap less.",
-          "why": "A tiny public note makes the apology stick without groveling.",
-          "caution": null
+          "line": "I'm sorry I snapped yesterday; you didn't deserve that, and I want to hear how it affected you.",
+          "why": "It takes responsibility and makes room for the person's experience.",
+          "delivery": "Use a low, sincere tone and pause for their response; do not ask them to reassure you."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Apologize for snapping without deciding the other person's feelings.",
+      "followUp": {
+        "jab": "It made me afraid to ask questions.",
+        "line": "I'm sorry; that was my responsibility, and I want you to be able to ask freely.",
+        "why": "It owns the impact instead of declaring the relationship repaired on the other person's behalf.",
+        "delivery": "Use a low, sincere tone and pause for their response; do not ask them to reassure you."
+      }
+    },
+    {
+      "id": "hard-moments.apologizing-well.0003",
+      "category": "hard-moments",
+      "subcategory": "apologizing-well",
+      "setting": "You interrupted a friend and they tell you they felt dismissed.",
+      "jab": "You didn't let me finish what I was saying.",
+      "goal": "Repair an interruption and return the floor.",
+      "difficulty": 2,
+      "tags": [
+        "apologizing-well",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I interrupted you. I'm sorry. Please finish.",
+          "why": "It owns the action and immediately gives the other person their turn.",
+          "delivery": "Say the apology once, stop talking, and let the person actually finish."
+        },
+        {
+          "register": "curt",
+          "line": "You're right. Please finish; I'll listen.",
+          "why": "It corrects the immediate behavior rather than extending a defense.",
+          "delivery": "Say the apology once, stop talking, and let the person actually finish."
+        },
+        {
+          "register": "friendly",
+          "line": "I'm sorry I cut you off; I want to hear the rest, and I'll wait.",
+          "why": "It pairs an apology with the changed behavior the conversation needs.",
+          "delivery": "Say the apology once, stop talking, and let the person actually finish."
+        }
+      ],
+      "followUp": {
+        "jab": "You do that a lot, though.",
+        "line": "I hear you; I'll pay attention to that pattern, and right now I want to listen.",
+        "why": "It acknowledges the repeated impact without requiring forgiveness before changing behavior.",
+        "delivery": "Say the apology once, stop talking, and let the person actually finish."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

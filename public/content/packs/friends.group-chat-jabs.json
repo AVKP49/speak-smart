@@ -5,7 +5,7 @@
     "subcategory": "group-chat-jabs",
     "title": "Group-chat jabs",
     "description": "Roasts with an audience of twelve. Win the thread without losing the friend.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,42 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Main character with good news. Thanks for noticing.",
-          "why": "Owning the frame turns the jab into a compliment with witnesses.",
-          "caution": null
+          "line": "I'm happy about this news. I'd like to enjoy sharing it.",
+          "why": "It names your wish for the exchange without competing for status.",
+          "delivery": "Keep it light if the banter is welcome; use a plain tone if it has become hurtful."
         },
         {
           "register": "curt",
           "line": "Anyway. Big week for me.",
           "why": "It steps over the jab and re-centers your news in five words.",
-          "caution": null
+          "delivery": "Keep it light if the banter is welcome; use a plain tone if it has become hurtful."
         },
         {
           "register": "friendly",
-          "line": "Haha — supporting cast gets dinner when I celebrate.",
-          "why": "Casting him in your story converts the heckler into a guest.",
-          "caution": null
+          "line": "I'm excited about it; I'd love to celebrate with you all.",
+          "why": "It offers connection around your good news rather than responding with a comparison.",
+          "delivery": "Keep it light if the banter is welcome; use a plain tone if it has become hurtful."
         },
         {
           "register": "comedic",
           "line": "Somebody has to carry this chat's plot.",
-          "why": "Accepting the role with absurd confidence makes the thread yours.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Main character? I prefer lead.",
-          "why": "Upgrading the title steals the joke and wears it better.",
-          "caution": null
+          "why": "It joins welcome banter without insulting another person's achievements.",
+          "delivery": "Keep it light if the banter is welcome; use a plain tone if it has become hurtful."
         }
       ],
       "trap": {
         "line": "At least I HAVE news. What have you done lately?",
-        "why": "Counter-punching in the chat turns banter into a scoreboard nobody wins."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Share good news without competing for status.",
+      "followUp": {
+        "jab": "Can't you take a little banter?",
+        "line": "I can enjoy a joke; I'd also like to enjoy sharing my news.",
+        "why": "It communicates the kind of participation you want without counterattacking.",
+        "delivery": "Keep it light if the banter is welcome; use a plain tone if it has become hurtful."
       }
     },
     {
@@ -74,32 +79,96 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Iconic. That look built character.",
-          "why": "Agreeing at full volume leaves the joke with nowhere to go.",
-          "caution": null
+          "line": "I'd rather that photo stayed private. Please remove it.",
+          "why": "It gives an explicit consent boundary without attacking the sender.",
+          "delivery": "State your preference plainly; avoid pretending to laugh if you want it removed."
         },
         {
           "register": "friendly",
-          "line": "A masterpiece. Printing it for your birthday.",
-          "why": "Loving the photo plus a gentle threat keeps the thread fun and finite.",
-          "caution": null
+          "line": "I know you meant it playfully; I don't want that photo in the chat, so please remove it.",
+          "why": "It acknowledges intent while making the removal request clear.",
+          "delivery": "State your preference plainly; avoid pretending to laugh if you want it removed."
         },
         {
           "register": "comedic",
           "line": "We don't talk about the bangs era.",
-          "why": "Naming the era yourself makes you the narrator instead of the target.",
-          "caution": null
+          "why": "It offers a self-directed joke if you genuinely welcome sharing the photo.",
+          "delivery": "State your preference plainly; avoid pretending to laugh if you want it removed."
         },
         {
-          "register": "sharp",
-          "line": "Delete it and I'll deny everything.",
-          "why": "A fake cover-up treats the photo as classified, which buries the roast.",
-          "caution": null
+          "register": "curt",
+          "line": "Please remove that photo from the chat.",
+          "why": "It states the immediate boundary without adding a personal judgment.",
+          "delivery": "State your preference plainly; avoid pretending to laugh if you want it removed."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Choose whether an embarrassing photo stays shared.",
+      "followUp": {
+        "jab": "It's just an old photo, relax.",
+        "line": "I don't want it shared here; please remove it.",
+        "why": "It makes consent the issue rather than arguing about whether the photo is funny.",
+        "delivery": "State your preference plainly; avoid pretending to laugh if you want it removed."
+      }
+    },
+    {
+      "id": "friends.group-chat-jabs.0003",
+      "category": "friends",
+      "subcategory": "group-chat-jabs",
+      "setting": "A friend posts a private story about you to the group chat.",
+      "jab": "Everyone needs to hear what you told me last night.",
+      "goal": "Stop a private story from becoming public entertainment.",
+      "difficulty": 2,
+      "tags": [
+        "group-chat-jabs",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "That was private. Please don't share it here.",
+          "why": "It names the privacy boundary and asks for a specific action.",
+          "delivery": "Be brief in the group; move any longer discussion to a private conversation."
+        },
+        {
+          "register": "curt",
+          "line": "Keep that between us, please.",
+          "why": "It asks for confidentiality without retelling the private information.",
+          "delivery": "Be brief in the group; move any longer discussion to a private conversation."
+        },
+        {
+          "register": "friendly",
+          "line": "I told you that privately; I'd like it to stay between us.",
+          "why": "It clarifies the original context without shaming your friend in the group.",
+          "delivery": "Be brief in the group; move any longer discussion to a private conversation."
+        },
+        {
+          "register": "comedic",
+          "line": "That story didn't sign up for the group tour.",
+          "why": "A light metaphor makes the privacy boundary visible without revealing more.",
+          "delivery": "Be brief in the group; move any longer discussion to a private conversation."
+        }
+      ],
+      "followUp": {
+        "jab": "Relax, it's not that serious.",
+        "line": "It's private to me; please delete it and don't share more.",
+        "why": "It makes your consent the issue rather than debating how interesting the story is.",
+        "delivery": "Be brief in the group; move any longer discussion to a private conversation."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

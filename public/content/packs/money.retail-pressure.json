@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "money.retail-pressure",
+    "category": "money",
+    "subcategory": "retail-pressure",
+    "title": "Retail pressure",
+    "description": "Make a purchase decision at your own pace.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "money.retail-pressure.0001",
+      "category": "money",
+      "subcategory": "retail-pressure",
+      "setting": "You are considering a jacket and the salesperson insists you buy immediately.",
+      "jab": "Someone else will buy it if you walk away.",
+      "goal": "Make a purchase decision at your own pace.",
+      "difficulty": 2,
+      "tags": [
+        "retail-pressure",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I can accept that. I'm taking time to decide.",
+          "why": "Accepting the possibility of missing out removes the pressure to act immediately.",
+          "delivery": "Keep “taking time” firm; do not start listing reasons you need permission to leave."
+        },
+        {
+          "register": "curt",
+          "line": "I'll take that chance.",
+          "why": "It declines the urgency without debating whether the scarcity is real.",
+          "delivery": "Say “I'll take that chance” clearly, then stop instead of adding a defense. Do not start listing reasons you need permission to leave."
+        },
+        {
+          "register": "friendly",
+          "line": "Thanks for letting me know; I'll decide after I've had time to think.",
+          "why": "It receives the information while retaining control of the decision.",
+          "delivery": "Keep “Thanks for letting me know” warm and unhurried; finish the request clearly. Do not start listing reasons you need permission to leave."
+        },
+        {
+          "register": "comedic",
+          "line": "My wallet doesn't do speed dating.",
+          "why": "The joke targets your buying pace rather than the salesperson.",
+          "delivery": "Keep “My wallet doesn't do speed dating” light; let the joke stand without repeating it. Do not start listing reasons you need permission to leave."
+        }
+      ],
+      "followUp": {
+        "jab": "I can hold it only until closing.",
+        "line": "Thanks; if it's gone when I return, I'll choose something else.",
+        "why": "It acknowledges a real deadline without letting it determine your purchase.",
+        "delivery": "Pause before “Thanks,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

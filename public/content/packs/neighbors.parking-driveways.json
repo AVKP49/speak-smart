@@ -5,7 +5,7 @@
     "subcategory": "parking-driveways",
     "title": "Parking & driveways",
     "description": "Your spot, their car. Calm words before tow trucks.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -24,40 +24,45 @@
           "register": "boss",
           "line": "I need out now. Move it, please.",
           "why": "Now plus please is polite and non-negotiable at the same time.",
-          "caution": null
+          "delivery": "Point toward the exit, state “now” once, and avoid threatening a tow."
         },
         {
           "register": "curt",
           "line": "Move it. Now.",
           "why": "Four syllables with no argument attached — there's nothing to debate.",
-          "caution": null
+          "delivery": "Point toward the exit, state “now” once, and avoid threatening a tow."
         },
         {
           "register": "friendly",
           "line": "I believe you — and I still need out. Quick move?",
           "why": "Believing them while holding your need keeps it neighborly and effective.",
-          "caution": null
+          "delivery": "Keep “I believe you” warm and unhurried; finish the request clearly. And avoid threatening a tow."
         },
         {
           "register": "comedic",
-          "line": "Ten minutes? My driveway charges hourly.",
-          "why": "Invoicing the spot makes moving it the cheaper joke.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "My driveway isn't guest parking.",
-          "why": "It states the property line as fact, which no charm can move.",
-          "caution": null
+          "line": "My driveway needs its exit back, please.",
+          "why": "Light phrasing makes the access request clear without implying a fee.",
+          "delivery": "Keep “My driveway needs its exit back, please” light; let the joke stand without repeating it. And avoid threatening a tow."
         }
       ],
       "trap": {
         "line": "Park there again and I'm having you towed.",
-        "why": "Threatening the tow before asking the move makes you the street's problem."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Ask for a blocked exit to be cleared.",
+      "followUp": {
+        "jab": "Can't you wait ten minutes?",
+        "line": "I need to leave now; please move the car.",
+        "why": "It makes the immediate need clear without debating their preferred delay.",
+        "delivery": "Point toward the exit, state “now” once, and avoid threatening a tow."
       }
     },
     {
@@ -74,38 +79,96 @@
       "replies": [
         {
           "register": "boss",
-          "line": "The big deal is it's mine. One of those twenty is yours.",
-          "why": "It answers the question literally and points at the easy fix.",
-          "caution": null
+          "line": "This space is assigned to me. Please move the car.",
+          "why": "It states the relevant fact and asks for the necessary action.",
+          "delivery": "Keep your distance and the request clear; seek building staff if the exchange becomes heated."
         },
         {
           "register": "curt",
           "line": "My spot. Move along.",
           "why": "Ownership plus direction, no debate offered or accepted.",
-          "caution": null
+          "delivery": "Keep your distance and the request clear; seek building staff if the exchange becomes heated."
         },
         {
           "register": "friendly",
           "line": "Totally get it — but I pay for that one. Mind hopping over?",
-          "why": "Naming the lease turns it from preference into paperwork, politely.",
-          "caution": null
+          "why": "It explains that the space is assigned and asks for it to be cleared.",
+          "delivery": "Keep your distance and the request clear; seek building staff if the exchange becomes heated."
         },
         {
           "register": "comedic",
-          "line": "I named that spot. We're close. Pick another friend.",
-          "why": "Fake attachment to asphalt makes moving feel like a favor, not a loss.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Then enjoy the other nineteen.",
-          "why": "It grants their premise and spends it against them in five words.",
-          "caution": null
+          "line": "This spot and I have a standing appointment; could you move?",
+          "why": "It uses playful attachment to the spot while asking the guest to move.",
+          "delivery": "Keep your distance and the request clear; seek building staff if the exchange becomes heated."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Ask for access to an assigned parking space.",
+      "followUp": {
+        "jab": "Just use another one this time.",
+        "line": "This space is assigned to me; please move to an unassigned one.",
+        "why": "It distinguishes an assigned space from a general preference.",
+        "delivery": "Keep your distance and the request clear; seek building staff if the exchange becomes heated."
+      }
+    },
+    {
+      "id": "neighbors.parking-driveways.0003",
+      "category": "neighbors",
+      "subcategory": "parking-driveways",
+      "setting": "A neighbor's guest repeatedly parks across the shared driveway entrance.",
+      "jab": "There's plenty of room to squeeze past.",
+      "goal": "Ask for access without taking an avoidable risk.",
+      "difficulty": 2,
+      "tags": [
+        "parking-driveways",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I need the entrance clear. Please move the car.",
+          "why": "It states the required access rather than debating whether squeezing past is possible.",
+          "delivery": "Stay outside the vehicle while asking; do not demonstrate the risky maneuver to prove your point."
+        },
+        {
+          "register": "curt",
+          "line": "Please clear the driveway entrance.",
+          "why": "It asks for the action needed without adding a threat.",
+          "delivery": "Stay outside the vehicle while asking; do not demonstrate the risky maneuver to prove your point."
+        },
+        {
+          "register": "friendly",
+          "line": "I'd rather avoid a scrape; could you move the car so the entrance stays clear?",
+          "why": "It gives a practical reason for cooperation without assigning bad intent.",
+          "delivery": "Stay outside the vehicle while asking; do not demonstrate the risky maneuver to prove your point."
+        },
+        {
+          "register": "comedic",
+          "line": "My car didn't sign up for an obstacle course.",
+          "why": "The joke targets the tight route rather than the guest's competence.",
+          "delivery": "Stay outside the vehicle while asking; do not demonstrate the risky maneuver to prove your point."
+        }
+      ],
+      "followUp": {
+        "jab": "Just try it once.",
+        "line": "I'm not comfortable risking a scrape; please move it before I leave.",
+        "why": "It refuses the unnecessary risk and repeats the concrete request.",
+        "delivery": "Stay outside the vehicle while asking; do not demonstrate the risky maneuver to prove your point."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

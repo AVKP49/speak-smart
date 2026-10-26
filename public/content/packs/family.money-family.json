@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "family.money-family",
+    "category": "family",
+    "subcategory": "money-family",
+    "title": "Money family",
+    "description": "Decline a financial obligation without debating love.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "family.money-family.0001",
+      "category": "family",
+      "subcategory": "money-family",
+      "setting": "A relative asks you to co-sign a loan you cannot afford to cover.",
+      "jab": "We're family. You should trust me.",
+      "goal": "Decline a financial obligation without debating love.",
+      "difficulty": 2,
+      "tags": [
+        "money-family",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I won't co-sign. It's a financial commitment I can't take on.",
+          "why": "It explains the kind of obligation you are declining without judging their trustworthiness.",
+          "delivery": "Pause, then say “I won't co-sign” at a steady, conversational volume. ” then make the financial boundary definite."
+        },
+        {
+          "register": "curt",
+          "line": "I can't co-sign the loan.",
+          "why": "It gives a clear answer to the specific financial request.",
+          "delivery": "Say “I can't co-sign the loan” clearly, then stop instead of adding a defense. ” then make the financial boundary definite."
+        },
+        {
+          "register": "friendly",
+          "line": "I care about you; I can't accept responsibility for this loan, so I won't co-sign.",
+          "why": "It separates care for the relative from responsibility for the debt.",
+          "delivery": "Pause after “I care about you,” then make the financial boundary definite."
+        },
+        {
+          "register": "comedic",
+          "line": "My signature isn't available for financial adventures.",
+          "why": "The joke concerns your own financial limits rather than the relative's character.",
+          "delivery": "Keep “My signature isn't available for financial adventures” light; let the joke stand without repeating it. ” then make the financial boundary definite."
+        }
+      ],
+      "followUp": {
+        "jab": "So you don't believe in me?",
+        "line": "This is about what I can take on financially; my decision about co-signing is no.",
+        "why": "It returns from a test of loyalty to the actual financial commitment.",
+        "delivery": "Pause before “This is about what I can take on financially,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

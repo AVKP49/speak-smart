@@ -1,0 +1,59 @@
+{
+  "pack": {
+    "id": "dating.exes-resurfacing",
+    "category": "dating",
+    "subcategory": "exes-resurfacing",
+    "title": "Exes resurfacing",
+    "description": "Decline contact you do not want.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "dating.exes-resurfacing.0001",
+      "category": "dating",
+      "subcategory": "exes-resurfacing",
+      "setting": "An ex texts asking to meet and you do not want to reopen the relationship.",
+      "jab": "Come on, one coffee won't hurt.",
+      "goal": "Decline contact you do not want.",
+      "difficulty": 2,
+      "tags": [
+        "exes-resurfacing",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm not reopening this. I wish you well.",
+          "why": "It states your decision without inviting a debate about the past.",
+          "delivery": "Stay neutral, say the boundary once, and end the exchange if it becomes repetitive."
+        },
+        {
+          "register": "curt",
+          "line": "I don't want to meet.",
+          "why": "It answers the invitation directly without a negotiable excuse.",
+          "delivery": "Stay neutral, say the boundary once, and end the exchange if it becomes repetitive."
+        },
+        {
+          "register": "friendly",
+          "line": "I hope you're doing well; meeting isn't right for me, so I'll pass.",
+          "why": "It pairs goodwill with a clear refusal.",
+          "delivery": "Stay neutral, say the boundary once, and end the exchange if it becomes repetitive."
+        }
+      ],
+      "followUp": {
+        "jab": "I just want closure.",
+        "line": "I hope you find it; I'm not available for that conversation.",
+        "why": "It distinguishes their wish for closure from your obligation to provide contact.",
+        "delivery": "Stay neutral, say the boundary once, and end the exchange if it becomes repetitive."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

@@ -33,23 +33,38 @@
 }
 
 :root {
-  /* Marquee palette — backstage at the club. */
-  --ink: #0e0b12;
-  --surface: #17121e;
-  --surface-2: #221829;
-  --paper: #f6f1e7;
-  --muted: #a79fae;
-  --faint: #6b6373;
-  --gold: #f2b73b;
+  /* Bright practice surfaces with a calm, readable foundation. */
+  --accent: #d8f18d;
+  --on-accent: #1d3024;
+  --hero-dark: #1d3024;
+  --hero-light: #f3f8e6;
+  --pastel-blue: #e5edf6;
+  --pastel-peach: #f7e6d9;
+  --pastel-lilac: #eee6f7;
+  --pastel-green: #e5efdf;
+  --pastel-yellow: #f5edce;
+  --text-hero: clamp(2.75rem, 9vw, 4.25rem);
+  --text-practice: clamp(1.75rem, 6vw, 2.5rem);
+  --focus-width: 3px;
+  --hero-radius: 28px;
+  --border-width: 1px;
+  --lift: -3px;
+  --ink: #f6f5f0;
+  --surface: #ffffff;
+  --surface-2: #eeeee7;
+  --paper: #182321;
+  --muted: #59635d;
+  --faint: #687168;
+  --gold: #385b20;
   --ember: #ff5c38;
-  --line: #2c2333;
+  --line: #dcded4;
 
   /* Register colors — information only, always paired with glyph + name. */
-  --reg-boss: #f2b73b;
-  --reg-curt: #9bb2c9;
-  --reg-friendly: #8cc084;
-  --reg-comedic: #b79cff;
-  --reg-sharp: #ff6b74;
+  --reg-boss: #385b20;
+  --reg-curt: #315579;
+  --reg-friendly: #396552;
+  --reg-comedic: #725396;
+  --reg-sharp: #99424c;
 
   /* Type: Fraunces for the lines, Grotesk for headers/labels, Inter for body. */
   --font-display: "Fraunces", "Iowan Old Style", Palatino, Georgia, serif;

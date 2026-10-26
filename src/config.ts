@@ -11,6 +11,7 @@ export const CONFIG = {
 
   /** §3.3 / §6.3 — daily goal default; user-set 1/3/5. */
   DAILY_GOAL_DEFAULT: 3,
+  SESSION_SIZE: 3,
   DAILY_GOAL_OPTIONS: [1, 3, 5] as const,
 
   /** §6.1 — streak freezes granted (and applied) automatically. */
@@ -43,11 +44,11 @@ export const REGISTERS: Record<
   Register,
   { name: string; glyph: string; tagline: string; maxWords: number }
 > = {
-  boss: { name: "Boss", glyph: "◆", tagline: "Quiet authority. Calm, minimal, final.", maxWords: 14 },
-  curt: { name: "Curt", glyph: "▪", tagline: "The door closer. For strangers and hard boundaries.", maxWords: 8 },
-  friendly: { name: "Friendly", glyph: "●", tagline: "Warm and disarming. The beginner-safe voice.", maxWords: 22 },
-  comedic: { name: "Comedic", glyph: "▲", tagline: "Wit that releases pressure. Never on a trait.", maxWords: 22 },
-  sharp: { name: "Sharp", glyph: "✦", tagline: "The sarcastic edge. Use with care.", maxWords: 16 },
+  boss: { name: "Calm", glyph: "◆", tagline: "Steady, composed, and clear.", maxWords: 14 },
+  curt: { name: "Direct", glyph: "▪", tagline: "Short, clear boundaries. No extra explanation.", maxWords: 8 },
+  friendly: { name: "Friendly", glyph: "●", tagline: "Warm and disarming. Keeps the connection.", maxWords: 22 },
+  comedic: { name: "Playful", glyph: "▲", tagline: "Light humor aimed at the situation.", maxWords: 22 },
+  sharp: { name: "Bold", glyph: "✦", tagline: "An edge for low-stakes moments. Use with care.", maxWords: 16 },
 };
 
 export const REGISTER_ORDER: Register[] = ["boss", "curt", "friendly", "comedic", "sharp"];

@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "work.credit-stealers",
+    "category": "work",
+    "subcategory": "credit-stealers",
+    "title": "Credit stealers",
+    "description": "Reclaim credit without derailing the meeting.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "work.credit-stealers.0001",
+      "category": "work",
+      "subcategory": "credit-stealers",
+      "setting": "A colleague presents your analysis in a team meeting without credit.",
+      "jab": "I put together this analysis over the weekend.",
+      "goal": "Reclaim credit without derailing the meeting.",
+      "difficulty": 2,
+      "tags": [
+        "credit-stealers",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I led the analysis. Happy to explain how we reached these numbers.",
+          "why": "Naming your contribution restores authorship while keeping the discussion on the work.",
+          "delivery": "Stress “led the analysis,” keep your voice even, then describe the work."
+        },
+        {
+          "register": "curt",
+          "line": "That analysis is mine. Here's the method.",
+          "why": "It corrects the attribution and immediately supplies useful context.",
+          "delivery": "Say “That analysis is mine” clearly, then stop instead of adding a defense. Then describe the work."
+        },
+        {
+          "register": "friendly",
+          "line": "Thanks for walking everyone through my analysis; I can cover the next steps.",
+          "why": "Acknowledging their presentation while naming your work separates presenting from creating.",
+          "delivery": "Keep “Thanks for walking everyone through my analysis” warm and unhurried; finish the request clearly. Then describe the work."
+        },
+        {
+          "register": "comedic",
+          "line": "The spreadsheet and I spent a lot of quality time together.",
+          "why": "Light humor signals your involvement without accusing your colleague of bad intent.",
+          "delivery": "Keep “The spreadsheet and I spent a lot of” light; let the joke stand without repeating it. Then describe the work."
+        }
+      ],
+      "followUp": {
+        "jab": "We all contributed, though.",
+        "line": "Yes, and I led the analysis; let's list everyone's contributions accurately.",
+        "why": "It recognizes collaboration without withdrawing your specific claim.",
+        "delivery": "Stress “led the analysis,” keep your voice even, then describe the work."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

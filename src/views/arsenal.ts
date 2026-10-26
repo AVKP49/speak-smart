@@ -94,7 +94,7 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
   const screen = h("div", { class: "screen" });
   screen.append(appheader("Recall", { onBack: () => ctx.navigate("#/arsenal") }));
   if (!entry) {
-    screen.append(notice("That line isn't in your Arsenal anymore."));
+    screen.append(notice("That line isn't in My Lines anymore."));
     root.append(screen);
     return;
   }
@@ -102,7 +102,7 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
   const scenario = ctx.library.byId.get(entry.scenarioId);
   const card = h("div", { class: "jab-card" });
   card.append(
-    h("p", { class: "kicker" }, "The jab"),
+    h("p", { class: "kicker" }, "They say"),
     h("p", { class: "micro-label" }, entry.setting),
     lineDual(`\u201c${entry.jab}\u201d`, scenario?.jab_l2, settings.showL2, "jab-text"),
   );
@@ -123,7 +123,12 @@ export async function renderRecall(root: HTMLElement, ctx: AppCtx, key: string):
     const row = h("div", { class: "row" });
     const clean = h("button", { class: "btn btn--secondary" }, t("arsenal.clean"));
     const shaky = h("button", { class: "btn btn--quiet" }, t("arsenal.shaky"));
+    let marking = false;
     const done = async (wasClean: boolean) => {
+      if (marking) return;
+      marking = true;
+      clean.disabled = true;
+      shaky.disabled = true;
       await recordRecall(entry.key, wasClean);
       row.remove();
       area.append(

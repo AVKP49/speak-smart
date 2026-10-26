@@ -5,7 +5,7 @@
     "subcategory": "saying-no",
     "title": "Saying no",
     "description": "The complete sentence. No is a full answer that needs no apology tour.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,42 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I can't do it well this week. Monday, or reassign it.",
-          "why": "It refuses the timeline while offering two real paths, which is what leaders do.",
-          "caution": null
+          "line": "My week is full. Which task should move to make room?",
+          "why": "It asks for prioritization instead of pretending every task can fit.",
+          "delivery": "Name the time limit, pause, and let the manager choose what changes."
         },
         {
           "register": "curt",
-          "line": "Not this week. Monday works.",
-          "why": "No plus an alternative — the boundary and the bridge in five words.",
-          "caution": null
+          "line": "Which task moves if I take this?",
+          "why": "It identifies the tradeoff rather than committing to an invented date.",
+          "delivery": "Name the time limit, pause, and let the manager choose what changes."
         },
         {
           "register": "friendly",
           "line": "I'd love to help — my week's genuinely full. What can slide?",
           "why": "Willingness plus the real constraint invites them to prioritize with you.",
-          "caution": null
+          "delivery": "Name the time limit, pause, and let the manager choose what changes."
         },
         {
           "register": "comedic",
           "line": "Quick? My calendar laughed.",
           "why": "Letting the calendar object keeps your hands clean and the no obvious.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Quick for you, weekend for me.",
-          "why": "It translates 'quick' into your actual calendar in six words.",
-          "caution": "work-risk"
+          "delivery": "Name the time limit, pause, and let the manager choose what changes."
         }
       ],
       "trap": {
         "line": "Ugh, fine — but this is the last time.",
-        "why": "Yes with resentment teaches them the way past your no is asking twice."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Discuss priorities when more work exceeds your capacity.",
+      "followUp": {
+        "jab": "Everything is a priority.",
+        "line": "Then I need your help deciding what moves; I can't finish all of it today.",
+        "why": "It makes the capacity constraint explicit and asks for prioritization.",
+        "delivery": "Name the time limit, pause, and let the manager choose what changes."
       }
     },
     {
@@ -76,36 +81,41 @@
           "register": "boss",
           "line": "I'll be at the wedding, fully present. Skipping brunch.",
           "why": "It names what you're giving before what you're not, so the no lands inside a yes.",
-          "caution": null
+          "delivery": "Keep the warmth genuine and the refusal clear; avoid promising to celebrate extra to compensate."
         },
         {
           "register": "curt",
-          "line": "Can't make brunch. See you there.",
-          "why": "It declines the event while confirming the relationship in seven words.",
-          "caution": null
+          "line": "I'm skipping brunch. See you at the wedding.",
+          "why": "It declines the specific event while confirming attendance you already intend.",
+          "delivery": "Keep the warmth genuine and the refusal clear; avoid promising to celebrate extra to compensate."
         },
         {
           "register": "friendly",
-          "line": "Take lots of pictures — I'll celebrate twice as hard at the wedding.",
-          "why": "Enthusiasm for their day plus your absence keeps both intact.",
-          "caution": null
+          "line": "I'm looking forward to the wedding; I won't be able to join the brunch.",
+          "why": "It expresses care without promising extra effort to compensate.",
+          "delivery": "Keep the warmth genuine and the refusal clear; avoid promising to celebrate extra to compensate."
         },
         {
           "register": "comedic",
-          "line": "My brunch budget filed for bankruptcy. Wedding me is loaded though.",
-          "why": "Blaming a fake budget makes the no a joke they can repeat fondly.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Brunch? I'm wedding-only talent.",
-          "why": "It bills your presence as exclusive, which flatters the main event.",
-          "caution": null
+          "line": "I'm on the wedding roster, not the brunch roster.",
+          "why": "The light distinction makes the attendance boundary clear.",
+          "delivery": "Keep the warmth genuine and the refusal clear; avoid promising to celebrate extra to compensate."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Decline one event without withdrawing support.",
+      "followUp": {
+        "jab": "Everyone else is making the effort.",
+        "line": "I care about celebrating with you; I won't be at the brunch.",
+        "why": "It states care and the specific attendance decision without comparing guests.",
+        "delivery": "Keep the warmth genuine and the refusal clear; avoid promising to celebrate extra to compensate."
       }
     },
     {
@@ -123,42 +133,100 @@
       "replies": [
         {
           "register": "boss",
-          "line": "We alternate years. This year is here — next is yours.",
-          "why": "A system replaces the annual fight, and systems don't feel personal.",
-          "caution": null
+          "line": "Our plans this year are set. I know you're disappointed.",
+          "why": "It states the plan while acknowledging the feeling without inventing an agreed rotation.",
+          "delivery": "Pause after acknowledging disappointment; keep the plan matter-of-fact."
         },
         {
           "register": "curt",
-          "line": "Not this year. We alternate.",
-          "why": "Short, final, and fair — guilt has nothing to grip.",
-          "caution": null
+          "line": "We're keeping our plans this year.",
+          "why": "It makes the current decision clear without implying a nonexistent agreement.",
+          "delivery": "Pause after acknowledging disappointment; keep the plan matter-of-fact."
         },
         {
           "register": "friendly",
           "line": "I wish we could clone December — we'd spend it all with you.",
           "why": "Wishing alongside them shows the love the guilt claims is missing.",
-          "caution": null
+          "delivery": "Pause after acknowledging disappointment; keep the plan matter-of-fact."
         },
         {
           "register": "comedic",
-          "line": "We're starting a bidding war for Christmas.",
-          "why": "An absurd auction makes alternating years sound like the deal it is.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Guilt? That holiday is booked.",
-          "why": "It declines the tactic while keeping the door open for next year.",
-          "caution": "family-risk"
+          "line": "Our holiday calendar is fully booked this year.",
+          "why": "A mild image holds the plan without mocking disappointment.",
+          "delivery": "Pause after acknowledging disappointment; keep the plan matter-of-fact."
         }
       ],
       "trap": {
         "line": "Fine, we'll come. But don't expect us to enjoy it.",
-        "why": "Attending as punishment ruins their Christmas and yours equally."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Hold an agreed holiday plan under guilt.",
+      "followUp": {
+        "jab": "So we'll be alone then?",
+        "line": "I know you're disappointed; our plan this year is staying the same.",
+        "why": "It acknowledges the feeling without treating it as a decision you must reverse.",
+        "delivery": "Pause after acknowledging disappointment; keep the plan matter-of-fact."
+      }
+    },
+    {
+      "id": "hard-moments.saying-no.0004",
+      "category": "hard-moments",
+      "subcategory": "saying-no",
+      "setting": "A volunteer organizer repeatedly asks you to lead another event.",
+      "jab": "You're the only person who can do this properly.",
+      "goal": "Decline a role despite flattering pressure.",
+      "difficulty": 2,
+      "tags": [
+        "saying-no",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I won't lead this one. Please find another organizer.",
+          "why": "It declines the role without accepting praise as an obligation.",
+          "delivery": "Thank them sincerely, keep the refusal short, and avoid offering a smaller role you cannot sustain."
+        },
+        {
+          "register": "curt",
+          "line": "I can't lead this event.",
+          "why": "It answers the assignment request without negotiating your value to the group.",
+          "delivery": "Thank them sincerely, keep the refusal short, and avoid offering a smaller role you cannot sustain."
+        },
+        {
+          "register": "friendly",
+          "line": "Thank you for trusting me; I don't have capacity to lead this event.",
+          "why": "It receives the compliment while making your capacity clear.",
+          "delivery": "Thank them sincerely, keep the refusal short, and avoid offering a smaller role you cannot sustain."
+        },
+        {
+          "register": "comedic",
+          "line": "My organizing hat is taking this event off.",
+          "why": "The joke concerns your workload rather than the organizer's need.",
+          "delivery": "Thank them sincerely, keep the refusal short, and avoid offering a smaller role you cannot sustain."
+        }
+      ],
+      "followUp": {
+        "jab": "Can you at least supervise everything?",
+        "line": "I can't take responsibility for this event in another form either.",
+        "why": "It recognizes that a renamed role can carry the same commitment.",
+        "delivery": "Thank them sincerely, keep the refusal short, and avoid offering a smaller role you cannot sustain."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

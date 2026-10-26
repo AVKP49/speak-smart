@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "social.networking-events",
+    "category": "social",
+    "subcategory": "networking-events",
+    "title": "Networking events",
+    "description": "Keep a professional boundary while offering an appropriate route.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "social.networking-events.0001",
+      "category": "social",
+      "subcategory": "networking-events",
+      "setting": "Someone wants to turn a casual introduction into an immediate unpaid consultation.",
+      "jab": "Can I just pick your brain for an hour sometime?",
+      "goal": "Keep a professional boundary while offering an appropriate route.",
+      "difficulty": 2,
+      "tags": [
+        "networking-events",
+        "connection"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "For detailed advice, I book consultations. I can send the details.",
+          "why": "It clarifies the professional format without treating the request as an insult.",
+          "delivery": "Keep the offer warm and concrete; don't apologize for charging for your work."
+        },
+        {
+          "register": "curt",
+          "line": "I book consultations for that.",
+          "why": "It identifies the appropriate service rather than agreeing to undefined free work.",
+          "delivery": "Keep the offer warm and concrete; don't apologize for charging for your work."
+        },
+        {
+          "register": "friendly",
+          "line": "I'd be happy to send my consultation details so you can decide whether it's a fit.",
+          "why": "It offers a useful next step without committing your time prematurely.",
+          "delivery": "Keep the offer warm and concrete; don't apologize for charging for your work."
+        },
+        {
+          "register": "comedic",
+          "line": "My brain has a booking calendar; I'll send the link.",
+          "why": "Playful wording makes the professional boundary approachable.",
+          "delivery": "Keep the offer warm and concrete; don't apologize for charging for your work."
+        }
+      ],
+      "followUp": {
+        "jab": "It's just a friendly chat.",
+        "line": "A quick hello is fine; an hour of advice is a consultation.",
+        "why": "It distinguishes social connection from the substantial professional request.",
+        "delivery": "Keep the offer warm and concrete; don't apologize for charging for your work."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

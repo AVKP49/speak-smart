@@ -13,12 +13,25 @@ export interface DrillResult {
   pickedTrap: boolean;
   origin: string;
   scored: boolean;
+  recalled?: boolean;
+  attempt?: string;
+}
+
+export interface PracticeSession {
+  ids: string[];
+  index: number;
+  completed: number;
+  recalled: number;
+  origin: string;
 }
 
 export interface AppCtx {
   library: Library;
   navigate: (hash: string) => void;
   startDrill: (scenarioId: string, origin: string) => void;
+  startSession: (ids: string[], origin: string) => void;
+  continueSession: () => void;
+  session: PracticeSession | null;
   finishDrill: (result: DrillResult) => void;
   pendingDrill: DrillRequest | null;
   lastResult: DrillResult | null;

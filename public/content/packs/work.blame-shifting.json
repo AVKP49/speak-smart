@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "work.blame-shifting",
+    "category": "work",
+    "subcategory": "blame-shifting",
+    "title": "Blame shifting",
+    "description": "Correct a public accusation with evidence.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "work.blame-shifting.0001",
+      "category": "work",
+      "subcategory": "blame-shifting",
+      "setting": "A teammate attributes a missed deadline to you although you sent your part on time.",
+      "jab": "We're late because your team didn't deliver.",
+      "goal": "Correct a public accusation with evidence.",
+      "difficulty": 2,
+      "tags": [
+        "blame-shifting",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Our part went out Tuesday. Let's check where the handoff stalled.",
+          "why": "A dated fact replaces blame with a traceable handoff.",
+          "delivery": "Emphasize “Tuesday,” avoid stressing “your,” and pause for the record to be checked."
+        },
+        {
+          "register": "curt",
+          "line": "Sent Tuesday. Let's check the handoff.",
+          "why": "It gives the relevant fact without adding a counteraccusation.",
+          "delivery": "Emphasize “Tuesday,” avoid stressing “your,” and pause for the record to be checked."
+        },
+        {
+          "register": "friendly",
+          "line": "I have the Tuesday handoff here; let's find what got missed together.",
+          "why": "Offering the record and a joint next step keeps the correction collaborative.",
+          "delivery": "Emphasize “Tuesday,” avoid stressing “your,” and pause for the record to be checked."
+        },
+        {
+          "register": "comedic",
+          "line": "Let's let the timestamps do the talking.",
+          "why": "A small joke redirects attention from personalities to the record.",
+          "delivery": "Keep “Let's let the timestamps do the talking” light; let the joke stand without repeating it. ” and pause for the record to be checked."
+        }
+      ],
+      "followUp": {
+        "jab": "That's not how I remember it.",
+        "line": "Let's open the thread and check the dates before assigning responsibility.",
+        "why": "It asks both sides to verify the record before reaching a conclusion.",
+        "delivery": "Pause before “Let's open the thread and check the dates before assigning,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

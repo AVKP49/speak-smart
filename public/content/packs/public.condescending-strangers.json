@@ -5,7 +5,7 @@
     "subcategory": "condescending-strangers",
     "title": "Condescending strangers",
     "description": "Unsolicited superiority from people you'll never see again. Brief and gone.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,42 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "And yet here I am, asking you. Point, please.",
-          "why": "It calmly re-asks the question, which makes the sigh the awkward part.",
-          "caution": null
+          "line": "Please point me toward the new releases.",
+          "why": "It restates the practical request without commenting on the attitude.",
+          "delivery": "Ask for the exact section calmly; if help is refused, turn to another staff member."
         },
         {
           "register": "curt",
           "line": "Point, please.",
           "why": "Two words that skip the attitude and collect the answer.",
-          "caution": null
+          "delivery": "Ask for the exact section calmly; if help is refused, turn to another staff member."
         },
         {
           "register": "friendly",
-          "line": "Long day? Point me there and I'll get out of your hair.",
-          "why": "Naming their day with sympathy buys you the help and their humanity.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "The signs cover books, not manners. Where to?",
-          "why": "It answers rudeness in kind, which wins the moment and loses the high ground.",
-          "caution": null
+          "line": "I haven't found the section yet; could you point me toward it?",
+          "why": "It explains the need briefly and asks for specific assistance.",
+          "delivery": "Ask for the exact section calmly; if help is refused, turn to another staff member."
         },
         {
           "register": "comedic",
-          "line": "I'm sign-blind. It's a condition.",
-          "why": "A fake diagnosis makes them the good Samaritan instead of the scold.",
-          "caution": null
+          "line": "The books are winning hide-and-seek; where are the new releases?",
+          "why": "The joke targets finding the section rather than the staff member or a medical condition.",
+          "delivery": "Ask for the exact section calmly; if help is refused, turn to another staff member."
         }
       ],
       "trap": {
         "line": "Let me speak to your manager about your attitude.",
-        "why": "Escalating over a sigh spends ten minutes to feel worse about a bookstore."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Get directions without joining a rude exchange.",
+      "followUp": {
+        "jab": "I already told you to look around.",
+        "line": "I'll ask someone else, then. Thank you.",
+        "why": "It ends an unhelpful interaction and preserves your ability to get assistance elsewhere.",
+        "delivery": "Ask for the exact section calmly; if help is refused, turn to another staff member."
       }
     },
     {
@@ -74,38 +79,96 @@
       "replies": [
         {
           "register": "boss",
-          "line": "My trainer and I will take it under advisement.",
-          "why": "Citing your own expert ends his coaching career in one sentence.",
-          "caution": null
+          "line": "Thanks. I'll check my technique with a qualified trainer.",
+          "why": "It acknowledges possible safety concerns while choosing an appropriate source of advice.",
+          "delivery": "Keep “thanks” genuine; pause the exercise if you are uncertain about safety."
         },
         {
           "register": "curt",
           "line": "I'm good. Thanks.",
           "why": "It declines the lesson before it's offered, with thanks as the full stop.",
-          "caution": null
+          "delivery": "Keep “thanks” genuine; pause the exercise if you are uncertain about safety."
         },
         {
           "register": "friendly",
-          "line": "Appreciate it — I'm following a program though.",
-          "why": "Thanks plus a plan respects the intent while declining the content.",
-          "caution": null
+          "line": "Thanks for the concern; I'll check with a trainer before continuing if I'm unsure.",
+          "why": "It treats safety seriously without committing to an unsolicited lesson.",
+          "delivery": "Keep “thanks” genuine; pause the exercise if you are uncertain about safety."
         },
         {
           "register": "comedic",
-          "line": "Shh — I'm doing the wrong version on purpose. Chaos reps.",
-          "why": "Absurd commitment to the bit makes correcting you feel ridiculous.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "My form's avant-garde. Thanks.",
-          "why": "It frames the correction as art criticism, which no one continues.",
-          "caution": null
+          "line": "My technique can wait for a qualified review.",
+          "why": "The light phrasing postpones the debate rather than encouraging unsafe exercise.",
+          "delivery": "Keep “My technique can wait for a qualified review” light; let the joke stand without repeating it. Pause the exercise if you are uncertain about safety."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Decline unsolicited coaching without dismissing safety.",
+      "followUp": {
+        "jab": "You're going to hurt yourself.",
+        "line": "Thanks for the concern; I'll check with a qualified trainer.",
+        "why": "It accepts that safety may matter without submitting to an unsolicited lesson.",
+        "delivery": "Keep “thanks” genuine; pause the exercise if you are uncertain about safety."
+      }
+    },
+    {
+      "id": "public.condescending-strangers.0003",
+      "category": "public",
+      "subcategory": "condescending-strangers",
+      "setting": "A person at a ticket machine laughs when you ask how it works.",
+      "jab": "Seriously? It's not that complicated.",
+      "goal": "Ask for help without defending your competence.",
+      "difficulty": 2,
+      "tags": [
+        "condescending-strangers",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm asking which button buys a return ticket.",
+          "why": "It returns to the exact information needed instead of debating your ability.",
+          "delivery": "Keep the question level; if they remain unhelpful, turn away and seek staff."
+        },
+        {
+          "register": "curt",
+          "line": "Which button for a return?",
+          "why": "It removes the commentary and keeps the practical question.",
+          "delivery": "Keep the question level; if they remain unhelpful, turn away and seek staff."
+        },
+        {
+          "register": "friendly",
+          "line": "I haven't used this machine before; could you point out the return option?",
+          "why": "It gives brief context and a specific request for assistance.",
+          "delivery": "Keep the question level; if they remain unhelpful, turn away and seek staff."
+        },
+        {
+          "register": "comedic",
+          "line": "My first round with this machine; where's the return button?",
+          "why": "Humor about your unfamiliarity keeps the request clear without accepting an insult.",
+          "delivery": "Keep the question level; if they remain unhelpful, turn away and seek staff."
+        }
+      ],
+      "followUp": {
+        "jab": "Just read the screen.",
+        "line": "I'll ask the attendant, then. Thanks.",
+        "why": "It ends an unhelpful exchange and moves toward another source of help.",
+        "delivery": "Keep the question level; if they remain unhelpful, turn away and seek staff."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

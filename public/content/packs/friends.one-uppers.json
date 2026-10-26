@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "friends.one-uppers",
+    "category": "friends",
+    "subcategory": "one-uppers",
+    "title": "One uppers",
+    "description": "Ask to be heard before switching stories.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "friends.one-uppers.0001",
+      "category": "friends",
+      "subcategory": "one-uppers",
+      "setting": "You tell a friend about your difficult week and they immediately compare it to theirs.",
+      "jab": "That's nothing; you should hear what happened to me.",
+      "goal": "Ask to be heard before switching stories.",
+      "difficulty": 2,
+      "tags": [
+        "one-uppers",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I want to hear yours. Let me finish mine first.",
+          "why": "It makes room for both stories while protecting your turn.",
+          "delivery": "Emphasize “finish mine first,” then continue your story rather than adding a second request."
+        },
+        {
+          "register": "curt",
+          "line": "Let me finish this first.",
+          "why": "It requests the immediate behavior you need without debating whose week was worse.",
+          "delivery": "Say “Let me finish this first” clearly, then stop instead of adding a defense. ” then continue your story rather than adding a second request."
+        },
+        {
+          "register": "friendly",
+          "line": "That sounds hard too; could you hear me out before we switch?",
+          "why": "It recognizes their experience while asking for attention to yours.",
+          "delivery": "Keep “That sounds hard too” warm and unhurried; finish the request clearly. ” then continue your story rather than adding a second request."
+        },
+        {
+          "register": "comedic",
+          "line": "One disaster at a time; mine's still on stage.",
+          "why": "Humor interrupts the comparison without making suffering into a competition.",
+          "delivery": "Keep “One disaster at a time” light; let the joke stand without repeating it. ” then continue your story rather than adding a second request."
+        }
+      ],
+      "followUp": {
+        "jab": "I'm just saying I get it.",
+        "line": "I appreciate that; listening for a minute would help me more right now.",
+        "why": "It specifies the support you need instead of arguing about their intention.",
+        "delivery": "Pause before “I appreciate that,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

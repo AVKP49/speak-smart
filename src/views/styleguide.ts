@@ -13,7 +13,7 @@ export async function renderStyleguide(root: HTMLElement, ctx: AppCtx): Promise<
   const screen = h("div", { class: "screen" });
   screen.append(appheader("Design system", { onBack: () => ctx.navigate("#/settings") }));
 
-  screen.append(h("p", { class: "micro-label" }, "Color — ink, paper, one gold"));
+  screen.append(h("p", { class: "micro-label" }, "Color — warm paper, forest, bright lime"));
   const swatches = h("div", { class: "row", style: "flex-wrap: wrap" });
   const colors: [string, string][] = [
     ["--ink", "Ink"], ["--surface", "Surface"], ["--surface-2", "Surface 2"],
@@ -28,7 +28,7 @@ export async function renderStyleguide(root: HTMLElement, ctx: AppCtx): Promise<
   }
   screen.append(swatches);
 
-  screen.append(h("p", { class: "micro-label" }, "Type — Fraunces display, Inter UI"));
+  screen.append(h("p", { class: "micro-label" }, "Type — expressive Fraunces, readable Inter"));
   screen.append(h("p", { class: "line-hero" }, "The line is the hero."));
   screen.append(h("p", { class: "body" }, "Body copy sets in Inter at 16px with a calm 1.55 line height."));
   screen.append(h("p", { class: "small muted" }, "Small muted text for secondary detail."));

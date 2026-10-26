@@ -5,7 +5,7 @@
     "subcategory": "interrupters",
     "title": "Interrupters & talk-overs",
     "description": "Mid-sentence takeovers in meetings and calls. Finish your point, keep the room.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,43 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Let me finish. Then you can rephrase me.",
-          "why": "It pauses his rewrite and promises him the floor after, which is hard to refuse.",
-          "delivery": "Steady eye contact. No smile, no edge.",
-          "caution": null
+          "line": "Let me finish this point, then I'll hand over.",
+          "why": "It makes turn-taking explicit and commits to giving the other person a turn.",
+          "delivery": "Speak at the same volume, finish the sentence, then genuinely offer the floor."
         },
         {
           "register": "curt",
           "line": "I wasn't done.",
           "why": "It states the fact plainly and the room does the rest.",
-          "caution": null
+          "delivery": "Speak at the same volume, finish the sentence, then genuinely offer the floor."
         },
         {
           "register": "friendly",
           "line": "Hold that thought — I'm landing the plane.",
-          "why": "Playfulness keeps it light while the metaphor makes finishing feel inevitable.",
-          "caution": null
+          "why": "It uses a shared metaphor to ask for enough time to finish your point.",
+          "delivery": "Speak at the same volume, finish the sentence, then genuinely offer the floor."
         },
         {
           "register": "comedic",
           "line": "Spoilers — I hadn't reached the good part.",
           "why": "Casting his interruption as impatience for your ending flips who looks eager.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "My sentences come with their own endings.",
-          "why": "It states the boundary as a product feature, which gets the laugh and the floor.",
-          "caution": "work-risk"
+          "delivery": "Speak at the same volume, finish the sentence, then genuinely offer the floor."
         }
       ],
       "trap": {
         "line": "God, do you ever let anyone finish?",
-        "why": "A character attack in a meeting makes you the disruption, not him."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Finish your point before handing over the floor.",
+      "followUp": {
+        "jab": "I already know where you're going.",
+        "line": "Please let me finish; then I'd like your response.",
+        "why": "It keeps the turn-taking request clear without speculating about their motive.",
+        "delivery": "Speak at the same volume, finish the sentence, then genuinely offer the floor."
       }
     },
     {
@@ -76,42 +80,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "That's the takeaway I was building to. Thanks for the preview.",
-          "why": "It reclaims authorship with a smile the client will remember as yours.",
-          "caution": null
+          "line": "That's the point from my analysis. Here's the next step.",
+          "why": "It identifies your contribution without disputing the shared conclusion.",
+          "delivery": "Stress “my analysis” lightly, then put the main emphasis on the next step."
         },
         {
           "register": "curt",
           "line": "That was my point.",
           "why": "Short, true, and impossible to argue with on a recorded call.",
-          "caution": null
+          "delivery": "Say “That was my point” clearly, then stop instead of adding a defense. Then put the main emphasis on the next step."
         },
         {
           "register": "friendly",
           "line": "Exactly where I was headed — great minds.",
           "why": "Agreement absorbs the steal and the client hears you as the source.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Thanks for the echo. The original is still here.",
-          "why": "It labels the move for what it was, at the cost of a visible edge.",
-          "caution": "work-risk"
+          "delivery": "Keep “Exactly where I was headed” warm and unhurried; finish the request clearly. Then put the main emphasis on the next step."
         },
         {
           "register": "comedic",
-          "line": "I'd thank my co-author, but he's me.",
-          "why": "Claiming sole authorship as a joke makes the record clear while the call laughs.",
-          "caution": null
+          "line": "Same page; let me finish the next paragraph.",
+          "why": "Humor recognizes agreement while asking to complete your contribution.",
+          "delivery": "Keep “Same page” light; let the joke stand without repeating it. Then put the main emphasis on the next step."
         }
       ],
       "trap": {
         "line": "Stop stealing my ideas on calls.",
-        "why": "On a client call, the accusation embarrasses everyone and stains you most."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Reestablish your contribution without disputing collaboration.",
+      "followUp": {
+        "jab": "We're saying the same thing.",
+        "line": "Yes; that's the point from my analysis, and here's the next step.",
+        "why": "It names your contribution while moving the shared discussion forward.",
+        "delivery": "Stress “my analysis” lightly, then put the main emphasis on the next step."
       }
     },
     {
@@ -128,42 +137,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I'll send the short version after this. It deserves your eyes.",
-          "why": "It protects your point from a distracted room by moving it to writing.",
-          "caution": null
+          "line": "Here's the short version; I'll send the details afterward.",
+          "why": "It restores the relevant information in a format the remaining time allows.",
+          "delivery": "Lead with the decision, use one short sentence, then pause for their answer."
         },
         {
           "register": "curt",
           "line": "I'll email it.",
           "why": "Three words that end the performance and keep the content intact.",
-          "caution": null
+          "delivery": "Lead with the decision, use one short sentence, then pause for their answer."
         },
         {
           "register": "friendly",
           "line": "Long story short — here's the one thing I need from you.",
           "why": "It rescues the meeting by shrinking your ask to phone-proof size.",
-          "caution": null
+          "delivery": "Lead with the decision, use one short sentence, then pause for their answer."
         },
         {
           "register": "comedic",
-          "line": "The live show's over. Reruns by email.",
-          "why": "Calling the meeting a show makes the email follow-up feel like a favor, not a demotion.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "I'll bill you for the repeat.",
-          "why": "Pricing his inattention as a joke usually buys his attention for free.",
-          "caution": "work-risk"
+          "line": "Here's the recap; the extended version can go by email.",
+          "why": "A light format joke offers a practical follow-up rather than punishing distraction.",
+          "delivery": "Lead with the decision, use one short sentence, then pause for their answer."
         }
       ],
       "trap": {
         "line": "Forget it. You clearly don't care.",
-        "why": "Guilt-tripping your manager trades one distracted meeting for a reputation."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Recover attention with a concise request.",
+      "followUp": {
+        "jab": "I have another meeting in a minute.",
+        "line": "Here's the decision I need; I'll send the background afterward.",
+        "why": "It separates the immediate decision from information that can be read later.",
+        "delivery": "Lead with the decision, use one short sentence, then pause for their answer."
       }
     }
   ]

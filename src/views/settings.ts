@@ -1,16 +1,17 @@
 /**
  * Settings — default register, daily goal, beat duration, voice, reduced motion,
- * data (export, reset), about. Nothing else (spec §3.3).
+ * data (export, reset), about.
  */
 import { CONFIG, REGISTER_ORDER, REGISTERS } from "../config";
 import { t } from "../i18n";
 import { contentHasL2 } from "../content/loader";
 import type { AppCtx } from "../app";
 import { h } from "../lib/utils";
+import { kvGet } from "../store/db";
 import { regMark, appheader } from "../components/ui";
 import { exportArsenal, getSettings, resetAllData, saveSettings } from "../store/state";
 
-const APP_VERSION = "0.1.0";
+const APP_VERSION = "0.2.0";
 
 export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<void> {
   const settings = await getSettings();
@@ -19,14 +20,14 @@ export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<vo
 
   /* Default register */
   screen.append(h("p", { class: "kicker" }, t("settings.voice")));
-  const voices = h("div", { class: "stack stack--tight", role: "radiogroup", "aria-label": "Default voice" });
-  for (const register of REGISTER_ORDER) {
+  const voices = h("div", { class: "stack stack--tight", role: "group", "aria-label": "Preferred response style" });
+  for (const register of REGISTER_ORDER.filter((r) => ctx.library.scenarios.some((s) => s.replies.some((reply) => reply.register === r)))) {
     const btn = h(
       "button",
       {
         class: `card-selectable${register === settings.defaultRegister ? " card-selectable--selected" : ""}`,
-        role: "radio",
-        "aria-checked": register === settings.defaultRegister ? "true" : "false",
+        role: "button",
+        "aria-pressed": register === settings.defaultRegister ? "true" : "false",
       },
     );
     btn.append(regMark(register), h("p", { class: "small muted" }, REGISTERS[register].tagline));
@@ -80,20 +81,28 @@ export async function renderSettings(root: HTMLElement, ctx: AppCtx): Promise<vo
   });
   const reset = h("button", { class: "btn btn--quiet" }, t("settings.reset"));
   reset.addEventListener("click", async () => {
-    if (window.confirm("Reset everything? Your streak, Arsenal, and settings will be cleared.")) {
+    if (window.confirm("Reset everything? Your streak, My Lines, and settings will be cleared.")) {
       await resetAllData();
       window.location.hash = "#/onboarding";
       window.location.reload();
     }
   });
-  screen.append(exportBtn, reset);
+  const exportFlags = h("button", { class: "btn btn--secondary" }, "Export response feedback");
+  exportFlags.addEventListener("click", async () => {
+    const flags = (await kvGet("line-flags")) ?? [];
+    const url = URL.createObjectURL(new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), flags }, null, 2)], { type: "application/json" }));
+    const a = h("a", { href: url, download: "speak-smart-feedback.json" });
+    document.body.append(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  });
+  screen.append(exportBtn, exportFlags, h("p", { class: "small muted" }, "Feedback is kept on this device. Export it to share it with the app developer."), reset);
 
   /* About — serious surface. */
   screen.append(h("p", { class: "kicker" }, t("settings.about")));
   const about = h("div", { class: "stack stack--tight" });
   const approved = ctx.library.scenarios.length;
   about.append(
-    h("p", { class: "small muted" }, `Speak Smart ${APP_VERSION} · Library v${ctx.library.manifest.version} · ${approved} approved lines.`),
+    h("p", { class: "small muted" }, `Speak Smart ${APP_VERSION} · Library v${ctx.library.manifest.version} · ${approved} scenarios.`),
+    h("p", { class: "small muted" }, "Content review: AI editorial review and automated checks; independent human review is pending."),
     h("p", { class: "small muted" }, "Private by design: no account, no analytics on content, no audio off your device. Everything lives in this browser."),
     h("p", { class: "small muted" }, "For everyday friction only — not for abuse or emergencies. If you're in crisis, contact local emergency services or a crisis helpline."),
   );
@@ -154,7 +163,7 @@ function switchBtn(current: boolean, onToggle: (v: boolean) => Promise<void>): H
     class: "switch",
     role: "switch",
     "aria-checked": current ? "true" : "false",
-    "aria-label": "Toggle",
+    "aria-label": "Toggle setting",
   });
   btn.addEventListener("click", () => {
     const next = btn.getAttribute("aria-checked") !== "true";

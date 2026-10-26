@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "public.pushy-salespeople",
+    "category": "public",
+    "subcategory": "pushy-salespeople",
+    "title": "Pushy salespeople",
+    "description": "End an unwanted pitch and keep moving.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "public.pushy-salespeople.0001",
+      "category": "public",
+      "subcategory": "pushy-salespeople",
+      "setting": "A street salesperson continues after you decline.",
+      "jab": "Wait, you haven't even heard the offer!",
+      "goal": "End an unwanted pitch and keep moving.",
+      "difficulty": 2,
+      "tags": [
+        "pushy-salespeople",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm not interested. Have a good day.",
+          "why": "It declines the interaction without offering a reason to overcome.",
+          "delivery": "Keep walking if appropriate; use a clear voice and do not stop to defend the refusal."
+        },
+        {
+          "register": "curt",
+          "line": "No thanks. I'm moving on.",
+          "why": "It states your decision and exit in a short sentence.",
+          "delivery": "Keep walking if appropriate; use a clear voice and do not stop to defend the refusal."
+        },
+        {
+          "register": "friendly",
+          "line": "Thanks, but I don't want to hear the offer today.",
+          "why": "It remains courteous while clearly declining more conversation.",
+          "delivery": "Keep walking if appropriate; use a clear voice and do not stop to defend the refusal."
+        },
+        {
+          "register": "comedic",
+          "line": "My shopping department is closed today.",
+          "why": "A small joke expresses your decision without judging the product.",
+          "delivery": "Keep walking if appropriate; use a clear voice and do not stop to defend the refusal."
+        }
+      ],
+      "followUp": {
+        "jab": "It'll only take thirty seconds.",
+        "line": "No, thank you.",
+        "why": "It repeats the refusal without accepting the salesperson's time framing.",
+        "delivery": "Keep walking if appropriate; use a clear voice and do not stop to defend the refusal."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

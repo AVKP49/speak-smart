@@ -1,7 +1,7 @@
 {
   "name": "speak-smart",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Never freeze again. A drills app that trains the exact one-line reply — in your voice.",
   "type": "module",
   "scripts": {
@@ -14,6 +14,7 @@
     "content:stats": "node tools/validate.mjs --stats"
   },
   "devDependencies": {
+    "jsdom": "^26.1.0",
     "typescript": "^5.6.3",
     "vite": "^6.0.11"
   }

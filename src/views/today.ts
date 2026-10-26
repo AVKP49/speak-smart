@@ -1,106 +1,46 @@
-/**
- * Today — tonight's fight card. One hero, one CTA, the next milestone.
- */
-import { REGISTERS } from "../config";
-import { t } from "../i18n";
-import { pickNextScenario } from "../content/loader";
-import { categoryTitle, packTitle, type AppCtx } from "../app";
+import { CONFIG } from "../config";
+import { sessionIds } from "../content/loader";
+import type { AppCtx } from "../app";
 import { h } from "../lib/utils";
-import { tabbar, appheader, statusStrip, progressRing, rankbar } from "../components/ui";
-import {
-  dueReviews,
-  getArsenal,
-  getDaily,
-  getSettings,
-  getStreak,
-  rankForReflexCount,
-  seenCounts,
-} from "../store/state";
-import { kvGet, kvSet } from "../store/db";
+import { tabbar, appheader, catIcon, rankbar } from "../components/ui";
+import { CATEGORIES } from "../types";
+import { dueReviews, getDaily, getSettings, getStreak, seenCounts } from "../store/state";
 
 export async function renderToday(root: HTMLElement, ctx: AppCtx): Promise<void> {
-  const [settings, streak, daily, arsenal, due, seen] = await Promise.all([
-    getSettings(),
-    getStreak(),
-    getDaily(),
-    getArsenal(),
-    dueReviews(),
-    seenCounts(),
-  ]);
-  const next = pickNextScenario(ctx.library, seen) ?? ctx.library.scenarios[0];
-  const reflexCount = arsenal.filter((e) => e.level === "Reflex").length;
-  const rank = rankForReflexCount(reflexCount);
-  const lastPack = await kvGet<{ category: string; subcategory: string }>("last-pack");
-
-  const screen = h("div", { class: "screen" });
-  screen.append(
-    appheader(t("tab.today"), { onAvatar: () => ctx.navigate("#/settings") }),
-    statusStrip({ streak, daily, goal: settings.dailyGoal, arsenalCount: arsenal.length }),
-  );
-
-  /* Hero — tonight's card. One narrative card, one CTA. */
-  const goalMet = daily.drills >= settings.dailyGoal;
-  if (next) {
-    const hero = h("div", { class: "hero-card" });
-    hero.append(
-      h("p", { class: "kicker" }, goalMet ? "Goal met — bonus round" : t("today.kicker")),
-      h("h2", { class: "display", style: "font-size: var(--text-24)" }, packTitle(ctx.library, next.category, next.subcategory)),
-      h(
-        "p",
-        { class: "small muted" },
-        `${categoryTitle(ctx.library, next.category)} · Your voice: ${REGISTERS[settings.defaultRegister].glyph} ${REGISTERS[settings.defaultRegister].name} · Least-seen pack, so the lines stay fresh.`,
-      ),
-    );
-    const start = h("button", { class: "btn btn--primary" }, goalMet ? t("today.bonus") : t("today.start"));
-    start.addEventListener("click", () => {
-      void kvSet("last-pack", { category: next.category, subcategory: next.subcategory });
-      ctx.startDrill(next.id, "#/");
-    });
-    hero.append(start);
-    screen.append(hero);
+  const [settings, streak, daily, due, seen] = await Promise.all([getSettings(), getStreak(), getDaily(), dueReviews(), seenCounts()]);
+  const ids = sessionIds(ctx.library.scenarios, seen, settings.dailyGoal);
+  const screen = h("div", { class: "screen home-screen" });
+  screen.append(appheader("Your next calm moment.", { onAvatar: () => ctx.navigate("#/settings") }));
+  const hero = h("div", { class: "daily-hero" });
+  hero.append(h("div", { class: "row row--spread" }, h("span", { class: "eyebrow" }, "The daily practice"), h("span", { class: "hero-label" }, `${ids.length} drills`)),
+    h("h2", { class: "hero-title" }, "Less overthinking.", h("em", {}, "More ready.")),
+    h("p", { class: "body" }, "A tricky moment. A useful response. A chance to make it stick."));
+  const skills = h("div", { class: "hero-skills" });
+  for (const id of ids.slice(0, CONFIG.SESSION_SIZE)) {
+    const s = ctx.library.byId.get(id)!; skills.append(h("span", {}, s.goal ?? s.subcategory));
   }
-
-  /* Every number tells you what to do next. */
-  const milestone = h("div", { class: "next-milestone" });
-  const drillsLeft = Math.max(0, settings.dailyGoal - daily.drills);
-  const rankLine =
-    rank.next !== null
-      ? `${rank.toNext} lines to ${rank.next}. You are ${rank.current}.`
-      : `You are ${rank.current}. The highest rank.`;
-  milestone.append(
-    h("p", { class: "body" }, rankLine),
-    rank.next !== null
-      ? rankbar(1 - rank.toNext / Math.max(rank.toNext + reflexCount, 1), `Progress to ${rank.next}`)
-      : rankbar(1, "Highest rank"),
-    h("p", { class: "small muted metric" }, drillsLeft > 0 ? `${drillsLeft} drill${drillsLeft === 1 ? "" : "s"} to today's goal.` : t("today.goal.done")),
-  );
-  screen.append(milestone);
-
-  /* Below the fold — depth hides until wanted. */
-  const more = h("div", { class: "stack stack--tight" });
-  more.append(h("p", { class: "kicker" }, t("today.more")));
-  if (lastPack) {
-    const title = packTitle(ctx.library, lastPack.category, lastPack.subcategory);
-    const row = h("button", { class: "row-tap" });
-    row.append(progressRing(0.5, 36, `Continue ${title}`), h("span", {}, `Continue ${title}`));
-    row.addEventListener("click", () => ctx.navigate(`#/library/${lastPack.category}/${lastPack.subcategory}`));
-    more.append(row);
+  const start = h("button", { class: "btn btn--hero" }, daily.drills >= settings.dailyGoal ? "Try another session →" : "Start my session →");
+  start.addEventListener("click", () => ctx.startSession(ids, "#/"));
+  start.disabled = !ids.length;
+  hero.append(skills, start); screen.append(hero);
+  const progress = h("div", { class: "practice-progress" });
+  const practiced = ctx.library.scenarios.filter((s) => (seen[s.id] ?? 0) > 0).length;
+  progress.append(h("div", { class: "row row--spread" }, h("span", { class: "body" }, daily.drills >= settings.dailyGoal ? "Today's practice: complete ✓" : `${daily.drills} of ${settings.dailyGoal} drills today`),
+    h("span", { class: "small muted" }, streak.count ? `${streak.count} day streak` : "Your first day starts here")),
+    rankbar(daily.drills / settings.dailyGoal, "Daily practice progress"), h("p", { class: "small muted" }, `${practiced} of ${ctx.library.scenarios.length} situations practiced`));
+  screen.append(progress);
+  if (due[0]) {
+    const row = h("button", { class: "review-card" }, h("span", { class: "eyebrow" }, "Bring it back"), h("strong", {}, `${due.length} kept ${due.length === 1 ? "line is" : "lines are"} ready for recall`), h("span", {}, "Revisit My Lines →"));
+    row.addEventListener("click", () => ctx.navigate("#/arsenal")); screen.append(row);
   }
-  if (due.length > 0) {
-    const row = h("button", { class: "row-tap" });
-    row.append(
-      progressRing(1, 36, `${due.length} reviews due`),
-      h("span", {}, `${due.length} line${due.length === 1 ? "" : "s"} due for review`),
-    );
-    row.addEventListener("click", () => ctx.navigate("#/arsenal"));
-    more.append(row);
+  screen.append(h("div", { class: "section-heading" }, h("h2", {}, "What trips you up?"), h("p", { class: "small muted" }, "Practice a situation that matters to you.")));
+  const grid = h("div", { class: "category-grid" });
+  for (const category of CATEGORIES) {
+    const count = ctx.library.scenarios.filter((s) => s.category === category.id).length;
+    if (!count) continue;
+    const card = h("button", { class: `category-card category-${category.id}` }, catIcon(category.id), h("strong", {}, category.title), h("span", { class: "small" }, `${count} situations →`));
+    card.addEventListener("click", () => ctx.navigate(`#/library/${category.id}`)); grid.append(card);
   }
-  const freshRow = h("button", { class: "row-tap" });
-  freshRow.append(progressRing(0, 36, "Browse the library"), h("span", {}, "Fresh lines from the library"));
-  freshRow.addEventListener("click", () => ctx.navigate("#/library"));
-  more.append(freshRow);
-  screen.append(more);
-
-  root.append(screen);
-  root.append(tabbar("today", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
+  screen.append(grid, h("p", { class: "small faint centered" }, "Practice the idea. Keep the words that feel like you."));
+  root.append(screen, tabbar("today", (tab) => ctx.navigate(tab === "today" ? "#/" : `#/${tab}`)));
 }

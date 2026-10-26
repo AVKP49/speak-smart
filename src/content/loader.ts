@@ -6,6 +6,7 @@
 import { CONFIG } from "../config";
 import type { ContentManifest, ContentManifestEntry, PackFile, Scenario } from "../types";
 import { kvGet, kvSet, recordGet, recordPut } from "../store/db";
+import { shuffle } from "../lib/utils";
 
 interface CachedPack {
   id: string;
@@ -113,4 +114,12 @@ export function pickNextScenario(library: Library, seen: Record<string, number>)
   }
   const pick = best[Math.floor(Math.random() * best.length)];
   return pick;
+}
+
+/** Unique, least-practiced drills within the requested scope. */
+export function sessionIds(scenarios: Scenario[], seen: Record<string, number>, limit: number): string[] {
+  return shuffle(scenarios.filter((s) => s.review.status === "approved"))
+    .sort((a, b) => (seen[a.id] ?? 0) - (seen[b.id] ?? 0))
+    .slice(0, Math.max(0, limit))
+    .map((s) => s.id);
 }

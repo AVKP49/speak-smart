@@ -5,7 +5,7 @@ import { loadLibrary, type Library } from "./content/loader";
 import { getSettings, saveSettings } from "./store/state";
 import { kvGet } from "./store/db";
 import { h } from "./lib/utils";
-import type { AppCtx, DrillRequest, DrillResult } from "./app";
+import type { AppCtx, DrillRequest, DrillResult, PracticeSession } from "./app";
 import { renderOnboarding } from "./views/onboarding";
 import { renderToday } from "./views/today";
 import { renderLibrary } from "./views/library";
@@ -80,9 +80,10 @@ async function boot(): Promise<void> {
     return;
   }
 
-  const mutable: { pendingDrill: DrillRequest | null; lastResult: DrillResult | null } = {
+  const mutable: { pendingDrill: DrillRequest | null; lastResult: DrillResult | null; session: PracticeSession | null } = {
     pendingDrill: null,
     lastResult: null,
+    session: null,
   };
   const ctx: AppCtx = {
     library,
@@ -91,9 +92,30 @@ async function boot(): Promise<void> {
       else window.location.hash = hash;
     },
     startDrill: (scenarioId: string, origin: string) => {
+      mutable.session = null;
       mutable.pendingDrill = { scenarioId, origin };
       ctx.navigate("#/drill");
     },
+    startSession: (ids, origin) => {
+      const valid = [...new Set(ids)].filter((id) => library.byId.has(id));
+      if (!valid[0]) return;
+      mutable.session = { ids: valid, index: 0, completed: 0, recalled: 0, origin };
+      mutable.pendingDrill = { scenarioId: valid[0], origin };
+      mutable.lastResult = null;
+      ctx.navigate("#/drill");
+    },
+    continueSession: () => {
+      const session = mutable.session;
+      if (!session) { ctx.navigate("#/"); return; }
+      session.index += 1;
+      const id = session.ids[session.index];
+      if (id) {
+        mutable.pendingDrill = { scenarioId: id, origin: session.origin };
+        mutable.lastResult = null;
+        ctx.navigate("#/drill");
+      } else ctx.navigate("#/");
+    },
+    get session() { return mutable.session; },
     finishDrill: (result: DrillResult) => {
       mutable.lastResult = result;
       ctx.navigate("#/reveal");
@@ -106,7 +128,10 @@ async function boot(): Promise<void> {
     },
   };
 
+  let routeGeneration = 0;
   async function route(): Promise<void> {
+    const generation = ++routeGeneration;
+    const mount = document.createElement("div");
     cleanup?.();
     cleanup = null;
     root!.replaceChildren();
@@ -114,9 +139,19 @@ async function boot(): Promise<void> {
     const hash = window.location.hash || "#/";
     setTitle(hash);
     const settings = await getSettings();
+    // A previous async route must not paint over a newer navigation.
+    if (generation !== routeGeneration || (window.location.hash || "#/") !== hash) return;
     const onboarded = settings.onboarded;
 
     const finish = (next: (() => void) | void) => {
+      if (generation !== routeGeneration) {
+        if (typeof next === "function") next();
+        return;
+      }
+      // Keep the mount connected: Settings callbacks re-render into this node.
+      mount.style.display = "contents";
+      root!.replaceChildren(mount);
+      root!.querySelector<HTMLElement>("h1[tabindex]")?.focus({ preventScroll: true });
       if (typeof next === "function") cleanup = next;
     };
 
@@ -126,17 +161,17 @@ async function boot(): Promise<void> {
         return;
       }
       if (hash === "#/onboarding" || !onboarded) {
-        finish(await renderOnboarding(root!, ctx));
+        finish(await renderOnboarding(mount, ctx));
         return;
       }
     }
     if (hash === "#/" || hash === "") {
-      finish(await renderToday(root!, ctx));
+      finish(await renderToday(mount, ctx));
       return;
     }
     if (hash === "#/library" || hash.startsWith("#/library/")) {
       const [, , cat, sub] = hash.split("/");
-      finish(await renderLibrary(root!, ctx, cat || undefined, sub || undefined));
+      finish(await renderLibrary(mount, ctx, cat || undefined, sub || undefined));
       return;
     }
     if (hash === "#/drill") {
@@ -144,7 +179,7 @@ async function boot(): Promise<void> {
         ctx.navigate("#/");
         return;
       }
-      finish(await renderDrill(root!, ctx, mutable.pendingDrill));
+      finish(await renderDrill(mount, ctx, mutable.pendingDrill));
       return;
     }
     if (hash === "#/reveal") {
@@ -152,24 +187,24 @@ async function boot(): Promise<void> {
         ctx.navigate("#/");
         return;
       }
-      finish(await renderReveal(root!, ctx, mutable.lastResult));
+      finish(await renderReveal(mount, ctx, mutable.lastResult));
       return;
     }
     if (hash === "#/arsenal") {
-      finish(await renderArsenal(root!, ctx));
+      finish(await renderArsenal(mount, ctx));
       return;
     }
     if (hash.startsWith("#/arsenal/recall/")) {
       const key = decodeURIComponent(hash.slice("#/arsenal/recall/".length));
-      finish(await renderRecall(root!, ctx, key));
+      finish(await renderRecall(mount, ctx, key));
       return;
     }
     if (hash === "#/settings") {
-      finish(await renderSettings(root!, ctx));
+      finish(await renderSettings(mount, ctx));
       return;
     }
     if (hash === "#/styleguide") {
-      finish(await renderStyleguide(root!, ctx));
+      finish(await renderStyleguide(mount, ctx));
       return;
     }
     ctx.navigate("#/");

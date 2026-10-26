@@ -19,7 +19,7 @@ export interface Settings {
 }
 
 const DEFAULT_SETTINGS: Settings = {
-  defaultRegister: "boss",
+  defaultRegister: "friendly",
   dailyGoal: CONFIG.DAILY_GOAL_DEFAULT,
   beatMs: CONFIG.BEAT_MS,
   reducedMotion: false,
@@ -176,9 +176,9 @@ function levelFor(cleanRecalls: number, firstSavedAt: number, now: number): Mast
   return "Pocketed";
 }
 
-function nextDueIn(cleanRecalls: number): number {
+function nextDueIn(cleanRecalls: number, clean = true): number {
   const steps = CONFIG.SR_INTERVALS_DAYS;
-  const days = steps[Math.min(cleanRecalls, steps.length - 1)] ?? 1;
+  const days = clean ? steps[Math.min(cleanRecalls, steps.length - 1)] ?? 1 : steps[0];
   return Date.now() + days * 86400000;
 }
 
@@ -198,6 +198,8 @@ export async function saveLine(input: {
   const stale = (await recordAll<ArsenalEntry>("arsenal")).filter(
     (e) => e.scenarioId === input.scenarioId,
   );
+  const same = stale.find((e) => e.key === key && e.line === input.line && e.register === input.register);
+  if (same) return same;
   for (const e of stale) await recordDelete("arsenal", e.key);
   const now = Date.now();
   const entry: ArsenalEntry = {
@@ -247,7 +249,7 @@ export async function recordRecall(key: string, clean: boolean): Promise<Arsenal
   entry.totalRecalls += 1;
   if (clean) entry.cleanRecalls += 1;
   entry.lastReviewAt = now;
-  entry.nextDueAt = nextDueIn(entry.cleanRecalls);
+  entry.nextDueAt = nextDueIn(entry.cleanRecalls, clean);
   entry.level = levelFor(entry.cleanRecalls, entry.firstSavedAt, now);
   await recordPut("arsenal", entry as unknown as Record<string, unknown>);
   await addReviewCompleted(1);

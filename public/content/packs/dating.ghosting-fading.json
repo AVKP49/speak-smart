@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "dating.ghosting-fading",
+    "category": "dating",
+    "subcategory": "ghosting-fading",
+    "title": "Ghosting fading",
+    "description": "Ask for a plan and stop indefinite chasing.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "dating.ghosting-fading.0001",
+      "category": "dating",
+      "subcategory": "ghosting-fading",
+      "setting": "Someone has canceled two dates and still has not suggested another time.",
+      "jab": "We'll figure something out soon, promise.",
+      "goal": "Ask for a plan and stop indefinite chasing.",
+      "difficulty": 2,
+      "tags": [
+        "ghosting-fading",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Let me know when you have a day in mind.",
+          "why": "It puts the next concrete step with the person who canceled.",
+          "delivery": "Ask once, evenly; let the pause remain instead of sending several follow-up messages."
+        },
+        {
+          "register": "curt",
+          "line": "Send a day when you're available.",
+          "why": "It asks for an actionable proposal rather than more reassurance.",
+          "delivery": "Ask once, evenly; let the pause remain instead of sending several follow-up messages."
+        },
+        {
+          "register": "friendly",
+          "line": "I'd like to see you; send a day that works and we'll see if it fits.",
+          "why": "It shows interest without committing yourself to an unspecified plan.",
+          "delivery": "Ask once, evenly; let the pause remain instead of sending several follow-up messages."
+        },
+        {
+          "register": "comedic",
+          "line": "Our calendar could use a date, not a cliffhanger.",
+          "why": "A gentle joke names the uncertainty without insulting their interest.",
+          "delivery": "Ask once, evenly; let the pause remain instead of sending several follow-up messages."
+        }
+      ],
+      "followUp": {
+        "jab": "Why are you making this a big deal?",
+        "line": "I'm asking for a plan; if now isn't a good time, that's okay.",
+        "why": "It clarifies the request and gives a respectful way to decline.",
+        "delivery": "Ask once, evenly; let the pause remain instead of sending several follow-up messages."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

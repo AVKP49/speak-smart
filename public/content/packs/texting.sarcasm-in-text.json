@@ -1,0 +1,59 @@
+{
+  "pack": {
+    "id": "texting.sarcasm-in-text",
+    "category": "texting",
+    "subcategory": "sarcasm-in-text",
+    "title": "Sarcasm in text",
+    "description": "Repair a joke that did not land.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "texting.sarcasm-in-text.0001",
+      "category": "texting",
+      "subcategory": "sarcasm-in-text",
+      "setting": "Your joking message lands badly and a colleague tells you it hurt.",
+      "jab": "Was that meant to be funny? It sounded pretty rude.",
+      "goal": "Repair a joke that did not land.",
+      "difficulty": 2,
+      "tags": [
+        "sarcasm-in-text",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "You're right; that came across badly. I'm sorry.",
+          "why": "It owns the impact without making the reader responsible for misunderstanding.",
+          "delivery": "Write the apology plainly; avoid adding an emoji that makes the repair feel dismissive."
+        },
+        {
+          "register": "curt",
+          "line": "Bad joke. I'm sorry.",
+          "why": "It offers a direct apology without an excuse.",
+          "delivery": "Write the apology plainly; avoid adding an emoji that makes the repair feel dismissive."
+        },
+        {
+          "register": "friendly",
+          "line": "I meant it lightly, but I see it hurt; I'm sorry, and I won't repeat it.",
+          "why": "It acknowledges both intention and impact while committing to a change.",
+          "delivery": "Write the apology plainly; avoid adding an emoji that makes the repair feel dismissive."
+        }
+      ],
+      "followUp": {
+        "jab": "Then why did you send it?",
+        "line": "I misjudged it; that's on me, and I'll be more careful.",
+        "why": "It accepts responsibility without asking the recipient to reassure you.",
+        "delivery": "Write the apology plainly; avoid adding an emoji that makes the repair feel dismissive."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}
