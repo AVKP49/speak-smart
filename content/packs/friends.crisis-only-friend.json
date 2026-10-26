@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "friends.crisis-only-friend",
+    "category": "friends",
+    "subcategory": "crisis-only-friend",
+    "title": "Crisis only friend",
+    "description": "Set a limit on emotional availability.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "friends.crisis-only-friend.0001",
+      "category": "friends",
+      "subcategory": "crisis-only-friend",
+      "setting": "A friend calls for another long vent when you have no capacity tonight.",
+      "jab": "I need you right now. You always know what to say.",
+      "goal": "Set a limit on emotional availability.",
+      "difficulty": 2,
+      "tags": [
+        "crisis-only-friend",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I can't talk tonight. I can check in tomorrow afternoon.",
+          "why": "It states your capacity and offers a specific time you can genuinely give.",
+          "delivery": "Keep the care sincere and the time specific; offer only the availability you can honor."
+        },
+        {
+          "register": "curt",
+          "line": "Not tonight. Tomorrow afternoon works.",
+          "why": "It gives a clear limit and a real alternative.",
+          "delivery": "Keep the care sincere and the time specific; offer only the availability you can honor."
+        },
+        {
+          "register": "friendly",
+          "line": "I care about you; I don't have the energy for a long call tonight, but tomorrow afternoon works.",
+          "why": "It makes care and limited capacity compatible rather than treating them as opposites.",
+          "delivery": "Keep the care sincere and the time specific; offer only the availability you can honor."
+        },
+        {
+          "register": "comedic",
+          "line": "My listening battery needs charging; tomorrow afternoon?",
+          "why": "A gentle metaphor explains capacity without making the friend's feelings the joke.",
+          "delivery": "Keep the care sincere and the time specific; offer only the availability you can honor."
+        }
+      ],
+      "followUp": {
+        "jab": "So I'm a burden now?",
+        "line": "You matter to me; tonight's limit is about my capacity, not your worth.",
+        "why": "It rejects the hurtful interpretation while keeping the limit.",
+        "delivery": "Keep the care sincere and the time specific; offer only the availability you can honor."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

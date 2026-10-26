@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "money.landlords-leasing",
+    "category": "money",
+    "subcategory": "landlords-leasing",
+    "title": "Landlords leasing",
+    "description": "Verify terms before sending money.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "money.landlords-leasing.0001",
+      "category": "money",
+      "subcategory": "landlords-leasing",
+      "setting": "You are touring an apartment and being pushed to transfer a deposit.",
+      "jab": "Send the deposit now and we'll sort the paperwork later.",
+      "goal": "Verify terms before sending money.",
+      "difficulty": 2,
+      "tags": [
+        "landlords-leasing",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'll review the lease and payment terms before sending a deposit.",
+          "why": "It puts verification ahead of the pressured payment.",
+          "delivery": "Use a level tone on “before”; do not soften the boundary into a tentative question."
+        },
+        {
+          "register": "curt",
+          "line": "Paperwork first. Then I'll decide.",
+          "why": "It makes the order of decisions clear without promising payment.",
+          "delivery": "Say “Paperwork first” clearly, then stop instead of adding a defense. Do not soften the boundary into a tentative question."
+        },
+        {
+          "register": "friendly",
+          "line": "Please send the documents and payment instructions so I can review everything together.",
+          "why": "It requests the information required for a considered decision.",
+          "delivery": "Keep “Please send the documents and payment instructions so” warm and unhurried; finish the request clearly. Do not soften the boundary into a tentative question."
+        },
+        {
+          "register": "comedic",
+          "line": "My money travels with paperwork.",
+          "why": "A brief joke makes the sequence memorable without alleging fraud.",
+          "delivery": "Keep “My money travels with paperwork” light; let the joke stand without repeating it. Do not soften the boundary into a tentative question."
+        }
+      ],
+      "followUp": {
+        "jab": "That's not how we usually do it.",
+        "line": "I understand; I won't send money before reviewing the terms.",
+        "why": "It maintains your boundary without debating their usual practice.",
+        "delivery": "Use a level tone on “before”; do not soften the boundary into a tentative question."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

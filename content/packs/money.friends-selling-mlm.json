@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "money.friends-selling-mlm",
+    "category": "money",
+    "subcategory": "friends-selling-mlm",
+    "title": "Friends selling mlm",
+    "description": "Support a friend without joining their sales pitch.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "money.friends-selling-mlm.0001",
+      "category": "money",
+      "subcategory": "friends-selling-mlm",
+      "setting": "A friend repeatedly invites you to a business opportunity meeting.",
+      "jab": "Just come to one meeting; you're not supporting me otherwise.",
+      "goal": "Support a friend without joining their sales pitch.",
+      "difficulty": 2,
+      "tags": [
+        "friends-selling-mlm",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I care about you. I'm not joining the business.",
+          "why": "It separates the relationship from participation in the venture.",
+          "delivery": "Pause between caring about your friend and declining the business; make both statements sincere."
+        },
+        {
+          "register": "curt",
+          "line": "I'm not joining. Let's meet for coffee.",
+          "why": "It closes the pitch and offers a social connection instead.",
+          "delivery": "Pause between caring about your friend and declining the business; make both statements sincere."
+        },
+        {
+          "register": "friendly",
+          "line": "I hope it goes well for you; I'd rather spend time together outside the business.",
+          "why": "It expresses goodwill while declining the commercial invitation.",
+          "delivery": "Pause between caring about your friend and declining the business; make both statements sincere."
+        },
+        {
+          "register": "comedic",
+          "line": "Coffee, yes. A new career, no.",
+          "why": "The contrast keeps the refusal light while distinguishing friendship from recruitment.",
+          "delivery": "Pause between caring about your friend and declining the business; make both statements sincere."
+        }
+      ],
+      "followUp": {
+        "jab": "But this could change your life.",
+        "line": "I hear your enthusiasm; my answer about joining is still no.",
+        "why": "It recognizes their excitement without reopening the decision.",
+        "delivery": "Pause between caring about your friend and declining the business; make both statements sincere."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

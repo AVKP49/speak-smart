@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "neighbors.chronic-borrowers",
+    "category": "neighbors",
+    "subcategory": "chronic-borrowers",
+    "title": "Chronic borrowers",
+    "description": "Get a borrowed item returned before lending more.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "neighbors.chronic-borrowers.0001",
+      "category": "neighbors",
+      "subcategory": "chronic-borrowers",
+      "setting": "A neighbor asks to borrow your drill again before returning your ladder.",
+      "jab": "Can I grab your drill? I'll bring everything back later.",
+      "goal": "Get a borrowed item returned before lending more.",
+      "difficulty": 2,
+      "tags": [
+        "chronic-borrowers",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Please return the ladder first; I'm not lending anything else today.",
+          "why": "It ties the current request to a specific outstanding return without adding accusations.",
+          "delivery": "Keep “return the ladder” specific; don't list every past favor."
+        },
+        {
+          "register": "curt",
+          "line": "Ladder back first. No drill today.",
+          "why": "It names both the next action and today's lending limit.",
+          "delivery": "Say “Ladder back first” clearly, then stop instead of adding a defense. Don't list every past favor."
+        },
+        {
+          "register": "friendly",
+          "line": "Could you bring the ladder back today? I'd like to keep my tools at home for now.",
+          "why": "It asks for the return while explaining your current lending boundary.",
+          "delivery": "Keep “Could you bring the ladder back today” warm and unhurried; finish the request clearly. Don't list every past favor."
+        },
+        {
+          "register": "comedic",
+          "line": "The ladder needs to come home before anyone else gets a field trip.",
+          "why": "The playful image makes the return sequence clear without calling the neighbor irresponsible.",
+          "delivery": "Keep “The ladder needs to come home before anyone” light; let the joke stand without repeating it. Don't list every past favor."
+        }
+      ],
+      "followUp": {
+        "jab": "You're acting like I stole it.",
+        "line": "I'm asking for my ladder back; I'm not accusing you of stealing.",
+        "why": "It clarifies the request and avoids adopting the accusation frame.",
+        "delivery": "Pause before “I'm asking for my ladder back,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

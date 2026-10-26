@@ -5,7 +5,7 @@
     "subcategory": "tipping-checkout",
     "title": "Tipping & checkout pressure",
     "description": "The tipped tablet turn. Tip for service, not for being watched.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,43 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "No tip on counter pickup. Thanks.",
-          "why": "It states your policy as a fact about the situation, not a judgment of him.",
-          "delivery": "Warm tone, final words. Then tap zero without lingering.",
-          "caution": null
+          "line": "I'll choose my own amount. Thank you.",
+          "why": "It states your payment choice without criticizing the cashier.",
+          "delivery": "Choose on the screen as you speak; keep “thank you” ordinary and warm."
         },
         {
           "register": "curt",
-          "line": "Skipping. Thanks.",
-          "why": "It answers the tablet's question out loud so there's nothing awkward left unsaid.",
-          "caution": null
+          "line": "I'll choose. Thanks.",
+          "why": "It keeps the decision brief and courteous.",
+          "delivery": "Say “I'll choose” clearly, then stop instead of adding a defense. Choose on the screen as you speak."
         },
         {
           "register": "friendly",
           "line": "I'll pass on this one — appreciate you though.",
           "why": "Thanks plus a clear no keeps the human moment intact while your wallet stays shut.",
-          "caution": null
+          "delivery": "Keep “I'll pass on this one” warm and unhurried; finish the request clearly. Choose on the screen as you speak."
         },
         {
           "register": "comedic",
-          "line": "The tablet and I disagree on what happened here.",
-          "why": "Blaming the tablet lets you both laugh while you tap zero together.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Zero. The tablet asked, I answered.",
-          "why": "Answering the machine out loud turns the awkward tap into a punchline you both share.",
-          "caution": null
+          "line": "The tablet has suggestions; I have a budget.",
+          "why": "Humor separates a suggested amount from your own decision.",
+          "delivery": "Keep “The tablet has suggestions” light; let the joke stand without repeating it. Choose on the screen as you speak."
         }
       ],
       "trap": {
         "line": "This tipping stuff is out of control, honestly.",
-        "why": "Lecturing the cashier punishes the person with the least power over the policy."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Make your tipping choice without lecturing the cashier.",
+      "followUp": {
+        "jab": "You can choose one of these percentages.",
+        "line": "I'll select my own amount. Thank you.",
+        "why": "It keeps the decision with you and avoids turning a payment screen into a debate.",
+        "delivery": "Choose on the screen as you speak; keep “thank you” ordinary and warm."
       }
     },
     {
@@ -75,38 +79,43 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Then we're settled. Thank you for the evening.",
-          "why": "It treats the auto-gratuity as the end of the transaction, which it is.",
-          "caution": null
+          "line": "Thank you. I'll check the included charge before deciding.",
+          "why": "It verifies the bill before treating any additional tip as a separate choice.",
+          "delivery": "Read the bill first, speak evenly, and avoid claiming an included fee always reaches staff."
         },
         {
           "register": "curt",
-          "line": "Good. We're done.",
-          "why": "It closes the check the way the policy already did, with no encore.",
-          "caution": null
+          "line": "I'll check that charge first. Thanks.",
+          "why": "It pauses the decision until the included amount is clear.",
+          "delivery": "Read the bill first, speak evenly, and avoid claiming an included fee always reaches staff."
         },
         {
           "register": "friendly",
-          "line": "Perfect, that makes it easy — thanks for looking after us.",
-          "why": "Gratitude for the service lands better than extra money ever could.",
-          "caution": null
+          "line": "Thanks for pointing it out; could you explain what the included charge covers?",
+          "why": "It requests clarification without assuming how the charge is allocated.",
+          "delivery": "Read the bill first, speak evenly, and avoid claiming an included fee always reaches staff."
         },
         {
           "register": "comedic",
-          "line": "Auto-gratitude: my favorite kind.",
-          "why": "Loving the policy out loud makes the hovering unnecessary for everyone.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Eighteen percent settled. Check closed.",
-          "why": "It reads the receipt like a verdict, which is exactly what it is.",
-          "caution": null
+          "line": "My calculator wants a moment with the bill.",
+          "why": "The joke gives you space to review the total without blaming staff.",
+          "delivery": "Read the bill first, speak evenly, and avoid claiming an included fee always reaches staff."
         }
       ],
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Check an included charge before adding another tip.",
+      "followUp": {
+        "jab": "You can still leave extra if you want.",
+        "line": "Thank you; I'll review the included amount before deciding.",
+        "why": "It clarifies that an additional tip is a separate choice.",
+        "delivery": "Read the bill first, speak evenly, and avoid claiming an included fee always reaches staff."
       }
     }
   ]

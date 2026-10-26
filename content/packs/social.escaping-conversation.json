@@ -5,7 +5,7 @@
     "subcategory": "escaping-conversation",
     "title": "Escaping a conversation politely",
     "description": "The corner trap. Leave every conversation warmer than you found it.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,42 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Save it for me. I'm getting a refill.",
-          "why": "A promise plus a destination makes leaving feel like pausing.",
-          "caution": null
+          "line": "I'm going to mingle now. Enjoy the evening.",
+          "why": "It states your exit without promising to return for the story.",
+          "delivery": "Turn toward your next destination as you speak, and avoid reopening the conversation."
         },
         {
           "register": "curt",
           "line": "Excuse me. Good talking.",
-          "why": "Past-tense good talking ends it kindly with no opening for more.",
-          "caution": null
+          "why": "It closes the conversation courteously without offering a negotiable reason.",
+          "delivery": "Turn toward your next destination as you speak, and avoid reopening the conversation."
         },
         {
           "register": "friendly",
-          "line": "I need to say hi to the host — don't lose that story.",
-          "why": "A social duty plus a compliment lets you both keep the evening.",
-          "caution": null
+          "line": "It was nice talking with you; I'm going to mingle now.",
+          "why": "It closes warmly without inventing another obligation.",
+          "delivery": "Turn toward your next destination as you speak, and avoid reopening the conversation."
         },
         {
           "register": "comedic",
           "line": "To be continued — my drink needs a plus-one.",
           "why": "Blaming your empty glass gives the exit a punchline instead of an excuse.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Cliffhanger. I'll catch the sequel.",
-          "why": "It frames your exit as fandom, which flatters them out of the corner.",
-          "caution": null
+          "delivery": "Turn toward your next destination as you speak, and avoid reopening the conversation."
         }
       ],
       "trap": {
         "line": "Sorry, I'm just going to go talk to literally anyone else.",
-        "why": "Honesty about escaping makes the story they'll tell about you."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Exit a long conversation politely.",
+      "followUp": {
+        "jab": "But you haven't heard the ending.",
+        "line": "I need to move on now; enjoy the rest of the evening.",
+        "why": "It completes the goodbye without promising to return for the story.",
+        "delivery": "Turn toward your next destination as you speak, and avoid reopening the conversation."
       }
     },
     {
@@ -74,32 +79,96 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I know the couple. Enjoy the detective work.",
-          "why": "It answers the whole category of questions at once, with a smile.",
-          "caution": null
+          "line": "I don't know them. I'm going to mingle now.",
+          "why": "It answers honestly and states the exit without mocking the questions.",
+          "delivery": "Keep a friendly pace and move naturally after saying goodbye."
         },
         {
           "register": "friendly",
           "line": "I'm useless at the guest map — let's go find someone who isn't.",
-          "why": "Confessing ignorance plus moving together turns an exit into an adventure.",
-          "caution": null
+          "why": "It admits not knowing the guests while inviting movement if you genuinely want company.",
+          "delivery": "Keep a friendly pace and move naturally after saying goodbye."
         },
         {
           "register": "comedic",
           "line": "My clearance level doesn't cover roommates of boyfriends.",
-          "why": "Fake security clearance makes not-knowing a joke instead of a failure.",
-          "caution": null
+          "why": "The playful clearance metaphor admits unfamiliarity without pretending to know people.",
+          "delivery": "Keep a friendly pace and move naturally after saying goodbye."
         },
         {
-          "register": "sharp",
-          "line": "I know the cake. That's all.",
-          "why": "It narrows your expertise to dessert, which ends the quiz deliciously.",
-          "caution": null
+          "register": "curt",
+          "line": "I'm going to mingle. Take care.",
+          "why": "It states the immediate boundary without adding a personal judgment.",
+          "delivery": "Keep a friendly pace and move naturally after saying goodbye."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "End a guest-list quiz you do not want to continue.",
+      "followUp": {
+        "jab": "You must know someone else here.",
+        "line": "I'm going to mingle now; it was nice meeting you.",
+        "why": "It shifts from answering questions to a clear social exit.",
+        "delivery": "Keep a friendly pace and move naturally after saying goodbye."
+      }
+    },
+    {
+      "id": "social.escaping-conversation.0003",
+      "category": "social",
+      "subcategory": "escaping-conversation",
+      "setting": "An acquaintance continues talking while you need to leave for an appointment.",
+      "jab": "Wait, I'm almost done; you can stay a minute.",
+      "goal": "Leave a conversation at the time you need.",
+      "difficulty": 2,
+      "tags": [
+        "escaping-conversation",
+        "connection"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I need to leave now. It was good talking with you.",
+          "why": "It ends the conversation warmly without offering a deadline to bargain over.",
+          "delivery": "Stand or turn toward the exit as you say goodbye; do not keep offering fresh excuses."
+        },
+        {
+          "register": "curt",
+          "line": "I have to go now. Take care.",
+          "why": "It names the exit clearly and closes with ordinary kindness.",
+          "delivery": "Stand or turn toward the exit as you say goodbye; do not keep offering fresh excuses."
+        },
+        {
+          "register": "friendly",
+          "line": "I'd like to hear more another time; I need to leave now for my appointment.",
+          "why": "It preserves interest without sacrificing your present commitment.",
+          "delivery": "Stand or turn toward the exit as you say goodbye; do not keep offering fresh excuses."
+        },
+        {
+          "register": "comedic",
+          "line": "My appointment has started sending imaginary reminder texts; I need to go.",
+          "why": "A playful image communicates time pressure without criticizing the story.",
+          "delivery": "Stand or turn toward the exit as you say goodbye; do not keep offering fresh excuses."
+        }
+      ],
+      "followUp": {
+        "jab": "It'll literally take ten seconds.",
+        "line": "I can't stay; take care.",
+        "why": "It repeats the departure rather than debating how long the story will take.",
+        "delivery": "Stand or turn toward the exit as you say goodbye; do not keep offering fresh excuses."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

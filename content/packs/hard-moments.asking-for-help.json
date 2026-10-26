@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "hard-moments.asking-for-help",
+    "category": "hard-moments",
+    "subcategory": "asking-for-help",
+    "title": "Asking for help",
+    "description": "Ask for specific help without pretending everything is fine.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "hard-moments.asking-for-help.0001",
+      "category": "hard-moments",
+      "subcategory": "asking-for-help",
+      "setting": "You are overloaded and need a colleague's help with a deadline.",
+      "jab": "I thought you had this handled.",
+      "goal": "Ask for specific help without pretending everything is fine.",
+      "difficulty": 2,
+      "tags": [
+        "asking-for-help",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I need help checking the figures before three. Can you take that part?",
+          "why": "It identifies a bounded task and deadline rather than making a vague appeal.",
+          "delivery": "Name the exact task and deadline; wait for agreement before treating the work as assigned."
+        },
+        {
+          "register": "curt",
+          "line": "Can you check the figures before three?",
+          "why": "It makes the request easy to understand and answer.",
+          "delivery": "Name the exact task and deadline; wait for agreement before treating the work as assigned."
+        },
+        {
+          "register": "friendly",
+          "line": "I've reached capacity; could you check the figures before three so I can finish the draft?",
+          "why": "It explains how a specific contribution would help the shared task.",
+          "delivery": "Name the exact task and deadline; wait for agreement before treating the work as assigned."
+        },
+        {
+          "register": "comedic",
+          "line": "My spreadsheet needs a second pair of eyes; yours available before three?",
+          "why": "A light phrase keeps the help request concrete without diminishing the work.",
+          "delivery": "Name the exact task and deadline; wait for agreement before treating the work as assigned."
+        }
+      ],
+      "followUp": {
+        "jab": "I don't have time for the whole thing.",
+        "line": "I'm asking for the figures only; if you can't, I'll find another way.",
+        "why": "It narrows the request and allows an honest refusal without guilt.",
+        "delivery": "Name the exact task and deadline; wait for agreement before treating the work as assigned."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

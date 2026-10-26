@@ -5,7 +5,7 @@
     "subcategory": "line-cutters",
     "title": "Line-cutters",
     "description": "The sidle-in ahead of you. Loud enough for the line, calm enough for you.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -24,40 +24,45 @@
           "register": "boss",
           "line": "Easy to miss. The end is back there.",
           "why": "It accepts the excuse and points at the fix, giving them a graceful exit.",
-          "caution": null
+          "delivery": "Use a small gesture rather than crowding them; let staff handle a disputed rule."
         },
         {
           "register": "curt",
           "line": "Line's back there.",
           "why": "Three words, one gesture — the whole line silently agrees with you.",
-          "caution": null
+          "delivery": "Use a small gesture rather than crowding them; let staff handle a disputed rule."
         },
         {
           "register": "friendly",
           "line": "No worries — we're all back here together.",
-          "why": "We're makes the line a team and stepping back joining it.",
-          "caution": null
+          "why": "It points out where the line continues while allowing for an honest mistake.",
+          "delivery": "Use a small gesture rather than crowding them; let staff handle a disputed rule."
         },
         {
           "register": "comedic",
           "line": "Invisibility is my curse. End of the line breaks the spell.",
-          "why": "Playing along with the excuse while redirecting gets laughs and compliance.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Vision's back. End of line.",
-          "why": "It grants the miracle of sight and prescribes the cure in one breath.",
-          "caution": null
+          "why": "It uses humor about being missed while indicating the end of the line.",
+          "delivery": "Use a small gesture rather than crowding them; let staff handle a disputed rule."
         }
       ],
       "trap": {
         "line": "Seriously? Who raised you?",
-        "why": "Insulting a stranger over coffee makes the line uncomfortable with you, not them."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Point out a queue position politely.",
+      "followUp": {
+        "jab": "I was only gone a minute.",
+        "line": "Let's ask staff how returning to the line works.",
+        "why": "It handles an ambiguous claim through the queue's actual process.",
+        "delivery": "Use a small gesture rather than crowding them; let staff handle a disputed rule."
       }
     },
     {
@@ -76,36 +81,94 @@
           "register": "boss",
           "line": "Ask the whole line. If they agree, go ahead.",
           "why": "It moves the decision to everyone affected, which is the only fair court.",
-          "caution": null
+          "delivery": "Keep a concerned tone but do not physically block the traveler."
         },
         {
           "register": "curt",
           "line": "I mind. Back of the line.",
-          "why": "A clean no to a forced yes — the question was never really a question.",
-          "caution": null
+          "why": "It clearly declines the request without guessing why the traveler is late.",
+          "delivery": "Keep a concerned tone but do not physically block the traveler."
         },
         {
           "register": "friendly",
-          "line": "Tight connection? Tell the agent up front — they fast-track those.",
-          "why": "It solves their real problem without spending your place in line.",
-          "caution": null
+          "line": "That sounds stressful; please ask staff what options are available.",
+          "why": "It directs the urgent problem to staff without guaranteeing an exception.",
+          "delivery": "Keep a concerned tone but do not physically block the traveler."
         },
         {
           "register": "comedic",
-          "line": "Everyone's flight is boarding. Including mine.",
-          "why": "It points out the universal excuse with a grin that holds your spot.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Should've left earlier. We all did.",
-          "why": "It distributes the blame evenly, which leaves no room to cut.",
-          "caution": null
+          "line": "The line can't fly faster; let's ask staff for help.",
+          "why": "A mild joke acknowledges the problem without blaming the traveler.",
+          "delivery": "Keep a concerned tone but do not physically block the traveler."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Handle an urgent queue request fairly.",
+      "followUp": {
+        "jab": "I'll miss my flight if I wait.",
+        "line": "Please ask the staff what help is available; I can't decide for the whole line.",
+        "why": "It directs urgency to staff without spending other people's waiting time.",
+        "delivery": "Keep a concerned tone but do not physically block the traveler."
+      }
+    },
+    {
+      "id": "public.line-cutters.0003",
+      "category": "public",
+      "subcategory": "line-cutters",
+      "setting": "A person joins their friend ahead of you in a long queue.",
+      "jab": "I'm with them, so it's fine.",
+      "goal": "Ask for fairness without assuming everyone agrees.",
+      "difficulty": 2,
+      "tags": [
+        "line-cutters",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "We've been waiting. Please check with staff before joining ahead.",
+          "why": "It requests a fair process without making yourself the sole rule enforcer.",
+          "delivery": "Keep distance and your voice low; if they escalate, let staff handle it."
+        },
+        {
+          "register": "curt",
+          "line": "Please check with staff before joining.",
+          "why": "It directs the question to someone responsible for the queue.",
+          "delivery": "Keep distance and your voice low; if they escalate, let staff handle it."
+        },
+        {
+          "register": "friendly",
+          "line": "I understand you're together; could you ask staff how they handle people joining the line?",
+          "why": "It acknowledges the relationship while seeking a consistent rule.",
+          "delivery": "Keep distance and your voice low; if they escalate, let staff handle it."
+        },
+        {
+          "register": "comedic",
+          "line": "The queue has a plot; let's ask staff about surprise arrivals.",
+          "why": "The joke keeps the issue about the line's process rather than the person.",
+          "delivery": "Keep distance and your voice low; if they escalate, let staff handle it."
+        }
+      ],
+      "followUp": {
+        "jab": "My friend saved my place.",
+        "line": "Let's ask staff to clarify; I don't want to argue about it.",
+        "why": "It moves an ambiguous rule question away from a personal confrontation.",
+        "delivery": "Keep distance and your voice low; if they escalate, let staff handle it."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

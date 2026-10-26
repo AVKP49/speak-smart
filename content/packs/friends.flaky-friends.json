@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "friends.flaky-friends",
+    "category": "friends",
+    "subcategory": "flaky-friends",
+    "title": "Flaky friends",
+    "description": "Address repeated cancellations without a character attack.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "friends.flaky-friends.0001",
+      "category": "friends",
+      "subcategory": "flaky-friends",
+      "setting": "A friend cancels at the last minute for the third time.",
+      "jab": "Sorry, something came up again. Rain check?",
+      "goal": "Address repeated cancellations without a character attack.",
+      "difficulty": 2,
+      "tags": [
+        "flaky-friends",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Let's plan again when you can commit to a time.",
+          "why": "It changes the planning pattern without judging the reason for this cancellation.",
+          "delivery": "Pause, then say “Let's plan again when you can commit to” at a steady, conversational volume."
+        },
+        {
+          "register": "curt",
+          "line": "Choose a time you can keep.",
+          "why": "It places the next proposal with the person who canceled.",
+          "delivery": "Say “Choose a time you can keep” clearly, then stop instead of adding a defense."
+        },
+        {
+          "register": "friendly",
+          "line": "I miss seeing you; last-minute changes are hard, so please suggest a time that feels realistic.",
+          "why": "It communicates both care and the impact of repeated cancellations.",
+          "delivery": "Keep “last-minute changes” descriptive, with no emphasis on “again” as an accusation."
+        },
+        {
+          "register": "comedic",
+          "line": "Our rain checks are starting a weather archive.",
+          "why": "A shared joke names the pattern without calling your friend unreliable.",
+          "delivery": "Keep “Our rain checks are starting a weather archive” light; let the joke stand without repeating it."
+        }
+      ],
+      "followUp": {
+        "jab": "You're being a bit intense.",
+        "line": "I'm explaining how the cancellations affect me; I still want a plan we can keep.",
+        "why": "It returns to the practical issue rather than defending your personality.",
+        "delivery": "Pause before “I'm explaining how the cancellations affect me,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "work.raise-promotion-feedback",
+    "category": "work",
+    "subcategory": "raise-promotion-feedback",
+    "title": "Raise promotion feedback",
+    "description": "Turn an indefinite delay into a specific next step.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "work.raise-promotion-feedback.0001",
+      "category": "work",
+      "subcategory": "raise-promotion-feedback",
+      "setting": "Your manager postpones a promotion discussion for the third time.",
+      "jab": "Let's revisit this when things settle down.",
+      "goal": "Turn an indefinite delay into a specific next step.",
+      "difficulty": 2,
+      "tags": [
+        "raise-promotion-feedback",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Let's book a date and agree on the criteria now.",
+          "why": "It asks for a review process instead of accepting an unspecified delay.",
+          "delivery": "Slow down on “date” and “criteria,” then leave room for an answer."
+        },
+        {
+          "register": "curt",
+          "line": "Which date, and which criteria?",
+          "why": "Two concrete questions make the missing commitments visible.",
+          "delivery": "Slow down on “date” and “criteria,” then leave room for an answer."
+        },
+        {
+          "register": "friendly",
+          "line": "I understand the timing is difficult; could we schedule a review and document the criteria?",
+          "why": "It acknowledges the constraint while requesting an actionable plan.",
+          "delivery": "Keep “I understand the timing is difficult” warm and unhurried; finish the request clearly. ” then leave room for an answer."
+        },
+        {
+          "register": "comedic",
+          "line": "My calendar can handle a real date better than “someday.”",
+          "why": "Gentle humor highlights the delay without questioning your manager's character.",
+          "delivery": "Keep “My calendar can handle a real date better” light; let the joke stand without repeating it. ” then leave room for an answer."
+        }
+      ],
+      "followUp": {
+        "jab": "I can't promise anything yet.",
+        "line": "I'm asking for a review date and clear criteria, rather than a guaranteed promotion.",
+        "why": "It distinguishes a fair process from a promised outcome.",
+        "delivery": "Slow down on “date” and “criteria,” then leave room for an answer."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

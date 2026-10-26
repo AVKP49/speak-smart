@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "public.street-transit",
+    "category": "public",
+    "subcategory": "street-transit",
+    "title": "Street transit",
+    "description": "Respond to a fair request without treating it as an attack.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "public.street-transit.0001",
+      "category": "public",
+      "subcategory": "street-transit",
+      "setting": "A passenger asks you to move your bag so they can sit and you respond defensively at first.",
+      "jab": "Does your bag need its own seat?",
+      "goal": "Respond to a fair request without treating it as an attack.",
+      "difficulty": 2,
+      "tags": [
+        "street-transit",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "You're right. I'll move it.",
+          "why": "It accepts a reasonable request and resolves the issue immediately.",
+          "delivery": "Move the bag as you speak; a practical correction matters more than a clever response."
+        },
+        {
+          "register": "curt",
+          "line": "Of course. Seat's yours.",
+          "why": "It makes the space available without defending the mistake.",
+          "delivery": "Move the bag as you speak; a practical correction matters more than a clever response."
+        },
+        {
+          "register": "friendly",
+          "line": "Sorry about that; let me move it so you can sit.",
+          "why": "It acknowledges the inconvenience and performs the requested change.",
+          "delivery": "Move the bag as you speak; a practical correction matters more than a clever response."
+        },
+        {
+          "register": "comedic",
+          "line": "Its free ride ends here; have a seat.",
+          "why": "Humor concerns the bag while welcoming the passenger.",
+          "delivery": "Move the bag as you speak; a practical correction matters more than a clever response."
+        }
+      ],
+      "followUp": {
+        "jab": "Thanks, this train is packed.",
+        "line": "No problem; thanks for asking.",
+        "why": "It closes the exchange politely rather than extending a defensive explanation.",
+        "delivery": "Move the bag as you speak; a practical correction matters more than a clever response."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

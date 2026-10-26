@@ -1,165 +1,461 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "packs": [
     {
       "id": "dating.boundaries-early",
       "category": "dating",
       "subcategory": "boundaries-early",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "dating.boundaries-early.json",
       "count": 2
+    },
+    {
+      "id": "dating.exes-resurfacing",
+      "category": "dating",
+      "subcategory": "exes-resurfacing",
+      "version": "2.0.0",
+      "file": "dating.exes-resurfacing.json",
+      "count": 1
     },
     {
       "id": "dating.first-dates",
       "category": "dating",
       "subcategory": "first-dates",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "dating.first-dates.json",
-      "count": 3
+      "count": 4
+    },
+    {
+      "id": "dating.ghosting-fading",
+      "category": "dating",
+      "subcategory": "ghosting-fading",
+      "version": "2.0.0",
+      "file": "dating.ghosting-fading.json",
+      "count": 1
+    },
+    {
+      "id": "dating.rejecting-gracefully",
+      "category": "dating",
+      "subcategory": "rejecting-gracefully",
+      "version": "2.0.0",
+      "file": "dating.rejecting-gracefully.json",
+      "count": 1
+    },
+    {
+      "id": "dating.texting-games",
+      "category": "dating",
+      "subcategory": "texting-games",
+      "version": "2.0.0",
+      "file": "dating.texting-games.json",
+      "count": 1
     },
     {
       "id": "family.dinner-table-interrogations",
       "category": "family",
       "subcategory": "dinner-table-interrogations",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "family.dinner-table-interrogations.json",
       "count": 3
+    },
+    {
+      "id": "family.holiday-pressure",
+      "category": "family",
+      "subcategory": "holiday-pressure",
+      "version": "2.0.0",
+      "file": "family.holiday-pressure.json",
+      "count": 1
+    },
+    {
+      "id": "family.money-family",
+      "category": "family",
+      "subcategory": "money-family",
+      "version": "2.0.0",
+      "file": "family.money-family.json",
+      "count": 1
+    },
+    {
+      "id": "family.parents-in-laws",
+      "category": "family",
+      "subcategory": "parents-in-laws",
+      "version": "2.0.0",
+      "file": "family.parents-in-laws.json",
+      "count": 1
+    },
+    {
+      "id": "family.sibling-digs",
+      "category": "family",
+      "subcategory": "sibling-digs",
+      "version": "2.0.0",
+      "file": "family.sibling-digs.json",
+      "count": 1
     },
     {
       "id": "family.unsolicited-life-advice",
       "category": "family",
       "subcategory": "unsolicited-life-advice",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "family.unsolicited-life-advice.json",
-      "count": 2
+      "count": 3
+    },
+    {
+      "id": "friends.crisis-only-friend",
+      "category": "friends",
+      "subcategory": "crisis-only-friend",
+      "version": "2.0.0",
+      "file": "friends.crisis-only-friend.json",
+      "count": 1
+    },
+    {
+      "id": "friends.flaky-friends",
+      "category": "friends",
+      "subcategory": "flaky-friends",
+      "version": "2.0.0",
+      "file": "friends.flaky-friends.json",
+      "count": 1
     },
     {
       "id": "friends.group-chat-jabs",
       "category": "friends",
       "subcategory": "group-chat-jabs",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "friends.group-chat-jabs.json",
-      "count": 2
+      "count": 3
     },
     {
       "id": "friends.moochers",
       "category": "friends",
       "subcategory": "moochers",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "friends.moochers.json",
-      "count": 2
+      "count": 3
+    },
+    {
+      "id": "friends.one-uppers",
+      "category": "friends",
+      "subcategory": "one-uppers",
+      "version": "2.0.0",
+      "file": "friends.one-uppers.json",
+      "count": 1
+    },
+    {
+      "id": "friends.unsolicited-advice",
+      "category": "friends",
+      "subcategory": "unsolicited-advice",
+      "version": "2.0.0",
+      "file": "friends.unsolicited-advice.json",
+      "count": 1
     },
     {
       "id": "hard-moments.apologizing-well",
       "category": "hard-moments",
       "subcategory": "apologizing-well",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "hard-moments.apologizing-well.json",
-      "count": 2
+      "count": 3
+    },
+    {
+      "id": "hard-moments.asking-for-help",
+      "category": "hard-moments",
+      "subcategory": "asking-for-help",
+      "version": "2.0.0",
+      "file": "hard-moments.asking-for-help.json",
+      "count": 1
+    },
+    {
+      "id": "hard-moments.delivering-bad-news",
+      "category": "hard-moments",
+      "subcategory": "delivering-bad-news",
+      "version": "2.0.0",
+      "file": "hard-moments.delivering-bad-news.json",
+      "count": 1
+    },
+    {
+      "id": "hard-moments.receiving-fake-apology",
+      "category": "hard-moments",
+      "subcategory": "receiving-fake-apology",
+      "version": "2.0.0",
+      "file": "hard-moments.receiving-fake-apology.json",
+      "count": 1
     },
     {
       "id": "hard-moments.saying-no",
       "category": "hard-moments",
       "subcategory": "saying-no",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "hard-moments.saying-no.json",
-      "count": 3
+      "count": 4
     },
     {
       "id": "money.car-dealerships",
       "category": "money",
       "subcategory": "car-dealerships",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "money.car-dealerships.json",
       "count": 3
+    },
+    {
+      "id": "money.contractors-quotes",
+      "category": "money",
+      "subcategory": "contractors-quotes",
+      "version": "2.0.0",
+      "file": "money.contractors-quotes.json",
+      "count": 1
+    },
+    {
+      "id": "money.friends-selling-mlm",
+      "category": "money",
+      "subcategory": "friends-selling-mlm",
+      "version": "2.0.0",
+      "file": "money.friends-selling-mlm.json",
+      "count": 1
+    },
+    {
+      "id": "money.landlords-leasing",
+      "category": "money",
+      "subcategory": "landlords-leasing",
+      "version": "2.0.0",
+      "file": "money.landlords-leasing.json",
+      "count": 1
+    },
+    {
+      "id": "money.retail-pressure",
+      "category": "money",
+      "subcategory": "retail-pressure",
+      "version": "2.0.0",
+      "file": "money.retail-pressure.json",
+      "count": 1
+    },
+    {
+      "id": "money.salons-spas-upsells",
+      "category": "money",
+      "subcategory": "salons-spas-upsells",
+      "version": "2.0.0",
+      "file": "money.salons-spas-upsells.json",
+      "count": 1
     },
     {
       "id": "money.tipping-checkout",
       "category": "money",
       "subcategory": "tipping-checkout",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "money.tipping-checkout.json",
       "count": 2
+    },
+    {
+      "id": "neighbors.chronic-borrowers",
+      "category": "neighbors",
+      "subcategory": "chronic-borrowers",
+      "version": "2.0.0",
+      "file": "neighbors.chronic-borrowers.json",
+      "count": 1
+    },
+    {
+      "id": "neighbors.neighborhood-group-chat",
+      "category": "neighbors",
+      "subcategory": "neighborhood-group-chat",
+      "version": "2.0.0",
+      "file": "neighbors.neighborhood-group-chat.json",
+      "count": 1
     },
     {
       "id": "neighbors.noise-parties",
       "category": "neighbors",
       "subcategory": "noise-parties",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "neighbors.noise-parties.json",
-      "count": 2
+      "count": 4
     },
     {
       "id": "neighbors.parking-driveways",
       "category": "neighbors",
       "subcategory": "parking-driveways",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "neighbors.parking-driveways.json",
-      "count": 2
+      "count": 3
+    },
+    {
+      "id": "neighbors.property-lines-hoa",
+      "category": "neighbors",
+      "subcategory": "property-lines-hoa",
+      "version": "2.0.0",
+      "file": "neighbors.property-lines-hoa.json",
+      "count": 1
     },
     {
       "id": "public.condescending-strangers",
       "category": "public",
       "subcategory": "condescending-strangers",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "public.condescending-strangers.json",
-      "count": 2
+      "count": 3
+    },
+    {
+      "id": "public.escalating-calmly",
+      "category": "public",
+      "subcategory": "escalating-calmly",
+      "version": "2.0.0",
+      "file": "public.escalating-calmly.json",
+      "count": 1
     },
     {
       "id": "public.line-cutters",
       "category": "public",
       "subcategory": "line-cutters",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "public.line-cutters.json",
-      "count": 2
+      "count": 3
+    },
+    {
+      "id": "public.pushy-salespeople",
+      "category": "public",
+      "subcategory": "pushy-salespeople",
+      "version": "2.0.0",
+      "file": "public.pushy-salespeople.json",
+      "count": 1
+    },
+    {
+      "id": "public.street-transit",
+      "category": "public",
+      "subcategory": "street-transit",
+      "version": "2.0.0",
+      "file": "public.street-transit.json",
+      "count": 1
+    },
+    {
+      "id": "public.talked-down-by-staff",
+      "category": "public",
+      "subcategory": "talked-down-by-staff",
+      "version": "2.0.0",
+      "file": "public.talked-down-by-staff.json",
+      "count": 1
+    },
+    {
+      "id": "social.compliments",
+      "category": "social",
+      "subcategory": "compliments",
+      "version": "2.0.0",
+      "file": "social.compliments.json",
+      "count": 1
     },
     {
       "id": "social.escaping-conversation",
       "category": "social",
       "subcategory": "escaping-conversation",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "social.escaping-conversation.json",
-      "count": 2
+      "count": 3
+    },
+    {
+      "id": "social.introductions-names",
+      "category": "social",
+      "subcategory": "introductions-names",
+      "version": "2.0.0",
+      "file": "social.introductions-names.json",
+      "count": 1
+    },
+    {
+      "id": "social.networking-events",
+      "category": "social",
+      "subcategory": "networking-events",
+      "version": "2.0.0",
+      "file": "social.networking-events.json",
+      "count": 1
+    },
+    {
+      "id": "social.parties-weddings",
+      "category": "social",
+      "subcategory": "parties-weddings",
+      "version": "2.0.0",
+      "file": "social.parties-weddings.json",
+      "count": 1
     },
     {
       "id": "social.what-do-you-do",
       "category": "social",
       "subcategory": "what-do-you-do",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "social.what-do-you-do.json",
       "count": 3
+    },
+    {
+      "id": "texting.comments-dms",
+      "category": "texting",
+      "subcategory": "comments-dms",
+      "version": "2.0.0",
+      "file": "texting.comments-dms.json",
+      "count": 1
     },
     {
       "id": "texting.dry-replies",
       "category": "texting",
       "subcategory": "dry-replies",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "texting.dry-replies.json",
-      "count": 3
+      "count": 4
+    },
+    {
+      "id": "texting.group-chats-sideways",
+      "category": "texting",
+      "subcategory": "group-chats-sideways",
+      "version": "2.0.0",
+      "file": "texting.group-chats-sideways.json",
+      "count": 1
+    },
+    {
+      "id": "texting.sarcasm-in-text",
+      "category": "texting",
+      "subcategory": "sarcasm-in-text",
+      "version": "2.0.0",
+      "file": "texting.sarcasm-in-text.json",
+      "count": 1
     },
     {
       "id": "texting.work-chat-tone",
       "category": "texting",
       "subcategory": "work-chat-tone",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "texting.work-chat-tone.json",
-      "count": 2
+      "count": 3
+    },
+    {
+      "id": "work.blame-shifting",
+      "category": "work",
+      "subcategory": "blame-shifting",
+      "version": "2.0.0",
+      "file": "work.blame-shifting.json",
+      "count": 1
     },
     {
       "id": "work.boss-talking-down",
       "category": "work",
       "subcategory": "boss-talking-down",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "work.boss-talking-down.json",
       "count": 4
+    },
+    {
+      "id": "work.credit-stealers",
+      "category": "work",
+      "subcategory": "credit-stealers",
+      "version": "2.0.0",
+      "file": "work.credit-stealers.json",
+      "count": 1
     },
     {
       "id": "work.interrupters",
       "category": "work",
       "subcategory": "interrupters",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "file": "work.interrupters.json",
       "count": 3
+    },
+    {
+      "id": "work.raise-promotion-feedback",
+      "category": "work",
+      "subcategory": "raise-promotion-feedback",
+      "version": "2.0.0",
+      "file": "work.raise-promotion-feedback.json",
+      "count": 1
     }
   ]
 }

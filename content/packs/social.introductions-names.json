@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "social.introductions-names",
+    "category": "social",
+    "subcategory": "introductions-names",
+    "title": "Introductions names",
+    "description": "Recover a forgotten name honestly.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "social.introductions-names.0001",
+      "category": "social",
+      "subcategory": "introductions-names",
+      "setting": "You run into someone whose name you have forgotten.",
+      "jab": "You remember me, right?",
+      "goal": "Recover a forgotten name honestly.",
+      "difficulty": 2,
+      "tags": [
+        "introductions-names",
+        "connection"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I remember meeting you; remind me of your name.",
+          "why": "It separates recognizing the person from recalling their name without pretending.",
+          "delivery": "Smile gently, ask once, then use their name naturally after they answer."
+        },
+        {
+          "register": "curt",
+          "line": "Remind me of your name?",
+          "why": "It requests the missing information directly rather than bluffing.",
+          "delivery": "Smile gently, ask once, then use their name naturally after they answer."
+        },
+        {
+          "register": "friendly",
+          "line": "It's lovely to see you again; I'm blanking on your name, so please remind me.",
+          "why": "It pairs warmth with an honest admission that makes correction easy.",
+          "delivery": "Smile gently, ask once, then use their name naturally after they answer."
+        },
+        {
+          "register": "comedic",
+          "line": "My face memory arrived; my name memory is running late.",
+          "why": "Self-directed humor owns the lapse without blaming the other person.",
+          "delivery": "Smile gently, ask once, then use their name naturally after they answer."
+        }
+      ],
+      "followUp": {
+        "jab": "We met twice already.",
+        "line": "You're right, and I'm sorry; I'd rather ask than pretend I remember.",
+        "why": "It acknowledges the lapse while choosing honesty over bluffing.",
+        "delivery": "Smile gently, ask once, then use their name naturally after they answer."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

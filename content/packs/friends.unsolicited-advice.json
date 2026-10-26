@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "friends.unsolicited-advice",
+    "category": "friends",
+    "subcategory": "unsolicited-advice",
+    "title": "Unsolicited advice",
+    "description": "Ask for listening instead of advice.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "friends.unsolicited-advice.0001",
+      "category": "friends",
+      "subcategory": "unsolicited-advice",
+      "setting": "You tell a friend about a problem and they begin prescribing solutions.",
+      "jab": "What you need to do is quit immediately.",
+      "goal": "Ask for listening instead of advice.",
+      "difficulty": 2,
+      "tags": [
+        "unsolicited-advice",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm looking for a listener right now, rather than solutions.",
+          "why": "It states the kind of support you want without rejecting the friendship.",
+          "delivery": "Make “listen” the key word; keep your tone inviting rather than dismissive."
+        },
+        {
+          "register": "curt",
+          "line": "Listen first, please. No fixes yet.",
+          "why": "It gives a short, actionable request for the conversation.",
+          "delivery": "Make “listen” the key word; keep your tone inviting rather than dismissive."
+        },
+        {
+          "register": "friendly",
+          "line": "I know you want to help; could you listen while I work through how I feel?",
+          "why": "It acknowledges their intention while directing them to useful support.",
+          "delivery": "Make “listen” the key word; keep your tone inviting rather than dismissive."
+        },
+        {
+          "register": "comedic",
+          "line": "The troubleshooting department is closed; listening is open.",
+          "why": "The playful distinction makes your requested support easy to remember.",
+          "delivery": "Make “listen” the key word; keep your tone inviting rather than dismissive."
+        }
+      ],
+      "followUp": {
+        "jab": "But the answer is obvious.",
+        "line": "I may ask for ideas later; right now, being heard would help.",
+        "why": "It preserves the possibility of advice without giving up your current need.",
+        "delivery": "Pause before “I may ask for ideas later,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

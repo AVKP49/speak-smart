@@ -5,7 +5,7 @@
     "subcategory": "boss-talking-down",
     "title": "Boss talking down to you",
     "description": "Your manager, performing superiority. Hold the floor without losing the job.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -23,47 +23,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I understood it the first time. Continue.",
-          "why": "It names the insult without reacting to it, then hands the floor back — he has to perform the simplification he offered.",
-          "delivery": "Pause a full second. Even pace. Then stop talking.",
-          "caution": null
+          "line": "I follow the point. Let's focus on the decision.",
+          "why": "It acknowledges understanding and redirects the discussion toward the work.",
+          "delivery": "Pause before replying, stress “decision,” and keep your volume steady."
         },
         {
           "register": "curt",
-          "line": "Don't. I'm good.",
-          "why": "It closes the door in three words and leaves him nowhere to go but forward.",
-          "delivery": "Flat, brief, then silence.",
-          "caution": null
+          "line": "I follow. What's the decision?",
+          "why": "It moves from your ability to the immediate task.",
+          "delivery": "Pause before replying, stress “decision,” and keep your volume steady."
         },
         {
           "register": "friendly",
-          "line": "Ha — I promise I'm keeping up. What's the part you think is stuck?",
-          "why": "The laugh keeps the room on your side while the question puts the burden of specifics on him.",
-          "delivery": "Smile on the first half, genuine curiosity on the question.",
-          "caution": null
+          "line": "I follow so far; which part of the decision should we clarify?",
+          "why": "It asks for useful specificity without defending your competence.",
+          "delivery": "Pause before replying, stress “decision,” and keep your volume steady."
         },
         {
           "register": "comedic",
-          "line": "Careful — simpler than that and we'll both need subtitles.",
-          "why": "It makes the room laugh at the situation, which quietly resets who has the upper hand.",
-          "delivery": "Light and quick, like you're in on the joke with everyone.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Please do. I enjoy watching people simplify things they only half understand.",
-          "why": "It calls the bluff — but in front of the team it makes you the story.",
-          "delivery": "Only if you can say it smiling. Otherwise don't.",
-          "caution": "work-risk"
+          "line": "I think we're on the same page; let's turn it.",
+          "why": "The light metaphor redirects the conversation without mocking the explanation.",
+          "delivery": "Keep “I think we're on the same page” light; let the joke stand without repeating it. ” and keep your volume steady."
         }
       ],
       "trap": {
         "line": "Wow. Okay. Talk to me like I'm five, then.",
-        "why": "Sarcasm upward, in public: he keeps his dignity and you become the difficult one."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Keep a dismissive explanation focused on the work.",
+      "followUp": {
+        "jab": "I'm trying to help you understand.",
+        "line": "I follow the point; please focus on the decision we need to make.",
+        "why": "It acknowledges the stated intention and redirects to the task.",
+        "delivery": "Pause before replying, stress “decision,” and keep your volume steady."
       }
     },
     {
@@ -81,44 +81,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Thanks. My name stays on the cover.",
-          "why": "It accepts the edit while reattaching your ownership in one flat sentence.",
-          "delivery": "Grateful first word, immovable second sentence.",
-          "caution": null
+          "line": "Thanks for the edits. Please keep my contribution credited.",
+          "why": "It acknowledges the editing while requesting accurate attribution.",
+          "delivery": "Say “thanks” sincerely, then make the attribution request with an even ending."
         },
         {
           "register": "curt",
-          "line": "Noted. It's still mine.",
-          "why": "It acknowledges the favor and draws the ownership line in the same breath.",
-          "caution": null
+          "line": "Thanks. Keep my contribution credited, please.",
+          "why": "It pairs courtesy with a direct request for attribution.",
+          "delivery": "Say “thanks” sincerely, then make the attribution request with an even ending."
         },
         {
           "register": "friendly",
           "line": "Appreciate the polish — glad my draft gave you something to work with.",
           "why": "Warmth keeps it collegial while the second half quietly restores who wrote it.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Bold of you to sign my work with your spellcheck.",
-          "why": "It names the credit grab as comedy, which is the only register that makes it sting.",
-          "delivery": "Grin while you say it or don't say it.",
-          "caution": "work-risk"
+          "delivery": "Keep “Appreciate the polish” warm and unhurried; finish the request clearly. Then make the attribution request with an even ending."
         },
         {
           "register": "comedic",
-          "line": "Should I autograph it, or is the forward enough?",
-          "why": "Offering an autograph treats authorship as obvious, which makes the credit question answer itself.",
-          "caution": null
+          "line": "My draft would appreciate a name tag.",
+          "why": "Humor highlights authorship without calling the editor a thief.",
+          "delivery": "Keep “My draft would appreciate a name tag” light; let the joke stand without repeating it. Then make the attribution request with an even ending."
         }
       ],
       "trap": {
         "line": "Wow, stealing credit now? Real leadership.",
-        "why": "An accusation in the group thread turns a slight into a feud you can't win upward."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Keep your contribution visible after an edit.",
+      "followUp": {
+        "jab": "It's a team document now.",
+        "line": "Of course; please keep the contributions listed accurately.",
+        "why": "It accepts collaboration without losing accurate attribution.",
+        "delivery": "Pause before “Of course,” keep the volume even, then allow an answer without reopening your decision."
       }
     },
     {
@@ -136,42 +139,46 @@
         {
           "register": "boss",
           "line": "Then let's name it. What exactly fell short?",
-          "why": "It turns a vague verdict into a specific conversation he now has to hold.",
-          "delivery": "Calm, curious, pen ready.",
-          "caution": null
+          "why": "It asks for the specifics needed to respond to a vague assessment.",
+          "delivery": "Keep a curious tone; pause after the question so they can give an example."
         },
         {
           "register": "curt",
           "line": "Give me one example.",
           "why": "Vague criticism dies the moment it has to produce a fact.",
-          "caution": null
+          "delivery": "Keep a curious tone; pause after the question so they can give an example."
         },
         {
           "register": "friendly",
           "line": "I want to hear that properly — what's the one thing you'd change first?",
-          "why": "It shows you can take feedback, which makes his vagueness the awkward part, not you.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Strange — I expected specifics from someone at yours.",
-          "why": "It mirrors his vagueness back at him, which ends the moment but starts a new problem.",
-          "caution": "work-risk"
+          "why": "It expresses interest in actionable feedback rather than arguing against the assessment.",
+          "delivery": "Keep a curious tone; pause after the question so they can give an example."
         },
         {
           "register": "comedic",
-          "line": "Vague reviews build character. Specifically, mine.",
-          "why": "Agreeing with the format while demanding nothing makes the vagueness visible without a fight.",
-          "caution": null
+          "line": "My improvement plan needs something more specific than a mystery plot.",
+          "why": "The joke targets vagueness while asking for actionable information.",
+          "delivery": "Keep a curious tone; pause after the question so they can give an example."
         }
       ],
       "trap": {
         "line": "That's unfair and you know it.",
-        "why": "Disputing the verdict makes the meeting about your reaction instead of his evidence."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Ask for specific, actionable feedback.",
+      "followUp": {
+        "jab": "You should know what I mean.",
+        "line": "An example and the expected standard would help me act on it.",
+        "why": "It connects specificity to improvement rather than defending against a vague verdict.",
+        "delivery": "Keep a curious tone; pause after the question so they can give an example."
       }
     },
     {
@@ -191,41 +198,45 @@
           "register": "boss",
           "line": "Thirty seconds. Then I'm yours for questions.",
           "why": "It sets your own boundary and finish line instead of accepting his frame.",
-          "caution": null
+          "delivery": "Speed up the setup slightly, slow down on the key point, then stop."
         },
         {
           "register": "curt",
           "line": "Almost done.",
           "why": "Two words that neither apologize nor rush — then you finish at your pace.",
-          "caution": null
+          "delivery": "Speed up the setup slightly, slow down on the key point, then stop."
         },
         {
           "register": "friendly",
           "line": "Fair — here's the headline version.",
           "why": "Agreeing with the pace request keeps the room warm while you keep the floor.",
-          "caution": null
+          "delivery": "Speed up the setup slightly, slow down on the key point, then stop."
         },
         {
           "register": "comedic",
-          "line": "Plot twist: this was the short version.",
-          "why": "One laugh buys you the thirty seconds the interruption tried to take.",
-          "delivery": "Deadpan. Then keep going.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Real work loves an audience. Thirty seconds.",
-          "why": "It answers his hierarchy with a hierarchy of your own, then takes your thirty seconds anyway.",
-          "caution": "work-risk"
+          "line": "Here's the trailer; I'll send the full version.",
+          "why": "The metaphor offers a shorter format without contesting the request.",
+          "delivery": "Speed up the setup slightly, slow down on the key point, then stop."
         }
       ],
       "trap": {
         "line": "Sorry sorry, I'll shut up.",
-        "why": "Apologizing for existing teaches the room your updates are skippable."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Shorten an update while retaining the key information.",
+      "followUp": {
+        "jab": "Just send the rest later.",
+        "line": "I'll send the details; the decision we need now is this.",
+        "why": "It accepts a shorter format and identifies the immediate decision.",
+        "delivery": "Speed up the setup slightly, slow down on the key point, then stop."
       }
     }
   ]

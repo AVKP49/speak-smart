@@ -5,7 +5,7 @@
     "subcategory": "what-do-you-do",
     "title": "“So what do you do?”",
     "description": "The verdict disguised as a question. Answer it once, then ask better.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,43 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I build things. Better question — how do you know the couple?",
-          "why": "A short answer plus a better question takes over the conversation politely.",
-          "delivery": "Answer fast, ask slow. The question is the power move.",
-          "caution": null
+          "line": "I'd rather start with how we know the couple.",
+          "why": "It suggests another basis for connection without inventing a profession.",
+          "delivery": "Answer with your real work if you want; ask the next question with genuine curiosity."
         },
         {
           "register": "curt",
-          "line": "Work. You?",
-          "why": "It matches the question's energy exactly, then hands it straight back.",
-          "caution": null
+          "line": "How do you know the couple?",
+          "why": "It redirects toward the event rather than a status comparison.",
+          "delivery": "Answer with your real work if you want; ask the next question with genuine curiosity."
         },
         {
           "register": "friendly",
-          "line": "I'm in sales — but weddings are my real field research. How do you know them?",
-          "why": "Self-deprecation plus curiosity makes you the most likable person in the circle.",
-          "caution": null
+          "line": "Happy to chat, but first, how do you know the couple?",
+          "why": "It welcomes conversation while choosing a less evaluative opening.",
+          "delivery": "Answer with your real work if you want; ask the next question with genuine curiosity."
         },
         {
           "register": "comedic",
           "line": "Currently? Professional cake taster. Unpaid, but I'm committed.",
           "why": "An absurd job title answers the ritual while refusing the ranking.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Loaded question for a man holding this much cake.",
-          "why": "It names the interrogation energy with a grin, which disarms the asker.",
-          "caution": null
+          "delivery": "Answer with your real work if you want; ask the next question with genuine curiosity."
         }
       ],
       "trap": {
         "line": "I do pretty well, actually. Very well.",
-        "why": "Answering a status check with status accepts a game with no winners."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Keep an introduction from becoming a status test.",
+      "followUp": {
+        "jab": "No, what do you actually do for work?",
+        "line": "I can tell you a little; I'd rather this not be a job interview.",
+        "why": "It sets a conversational limit without inventing a profession.",
+        "delivery": "Answer with your real work if you want; ask the next question with genuine curiosity."
       }
     },
     {
@@ -75,38 +79,43 @@
       "replies": [
         {
           "register": "boss",
-          "line": "It pays well. What do you do when you're not vetting people?",
-          "why": "It answers with unapologetic brevity, then names the vetting with a smile.",
-          "caution": null
+          "line": "I enjoy parts of it. What interests you outside work?",
+          "why": "It answers honestly without accepting an audition for impressiveness.",
+          "delivery": "Pause, then say “I enjoy parts of it” at a steady, conversational volume. Ask the next question as an invitation rather than a counterattack."
         },
         {
           "register": "curt",
           "line": "Boring stuff. You?",
-          "why": "Agreeing it's boring ends the audit and the ball is in their court.",
-          "caution": null
+          "why": "It declines a detailed work discussion and returns the question.",
+          "delivery": "Say “Boring stuff” clearly, then stop instead of adding a defense. Ask the next question as an invitation rather than a counterattack."
         },
         {
           "register": "friendly",
           "line": "Honestly? Some days. Tell me the interesting version of your job.",
-          "why": "Honesty plus an invitation turns the interrogator into the entertainment.",
-          "caution": null
+          "why": "It gives a measured answer and invites the other person to describe their interests.",
+          "delivery": "Keep “Honestly” warm and unhurried; finish the request clearly. Ask the next question as an invitation rather than a counterattack."
         },
         {
           "register": "comedic",
           "line": "I make small talk at networking events. Living the dream.",
-          "why": "Answering with the present moment makes you both laugh at the ritual.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Interesting? That's above my pay grade.",
-          "why": "It dodges the audit by pleading job description, which always gets the laugh.",
-          "caution": null
+          "why": "It jokes about the present interaction instead of inventing a career.",
+          "delivery": "Keep “I make small talk at networking events” light; let the joke stand without repeating it. Ask the next question as an invitation rather than a counterattack."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Share your work without accepting a dismissive evaluation.",
+      "followUp": {
+        "jab": "That doesn't sound very impressive.",
+        "line": "It suits me. What do you enjoy outside work?",
+        "why": "It declines the ranking and offers a different basis for connection.",
+        "delivery": "Keep “suits me” relaxed; ask the next question as an invitation rather than a counterattack."
       }
     },
     {
@@ -123,36 +132,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I interview, I read, I choose carefully. Pass the bread.",
-          "why": "A full dignified day plus a redirect shows the gap is a plan, not a problem.",
-          "caution": null
+          "line": "I'm between jobs. I'd rather talk about something else.",
+          "why": "It gives only the information you choose and sets a topic boundary.",
+          "delivery": "Keep your tone ordinary; you do not need to describe a happy job search if that is untrue."
         },
         {
           "register": "friendly",
-          "line": "Whatever I want — it's temporary and I'm enjoying the plot twist.",
-          "why": "Framing unemployment as a chapter keeps the table curious instead of pitying.",
-          "caution": null
+          "line": "I'm figuring out what's next; I'd enjoy hearing about something besides work tonight.",
+          "why": "It stays honest about uncertainty while offering a different conversation.",
+          "delivery": "Keep your tone ordinary; you do not need to describe a happy job search if that is untrue."
         },
         {
           "register": "comedic",
           "line": "Full-time professional question-answerer, apparently.",
-          "why": "Answering the awkwardness itself lets the whole table exhale and laugh.",
-          "caution": null
+          "why": "The joke lightly names the repeated questions without revealing private information.",
+          "delivery": "Keep your tone ordinary; you do not need to describe a happy job search if that is untrue."
         },
         {
-          "register": "sharp",
-          "line": "Unemployed? I'm pre-employed.",
-          "why": "One prefix turns the gap into a plan the table can toast.",
-          "caution": null
+          "register": "curt",
+          "line": "I'd rather not discuss my job search.",
+          "why": "It states the immediate boundary without adding a personal judgment.",
+          "delivery": "Keep your tone ordinary; you do not need to describe a happy job search if that is untrue."
         }
       ],
       "trap": {
         "line": "Well at least I'm not defined by my job like some people.",
-        "why": "Judging the table for asking turns one awkward question into a cold evening."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Protect your privacy while between jobs.",
+      "followUp": {
+        "jab": "But how are you paying for things?",
+        "line": "I'm keeping the financial details private; let's talk about something else.",
+        "why": "It sets a clear limit on a more personal follow-up.",
+        "delivery": "Keep your tone ordinary; you do not need to describe a happy job search if that is untrue."
       }
     }
   ]

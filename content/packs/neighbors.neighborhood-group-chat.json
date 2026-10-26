@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "neighbors.neighborhood-group-chat",
+    "category": "neighbors",
+    "subcategory": "neighborhood-group-chat",
+    "title": "Neighborhood group chat",
+    "description": "Correct a public accusation without starting a pile-on.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "neighbors.neighborhood-group-chat.0001",
+      "category": "neighbors",
+      "subcategory": "neighborhood-group-chat",
+      "setting": "A neighborhood chat names your home as responsible for a mess you did not leave.",
+      "jab": "Number twelve left all these boxes out again.",
+      "goal": "Correct a public accusation without starting a pile-on.",
+      "difficulty": 2,
+      "tags": [
+        "neighborhood-group-chat",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Those aren't our boxes. Please check before naming a household.",
+          "why": "It corrects the attribution and asks for a fairer process.",
+          "delivery": "Write one calm correction; do not post personal details or speculate about another neighbor."
+        },
+        {
+          "register": "curt",
+          "line": "Not our boxes. Please correct the post.",
+          "why": "It asks for a concrete correction without counteraccusing another household.",
+          "delivery": "Write one calm correction; do not post personal details or speculate about another neighbor."
+        },
+        {
+          "register": "friendly",
+          "line": "I think there's been a mix-up; those boxes aren't ours, so could you update the post?",
+          "why": "It offers a face-saving explanation while requesting the correction.",
+          "delivery": "Write one calm correction; do not post personal details or speculate about another neighbor."
+        },
+        {
+          "register": "comedic",
+          "line": "Our boxes have an alibi; these aren't ours.",
+          "why": "A light joke corrects the record without naming another suspect.",
+          "delivery": "Write one calm correction; do not post personal details or speculate about another neighbor."
+        }
+      ],
+      "followUp": {
+        "jab": "Well, somebody did it.",
+        "line": "Agreed; let's find out who rather than guessing publicly.",
+        "why": "It redirects the thread from speculation to verification.",
+        "delivery": "Write one calm correction; do not post personal details or speculate about another neighbor."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

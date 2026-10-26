@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "family.parents-in-laws",
+    "category": "family",
+    "subcategory": "parents-in-laws",
+    "title": "Parents in laws",
+    "description": "Keep an adult disagreement away from the child.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "family.parents-in-laws.0001",
+      "category": "family",
+      "subcategory": "parents-in-laws",
+      "setting": "A parent criticizes a parenting choice in front of your child.",
+      "jab": "We never let you get away with that.",
+      "goal": "Keep an adult disagreement away from the child.",
+      "difficulty": 2,
+      "tags": [
+        "parents-in-laws",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "We can discuss it privately. I'm handling this now.",
+          "why": "It moves the disagreement out of the child's audience while preserving your role.",
+          "delivery": "Lower your volume, address the adult, and avoid asking the child to take sides."
+        },
+        {
+          "register": "curt",
+          "line": "Let's discuss this later, privately.",
+          "why": "It establishes an appropriate time and setting for the disagreement.",
+          "delivery": "Lower your volume, address the adult, and avoid asking the child to take sides."
+        },
+        {
+          "register": "friendly",
+          "line": "I know you care; let's talk about our approach later, away from the kids.",
+          "why": "It recognizes concern while protecting the child from an adult dispute.",
+          "delivery": "Lower your volume, address the adult, and avoid asking the child to take sides."
+        },
+        {
+          "register": "comedic",
+          "line": "Let's save the parenting panel for after bedtime.",
+          "why": "A gentle joke changes the setting without undermining the grandparent.",
+          "delivery": "Lower your volume, address the adult, and avoid asking the child to take sides."
+        }
+      ],
+      "followUp": {
+        "jab": "I'm only trying to help.",
+        "line": "I appreciate that; please let me handle this moment, and we'll talk later.",
+        "why": "It acknowledges the intention while repeating the immediate request.",
+        "delivery": "Lower your volume, address the adult, and avoid asking the child to take sides."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

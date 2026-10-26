@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "texting.comments-dms",
+    "category": "texting",
+    "subcategory": "comments-dms",
+    "title": "Comments dms",
+    "description": "Set a boundary around personal comments.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "texting.comments-dms.0001",
+      "category": "texting",
+      "subcategory": "comments-dms",
+      "setting": "Someone sends unsolicited criticism of your appearance in a direct message.",
+      "jab": "You'd look better if you lost a little weight.",
+      "goal": "Set a boundary around personal comments.",
+      "difficulty": 2,
+      "tags": [
+        "comments-dms",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I don't want comments about my body.",
+          "why": "It states the boundary without accepting an invitation to evaluate your appearance.",
+          "delivery": "Keep the message short; you can mute or block repeated unwanted contact rather than continue explaining."
+        },
+        {
+          "register": "curt",
+          "line": "Don't comment on my body.",
+          "why": "It makes the unwanted behavior explicit and asks it to stop.",
+          "delivery": "Keep the message short; you can mute or block repeated unwanted contact rather than continue explaining."
+        },
+        {
+          "register": "friendly",
+          "line": "Please keep comments about my body out of our conversation.",
+          "why": "It requests a respectful limit without debating the proposed advice.",
+          "delivery": "Keep the message short; you can mute or block repeated unwanted contact rather than continue explaining."
+        },
+        {
+          "register": "comedic",
+          "line": "My body isn't accepting unsolicited reviews.",
+          "why": "A restrained metaphor declines evaluation without attacking the sender.",
+          "delivery": "Keep the message short; you can mute or block repeated unwanted contact rather than continue explaining."
+        }
+      ],
+      "followUp": {
+        "jab": "I was just trying to help.",
+        "line": "I didn't ask for that help; please don't repeat the comment.",
+        "why": "It separates claimed intention from the boundary you are setting.",
+        "delivery": "Keep the message short; you can mute or block repeated unwanted contact rather than continue explaining."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

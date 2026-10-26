@@ -5,7 +5,7 @@
     "subcategory": "unsolicited-life-advice",
     "title": "Unsolicited life advice",
     "description": "Love, expressed as instructions. Receive the love, decline the orders.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -24,40 +24,45 @@
           "register": "boss",
           "line": "Different market, same work ethic. I'm on my path.",
           "why": "It names the real difference once, then closes with a fact that needs no defense.",
-          "caution": null
+          "delivery": "Pause, then say “Different market, same work ethic” at a steady, conversational volume. ” and avoid an economics debate unless you want one."
         },
         {
           "register": "curt",
           "line": "Noted. I'm fine.",
           "why": "It receives the message without receiving the assignment.",
-          "caution": null
+          "delivery": "Say “Noted” clearly, then stop instead of adding a defense. ” and avoid an economics debate unless you want one."
         },
         {
           "register": "friendly",
           "line": "I know — you set the bar high. I'm getting there my way.",
-          "why": "Crediting them first makes your different path sound like inheritance, not rebellion.",
-          "caution": null
+          "why": "It recognizes your parent's experience while affirming that your own path can differ.",
+          "delivery": "Keep “I know” warm and unhurried; finish the request clearly. ” and avoid an economics debate unless you want one."
         },
         {
           "register": "comedic",
-          "line": "And uphill both ways, I know. Legend behavior.",
-          "why": "Joining the mythology with affection steers the call back to fondness.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "I'll buy the time machine first.",
-          "why": "It prices their era accurately while keeping the call warm.",
-          "caution": "family-risk"
+          "line": "My timeline has its own calendar.",
+          "why": "A light image distinguishes your path from someone else's schedule.",
+          "delivery": "Keep “My timeline has its own calendar” light; let the joke stand without repeating it. ” and avoid an economics debate unless you want one."
         }
       ],
       "trap": {
         "line": "Yeah well houses cost triple now, so thanks for nothing.",
-        "why": "Winning the economics debate loses the phone call with your parent."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Discuss your plans without accepting an age comparison.",
+      "followUp": {
+        "jab": "You need to work harder if you want a house.",
+        "line": "I'm working toward my own plan; advice is welcome when I ask for it.",
+        "why": "It distinguishes your plan from unsolicited judgments about effort.",
+        "delivery": "Keep your pace steady, emphasize “my own plan,” and avoid an economics debate unless you want one."
       }
     },
     {
@@ -74,32 +79,96 @@
       "replies": [
         {
           "register": "boss",
-          "line": "It is. You should try a weekend off too.",
-          "why": "Agreeing plus prescribing rest reframes the dig as a wellness tip.",
-          "caution": null
+          "line": "I'm enjoying my time off. I don't want to compare responsibilities.",
+          "why": "It affirms your plans while declining a competition over obligations.",
+          "delivery": "Keep the reply brief and warm; don't joke that you have no responsibilities."
         },
         {
           "register": "friendly",
-          "line": "Haha — join me next time and we'll both be irresponsible.",
-          "why": "An invitation converts the envy underneath into plans.",
-          "caution": null
+          "line": "I know your week is full; I'd like to enjoy my weekend without the comparison.",
+          "why": "It recognizes their workload without accepting a dismissive judgment.",
+          "delivery": "Keep the reply brief and warm; don't joke that you have no responsibilities."
         },
         {
           "register": "comedic",
-          "line": "My responsibilities filed for the weekend. Union rules.",
-          "why": "Absurd paperwork makes the whole thread laugh past the jab.",
-          "caution": null
+          "line": "My responsibilities approved this weekend's leave request.",
+          "why": "The joke claims a legitimate break rather than denying you have responsibilities.",
+          "delivery": "Keep the reply brief and warm; don't joke that you have no responsibilities."
         },
         {
-          "register": "sharp",
-          "line": "Responsibilities? Never met them.",
-          "why": "Pleading stranger to adulthood makes the group chat laugh past the jab.",
-          "caution": "family-risk"
+          "register": "curt",
+          "line": "No comparisons about my time off, please.",
+          "why": "It states the immediate boundary without adding a personal judgment.",
+          "delivery": "Keep the reply brief and warm; don't joke that you have no responsibilities."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Respond to a dig about your free time.",
+      "followUp": {
+        "jab": "Some of us can't just take time off.",
+        "line": "I understand; I don't want us comparing whose responsibilities count.",
+        "why": "It acknowledges the difference without accepting a competition over obligations.",
+        "delivery": "Keep the reply brief and warm; don't joke that you have no responsibilities."
+      }
+    },
+    {
+      "id": "family.unsolicited-life-advice.0003",
+      "category": "family",
+      "subcategory": "unsolicited-life-advice",
+      "setting": "A relative gives repeated advice about your relationship after you ask them to stop.",
+      "jab": "I'm just saying, you could do better.",
+      "goal": "Close an unwelcome discussion about your partner.",
+      "difficulty": 2,
+      "tags": [
+        "unsolicited-life-advice",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm not asking for opinions about my relationship.",
+          "why": "It clarifies that the conversation is not an invitation for advice.",
+          "delivery": "Pause, then say “I'm not asking for opinions about my relationship” at a steady, conversational volume. ” and introduce another topic if useful."
+        },
+        {
+          "register": "curt",
+          "line": "My relationship isn't up for review.",
+          "why": "It ends the evaluative discussion without attacking the relative.",
+          "delivery": "Say “My relationship isn't up for review” clearly, then stop instead of adding a defense. ” and introduce another topic if useful."
+        },
+        {
+          "register": "friendly",
+          "line": "I know you care; these comments aren't helpful, and I'd like us to change the subject.",
+          "why": "It acknowledges concern while asking for a concrete conversational change.",
+          "delivery": "Use a steady ending on “change the subject,” and introduce another topic if useful."
+        },
+        {
+          "register": "comedic",
+          "line": "The relationship review committee is on recess.",
+          "why": "A playful image closes the topic without inviting a vote.",
+          "delivery": "Keep “The relationship review committee is on recess” light; let the joke stand without repeating it. ” and introduce another topic if useful."
+        }
+      ],
+      "followUp": {
+        "jab": "I'm only being honest.",
+        "line": "You can have your opinion; I don't want to discuss it.",
+        "why": "It distinguishes their private opinion from your participation in the discussion.",
+        "delivery": "Pause before “You can have your opinion,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

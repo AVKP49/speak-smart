@@ -5,7 +5,7 @@
     "subcategory": "work-chat-tone",
     "title": "Work chat tone traps",
     "description": "Per my last message. Written words with an audience of the whole company.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -25,40 +25,45 @@
           "register": "boss",
           "line": "Linking the thread — let's align on the facts here.",
           "why": "It moves the dispute from memory to receipts, in public, calmly.",
-          "caution": null
+          "delivery": "Keep the message factual and avoid quoting selectively to embarrass a colleague."
         },
         {
           "register": "curt",
           "line": "Link it. Let's check.",
           "why": "Four words that replace the argument with the evidence.",
-          "caution": null
+          "delivery": "Keep the message factual and avoid quoting selectively to embarrass a colleague."
         },
         {
           "register": "friendly",
           "line": "Might be misaligned — dropping the thread so we can sync.",
           "why": "Might plus the receipts keeps it collaborative while the facts do the work.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Per this message — show me.",
-          "why": "It mirrors the phrasing back with a smile, which the channel will remember.",
-          "caution": "work-risk"
+          "delivery": "Keep the message factual and avoid quoting selectively to embarrass a colleague."
         },
         {
           "register": "comedic",
-          "line": "My last message sends its regards.",
-          "why": "Personifying the thread makes the receipts feel friendly instead of hostile.",
-          "caution": null
+          "line": "Let's invite the original thread into this conversation.",
+          "why": "Humor points to the shared record rather than mocking a colleague.",
+          "delivery": "Keep the message factual and avoid quoting selectively to embarrass a colleague."
         }
       ],
       "trap": {
         "line": "Don't correct me in the channel. DM me next time.",
-        "why": "Tone-policing in the thread starts the exact public fight you wanted to avoid."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Clarify an agreement from the written record.",
+      "followUp": {
+        "jab": "That's still not what I meant.",
+        "line": "Let's clarify the wording together and document the next step.",
+        "why": "It moves from winning the interpretation to agreeing on what happens next.",
+        "delivery": "Keep the message factual and avoid quoting selectively to embarrass a colleague."
       }
     },
     {
@@ -75,38 +80,96 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Sure — call or type it here?",
-          "why": "It answers fast while making him pick the medium, which reveals the weight.",
-          "caution": null
+          "line": "What's the topic? I can check my availability.",
+          "why": "It requests context before committing to a task switch.",
+          "delivery": "Use a normal conversational tone; ask for context without making the message ominous."
         },
         {
           "register": "curt",
           "line": "Yes. What's up?",
           "why": "Available plus direct — the fastest route through the ambiguity.",
-          "caution": null
+          "delivery": "Use a normal conversational tone; ask for context without making the message ominous."
         },
         {
           "register": "friendly",
-          "line": "Always — what's on your mind?",
-          "why": "Warmth first makes whatever follows land on a good relationship.",
-          "caution": null
+          "line": "Happy to understand what's needed; what's the topic and how urgent is it?",
+          "why": "It expresses willingness without promising immediate or constant availability.",
+          "delivery": "Use a normal conversational tone; ask for context without making the message ominous."
         },
         {
           "register": "comedic",
-          "line": "Ominous. Love that for a Monday.",
-          "why": "Calling the DM ominous with affection usually gets the point faster.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Minutes cost extra. Go ahead.",
-          "why": "It prices your time as a joke, which makes him spend the minute well.",
-          "caution": "work-risk"
+          "line": "My calendar would appreciate a hint; what's the topic?",
+          "why": "The joke asks for context without implying bad news.",
+          "delivery": "Use a normal conversational tone; ask for context without making the message ominous."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Ask for context before switching tasks.",
+      "followUp": {
+        "jab": "Can you call me now?",
+        "line": "What's the topic and urgency? I can tell you when I'm available.",
+        "why": "It requests enough context to prioritize without implying constant availability.",
+        "delivery": "Use a normal conversational tone; ask for context without making the message ominous."
+      }
+    },
+    {
+      "id": "texting.work-chat-tone.0003",
+      "category": "texting",
+      "subcategory": "work-chat-tone",
+      "setting": "A teammate messages after hours expecting you to start work immediately.",
+      "jab": "Can you jump on this tonight? It should be quick.",
+      "goal": "State when you are available for nonurgent work.",
+      "difficulty": 2,
+      "tags": [
+        "work-chat-tone",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm offline tonight. I'll review this tomorrow morning.",
+          "why": "It gives a clear availability boundary and next review time.",
+          "delivery": "State your availability once; use the real escalation process rather than inventing one."
+        },
+        {
+          "register": "curt",
+          "line": "Tomorrow morning. I'm offline tonight.",
+          "why": "It states the schedule without inviting a negotiation about task length.",
+          "delivery": "State your availability once; use the real escalation process rather than inventing one."
+        },
+        {
+          "register": "friendly",
+          "line": "I can look tomorrow morning; please send the details so they're ready when I start.",
+          "why": "It offers a practical handoff without agreeing to work tonight.",
+          "delivery": "State your availability once; use the real escalation process rather than inventing one."
+        },
+        {
+          "register": "comedic",
+          "line": "My laptop has clocked out; tomorrow morning works.",
+          "why": "Humor concerns your working hours rather than the teammate's request.",
+          "delivery": "State your availability once; use the real escalation process rather than inventing one."
+        }
+      ],
+      "followUp": {
+        "jab": "But I really need it tonight.",
+        "line": "I can't do tonight; if it's urgent, please use our agreed escalation route.",
+        "why": "It maintains the boundary while directing genuinely urgent work to the team's process.",
+        "delivery": "State your availability once; use the real escalation process rather than inventing one."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

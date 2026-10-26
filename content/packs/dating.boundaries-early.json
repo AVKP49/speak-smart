@@ -5,7 +5,7 @@
     "subcategory": "boundaries-early",
     "title": "Setting boundaries early",
     "description": "New-dating pressure tests. Clear early beats resentful later.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -23,41 +23,46 @@
         {
           "register": "boss",
           "line": "I'm good — and boring is underrated. See you next week.",
-          "why": "Owning the label removes its sting and your exit keeps your morning intact.",
-          "caution": null
+          "why": "It accepts the teasing label while stating your own plan to leave.",
+          "delivery": "Put your things together, say the boundary clearly, then leave if you choose."
         },
         {
           "register": "curt",
           "line": "I'm heading out. Night.",
           "why": "It skips the debate entirely — leaving is the boundary, stated once.",
-          "caution": null
+          "delivery": "Put your things together, say the boundary clearly, then leave if you choose."
         },
         {
           "register": "friendly",
-          "line": "Next time I'll close the place down. Tonight I need my sleep.",
-          "why": "A promise of future fun softens a present no without weakening it.",
-          "caution": null
+          "line": "I've enjoyed tonight; I'm heading home because I want to rest.",
+          "why": "It expresses genuine enjoyment without making the refusal conditional on future plans.",
+          "delivery": "Put your things together, say the boundary clearly, then leave if you choose."
         },
         {
           "register": "comedic",
           "line": "Boring people need sleep too. It's in the handbook.",
-          "why": "Agreeing with the charge at double volume turns it into a shared joke.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Boring leaves at ten. Bye.",
-          "why": "It signs the label and exits on schedule, which is the whole point.",
-          "caution": null
+          "why": "It uses light humor about your own bedtime while declining another drink.",
+          "delivery": "Put your things together, say the boundary clearly, then leave if you choose."
         }
       ],
       "trap": {
         "line": "Fine, ONE more, but you're annoying.",
-        "why": "Caving with resentment teaches them pressure works and you keep score."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Leave when you want despite pressure to stay.",
+      "followUp": {
+        "jab": "One more can't hurt.",
+        "line": "I'm finished for tonight; take care.",
+        "why": "It repeats the decision without negotiating another drink.",
+        "delivery": "Put your things together, say the boundary clearly, then leave if you choose."
       }
     },
     {
@@ -74,38 +79,43 @@
       "replies": [
         {
           "register": "boss",
-          "line": "I don't share that this early. Trust builds first.",
-          "why": "It states your timeline as policy, which makes it about pacing, not hiding.",
-          "caution": null
+          "line": "I don't share my location. Privacy matters to me.",
+          "why": "It states a privacy choice without promising eventual access.",
+          "delivery": "Pause, then say “I don't share my location” at a steady, conversational volume. ” with no laugh that makes the answer sound negotiable."
         },
         {
           "register": "curt",
-          "line": "No. Ask me later.",
-          "why": "A clean no with a door left open — the pressure has nowhere to grip.",
-          "caution": null
+          "line": "I'm not sharing my location.",
+          "why": "It makes the decision clear without a negotiable timeline.",
+          "delivery": "Stress “not sharing,” with no laugh that makes the answer sound negotiable."
         },
         {
           "register": "friendly",
-          "line": "I'm not there yet — let's earn the boring-couple perks first.",
-          "why": "Framing privacy as a stage of the relationship keeps it warm and firm.",
-          "caution": null
+          "line": "I like getting to know you; I still want to keep my location private.",
+          "why": "It makes affection compatible with personal privacy.",
+          "delivery": "Keep “I like getting to know you” warm and unhurried; finish the request clearly. ” with no laugh that makes the answer sound negotiable."
         },
         {
           "register": "comedic",
-          "line": "My location's shy. It needs time.",
-          "why": "Giving your phone stage fright keeps the boundary cute instead of cold.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Hidden? No. Just not yours yet.",
-          "why": "It corrects secrecy framing into pacing, which is the actual truth.",
-          "caution": null
+          "line": "My location isn't joining the group chat.",
+          "why": "Light humor declines sharing without implying they will earn access later.",
+          "delivery": "Keep “My location isn't joining the group chat” light; let the joke stand without repeating it. ” with no laugh that makes the answer sound negotiable."
         }
       ],
       "review": {
         "tier": "full",
-        "status": "approved"
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Keep control of your location privacy.",
+      "followUp": {
+        "jab": "Couples should have nothing to hide.",
+        "line": "Privacy matters to me; I'm not sharing my location.",
+        "why": "It separates personal privacy from an accusation of secrecy.",
+        "delivery": "Stress “not sharing,” with no laugh that makes the answer sound negotiable."
       }
     }
   ]

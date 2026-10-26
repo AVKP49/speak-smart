@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "money.salons-spas-upsells",
+    "category": "money",
+    "subcategory": "salons-spas-upsells",
+    "title": "Salons spas upsells",
+    "description": "Decline an extra service without apologizing.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "money.salons-spas-upsells.0001",
+      "category": "money",
+      "subcategory": "salons-spas-upsells",
+      "setting": "During your haircut, the stylist repeatedly offers an unplanned treatment.",
+      "jab": "Your hair really needs this treatment today.",
+      "goal": "Decline an extra service without apologizing.",
+      "difficulty": 2,
+      "tags": [
+        "salons-spas-upsells",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm keeping today's appointment to the cut we agreed.",
+          "why": "It anchors the visit to the agreed service rather than debating your hair.",
+          "delivery": "Pause, then say “I'm keeping today's appointment to the cut we” at a steady, conversational volume. ” with a relaxed expression and no apology."
+        },
+        {
+          "register": "curt",
+          "line": "No treatment today, thanks.",
+          "why": "It declines clearly while preserving ordinary courtesy.",
+          "delivery": "Say “No treatment today, thanks” clearly, then stop instead of adding a defense. ” with a relaxed expression and no apology."
+        },
+        {
+          "register": "friendly",
+          "line": "Thanks for the suggestion; I'd like to stick with the cut today.",
+          "why": "It acknowledges their advice without accepting the extra service.",
+          "delivery": "Keep “Thanks for the suggestion” warm and unhurried; finish the request clearly. ” with a relaxed expression and no apology."
+        },
+        {
+          "register": "comedic",
+          "line": "My hair and my budget booked the basic package.",
+          "why": "The joke concerns your plans rather than the stylist's judgment.",
+          "delivery": "Keep “My hair and my budget booked the basic” light; let the joke stand without repeating it. ” with a relaxed expression and no apology."
+        }
+      ],
+      "followUp": {
+        "jab": "It's only twenty more.",
+        "line": "I understand the price; I'm still choosing the cut only.",
+        "why": "It separates hearing the offer from accepting it.",
+        "delivery": "Put the emphasis on “cut only,” with a relaxed expression and no apology."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

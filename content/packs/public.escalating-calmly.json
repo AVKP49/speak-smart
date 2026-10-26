@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "public.escalating-calmly",
+    "category": "public",
+    "subcategory": "escalating-calmly",
+    "title": "Escalating calmly",
+    "description": "Request escalation without attacking the first person.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "public.escalating-calmly.0001",
+      "category": "public",
+      "subcategory": "escalating-calmly",
+      "setting": "A desk agent cannot resolve a documented booking error.",
+      "jab": "There's nothing else I can do.",
+      "goal": "Request escalation without attacking the first person.",
+      "difficulty": 2,
+      "tags": [
+        "escalating-calmly",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Who can review the booking and discuss the remaining options?",
+          "why": "It asks for the next responsible person rather than threatening the current agent.",
+          "delivery": "Lower your volume and keep your documentation ready; avoid turning the request into a threat."
+        },
+        {
+          "register": "curt",
+          "line": "Who can review this booking?",
+          "why": "It makes a direct request for another review.",
+          "delivery": "Lower your volume and keep your documentation ready; avoid turning the request into a threat."
+        },
+        {
+          "register": "friendly",
+          "line": "I appreciate you checking; could you connect me with someone who can review other options?",
+          "why": "It acknowledges the effort while asking for a clear next step.",
+          "delivery": "Lower your volume and keep your documentation ready; avoid turning the request into a threat."
+        },
+        {
+          "register": "comedic",
+          "line": "We've reached the edge of this desk; who handles the next step?",
+          "why": "A mild image names a procedural limit without mocking the staff member.",
+          "delivery": "Lower your volume and keep your documentation ready; avoid turning the request into a threat."
+        }
+      ],
+      "followUp": {
+        "jab": "My supervisor will say the same.",
+        "line": "I'd still like a review; please tell me how to request one.",
+        "why": "It asks for the process without promising that escalation will change the outcome.",
+        "delivery": "Lower your volume and keep your documentation ready; avoid turning the request into a threat."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

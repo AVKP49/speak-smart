@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "money.contractors-quotes",
+    "category": "money",
+    "subcategory": "contractors-quotes",
+    "title": "Contractors quotes",
+    "description": "Check an additional cost before agreeing.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "money.contractors-quotes.0001",
+      "category": "money",
+      "subcategory": "contractors-quotes",
+      "setting": "A contractor proposes an extra charge after starting the agreed job.",
+      "jab": "It's only another five hundred; we might as well do it now.",
+      "goal": "Check an additional cost before agreeing.",
+      "difficulty": 2,
+      "tags": [
+        "contractors-quotes",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Send the scope and price in writing before any additional work.",
+          "why": "It creates a clear approval step before the cost is incurred.",
+          "delivery": "Stress “before,” speak slowly, and keep the request focused on written scope."
+        },
+        {
+          "register": "curt",
+          "line": "Written quote first. No extra work yet.",
+          "why": "It pauses the change until its terms are explicit.",
+          "delivery": "Say “Written quote first” clearly, then stop instead of adding a defense. And keep the request focused on written scope."
+        },
+        {
+          "register": "friendly",
+          "line": "Could you itemize the change so I can review it before we proceed?",
+          "why": "It asks for enough detail to make an informed decision.",
+          "delivery": "Stress “before,” speak slowly, and keep the request focused on written scope."
+        },
+        {
+          "register": "comedic",
+          "line": "My budget likes its surprises in birthday cards.",
+          "why": "Humor communicates the need for predictable costs without attacking the contractor.",
+          "delivery": "Keep “My budget likes its surprises in birthday cards” light; let the joke stand without repeating it. And keep the request focused on written scope."
+        }
+      ],
+      "followUp": {
+        "jab": "You'll delay the whole project.",
+        "line": "Please explain the schedule impact in the written quote; I still need to approve it.",
+        "why": "It considers the timing while keeping the approval boundary intact.",
+        "delivery": "Pause before “Please explain the schedule impact in the written quote,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

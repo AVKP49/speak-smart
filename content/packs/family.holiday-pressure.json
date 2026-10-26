@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "family.holiday-pressure",
+    "category": "family",
+    "subcategory": "holiday-pressure",
+    "title": "Holiday pressure",
+    "description": "Hold a hosting boundary after others make assumptions.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "family.holiday-pressure.0001",
+      "category": "family",
+      "subcategory": "holiday-pressure",
+      "setting": "Your family expects you to host despite your already declining.",
+      "jab": "But everyone already assumes Christmas is at yours.",
+      "goal": "Hold a hosting boundary after others make assumptions.",
+      "difficulty": 2,
+      "tags": [
+        "holiday-pressure",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I won't be hosting. Please tell everyone so they can make other plans.",
+          "why": "It corrects the assumption and gives a practical next step.",
+          "delivery": "Pause, then say “I won't be hosting” at a steady, conversational volume. Keep the alternative discussion separate from your own availability."
+        },
+        {
+          "register": "curt",
+          "line": "I'm not hosting this year.",
+          "why": "It states the decision without allowing the assumption to become an obligation.",
+          "delivery": "Stress “this year” once; keep the alternative discussion separate from your own availability."
+        },
+        {
+          "register": "friendly",
+          "line": "I understand people expected it; I can't host this year, so we need another plan.",
+          "why": "It acknowledges disappointment while keeping the decision clear.",
+          "delivery": "Stress “this year” once; keep the alternative discussion separate from your own availability."
+        },
+        {
+          "register": "comedic",
+          "line": "My house didn't approve that calendar invitation.",
+          "why": "Humor names the missing agreement without blaming individual relatives.",
+          "delivery": "Keep “My house didn't approve that calendar invitation” light; let the joke stand without repeating it. Keep the alternative discussion separate from your own availability."
+        }
+      ],
+      "followUp": {
+        "jab": "Where are we supposed to go then?",
+        "line": "Let's discuss alternatives; my house isn't an option this year.",
+        "why": "It offers problem-solving without reopening your boundary.",
+        "delivery": "Stress “this year” once; keep the alternative discussion separate from your own availability."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

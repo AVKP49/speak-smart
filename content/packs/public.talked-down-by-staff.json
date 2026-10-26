@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "public.talked-down-by-staff",
+    "category": "public",
+    "subcategory": "talked-down-by-staff",
+    "title": "Talked down by staff",
+    "description": "Ask for a factual explanation of a disputed charge.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "public.talked-down-by-staff.0001",
+      "category": "public",
+      "subcategory": "talked-down-by-staff",
+      "setting": "A service representative keeps interrupting your explanation of a billing error.",
+      "jab": "You clearly don't understand how the bill works.",
+      "goal": "Ask for a factual explanation of a disputed charge.",
+      "difficulty": 2,
+      "tags": [
+        "talked-down-by-staff",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Please explain this charge and let me finish describing the discrepancy.",
+          "why": "It requests information and a chance to be heard without insulting the representative.",
+          "delivery": "Point to the exact charge and keep your pace slow enough to invite a specific answer."
+        },
+        {
+          "register": "curt",
+          "line": "Explain this charge, please. Then hear me out.",
+          "why": "It identifies the needed sequence without debating your competence.",
+          "delivery": "Point to the exact charge and keep your pace slow enough to invite a specific answer."
+        },
+        {
+          "register": "friendly",
+          "line": "I may be missing something; could you walk me through this charge after I explain the mismatch?",
+          "why": "It allows for misunderstanding while retaining space for your evidence.",
+          "delivery": "Point to the exact charge and keep your pace slow enough to invite a specific answer."
+        },
+        {
+          "register": "comedic",
+          "line": "Let's give the numbers a turn to speak.",
+          "why": "A light phrase redirects both people from labels to the bill.",
+          "delivery": "Point to the exact charge and keep your pace slow enough to invite a specific answer."
+        }
+      ],
+      "followUp": {
+        "jab": "I've already explained the policy.",
+        "line": "I'm asking how that policy produced this specific charge.",
+        "why": "It distinguishes a general policy explanation from the calculation you need.",
+        "delivery": "Point to the exact charge and keep your pace slow enough to invite a specific answer."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "social.compliments",
+    "category": "social",
+    "subcategory": "compliments",
+    "title": "Compliments",
+    "description": "Accept a compliment without self-dismissal.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "social.compliments.0001",
+      "category": "social",
+      "subcategory": "compliments",
+      "setting": "Someone compliments your presentation and you instinctively want to dismiss it.",
+      "jab": "That was a really clear presentation.",
+      "goal": "Accept a compliment without self-dismissal.",
+      "difficulty": 2,
+      "tags": [
+        "compliments",
+        "connection"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Thank you. I worked hard on making it clear.",
+          "why": "It receives the compliment and acknowledges the effort without claiming perfection.",
+          "delivery": "Pause and smile before “thank you”; avoid adding “but” and a list of flaws."
+        },
+        {
+          "register": "curt",
+          "line": "Thank you. I appreciate that.",
+          "why": "It accepts the praise without arguing or requiring reassurance.",
+          "delivery": "Pause and smile before “thank you”; avoid adding “but” and a list of flaws."
+        },
+        {
+          "register": "friendly",
+          "line": "That's kind of you; I'm glad the key points came through.",
+          "why": "It connects the compliment to the presentation's purpose while expressing gratitude.",
+          "delivery": "Keep “That's kind of you” warm and unhurried; finish the request clearly."
+        },
+        {
+          "register": "comedic",
+          "line": "Thank you; the rehearsal audience was mostly my houseplant.",
+          "why": "Self-directed humor accepts the praise while keeping the exchange light.",
+          "delivery": "Pause and smile before “thank you”; avoid adding “but” and a list of flaws."
+        }
+      ],
+      "followUp": {
+        "jab": "No, really, it was excellent.",
+        "line": "Thank you; that means a lot.",
+        "why": "It continues receiving the compliment without turning it into a debate.",
+        "delivery": "Pause before “Thank you,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

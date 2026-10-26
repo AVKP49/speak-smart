@@ -5,7 +5,7 @@
     "subcategory": "noise-parties",
     "title": "Noise & parties",
     "description": "Bass through the wall at midnight. Firm, neighborly, documented.",
-    "version": "1.1.0"
+    "version": "2.0.0"
   },
   "scenarios": [
     {
@@ -22,42 +22,47 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Enjoy Saturday. Turn it down by one.",
-          "why": "Permission plus a small specific ask is easier to grant than a lecture to endure.",
-          "caution": null
+          "line": "Please turn the bass down; it's keeping us awake.",
+          "why": "It names the impact and the specific change you need.",
+          "delivery": "Speak when the music is paused if possible; ask for a specific change without a threat."
         },
         {
           "register": "curt",
-          "line": "Down a notch. Thanks.",
-          "why": "It asks for almost nothing, which makes refusing it almost impossible.",
-          "caution": null
+          "line": "Please turn the bass down. Thanks.",
+          "why": "It asks for a specific reduction in volume without a threat.",
+          "delivery": "Speak when the music is paused if possible; ask for a specific change without a threat."
         },
         {
           "register": "friendly",
           "line": "Sounds like a great night — I just need the bass down a hair.",
           "why": "Joining the fun verbally while asking technically keeps you allies, not enemies.",
-          "caution": null
+          "delivery": "Speak when the music is paused if possible; ask for a specific change without a threat."
         },
         {
           "register": "comedic",
           "line": "Your playlist slaps. My ceiling disagrees. Meet halfway?",
           "why": "Complimenting the music while citing the ceiling splits the difference with a grin.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "I'm the fun neighbor. After quiet hours.",
-          "why": "It claims the fun title on your schedule, which splits the difference cleanly.",
-          "caution": null
+          "delivery": "Speak when the music is paused if possible; ask for a specific change without a threat."
         }
       ],
       "trap": {
         "line": "Turn it off or I'm calling the cops.",
-        "why": "Opening with the nuclear threat spends your only leverage on night one."
+        "why": "It replaces a specific request with accusation, resentment, or an excuse, making your actual boundary less clear."
       },
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Request a specific reduction in noise.",
+      "followUp": {
+        "jab": "It's not even that loud.",
+        "line": "The bass reaches our bedroom; could you turn it down tonight?",
+        "why": "It describes the concrete impact rather than debating what counts as loud.",
+        "delivery": "Speak when the music is paused if possible; ask for a specific change without a threat."
       }
     },
     {
@@ -74,38 +79,149 @@
       "replies": [
         {
           "register": "boss",
-          "line": "Grandpa needs his sleep. Thanks for last night.",
-          "why": "Taking the nickname while thanking him banks goodwill for next time.",
-          "caution": null
+          "line": "I need quieter nights. The bass kept us awake.",
+          "why": "It returns to the actual impact without debating an insulting label.",
+          "delivery": "Use a neutral expression and focus on the next night rather than winning yesterday's argument."
         },
         {
           "register": "curt",
-          "line": "All good. Morning.",
-          "why": "It declines the rematch and keeps the hallway peace in three words.",
-          "caution": null
+          "line": "Less late-night bass, please.",
+          "why": "It requests the specific change rather than accepting the disruption.",
+          "delivery": "Use a neutral expression and focus on the next night rather than winning yesterday's argument."
         },
         {
           "register": "friendly",
-          "line": "Haha — worth it though, hope it was a good one.",
-          "why": "Grace about your own complaint makes the next one land softer.",
-          "caution": null
+          "line": "I hope you enjoyed the party; the bass kept us awake, so could you lower it next time?",
+          "why": "It combines goodwill with a clear request about the next event.",
+          "delivery": "Use a neutral expression and focus on the next night rather than winning yesterday's argument."
         },
         {
           "register": "comedic",
-          "line": "Grandpa accepts tribute in quiet.",
-          "why": "Owning the nickname with a fake tariff ends the bit as friends.",
-          "caution": null
-        },
-        {
-          "register": "sharp",
-          "line": "Rough night? Best sleep ever.",
-          "why": "It denies the damage with a grin, which banks the goodwill anyway.",
-          "caution": null
+          "line": "Your bass and our bedtime need separate schedules.",
+          "why": "Humor names conflicting needs rather than mocking the neighbor.",
+          "delivery": "Use a neutral expression and focus on the next night rather than winning yesterday's argument."
         }
       ],
       "review": {
-        "tier": "sample",
-        "status": "approved"
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      },
+      "goal": "Address noise the next day without accepting a personal dig.",
+      "followUp": {
+        "jab": "You're the only one who complained.",
+        "line": "I'm asking for less late-night bass because it keeps us awake.",
+        "why": "It returns to the impact rather than responding to a label.",
+        "delivery": "Use a neutral expression and focus on the next night rather than winning yesterday's argument."
+      }
+    },
+    {
+      "id": "neighbors.noise-parties.0003",
+      "category": "neighbors",
+      "subcategory": "noise-parties",
+      "setting": "A neighbor repeatedly lets a dog bark outside late at night.",
+      "jab": "He's a dog; what do you expect me to do?",
+      "goal": "Request a specific change without attacking a neighbor.",
+      "difficulty": 2,
+      "tags": [
+        "noise-parties",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "Please bring him inside after ten; the barking keeps us awake.",
+          "why": "It connects a specific request to the impact rather than criticizing pet ownership.",
+          "delivery": "Keep the time specific and the impact factual; do not imitate or shout over the barking."
+        },
+        {
+          "register": "curt",
+          "line": "Please bring him in after ten.",
+          "why": "It names a measurable change the neighbor can make.",
+          "delivery": "Keep the time specific and the impact factual; do not imitate or shout over the barking."
+        },
+        {
+          "register": "friendly",
+          "line": "I know dogs bark; could you bring him inside after ten so we can sleep?",
+          "why": "It acknowledges the reality while asking for a practical accommodation.",
+          "delivery": "Keep the time specific and the impact factual; do not imitate or shout over the barking."
+        },
+        {
+          "register": "comedic",
+          "line": "Our bedtime and his outdoor concert are clashing.",
+          "why": "The joke concerns conflicting schedules rather than the dog or owner.",
+          "delivery": "Keep the time specific and the impact factual; do not imitate or shout over the barking."
+        }
+      ],
+      "followUp": {
+        "jab": "Nobody else has complained.",
+        "line": "I'm telling you it affects us; can we agree on bringing him in after ten?",
+        "why": "It returns to your experience rather than debating how many people are affected.",
+        "delivery": "Keep the time specific and the impact factual; do not imitate or shout over the barking."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    },
+    {
+      "id": "neighbors.noise-parties.0004",
+      "category": "neighbors",
+      "subcategory": "noise-parties",
+      "setting": "A neighbor begins loud renovation work very early on Sunday.",
+      "jab": "It's my house; I can start whenever I want.",
+      "goal": "Discuss a workable time for noisy work.",
+      "difficulty": 2,
+      "tags": [
+        "noise-parties",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "The drilling woke us. Can we agree on a later Sunday start?",
+          "why": "It asks for coordination without making an unverified claim about local rules.",
+          "delivery": "Talk at a quiet moment; emphasize “agree” rather than “your house.”"
+        },
+        {
+          "register": "curt",
+          "line": "Later Sunday starts, please.",
+          "why": "It makes a direct scheduling request rather than disputing ownership.",
+          "delivery": "Say “Later Sunday starts, please” clearly, then stop instead of adding a defense. Talk at a quiet moment."
+        },
+        {
+          "register": "friendly",
+          "line": "I understand you need to get it done; could we find a later start that works for both houses?",
+          "why": "It recognizes the task while asking for mutual consideration.",
+          "delivery": "Keep “I understand you need to get it done” warm and unhurried; finish the request clearly. Talk at a quiet moment."
+        },
+        {
+          "register": "comedic",
+          "line": "My alarm clock would like its Sunday shift back.",
+          "why": "Gentle humor describes the disruption without insulting the neighbor.",
+          "delivery": "Keep “My alarm clock would like its Sunday shift” light; let the joke stand without repeating it. Talk at a quiet moment."
+        }
+      ],
+      "followUp": {
+        "jab": "I have contractors scheduled.",
+        "line": "Could you ask about a later start, and let us know the noisy hours in advance?",
+        "why": "It offers a practical way to reduce disruption even if the work continues.",
+        "delivery": "Pause before “Could you ask about a later start, and let us,” keep the volume even, then allow an answer without reopening your decision."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
       }
     }
   ]

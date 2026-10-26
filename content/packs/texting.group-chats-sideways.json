@@ -1,0 +1,65 @@
+{
+  "pack": {
+    "id": "texting.group-chats-sideways",
+    "category": "texting",
+    "subcategory": "group-chats-sideways",
+    "title": "Group chats sideways",
+    "description": "Decline being recruited into a public argument.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "texting.group-chats-sideways.0001",
+      "category": "texting",
+      "subcategory": "group-chats-sideways",
+      "setting": "A group chat asks you to take sides in a disagreement between friends.",
+      "jab": "Tell them I'm right. You've seen the messages.",
+      "goal": "Decline being recruited into a public argument.",
+      "difficulty": 2,
+      "tags": [
+        "group-chats-sideways",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "I'm not taking sides in the group. Please talk directly to each other.",
+          "why": "It declines the referee role and redirects the disagreement to the people involved.",
+          "delivery": "Send one calm message; avoid quoting private messages or defending either friend's character."
+        },
+        {
+          "register": "curt",
+          "line": "I'm not refereeing this chat.",
+          "why": "It states your participation boundary without judging either person.",
+          "delivery": "Send one calm message; avoid quoting private messages or defending either friend's character."
+        },
+        {
+          "register": "friendly",
+          "line": "I care about both of you; I'd rather you discuss this directly than have us vote on it.",
+          "why": "It preserves both relationships while refusing a group verdict.",
+          "delivery": "Send one calm message; avoid quoting private messages or defending either friend's character."
+        },
+        {
+          "register": "comedic",
+          "line": "My referee whistle is unavailable; please talk to each other.",
+          "why": "Humor rejects the role without announcing a winner.",
+          "delivery": "Send one calm message; avoid quoting private messages or defending either friend's character."
+        }
+      ],
+      "followUp": {
+        "jab": "So you're backing them?",
+        "line": "I'm backing a direct conversation, rather than choosing a side here.",
+        "why": "It corrects the interpretation without entering the argument.",
+        "delivery": "Send one calm message; avoid quoting private messages or defending either friend's character."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}

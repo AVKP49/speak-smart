@@ -1,0 +1,59 @@
+{
+  "pack": {
+    "id": "hard-moments.delivering-bad-news",
+    "category": "hard-moments",
+    "subcategory": "delivering-bad-news",
+    "title": "Delivering bad news",
+    "description": "Give unwelcome news without hiding the next step.",
+    "version": "2.0.0"
+  },
+  "scenarios": [
+    {
+      "id": "hard-moments.delivering-bad-news.0001",
+      "category": "hard-moments",
+      "subcategory": "delivering-bad-news",
+      "setting": "You need to tell a client a promised delivery will be late.",
+      "jab": "Are we still getting this by Friday?",
+      "goal": "Give unwelcome news without hiding the next step.",
+      "difficulty": 2,
+      "tags": [
+        "delivering-bad-news",
+        "boundary"
+      ],
+      "replies": [
+        {
+          "register": "boss",
+          "line": "We won't meet Friday. I can confirm the revised schedule by noon.",
+          "why": "It states the missed commitment directly and provides a specific next update.",
+          "delivery": "Lead with the delay, pause for their response, then offer only a timetable you can honor."
+        },
+        {
+          "register": "curt",
+          "line": "Friday won't work. Update by noon.",
+          "why": "It gives the essential news and timing without evasion.",
+          "delivery": "Lead with the delay, pause for their response, then offer only a timetable you can honor."
+        },
+        {
+          "register": "friendly",
+          "line": "I'm sorry; we won't meet Friday, and I'll send the revised schedule and options by noon.",
+          "why": "It acknowledges the impact while committing to a concrete update.",
+          "delivery": "Lead with the delay, pause for their response, then offer only a timetable you can honor."
+        }
+      ],
+      "followUp": {
+        "jab": "You promised Friday.",
+        "line": "We did, and we've missed that commitment; here's what I can do to help you plan.",
+        "why": "It owns the failure before discussing mitigation rather than blaming the client for expecting delivery.",
+        "delivery": "Lead with the delay, pause for their response, then offer only a timetable you can honor."
+      },
+      "review": {
+        "tier": "full",
+        "status": "approved",
+        "method": "agent-editorial",
+        "reviewer": "Codex",
+        "reviewedAt": "2026-10-26",
+        "independentHumanReview": false
+      }
+    }
+  ]
+}
